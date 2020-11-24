@@ -13,7 +13,7 @@
     "build:clean": "del-cli ./dist",
     "build:tsc-es6": "tsc",
     "build:tsc-es5": "tsc --project tsconfig-es5.json",
-    "build:ts": "cp-cli src/index.ts dist/ts/index.ts",
+    "build:ts": "cp-cli src/core.ts dist/ts/core.ts",
     "build:finalize": "prettier dist/**/*.{d.ts,js} --check --write",
     "----------------------------------------------- TEST": "SECTION",
     "test": "npm run prettier && npm run eslint-js && npm run eslint-ts && npm run jest",
