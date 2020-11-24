@@ -2,17 +2,15 @@
 // Deps
 // -----------------------------------------------------------------------------
 
-import { hello } from './index';
+import browserizr from '../core';
 
 // -----------------------------------------------------------------------------
 // Tests
 // -----------------------------------------------------------------------------
 
 describe('Return greeting message', () => {
-	['Oleg', 'Alex', 'John'].forEach((name, i) => {
-		test(`Test #${i + 1}`, () => {
-			const message = hello(name);
-			expect(message).toEqual(`Hi, ${name}!`);
-		});
+	test(`Blank sample`, () => {
+		console.log(browserizr);
+		expect(true).toBeTruthy();
 	});
 });
