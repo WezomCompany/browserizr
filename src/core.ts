@@ -1,16 +1,14 @@
-interface DetectMethod {
+export interface DetectMethod {
 	(ua: string, platform: string): boolean;
 }
 
-interface ClassNameMethod {
+export interface DetectClassNameMethod {
 	is: string;
 	not: string;
 	detect: DetectMethod;
 }
 
-export default (function (navigator) {
-	let _ua = navigator.userAgent;
-	let _platform = navigator.platform;
+export default (function ([_ua, _platform]) {
 	return {
 		setUA(userAgent: string) {
 			_ua = userAgent;
@@ -21,10 +19,14 @@ export default (function (navigator) {
 		detect(...detects: DetectMethod[]) {
 			return detects.every((fn) => fn(_ua, _platform));
 		},
-		classNames(...classes: ClassNameMethod[]) {
+		classNames(classes: DetectClassNameMethod[]) {
 			return classes.map((item) =>
 				item.detect(_ua, _platform) ? item.is : item.not
 			);
 		}
 	};
-})(typeof navigator !== 'undefined' ? navigator : { userAgent: '', platform: '' });
+})(
+	typeof navigator !== 'undefined'
+		? [navigator.userAgent, navigator.platform]
+		: ['', '']
+);
