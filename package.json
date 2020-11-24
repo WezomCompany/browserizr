@@ -2,7 +2,7 @@
   "name": "@wezom/browserizr",
   "version": "0.0.1-prealpha",
   "description": "description",
-  "main": "dist/ts/index.ts",
+  "main": "dist/ts/core.ts",
   "files": [
     "dist"
   ],
