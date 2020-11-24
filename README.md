@@ -39,7 +39,7 @@ By default, we distribute our lib as is - original TypeScript files, without tra
 // Import original ts code
 // but requires to be not exclude in `node_modules`.
 // Check your `tsconfig.json`
-import npmPackage from '@wezom/browserizr';
+import browserizr from '@wezom/browserizr';
 ```
 
 You can import compiled files from special folders.
@@ -48,9 +48,9 @@ You can import compiled files from special folders.
 // ES6: const, let, spread, rest and other modern JavaScript features
 // but requires to be not exclude in `node_modules`.
 // Check your `babebl-loader` (if your use webpack as bandler)
-import npmPackage from '@wezom/browserizr/dist/es-6';
+import browserizr from '@wezom/browserizr/dist/es-6';
 // or ES5: no ES6 features but ready for use as is, without transpiling
-import npmPackage from '@wezom/browserizr/dist/es-5';
+import browserizr from '@wezom/browserizr/dist/es-5';
 ```
 
 ---
