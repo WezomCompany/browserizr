@@ -1,6 +1,6 @@
 {
   "name": "@wezom/browserizr",
-  "version": "0.1.1-alpha",
+  "version": "0.2.0-beta",
   "description": "description",
   "main": "dist/ts/core.ts",
   "files": [
@@ -13,7 +13,7 @@
     "build:clean": "del-cli ./dist",
     "build:tsc-es6": "tsc",
     "build:tsc-es5": "tsc --project tsconfig-es5.json",
-    "build:ts": "cp-cli src/core.ts dist/ts/core.ts",
+    "build:ts": "cp-cli src/core.ts dist/ts/core.ts && cp-cli src/detect dist/ts/detect",
     "build:finalize": "prettier dist/**/*.{d.ts,js} --check --write",
     "----------------------------------------------- TEST": "SECTION",
     "test": "npm run prettier && npm run eslint-js && npm run eslint-ts && npm run jest",
