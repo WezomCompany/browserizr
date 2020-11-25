@@ -9,4 +9,11 @@ describe('detect Mozilla Firefox browser', () => {
 			validCase: true
 		});
 	});
+	describe('Invalid cases', () => {
+		testNavigatorList({
+			detect: isFirefox,
+			versions: browsers.MozillaFirefoxIOS,
+			validCase: false
+		});
+	});
 });
