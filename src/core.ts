@@ -1,32 +1,23 @@
 export interface DetectMethod {
-	(ua: string, platform: string): boolean;
+	(ua: string): boolean;
 }
 
 export interface DetectClassNameMethod {
 	is: string;
 	not: string;
-	detect: DetectMethod;
+	fn: DetectMethod;
 }
 
-export default (function ([_ua, _platform]) {
+export default (function (_ua) {
 	return {
 		setUA(userAgent: string) {
 			_ua = userAgent;
 		},
-		setPlatform(platform: string) {
-			_platform = platform;
-		},
-		detect(...detects: DetectMethod[]) {
-			return detects.every((fn) => fn(_ua, _platform));
+		detect(fn: DetectMethod) {
+			return fn(_ua);
 		},
 		classNames(classes: DetectClassNameMethod[]) {
-			return classes.map((item) =>
-				item.detect(_ua, _platform) ? item.is : item.not
-			);
+			return classes.map((item) => (item.fn(_ua) ? item.is : item.not));
 		}
 	};
-})(
-	typeof navigator !== 'undefined'
-		? [navigator.userAgent, navigator.platform]
-		: ['', '']
-);
+})(typeof navigator !== 'undefined' ? navigator.userAgent : '');
