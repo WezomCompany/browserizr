@@ -23,4 +23,18 @@ describe('detect Google Chrome browser', () => {
 			validCase: false
 		});
 	});
+	describe('Invalid cases: pack #3. Safari', () => {
+		testNavigatorList({
+			detect: isChrome,
+			versions: browsers.AppleSafari,
+			validCase: false
+		});
+	});
+	describe('Invalid cases: pack #4. Opera', () => {
+		testNavigatorList({
+			detect: isChrome,
+			versions: browsers.Opera,
+			validCase: false
+		});
+	});
 });
