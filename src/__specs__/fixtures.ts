@@ -60,6 +60,26 @@ export const testNavigatorList = ({
 
 /* eslint-disable @typescript-eslint/camelcase */
 export const browsers = {
+	AppleSafari: {
+		v14: {
+			macOS: {
+				'Safari (Standard)': [
+					'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.1 Safari/605.1.15'
+				]
+			},
+			iOS: {
+				'Safari on iPhone': [
+					'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1'
+				],
+				'Safari on iPad': [
+					'Mozilla/5.0 (iPad; CPU OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1'
+				],
+				'Safari on iPod': [
+					'Mozilla/5.0 (iPod touch; CPU iPhone 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1'
+				]
+			}
+		}
+	},
 	GoogleChrome: {
 		v87: {
 			Windows: {
@@ -80,13 +100,13 @@ export const browsers = {
 				]
 			},
 			iOS: {
-				'Chrome on Iphone': [
+				'Chrome on iPhone': [
 					'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/87.0.4280.77 Mobile/15E148 Safari/604.1'
 				],
-				'Chrome on Ipad': [
+				'Chrome on iPad': [
 					'Mozilla/5.0 (iPad; CPU OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/87.0.4280.77 Mobile/15E148 Safari/604.1'
 				],
-				'Chrome on Ipod': [
+				'Chrome on iPod': [
 					'Mozilla/5.0 (iPod; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/87.0.4280.77 Mobile/15E148 Safari/604.1'
 				]
 			},
@@ -130,13 +150,13 @@ export const browsers = {
 				]
 			},
 			iOS: {
-				'Firefox on Iphone': [
+				'Firefox on iPhone': [
 					'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/29.0 Mobile/15E148 Safari/605.1.15'
 				],
-				'Firefox on Ipad': [
+				'Firefox on iPad': [
 					'Mozilla/5.0 (iPad; CPU OS 11_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/29.0 Mobile/15E148 Safari/605.1.15'
 				],
-				'Firefox on Ipod': [
+				'Firefox on iPod': [
 					'Mozilla/5.0 (iPod touch; CPU iPhone OS 11_0_1 like Mac OS X) AppleWebKit/604.5.6 (KHTML, like Gecko) FxiOS/29.0 Mobile/15E148 Safari/605.1.15'
 				]
 			},
