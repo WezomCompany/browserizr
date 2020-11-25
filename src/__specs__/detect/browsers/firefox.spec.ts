@@ -5,14 +5,14 @@ describe('detect Mozilla Firefox browser', () => {
 	describe('Valid cases', () => {
 		testNavigatorList({
 			detect: isFirefox,
-			versions: browsers.MozillaFirefox,
+			versions: browsers.Firefox,
 			validCase: true
 		});
 	});
 	describe('Invalid cases', () => {
 		testNavigatorList({
 			detect: isFirefox,
-			versions: browsers.MozillaFirefoxIOS,
+			versions: browsers.FirefoxIOS,
 			validCase: false
 		});
 	});

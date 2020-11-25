@@ -1,17 +1,17 @@
 import { browsers, testNavigatorList } from '../../fixtures';
-import { isSafari } from '../../../detect/browsers/safari';
+import { isVivaldi } from '../../../detect/browsers/vivaldi';
 
-describe('detect Apple Safari browser', () => {
+describe('detect Vivaldi browser', () => {
 	describe('Valid cases', () => {
 		testNavigatorList({
-			detect: isSafari,
-			versions: browsers.Safari,
+			detect: isVivaldi,
+			versions: browsers.Vivaldi,
 			validCase: true
 		});
 	});
 	describe('Invalid cases', () => {
 		testNavigatorList({
-			detect: isSafari,
+			detect: isVivaldi,
 			versions: browsers.Chrome,
 			validCase: false
 		});

@@ -12,7 +12,7 @@ describe('detect Opera browser', () => {
 	describe('Invalid cases: pack #1. Chrome', () => {
 		testNavigatorList({
 			detect: isOpera,
-			versions: browsers.GoogleChrome,
+			versions: browsers.Chrome,
 			validCase: false
 		});
 	});

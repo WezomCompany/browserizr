@@ -5,14 +5,14 @@ describe('detect Google Chrome browser', () => {
 	describe('Valid cases', () => {
 		testNavigatorList({
 			detect: isChrome,
-			versions: browsers.GoogleChrome,
+			versions: browsers.Chrome,
 			validCase: true
 		});
 	});
 	describe('Invalid cases: pack #1. Chrome iOS', () => {
 		testNavigatorList({
 			detect: isChrome,
-			versions: browsers.GoogleChromeIOS,
+			versions: browsers.ChromeIOS,
 			validCase: false
 		});
 	});
@@ -26,7 +26,7 @@ describe('detect Google Chrome browser', () => {
 	describe('Invalid cases: pack #3. Safari', () => {
 		testNavigatorList({
 			detect: isChrome,
-			versions: browsers.AppleSafari,
+			versions: browsers.Safari,
 			validCase: false
 		});
 	});

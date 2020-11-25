@@ -5,14 +5,14 @@ describe('detect Google Chrome browser on iOS', () => {
 	describe('Valid cases', () => {
 		testNavigatorList({
 			detect: isChromeIOS,
-			versions: browsers.GoogleChromeIOS,
+			versions: browsers.ChromeIOS,
 			validCase: true
 		});
 	});
 	describe('Invalid cases', () => {
 		testNavigatorList({
 			detect: isChromeIOS,
-			versions: browsers.GoogleChrome,
+			versions: browsers.Chrome,
 			validCase: false
 		});
 	});
