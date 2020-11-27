@@ -37,4 +37,11 @@ describe('detect Chromium family browsers', () => {
 			validCase: true
 		});
 	});
+	describe('Valid cases: pack #5. Yandex', () => {
+		testNavigatorList({
+			detect: isChromium,
+			versions: browsers.Yandex,
+			validCase: true
+		});
+	});
 });
