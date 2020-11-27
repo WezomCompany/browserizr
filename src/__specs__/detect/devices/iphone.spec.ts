@@ -16,21 +16,21 @@ describe('detect iPhone device', () => {
 			validCase: true
 		});
 	});
-	describe('Valid cases: pack #3. Safari', () => {
+	describe('Valid cases: pack #3. Safari iOS', () => {
 		testNavigatorListBrowser({
 			detect: isIPhone,
 			browser: browsers.Safari.v14.iOS['Safari on iPhone'],
 			validCase: true
 		});
 	});
-	describe('Valid cases: pack #4. Yandex', () => {
+	describe('Valid cases: pack #4. Yandex on iOS', () => {
 		testNavigatorListBrowser({
 			detect: isIPhone,
 			browser: browsers.YandexOnIOS.v20.iOS['Yandex Browser on iPhone'],
 			validCase: true
 		});
 	});
-	describe('Valid cases: pack #5. Firefox', () => {
+	describe('Valid cases: pack #5. Edge iOS', () => {
 		testNavigatorListBrowser({
 			detect: isIPhone,
 			browser: browsers.EdgeIOS.v45.iOS['Edge on iPhone'],
