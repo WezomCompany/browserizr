@@ -4,17 +4,41 @@ import browserizr, { DetectMethod } from '../core';
 // Types
 // -----------------------------------------------------------------------------
 
+interface NavigatorListPlatforms {
+	[browser: string]: string[];
+}
+
+interface NavigatorListVersions {
+	[platform: string]: NavigatorListPlatforms;
+}
+
 interface NavigatorList {
-	[version: string]: {
-		[platform: string]: {
-			[browser: string]: string[];
-		};
-	};
+	[version: string]: NavigatorListVersions;
 }
 
 // -----------------------------------------------------------------------------
 // Test Helpers
 // -----------------------------------------------------------------------------
+
+export const testNavigatorListBrowser = ({
+	browser,
+	detect,
+	validCase
+}: {
+	browser: string[];
+	detect: DetectMethod;
+	validCase: boolean;
+}) => {
+	describe(`browser: ${browser}`, () => {
+		browser.forEach((ua, i) => {
+			test(`userAgent #${++i}`, () => {
+				browserizr.setUA(ua);
+				const result = browserizr.detect(detect);
+				expect(result).toStrictEqual(validCase);
+			});
+		});
+	});
+};
 
 export const testNavigatorList = ({
 	versions,
@@ -35,14 +59,10 @@ export const testNavigatorList = ({
 							const browsers = platforms[platform];
 							for (const browser in browsers) {
 								if (browsers.hasOwnProperty(browser)) {
-									describe(`browser: ${browser}`, () => {
-										browsers[browser].forEach((ua, i) => {
-											test(`userAgent #${++i}`, () => {
-												browserizr.setUA(ua);
-												const result = browserizr.detect(detect);
-												expect(result).toStrictEqual(validCase);
-											});
-										});
+									testNavigatorListBrowser({
+										detect,
+										validCase,
+										browser: browsers[browser]
 									});
 								}
 							}
@@ -155,7 +175,7 @@ export const browsers = {
 	EdgeIOS: {
 		v45: {
 			iOS: {
-				'Chrome on iPhone': [
+				'Edge on iPhone': [
 					'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 EdgiOS/45.11.1 Mobile/15E148 Safari/605.1.15'
 				]
 			}
