@@ -21,7 +21,7 @@ _Description_
     1. [Import to your codebase](#import-to-your-codebase)
 1. [API](#api)
     1. [Methods](#methods)
-    	1. [setUA()](#setua)
+    	1. [browserizr.setUA()](#browserizr-setua)
 1. [Custom detects](#custom-detects)
     1. [Simple example](#simple-example)
 
@@ -51,6 +51,7 @@ You can import compiled files from special folders.
 // but requires to be not exclude in `node_modules`.
 // Check your `babebl-loader` (if your use webpack as bandler)
 import browserizr from '@wezom/browserizr/dist/es-6';
+
 // or ES5: no ES6 features but ready for use as is, without transpiling
 import browserizr from '@wezom/browserizr/dist/es-5';
 ```
@@ -61,7 +62,7 @@ import browserizr from '@wezom/browserizr/dist/es-5';
 
 ### Methods
 
-#### `setUA()`
+#### browserizr.setUA()
 
 _Set custom `userAgent` string_
 
@@ -83,7 +84,7 @@ browserizr.setUA(req.headers['user-agent']);
 
 Also method `setUA` will help you with tests [your own detection methods](#custom-detects)
 
-```
+```ts
 browserizr.setUA('My custom userAgent string');
 browserizr.detect(isMyCustomDetectMethod);
 ```
