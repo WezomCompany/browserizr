@@ -64,7 +64,7 @@ import browserizr from '@wezom/browserizr/dist/es-5';
 
 #### browserizr.setUA()
 
-Signature:
+_Signature:_
 
 ```ts
 /**
