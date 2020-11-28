@@ -21,7 +21,8 @@ _Description_
     1. [Import to your codebase](#import-to-your-codebase)
 1. [API](#api)
     1. [Methods](#methods)
-    	1. [browserizr.setUA()](#browserizr-setua)
+    	1. [browserizr.detect()](#browserizrdetect)
+    	1. [browserizr.setUA()](#browserizrsetua)
 1. [Custom detects](#custom-detects)
     1. [Simple example](#simple-example)
 
@@ -62,16 +63,65 @@ import browserizr from '@wezom/browserizr/dist/es-5';
 
 ### Methods
 
+#### browserizr.detect()
+
+_Signature:_
+
+```js
+/**
+ * Set custom `userAgent` string 
+ * @param {string} fn - function that receive userAgent string
+ * @returns boolean
+ */
+detect(fn)
+```
+
+Detection by given function.  
+You can use one of the pre-defined method
+
+**TypeScript example**
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isChrome } from '@wezom/browserizr/detect/browsers/is-chrome';
+import { isMobile } from '@weomz/browserizr/detect/device/is-mobile';
+
+if (browserizr.detect(isChrome)) {
+    console.log('Yeah! Thats Chrome!');
+}
+
+if (browserizr.detect(isMobile)) {
+    console.log('Yeah! Thats is Mobile device');
+}
+```
+
+**JavaScript example**
+
+```ts
+import browserizr from '@wezom/browserizr/es-6/core';
+import { isChrome } from '@wezom/browserizr/es-6/detect/browsers/is-chrome';
+import { isMobile } from '@weomz/browserizr/es-6/detect/device/is-mobile';
+
+if (browserizr.detect(isChrome)) {
+    console.log('Yeah! Thats Chrome!');
+}
+
+if (browserizr.detect(isMobile)) {
+    console.log('Yeah! Thats is Mobile device');
+}
+```
+
 #### browserizr.setUA()
 
 _Signature:_
 
-```ts
+```js
 /**
  * Set custom `userAgent` string 
  * @param {string} ua - `userAgent` string
+ * @returns undefined
  */
-setUA(ua: string): void
+setUA(ua)
 ```
 
 By default, `browserizr` trying to resolve global object `navigator` and get `userAgent` field from that.
