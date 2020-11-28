@@ -117,12 +117,12 @@ We can write regular expression for test this string and return result.
 import { DetectMethod } from '@wezom/browserizr';
 export const isMXSBrowser: DetectMethod = (ua) => /\sMXSBrowser\/[\d.]+\s/.test(ua);
 
-// app.js
+// app.ts
 import browserizr from '@wezom/browserizr';
 import { isMXSBrowser } from 'my-detects/is-mxs';
 
 if (browserizr.detect(isMXSBrowser)) {
-	console.log('Yeah! Thats it!');
+    console.log('Yeah! Thats it!');
 }
 ```
 
@@ -137,7 +137,7 @@ import browserizr from '@wezom/browserizr/es-6/core';
 import { isMXSBrowser } from 'my-detects/is-mxs';
 
 if (browserizr.detect(isMXSBrowser)) {
-	console.log('Yeah! Thats it!');
+    console.log('Yeah! Thats it!');
 }
 ```
 
