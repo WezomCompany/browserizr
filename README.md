@@ -21,7 +21,7 @@ _Description_
     1. [Import to your codebase](#import-to-your-codebase)
 1. [API](#api)
     1. [Methods](#methods)
-    	1. [setUA(userAgent)](#setua_userAgent:_string)
+    	1. [setUA()](#setua)
 1. [Custom detects](#custom-detects)
     1. [Simple example](#simple-example)
 
@@ -61,24 +61,30 @@ import browserizr from '@wezom/browserizr/dist/es-5';
 
 ### Methods
 
-#### `setUA(userAgent: string)`
+#### `setUA()`
 
 _Set custom `userAgent` string_
 
-By default, `browserizr` trying to resolve global object `navigator` and get `userAgent` field of that.
+Signature:
+
+```ts
+setUA(ua: string): void
+```
+
+By default, `browserizr` trying to resolve global object `navigator` and get `userAgent` field from that.
 Global object `navigator` exist only in a browser environment.
 
 So if you work in another environment - you may use `.setUA()` method to set custom string:
 
 ```ts
-// using express
+// working with express server on Node.js
 browserizr.setUA(req.headers['user-agent']);
 ```
 
 Also method `setUA` will help you with tests [your own detection methods](#custom-detects)
 
 ```
-browserizr.setUA('My custom user agentString');
+browserizr.setUA('My custom userAgent string');
 browserizr.detect(isMyCustomDetectMethod);
 ```
 
