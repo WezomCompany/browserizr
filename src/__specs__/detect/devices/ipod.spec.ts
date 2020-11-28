@@ -5,6 +5,7 @@ describe('detect isIPod device', () => {
 	describe('Valid cases #1. Chrome iOS', () => {
 		testNavigatorListBrowser({
 			detect: isIPod,
+			name: 'Chrome on iPod',
 			browser: browsers.ChromeIOS.v87.iOS['Chrome on iPod'],
 			validCase: true
 		});
@@ -12,6 +13,7 @@ describe('detect isIPod device', () => {
 	describe('Valid cases: pack #2. Firefox iOS', () => {
 		testNavigatorListBrowser({
 			detect: isIPod,
+			name: 'Firefox on iPod',
 			browser: browsers.FirefoxIOS.v29.iOS['Firefox on iPod'],
 			validCase: true
 		});
@@ -19,6 +21,7 @@ describe('detect isIPod device', () => {
 	describe('Valid cases: pack #3. Safari iOS', () => {
 		testNavigatorListBrowser({
 			detect: isIPod,
+			name: 'Safari on iPod',
 			browser: browsers.Safari.v14.iOS['Safari on iPod'],
 			validCase: true
 		});
@@ -26,6 +29,7 @@ describe('detect isIPod device', () => {
 	describe('Valid cases: pack #4. Yandex on iOS', () => {
 		testNavigatorListBrowser({
 			detect: isIPod,
+			name: 'Yandex Browser on iPod',
 			browser: browsers.YandexOnIOS.v20.iOS['Yandex Browser on iPod'],
 			validCase: true
 		});

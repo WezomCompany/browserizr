@@ -4,16 +4,16 @@ import browserizr, { DetectMethod } from '../core';
 // Types
 // -----------------------------------------------------------------------------
 
-interface NavigatorListPlatforms {
+interface NavigatorListPlatform {
 	[browser: string]: string[];
 }
 
-interface NavigatorListVersions {
-	[platform: string]: NavigatorListPlatforms;
+interface NavigatorListVersion {
+	[platform: string]: NavigatorListPlatform;
 }
 
 interface NavigatorList {
-	[version: string]: NavigatorListVersions;
+	[version: string]: NavigatorListVersion;
 }
 
 // -----------------------------------------------------------------------------
@@ -21,15 +21,17 @@ interface NavigatorList {
 // -----------------------------------------------------------------------------
 
 export const testNavigatorListBrowser = ({
+	name,
 	browser,
 	detect,
 	validCase
 }: {
+	name: string;
 	browser: string[];
 	detect: DetectMethod;
 	validCase: boolean;
 }) => {
-	describe(`browser: ${browser}`, () => {
+	describe(`browser: ${name}`, () => {
 		browser.forEach((ua, i) => {
 			test(`userAgent #${++i}`, () => {
 				browserizr.setUA(ua);
@@ -40,32 +42,61 @@ export const testNavigatorListBrowser = ({
 	});
 };
 
+export const testNavigatorListPlatform = ({
+	name,
+	platform,
+	detect,
+	validCase
+}: {
+	name: string;
+	platform: NavigatorListPlatform;
+	detect: DetectMethod;
+	validCase: boolean;
+}) => {
+	describe(`platform: ${name}`, () => {
+		for (const browser in platform) {
+			if (platform.hasOwnProperty(browser)) {
+				testNavigatorListBrowser({
+					detect,
+					validCase,
+					name: browser,
+					browser: platform[browser]
+				});
+			}
+		}
+	});
+};
+
 export const testNavigatorList = ({
 	versions,
 	detect,
-	validCase
+	validCase,
+	excludePlatforms = [],
+	includeOnlyPlatforms = []
 }: {
 	versions: NavigatorList;
 	detect: DetectMethod;
 	validCase: boolean;
+	excludePlatforms?: string[];
+	includeOnlyPlatforms?: string[];
 }) => {
 	for (const version in versions) {
 		if (versions.hasOwnProperty(version)) {
 			describe(`version: ${version}`, () => {
 				const platforms = versions[version];
 				for (const platform in platforms) {
-					if (platforms.hasOwnProperty(platform)) {
-						describe(`platform: ${platform}`, () => {
-							const browsers = platforms[platform];
-							for (const browser in browsers) {
-								if (browsers.hasOwnProperty(browser)) {
-									testNavigatorListBrowser({
-										detect,
-										validCase,
-										browser: browsers[browser]
-									});
-								}
-							}
+					if (
+						platforms.hasOwnProperty(platform) &&
+						excludePlatforms.indexOf(platform) === -1 &&
+						(includeOnlyPlatforms.length > 0
+							? includeOnlyPlatforms.indexOf(platform) > -1
+							: true)
+					) {
+						testNavigatorListPlatform({
+							detect,
+							validCase,
+							name: platform,
+							platform: platforms[platform]
 						});
 					}
 				}
