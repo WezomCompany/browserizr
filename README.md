@@ -101,7 +101,7 @@ You can write your own methods to detect what you want in your own way.
 
 We need simple pure function that receive current userAgent string and must return boolean as detection result.
 
-Let asume, we need detect some browser with name "My X Super Browser".  
+Let's assume, we need detect some browser with name "My X Super Browser".  
 And we expect that name-value like `MXSBrowser`  in userAgent string:
 
 ```
