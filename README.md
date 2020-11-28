@@ -20,8 +20,10 @@ _Description_
     1. [Install npm package](#install-npm-package)
     1. [Import to your codebase](#import-to-your-codebase)
 1. [API](#api)
-    1. [Properties](#properties)
     1. [Methods](#methods)
+    	1. [setUA(userAgent)](#setua_userAgent:_string)
+1. [Custom detects](#custom-detects)
+    1. [Simple example](#simple-example)
 
 ## Usage
 
@@ -57,10 +59,77 @@ import browserizr from '@wezom/browserizr/dist/es-5';
 
 ## API
 
-### Properties
-
-_describe_
-
 ### Methods
 
-_describe_
+#### `setUA(userAgent: string)`
+
+_Set custom `userAgent` string_
+
+By default, `browserizr` trying to resolve global object `navigator` and get `userAgent` field of that.
+Global object `navigator` exist only in a browser environment.
+
+So if you work in another environment - you may use `.setUA()` method to set custom string:
+
+```ts
+// using express
+browserizr.setUA(req.headers['user-agent']);
+```
+
+Also method `setUA` will help you with tests [your own detection methods](#custom-detects)
+
+```
+browserizr.setUA('My custom user agentString');
+browserizr.detect(isMyCustomDetectMethod);
+```
+
+---
+
+## Custom detects
+
+You can write your own methods to detect what you want in your own way.
+
+### Simple example
+
+We need simple pure function that receive current userAgent string and must return boolean as detection result.
+
+Let asume, we need detect some browser with name "My X Super Browser".  
+And we expect that name-value like `MXSBrowser`  in userAgent string:
+
+```
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 MXSBrowser/75.0.4280.66 Safari/537.36"
+```
+
+We can write regular expression for test this string and return result.
+
+**TypeSript example**
+
+```js
+// my-detects/is-mxs.ts
+import { DetectMethod } from '@wezom/browserizr';
+export const isMXSBrowser: DetectMethod = (ua) => /\sMXSBrowser\/[\d.]+\s/.test(ua);
+
+// app.js
+import browserizr from '@wezom/browserizr';
+import { isMXSBrowser } from 'my-detects/is-mxs';
+
+if (browserizr.detect(isMXSBrowser)) {
+	console.log('Yeah! Thats it!');
+}
+```
+
+**JavaScript example**
+
+```js
+// my-detects/is-mxs.js
+export const isMXSBrowser = (ua) => /\sMXSBrowser\/[\d.]+\s/.test(ua);
+
+// app.js
+import browserizr from '@wezom/browserizr/es-6/core';
+import { isMXSBrowser } from 'my-detects/is-mxs';
+
+if (browserizr.detect(isMXSBrowser)) {
+	console.log('Yeah! Thats it!');
+}
+```
+
+
