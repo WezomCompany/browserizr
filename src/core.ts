@@ -2,6 +2,12 @@ export interface DetectMethod {
 	(ua: string): boolean;
 }
 
+export type DetectVersionOperator = '>=' | '==' | '<=';
+
+export interface DetectVersionMethod {
+	(version: number, operator?: DetectVersionOperator): DetectMethod;
+}
+
 export interface DetectClassNameMethod {
 	is: string;
 	not: string;
