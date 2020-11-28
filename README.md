@@ -64,11 +64,13 @@ import browserizr from '@wezom/browserizr/dist/es-5';
 
 #### browserizr.setUA()
 
-_Set custom `userAgent` string_
-
 Signature:
 
 ```ts
+/**
+ * Set custom `userAgent` string 
+ * @param {string} ua - `userAgent` string
+ */
 setUA(ua: string): void
 ```
 
