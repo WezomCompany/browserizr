@@ -5,7 +5,7 @@ export interface DetectMethod {
 export type DetectVersionOperator = '>=' | '==' | '<=';
 
 export interface DetectVersionMethod {
-	(version: number, operator?: DetectVersionOperator): DetectMethod;
+	(version: number, operator: DetectVersionOperator): DetectMethod;
 }
 
 export interface DetectClassNameMethod {

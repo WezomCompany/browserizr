@@ -1,4 +1,3 @@
-
 # `browserizr`
 
 ![Typescript first](https://img.shields.io/badge/TypeScript-First-blue)
@@ -16,15 +15,58 @@ _Description_
 
 ## Table of Content:
 
+1. [Introduction](#introduction)
+    1. [TypeScript-First](#typescript-first)
+    1. [Code examples](#code-examples)
 1. [Usage](#usage)
     1. [Install npm package](#install-npm-package)
     1. [Import to your codebase](#import-to-your-codebase)
+        1. [TypeScript](#typescript)
+        1. [JavaScript](#javascript)
+    1. [Usage example](#usage-example)
+1. [Detect methodology](#detect-methodology)
+    1. [Detect method](#detect-method)
+    1. [Detect version](#detect-version)
 1. [API](#api)
     1. [Methods](#methods)
     	1. [browserizr.detect()](#browserizrdetect)
+    	1. [browserizr.classNames()](#browserizrclassnames)
     	1. [browserizr.setUA()](#browserizrsetua)
+1. [Built-in detects](#built-in-detects)
+    1. [Browsers](#browsers)
+        1. [isChrome](#ischrome)
+        1. [isChromeIOS](#ischromeios)
+        1. [isChromeVersion](#ischromeversion)
+        1. [isChromium](#ischromeversion)
 1. [Custom detects](#custom-detects)
     1. [Simple example](#simple-example)
+1. [Contributing](#contributing)
+1. [License](#licence)
+
+---
+
+
+
+
+## Introduction
+
+THIS LIBRARY IS IN BETA VERSION! DO NOT USE THIS IN YOUR PRODUCTION CODE!
+This library is not stable yet. We can change some API or behaviors.
+
+### TypeScript-First
+
+We use TypeScript as the primary language for developing our library and distribute the source code "as is" by default. This feature allows you to import a clean codebase, without many portable additional constructs, fallbacks and polyfills.
+
+### Code examples
+
+_We use TypeScript for most of the examples. Even if you don't work with TypeScript - these examples are easy to understand, but if you run into problems or not understanding of this code, please feel free to [submit issue](https://github.com/WezomCompany/browserizr/issues). For your convenience, we will supplement our examples._
+
+[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
+
+---
+
+
+
 
 ## Usage
 
@@ -36,7 +78,10 @@ npm i @wezom/browserizr
 
 ### Import to your codebase
 
-By default, we distribute our lib as is - original TypeScript files, without transpiling to ES5 or ES6.
+#### TypeScript
+
+As stated earlier, we use TypeScript as main development language and  
+ by default distribute our lib "AS IS", in original TypeScript files.
 
 ```ts
 // Import original ts code
@@ -44,6 +89,8 @@ By default, we distribute our lib as is - original TypeScript files, without tra
 // Check your `tsconfig.json`
 import browserizr from '@wezom/browserizr';
 ```
+
+#### JavaScript
 
 You can import compiled files from special folders.
 
@@ -57,7 +104,61 @@ import browserizr from '@wezom/browserizr/dist/es-6';
 import browserizr from '@wezom/browserizr/dist/es-5';
 ```
 
+_In all examples bellow, we will import from TypeScript folder. So if your work with JavaScript, just change parent folder. En example_
+
+```
+// ts
+import { isIE } from '@wezom/browserizr/detects/ie';
+
+// js
+import { isIE } from '@wezom/browserizr/dist/es-6/detects/ie';
+// or
+import { isIE } from '@wezom/browserizr/dist/es-5/detects/ie';
+```
+
+### Usage example
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { MORE_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
+import { isIE } from '@wezom/browserizr/detects/ie';
+import { isChromeVersion } from '@wezom/browserizr/detects/chrome-version';
+
+// Detect Internet Explorer
+if (browserizr.detect(isIE)) {
+    // your code ...
+}
+
+// Detect Google Chrome 87+
+const isChrome87vOrHigher = isChromeVersion(87, MORE_THEN_OR_EQUAL);
+if (browserizr.detect(isChrome87vOrHigher)) {
+    // your code ...
+}
+```
+
+[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
+
 ---
+
+
+
+
+## Detect methodology
+
+### Detect method
+
+_description in progress..._
+
+### Detect version
+
+_description in progress..._
+
+[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
+
+---
+
+
+
 
 ## API
 
@@ -69,17 +170,16 @@ _Signature:_
 
 ```js
 /**
- * Set custom `userAgent` string 
+ * Detection by given function
  * @param {string} fn - function that receive userAgent string
  * @returns boolean
  */
 detect(fn)
 ```
 
-Detection by given function.  
-You can use one of the pre-defined method
+You can use one of the [built-in methods](#built-in-detects) or write [custom detects](#custom-detects)
 
-**TypeScript example**
+*TypeScript example*
 
 ```ts
 import browserizr from '@wezom/browserizr';
@@ -95,7 +195,7 @@ if (browserizr.detect(isMobile)) {
 }
 ```
 
-**JavaScript example**
+*JavaScript example*
 
 ```ts
 import browserizr from '@wezom/browserizr/es-6/core';
@@ -134,14 +234,70 @@ So if you work in another environment - you may use `.setUA()` method to set cus
 browserizr.setUA(req.headers['user-agent']);
 ```
 
-Also method `setUA` will help you with tests [your own detection methods](#custom-detects)
+Also, method `setUA` will help you with tests [your own detection methods](#custom-detects)
 
 ```ts
 browserizr.setUA('My custom userAgent string');
 browserizr.detect(isMyCustomDetectMethod);
 ```
 
+[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
+
 ---
+
+
+
+
+## Built-in detects
+
+We had often used detects ready for use.  
+You can import each of them separately and only those which need in your project.
+
+### Browsers
+
+#### isChrome
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isChrome } from '@wezom/browserizr/detect/browsers/chrome';
+if (browserizr.detect(isChrome)) {
+    // code
+}
+``` 
+
+#### isChromeIOS
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isChromeIOS } from '@wezom/browserizr/detect/browsers/chrome';
+if (browserizr.detect(isChromeIOS)) {
+    // code
+}
+``` 
+
+#### isChromeVersion
+
+Detect Google Chrome browser and wanted version
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
+import { isChromeVersion } from '@wezom/browserizr/detect/browsers/chrome-version';
+
+const chrome86 = isChromeVersion(86, EQUAL);
+const chrome86OrHigher = isChromeVersion(86, MORE_THEN_OR_EQUAL);
+const chrome86OrLater = isChromeVersion(86, LESS_THEN_OR_EQUAL);
+if (browserizr.detect(chrome86OrHigher)) {
+    // code
+}
+``` 
+
+[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
+
+---
+
+
+
 
 ## Custom detects
 
@@ -151,8 +307,8 @@ You can write your own methods to detect what you want in your own way.
 
 We need simple pure function that receive current userAgent string and must return boolean as detection result.
 
-Let's assume, we need detect some browser with name "My X Super Browser".  
-And we expect that name-value like `MXSBrowser`  in userAgent string:
+Let's assume, we need to detect some browser with name "My X Super Browser".  
+So we can expect that name-value like `MXSBrowser`  in userAgent string:
 
 ```
 "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 MXSBrowser/75.0.4280.66 Safari/537.36"
@@ -160,7 +316,7 @@ And we expect that name-value like `MXSBrowser`  in userAgent string:
 
 We can write regular expression for test this string and return result.
 
-**TypeSript example**
+*TypeScript example*
 
 ```js
 // my-detects/is-mxs.ts
@@ -176,7 +332,7 @@ if (browserizr.detect(isMXSBrowser)) {
 }
 ```
 
-**JavaScript example**
+*JavaScript example*
 
 ```js
 // my-detects/is-mxs.js
@@ -191,4 +347,18 @@ if (browserizr.detect(isMXSBrowser)) {
 }
 ```
 
+[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
 
+---
+
+
+
+## Contributing
+
+Please fill free to create [issues](https://github.com/WezomCompany/browserizr/issues) or send [PR](https://github.com/WezomCompany/browserizr/pulls)
+
+## Licence
+
+[BSD-3-Clause License](https://github.com/WezomCompany/browserizr/blob/master/LICENSE)
+
+---
