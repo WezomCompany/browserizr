@@ -5,7 +5,9 @@
 [![NPM package badge](https://img.shields.io/badge/npm-install-orange.svg)](https://www.npmjs.com/package/@wezom/browserizr)
 ![Test and Build status badge](https://github.com/WezomCompany/browserizr/workflows/Test%20and%20Build/badge.svg)
 
-_Description_
+
+**THIS LIBRARY IS IN BETA VERSION! DO NOT USE THIS IN YOUR PRODUCTION CODE!**  
+_This library is not stable yet. We can change some API or behaviors._
 
 ## Coverage
 
@@ -66,9 +68,6 @@ _Description_
 
 ## Introduction
 
-THIS LIBRARY IS IN BETA VERSION! DO NOT USE THIS IN YOUR PRODUCTION CODE!  
-This library is not stable yet. We can change some API or behaviors.
-
 ### TypeScript-First
 
 We use TypeScript as the primary language for developing our library and distribute the source code "as is" by default. This feature allows you to import a clean codebase, without many portable additional constructs, fallbacks and polyfills.
@@ -122,7 +121,7 @@ import browserizr from '@wezom/browserizr/dist/es-5';
 
 _In all examples bellow, we will import from TypeScript folder. So if your work with JavaScript, just change parent folder. En example_
 
-```
+```ts
 // ts
 import { isIE } from '@wezom/browserizr/detects/ie';
 
@@ -184,18 +183,16 @@ _description in progress..._
 
 _Signature:_
 
-```js
+```ts
 /**
  * Detection by given function
  * @param {string} fn - function that receive userAgent string
  * @returns boolean
  */
-detect(fn)
+detect(fn: DetectMethod): boolen
 ```
 
 You can use one of the [built-in methods](#built-in-detects) or write [custom detects](#custom-detects)
-
-*TypeScript example*
 
 ```ts
 import browserizr from '@wezom/browserizr';
@@ -211,33 +208,20 @@ if (browserizr.detect(isMobile)) {
 }
 ```
 
-*JavaScript example*
+#### browserizr.classNames()
 
-```ts
-import browserizr from '@wezom/browserizr/es-6/core';
-import { isChrome } from '@wezom/browserizr/es-6/detect/browsers/is-chrome';
-import { isMobile } from '@weomz/browserizr/es-6/detect/device/is-mobile';
-
-if (browserizr.detect(isChrome)) {
-    console.log('Yeah! Thats Chrome!');
-}
-
-if (browserizr.detect(isMobile)) {
-    console.log('Yeah! Thats is Mobile device');
-}
-```
+_description in progress..._
 
 #### browserizr.setUA()
 
 _Signature:_
 
-```js
+```ts
 /**
  * Set custom `userAgent` string 
  * @param {string} ua - `userAgent` string
- * @returns undefined
  */
-setUA(ua)
+setUA(ua: string): void
 ```
 
 By default, `browserizr` trying to resolve global object `navigator` and get `userAgent` field from that.
