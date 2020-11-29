@@ -38,6 +38,22 @@ _Description_
         1. [isChromeIOS](#ischromeios)
         1. [isChromeVersion](#ischromeversion)
         1. [isChromium](#ischromeversion)
+        1. [isEdge](#isedge)
+        1. [isEdgeAndroid](#isedgeandroid)
+        1. [isEdgeIOS](#isedgeios)
+        1. [isFirefox](#isfirefox)
+        1. [isFirefoxIOS](#isfirefoxios)
+        1. [isIE](#isie)
+        1. [isOpera](#isopera)
+        1. [isSafari](#issafari)
+        1. [isVivaldi](#isvivaldi)
+        1. [isYandex](#isyandex)
+    1. [Devices](#devices)
+        1. [isDesktop](#isdesktop)
+        1. [isMobile](#ismobile)
+        1. [isIPad](#isipad)
+        1. [isIPod](#isipod)
+        1. [isIPhone](#isiphone)
 1. [Custom detects](#custom-detects)
     1. [Simple example](#simple-example)
 1. [Contributing](#contributing)
@@ -50,7 +66,7 @@ _Description_
 
 ## Introduction
 
-THIS LIBRARY IS IN BETA VERSION! DO NOT USE THIS IN YOUR PRODUCTION CODE!
+THIS LIBRARY IS IN BETA VERSION! DO NOT USE THIS IN YOUR PRODUCTION CODE!  
 This library is not stable yet. We can change some API or behaviors.
 
 ### TypeScript-First
@@ -257,6 +273,8 @@ You can import each of them separately and only those which need in your project
 
 #### isChrome
 
+Detect Google Chrome browser
+
 ```ts
 import browserizr from '@wezom/browserizr';
 import { isChrome } from '@wezom/browserizr/detect/browsers/chrome';
@@ -266,6 +284,8 @@ if (browserizr.detect(isChrome)) {
 ``` 
 
 #### isChromeIOS
+
+Detect Google Chrome browser on iPad, iPod or iPhone device.
 
 ```ts
 import browserizr from '@wezom/browserizr';
@@ -291,6 +311,200 @@ if (browserizr.detect(chrome86OrHigher)) {
     // code
 }
 ``` 
+
+#### isChromium
+
+Detect browsers that based on Chromium.
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isChromium } from '@wezom/browserizr/detect/browsers/chromium';
+if (browserizr.detect(isChromium)) {
+    // code
+}
+``` 
+
+#### isEdge
+
+Detect Microsoft Edge browser.
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isEdge } from '@wezom/browserizr/detect/browsers/edge';
+if (browserizr.detect(isEdge)) {
+    // code
+}
+```
+
+#### isEdgeAndroid
+
+Detect Microsoft Edge browser on Android.
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isEdgeAndroid } from '@wezom/browserizr/detect/browsers/edge-android';
+if (browserizr.detect(isEdgeAndroid)) {
+    // code
+}
+```
+
+#### isEdgeIOS
+
+Detect Microsoft Edge browser on iOS.
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isEdgeIOS } from '@wezom/browserizr/detect/browsers/edge-ios';
+if (browserizr.detect(isEdgeIOS)) {
+    // code
+}
+```
+
+#### isFirefox
+
+Detect Mozilla Firefox browser.
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isFirefox } from '@wezom/browserizr/detect/browsers/firefox';
+if (browserizr.detect(isFirefox)) {
+    // code
+}
+```
+
+#### isFirefoxIOS
+
+Detect Mozilla Firefox browser on iOS.
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isFirefoxIOS } from '@wezom/browserizr/detect/browsers/firefox-ios';
+if (browserizr.detect(isFirefoxIOS)) {
+    // code
+}
+```
+
+#### isIE
+
+Detect Internet Explorer browser
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isIE } from '@wezom/browserizr/detect/browsers/ie';
+if (browserizr.detect(isIE)) {
+    // code
+}
+```
+
+#### isOpera
+
+Detect Opera browser
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isOpera } from '@wezom/browserizr/detect/browsers/opera';
+if (browserizr.detect(isOpera)) {
+    // code
+}
+```
+
+#### isSafari
+
+Detect Apple Safari browser
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isSafari } from '@wezom/browserizr/detect/browsers/safari';
+if (browserizr.detect(isSafari)) {
+    // code
+}
+```
+
+#### isVivaldi
+
+Detect Vivaldi browser
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isVivaldi } from '@wezom/browserizr/detect/browsers/vivaldi';
+if (browserizr.detect(isVivaldi)) {
+    // code
+}
+```
+
+#### isYandex
+
+Detect Yandex browser
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isYandex } from '@wezom/browserizr/detect/browsers/yandex';
+if (browserizr.detect(isYandex)) {
+    // code
+}
+```
+
+### Devices
+
+#### isDesktop
+
+Detect desktop browser
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isDesktop } from '@wezom/browserizr/detect/devices/desktop';
+if (browserizr.detect(isDesktop)) {
+    // code
+}
+```
+
+#### isMobile
+
+Detect mobile browser
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isMobile } from '@wezom/browserizr/detect/devices/mobile';
+if (browserizr.detect(isMobile)) {
+    // code
+}
+```
+
+#### isIPad
+
+Detect the browser on iPad device
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isIPad } from '@wezom/browserizr/detect/devices/ipad';
+if (browserizr.detect(isIPad)) {
+    // code
+}
+```
+
+#### isIPod
+
+Detect a browser on iPod device
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isIPod } from '@wezom/browserizr/detect/devices/ipod';
+if (browserizr.detect(isIPod)) {
+    // code
+}
+```
+
+#### isiPhone
+
+Detect a browser on iPhone device
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isiPhone } from '@wezom/browserizr/detect/devices/iphone';
+if (browserizr.detect(isiPhone)) {
+    // code
+}
+```
 
 [▲ Go Top](#) | [▲ Table of Content](#table-of-content)
 

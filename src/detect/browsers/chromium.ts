@@ -1,4 +1,4 @@
 import { DetectMethod } from '../../core';
 
-/** Detect Chromium "family" browsers */
+/** Detect browsers that based on Chromium. */
 export const isChromium: DetectMethod = (ua) => /\sChrome\/[\d.]+\s/.test(ua);
