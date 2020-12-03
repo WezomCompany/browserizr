@@ -192,8 +192,8 @@ You can use one of the [built-in methods](#built-in-detects) or write [custom de
 
 ```ts
 import browserizr from '@wezom/browserizr';
-import { isChrome } from '@wezom/browserizr/detect/browsers/is-chrome';
-import { isMobile } from '@wezom/browserizr/detect/device/is-mobile';
+import { isChrome } from '@wezom/browserizr/detect/browsers/chrome';
+import { isMobile } from '@wezom/browserizr/detect/device/mobile';
 
 if (browserizr.detect(isChrome)) {
     console.log('Yeah! Thats Chrome!');
@@ -221,13 +221,13 @@ A little example for explanation:
 
 ```ts
 import browserizr, { DetectClassNameMethod } from '@wezom/browserizr';
-import { isSafari } from '@wezom/browserizr/detect/browsers/is-safari';
-import { isMobile } from '@weomz/browserizr/detect/device/is-mobile';
+import { isSafari } from '@wezom/browserizr/detect/browsers/safari';
+import { isMobile } from '@weomz/browserizr/detect/device/mobile';
 
 const classes: DetectClassNameMethod[] = [
     {
         is: 'is-mobile-device',   // You can use
-        not: 'not-like-mobile',   // yout own class names like you want
+        not: 'not-like-mobile',   // your own class names like you want
         fn: isMobile
     },
     {
