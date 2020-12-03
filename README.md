@@ -334,12 +334,13 @@ import browserizr from '@wezom/browserizr';
 import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
 import { isChromeVersion } from '@wezom/browserizr/detect/browsers/chrome-version';
 
-const chrome86 = isChromeVersion(86, EQUAL);
-const chrome86OrHigher = isChromeVersion(86, MORE_THEN_OR_EQUAL);
-const chrome86OrLater = isChromeVersion(86, LESS_THEN_OR_EQUAL);
-if (browserizr.detect(chrome86OrHigher)) {
+const chrome86v = isChromeVersion(86, EQUAL);
+const chrome86vOrHigher = isChromeVersion(86, MORE_THEN_OR_EQUAL);
+const chrome86vOrLater = isChromeVersion(86, LESS_THEN_OR_EQUAL);
+if (browserizr.detect(chrome86vOrHigher)) {
     // code
 }
+// ...
 ``` 
 
 #### isChromium
