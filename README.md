@@ -193,7 +193,7 @@ You can use one of the [built-in methods](#built-in-detects) or write [custom de
 ```ts
 import browserizr from '@wezom/browserizr';
 import { isChrome } from '@wezom/browserizr/detect/browsers/is-chrome';
-import { isMobile } from '@weomz/browserizr/detect/device/is-mobile';
+import { isMobile } from '@wezom/browserizr/detect/device/is-mobile';
 
 if (browserizr.detect(isChrome)) {
     console.log('Yeah! Thats Chrome!');
@@ -217,7 +217,7 @@ classNames(classes: {
 }[]): string
 ```
 
-An little example for explanation: 
+A little example for explanation: 
 
 ```ts
 import browserizr, { DetectClassNameMethod } from '@wezom/browserizr';
