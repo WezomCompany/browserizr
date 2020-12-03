@@ -184,11 +184,7 @@ _description in progress..._
 _Signature:_
 
 ```ts
-/**
- * Detection by given function
- * @param {string} fn - function that receive userAgent string
- * @returns boolean
- */
+/** Detection by given function */
 detect(fn: DetectMethod): boolen
 ```
 
@@ -210,17 +206,67 @@ if (browserizr.detect(isMobile)) {
 
 #### browserizr.classNames()
 
-_description in progress..._
+_Signature:_
+
+```ts
+/** Generate CSS class names string */
+classNames(classes: {
+    is: string;
+    not: string;
+    fn: DetectMethod;
+}[]): string
+```
+
+An little example for explanation: 
+
+```ts
+import browserizr, { DetectClassNameMethod } from '@wezom/browserizr';
+import { isSafari } from '@wezom/browserizr/detect/browsers/is-safari';
+import { isMobile } from '@weomz/browserizr/detect/device/is-mobile';
+
+const classes: DetectClassNameMethod[] = [
+    {
+        is: 'is-mobile-device',   // You can use
+        not: 'not-like-mobile',   // yout own class names like you want
+        fn: isMobile
+    },
+    {
+        is: 'is-safari',
+        not: 'is-not-safari',
+        fn: isSafari
+    }
+];
+
+// if mobile Safari browser
+console.log(browserizr.classNames(classes)); // => "is-mobile-device is-safari"
+
+// if mobile but not Safari browser
+console.log(browserizr.classNames(classes)); // => "is-mobile-device is-not-safari"
+
+// if not mobile and not Safari browser
+console.log(browserizr.classNames(classes)); // => "not-like-mobile is-not-safari"
+```
+
+You can do what you want with this string. Like this:
+
+```ts
+// Add classes in browser
+document.body.classList.add(browserizr.classNames(classes));
+```
+
+```tsx
+// Render JSX components
+<div className={browserizr.classNames(classes)}>
+    ...
+</div>
+```
 
 #### browserizr.setUA()
 
 _Signature:_
 
 ```ts
-/**
- * Set custom `userAgent` string 
- * @param {string} ua - `userAgent` string
- */
+/** Set custom `userAgent` string  */
 setUA(ua: string): void
 ```
 
