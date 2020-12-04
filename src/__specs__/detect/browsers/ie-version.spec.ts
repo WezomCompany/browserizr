@@ -6,14 +6,14 @@ describe('detect Internet Explorer browser version', () => {
 	describe('8', () => {
 		describe(MORE_THEN_OR_EQUAL, () => {
 			testNavigatorList({
-				detect: isIEVersion(8, MORE_THEN_OR_EQUAL),
+				detect: isIEVersion(MORE_THEN_OR_EQUAL, 8),
 				versions: browsers.InternetExplorer,
 				validCase: true
 			});
 		});
 		describe(EQUAL, () => {
 			testNavigatorListVersion({
-				detect: isIEVersion(8, EQUAL),
+				detect: isIEVersion(EQUAL, 8),
 				version: browsers.InternetExplorer.v8,
 				name: 'v8',
 				validCase: true
@@ -21,7 +21,7 @@ describe('detect Internet Explorer browser version', () => {
 		});
 		describe(LESS_THEN_OR_EQUAL, () => {
 			testNavigatorList({
-				detect: isIEVersion(8, LESS_THEN_OR_EQUAL),
+				detect: isIEVersion(LESS_THEN_OR_EQUAL, 8),
 				versions: {
 					...browsers.InternetExplorer,
 					v9: null,
@@ -36,7 +36,7 @@ describe('detect Internet Explorer browser version', () => {
 	describe('9', () => {
 		describe(MORE_THEN_OR_EQUAL, () => {
 			testNavigatorList({
-				detect: isIEVersion(9, MORE_THEN_OR_EQUAL),
+				detect: isIEVersion(MORE_THEN_OR_EQUAL, 9),
 				versions: {
 					...browsers.InternetExplorer,
 					v8: null
@@ -46,7 +46,7 @@ describe('detect Internet Explorer browser version', () => {
 		});
 		describe(EQUAL, () => {
 			testNavigatorListVersion({
-				detect: isIEVersion(9, EQUAL),
+				detect: isIEVersion(EQUAL, 9),
 				version: browsers.InternetExplorer.v9,
 				name: 'v9',
 				validCase: true
@@ -54,7 +54,7 @@ describe('detect Internet Explorer browser version', () => {
 		});
 		describe(LESS_THEN_OR_EQUAL, () => {
 			testNavigatorList({
-				detect: isIEVersion(9, LESS_THEN_OR_EQUAL),
+				detect: isIEVersion(LESS_THEN_OR_EQUAL, 9),
 				versions: {
 					...browsers.InternetExplorer,
 					v10: null,
@@ -68,7 +68,7 @@ describe('detect Internet Explorer browser version', () => {
 	describe('10', () => {
 		describe(MORE_THEN_OR_EQUAL, () => {
 			testNavigatorList({
-				detect: isIEVersion(10, MORE_THEN_OR_EQUAL),
+				detect: isIEVersion(MORE_THEN_OR_EQUAL, 10),
 				versions: {
 					...browsers.InternetExplorer,
 					v8: null,
@@ -79,7 +79,7 @@ describe('detect Internet Explorer browser version', () => {
 		});
 		describe(EQUAL, () => {
 			testNavigatorListVersion({
-				detect: isIEVersion(10, EQUAL),
+				detect: isIEVersion(EQUAL, 10),
 				version: browsers.InternetExplorer.v10,
 				name: 'v10',
 				validCase: true
@@ -87,7 +87,7 @@ describe('detect Internet Explorer browser version', () => {
 		});
 		describe(LESS_THEN_OR_EQUAL, () => {
 			testNavigatorList({
-				detect: isIEVersion(10, LESS_THEN_OR_EQUAL),
+				detect: isIEVersion(LESS_THEN_OR_EQUAL, 10),
 				versions: {
 					...browsers.InternetExplorer,
 					v11: null
@@ -100,7 +100,7 @@ describe('detect Internet Explorer browser version', () => {
 	describe('11', () => {
 		describe(MORE_THEN_OR_EQUAL, () => {
 			testNavigatorList({
-				detect: isIEVersion(11, MORE_THEN_OR_EQUAL),
+				detect: isIEVersion(MORE_THEN_OR_EQUAL, 11),
 				versions: {
 					...browsers.InternetExplorer,
 					v8: null,
@@ -112,7 +112,7 @@ describe('detect Internet Explorer browser version', () => {
 		});
 		describe(EQUAL, () => {
 			testNavigatorListVersion({
-				detect: isIEVersion(11, EQUAL),
+				detect: isIEVersion(EQUAL, 11),
 				version: browsers.InternetExplorer.v11,
 				name: 'v11',
 				validCase: true
@@ -120,7 +120,7 @@ describe('detect Internet Explorer browser version', () => {
 		});
 		describe(LESS_THEN_OR_EQUAL, () => {
 			testNavigatorList({
-				detect: isIEVersion(11, LESS_THEN_OR_EQUAL),
+				detect: isIEVersion(LESS_THEN_OR_EQUAL, 11),
 				versions: browsers.InternetExplorer,
 				validCase: true
 			});

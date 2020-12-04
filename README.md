@@ -335,9 +335,9 @@ import browserizr from '@wezom/browserizr';
 import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
 import { isChromeVersion } from '@wezom/browserizr/detect/browsers/chrome-version';
 
-const chrome86v = isChromeVersion(86, EQUAL);
-const chrome86vOrHigher = isChromeVersion(86, MORE_THEN_OR_EQUAL);
-const chrome86vOrLater = isChromeVersion(86, LESS_THEN_OR_EQUAL);
+const chrome86v = isChromeVersion(EQUAL, 86);
+const chrome86vOrHigher = isChromeVersion(MORE_THEN_OR_EQUAL, 86);
+const chrome86vOrLater = isChromeVersion(LESS_THEN_OR_EQUAL, 86);
 if (browserizr.detect(chrome86vOrHigher)) {
     // code
 }
@@ -437,10 +437,10 @@ import browserizr from '@wezom/browserizr';
 import { EQUAL } from '@wezom/browserizr/utils';
 import { isIEVersion } from '@wezom/browserizr/detect/browsers/ie-version';
 
-const ie8 = isIEVersion(8, EQUAL);
-const ie9 = isIEVersion(9, EQUAL);
-const ie10 = isIEVersion(10, EQUAL);
-const ie11 = isIEVersion(11, EQUAL);
+const ie8 = isIEVersion(EQUAL, 8);
+const ie9 = isIEVersion(EQUAL, 9);
+const ie10 = isIEVersion(EQUAL, 10);
+const ie11 = isIEVersion(EQUAL, 11);
 if (browserizr.detect(ie8)) {
     // code
 }

@@ -3,7 +3,7 @@ import { DetectVersionMethod } from '../../core';
 import { matchVersion } from '../../utils';
 
 /** Detect Google Chrome browser version */
-export const isChromeVersion: DetectVersionMethod = (version, operator) => (ua) => {
+export const isChromeVersion: DetectVersionMethod = (operator, version) => (ua) => {
 	if (isChrome(ua)) {
 		return matchVersion({
 			ua,
