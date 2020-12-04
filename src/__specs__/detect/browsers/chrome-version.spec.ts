@@ -17,7 +17,7 @@ describe('detect Google Chrome browser version', () => {
 			validCase: true
 		});
 	});
-	describe('87 <=', () => {
+	describe('85 <=', () => {
 		testNavigatorList({
 			detect: isChromeVersion(LESS_THEN_OR_EQUAL, 87),
 			versions: browsers.Chrome,

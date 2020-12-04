@@ -13,7 +13,7 @@ _This library is not stable yet. We can change some API or behaviors._
 
 | Statements                | Branches                | Functions                | Lines                |
 | ------------------------- | ----------------------- | ------------------------ | -------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-96.55%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-83.33%25-yellow.svg) | ![Functions](https://img.shields.io/badge/Coverage-95.16%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
+| ![Statements](https://img.shields.io/badge/Coverage-96.81%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-84.62%25-yellow.svg) | ![Functions](https://img.shields.io/badge/Coverage-95.59%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
 
 ## Table of Content:
 
@@ -37,13 +37,14 @@ _This library is not stable yet. We can change some API or behaviors._
 1. [Built-in detects](#built-in-detects)
     1. [Browsers](#browsers)
         1. [isChrome](#ischrome)
-        1. [isChromeIOS](#ischromeios)
         1. [isChromeVersion](#ischromeversion)
+        1. [isChromeIOS](#ischromeios)
         1. [isChromium](#ischromeversion)
         1. [isEdge](#isedge)
         1. [isEdgeAndroid](#isedgeandroid)
         1. [isEdgeIOS](#isedgeios)
         1. [isFirefox](#isfirefox)
+        1. [isFirefoxVersion](#isfirefoxversion)
         1. [isFirefoxIOS](#isfirefoxios)
         1. [isIE](#isie)
         1. [isIEVersion](#isieversion)
@@ -314,18 +315,6 @@ if (browserizr.detect(isChrome)) {
 }
 ``` 
 
-#### isChromeIOS
-
-Detect Google Chrome browser on iPad, iPod or iPhone device.
-
-```ts
-import browserizr from '@wezom/browserizr';
-import { isChromeIOS } from '@wezom/browserizr/detect/browsers/chrome';
-if (browserizr.detect(isChromeIOS)) {
-    // code
-}
-``` 
-
 #### isChromeVersion
 
 Detect Google Chrome browser and wanted version
@@ -342,6 +331,18 @@ if (browserizr.detect(chrome86vOrHigher)) {
     // code
 }
 // ...
+``` 
+
+#### isChromeIOS
+
+Detect Google Chrome browser on iPad, iPod or iPhone device.
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isChromeIOS } from '@wezom/browserizr/detect/browsers/chrome';
+if (browserizr.detect(isChromeIOS)) {
+    // code
+}
 ``` 
 
 #### isChromium
@@ -403,6 +404,24 @@ if (browserizr.detect(isFirefox)) {
     // code
 }
 ```
+
+#### isFirefoxVersion
+
+Detect Mozilla Firefox browser and wanted version
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
+import { isFirefoxVersion } from '@wezom/browserizr/detect/browsers/firefox-version';
+
+const ffx83v = isFirefoxVersion(EQUAL, 83);
+const ffx83vOrHigher = isFirefoxVersion(MORE_THEN_OR_EQUAL, 83);
+const ffx83vOrLater = isFirefoxVersion(LESS_THEN_OR_EQUAL, 83);
+if (browserizr.detect(ffx83v)) {
+    // code
+}
+// ...
+``` 
 
 #### isFirefoxIOS
 
