@@ -13,7 +13,7 @@ _This library is not stable yet. We can change some API or behaviors._
 
 | Statements                | Branches                | Functions                | Lines                |
 | ------------------------- | ----------------------- | ------------------------ | -------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-96.92%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-80%25-yellow.svg) | ![Functions](https://img.shields.io/badge/Coverage-95.65%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
+| ![Statements](https://img.shields.io/badge/Coverage-96.55%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-83.33%25-yellow.svg) | ![Functions](https://img.shields.io/badge/Coverage-95.16%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
 
 ## Table of Content:
 
@@ -46,6 +46,7 @@ _This library is not stable yet. We can change some API or behaviors._
         1. [isFirefox](#isfirefox)
         1. [isFirefoxIOS](#isfirefoxios)
         1. [isIE](#isie)
+        1. [isIEVersion](#isieversion)
         1. [isOpera](#isopera)
         1. [isSafari](#issafari)
         1. [isVivaldi](#isvivaldi)
@@ -426,6 +427,25 @@ if (browserizr.detect(isIE)) {
     // code
 }
 ```
+
+#### isIEVersion
+
+Detect Internet Explorer browser and wanted version
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { EQUAL } from '@wezom/browserizr/utils';
+import { isIEVersion } from '@wezom/browserizr/detect/browsers/ie-version';
+
+const ie8 = isIEVersion(8, EQUAL);
+const ie9 = isIEVersion(9, EQUAL);
+const ie10 = isIEVersion(10, EQUAL);
+const ie11 = isIEVersion(11, EQUAL);
+if (browserizr.detect(ie8)) {
+    // code
+}
+// ...
+``` 
 
 #### isOpera
 

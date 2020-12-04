@@ -13,7 +13,7 @@ interface NavigatorListVersion {
 }
 
 interface NavigatorList {
-	[version: string]: NavigatorListVersion;
+	[version: string]: NavigatorListVersion | null;
 }
 
 // -----------------------------------------------------------------------------
@@ -67,6 +67,41 @@ export const testNavigatorListPlatform = ({
 	});
 };
 
+export const testNavigatorListVersion = ({
+	name,
+	version,
+	detect,
+	validCase,
+	excludePlatforms = [],
+	includeOnlyPlatforms = []
+}: {
+	name: string;
+	version: NavigatorListVersion;
+	detect: DetectMethod;
+	validCase: boolean;
+	excludePlatforms?: string[];
+	includeOnlyPlatforms?: string[];
+}) => {
+	describe(`version: ${name}`, () => {
+		for (const platform in version) {
+			if (
+				version.hasOwnProperty(platform) &&
+				excludePlatforms.indexOf(platform) === -1 &&
+				(includeOnlyPlatforms.length > 0
+					? includeOnlyPlatforms.indexOf(platform) > -1
+					: true)
+			) {
+				testNavigatorListPlatform({
+					detect,
+					validCase,
+					name: platform,
+					platform: version[platform]
+				});
+			}
+		}
+	});
+};
+
 export const testNavigatorList = ({
 	versions,
 	detect,
@@ -81,25 +116,18 @@ export const testNavigatorList = ({
 	includeOnlyPlatforms?: string[];
 }) => {
 	for (const version in versions) {
-		if (versions.hasOwnProperty(version)) {
-			describe(`version: ${version}`, () => {
-				const platforms = versions[version];
-				for (const platform in platforms) {
-					if (
-						platforms.hasOwnProperty(platform) &&
-						excludePlatforms.indexOf(platform) === -1 &&
-						(includeOnlyPlatforms.length > 0
-							? includeOnlyPlatforms.indexOf(platform) > -1
-							: true)
-					) {
-						testNavigatorListPlatform({
-							detect,
-							validCase,
-							name: platform,
-							platform: platforms[platform]
-						});
-					}
-				}
+		if (versions.hasOwnProperty(version) && versions[version] != null) {
+			const versionValue = versions[version];
+			if (versionValue == null) {
+				continue;
+			}
+			testNavigatorListVersion({
+				name: version,
+				version: versionValue,
+				detect,
+				validCase,
+				excludePlatforms,
+				includeOnlyPlatforms
 			});
 		}
 	}
