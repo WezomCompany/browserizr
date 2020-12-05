@@ -13,7 +13,7 @@ _This library is not stable yet. We can change some API or behaviors._
 
 | Statements                | Branches                | Functions                | Lines                |
 | ------------------------- | ----------------------- | ------------------------ | -------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-96.81%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-84.62%25-yellow.svg) | ![Functions](https://img.shields.io/badge/Coverage-95.59%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
+| ![Statements](https://img.shields.io/badge/Coverage-96.04%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-82.14%25-yellow.svg) | ![Functions](https://img.shields.io/badge/Coverage-94.59%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
 
 ## Table of Content:
 
@@ -39,6 +39,7 @@ _This library is not stable yet. We can change some API or behaviors._
         1. [isChrome](#ischrome)
         1. [isChromeVersion](#ischromeversion)
         1. [isChromeIOS](#ischromeios)
+        1. [isChromeIOSVersion](#ischromeiosversion)
         1. [isChromium](#ischromeversion)
         1. [isEdge](#isedge)
         1. [isEdgeAndroid](#isedgeandroid)
@@ -343,6 +344,24 @@ import { isChromeIOS } from '@wezom/browserizr/detect/browsers/chrome';
 if (browserizr.detect(isChromeIOS)) {
     // code
 }
+``` 
+
+#### isChromeIOSVersion
+
+Detect Google Chrome browser and wanted version on iOS
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
+import { isChromeIOSVersion } from '@wezom/browserizr/detect/browsers/chrome-ios-version';
+
+const chromeIOS86v = isChromeIOSVersion(EQUAL, 86);
+const chromeIOS86vOrHigher = isChromeVersion(MORE_THEN_OR_EQUAL, 86);
+const chromeIOS86vOrLater = isChromeVersion(LESS_THEN_OR_EQUAL, 86);
+if (browserizr.detect(chromeIOS86vOrHigher)) {
+    // code
+}
+// ...
 ``` 
 
 #### isChromium
