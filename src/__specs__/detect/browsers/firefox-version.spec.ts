@@ -27,4 +27,13 @@ describe('detect Mozilla Firefox browser version', () => {
 			});
 		});
 	});
+
+	describe('Not isFirefoxVersion', () => {
+		testNavigatorListVersion({
+			detect: isFirefoxVersion(EQUAL, 87),
+			version: browsers.FirefoxIOS.v29,
+			name: 'v87',
+			validCase: false
+		});
+	});
 });

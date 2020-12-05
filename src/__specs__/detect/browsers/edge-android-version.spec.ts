@@ -27,4 +27,13 @@ describe('Detect Microsoft Edge browser version on Android', () => {
 			});
 		});
 	});
+
+	describe('Not isEdgeAndroidVersion', () => {
+		testNavigatorListVersion({
+			detect: isEdgeAndroidVersion(EQUAL, 87),
+			version: browsers.Edge.v87,
+			name: 'v87',
+			validCase: false
+		});
+	});
 });

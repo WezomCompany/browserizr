@@ -27,4 +27,13 @@ describe('detect Google Chrome browser version', () => {
 			});
 		});
 	});
+
+	describe('Not isChrome', () => {
+		testNavigatorListVersion({
+			detect: isChromeVersion(EQUAL, 87),
+			version: browsers.ChromeIOS.v87,
+			name: 'v87',
+			validCase: false
+		});
+	});
 });

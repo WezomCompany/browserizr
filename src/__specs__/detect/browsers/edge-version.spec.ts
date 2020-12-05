@@ -93,4 +93,22 @@ describe('Detect Microsoft Edge browser version', () => {
 			});
 		});
 	});
+
+	describe('Not isEdgeVersion', () => {
+		testNavigatorListVersion({
+			detect: isEdgeVersion(EQUAL, 87),
+			version: browsers.EdgeAndroid.v45,
+			name: 'v87',
+			validCase: false
+		});
+	});
+
+	describe('Not isEdgeVersion', () => {
+		testNavigatorListVersion({
+			detect: isEdgeVersion(EQUAL, 87),
+			version: browsers.EdgeIOS.v45,
+			name: 'v87',
+			validCase: false
+		});
+	});
 });

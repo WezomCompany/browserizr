@@ -27,4 +27,13 @@ describe('Detect Microsoft Edge browser version on iOS', () => {
 			});
 		});
 	});
+
+	describe('Not isEdgeIOSVersion', () => {
+		testNavigatorListVersion({
+			detect: isEdgeIOSVersion(EQUAL, 87),
+			version: browsers.Edge.v87,
+			name: 'v87',
+			validCase: false
+		});
+	});
 });

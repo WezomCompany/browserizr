@@ -126,4 +126,13 @@ describe('detect Internet Explorer browser version', () => {
 			});
 		});
 	});
+
+	describe('Not isIEVersion', () => {
+		testNavigatorListVersion({
+			detect: isIEVersion(EQUAL, 87),
+			version: browsers.Edge.v40,
+			name: 'v87',
+			validCase: false
+		});
+	});
 });

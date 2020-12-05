@@ -21,7 +21,7 @@ describe('Operators', () => {
 });
 
 describe('match', () => {
-	test('More than or equal', () => {
+	test('toBeTruthy. Version number extract', () => {
 		const match = matchVersion({
 			ua: 'x/23',
 			operator: MORE_THEN_OR_EQUAL,
@@ -30,5 +30,35 @@ describe('match', () => {
 			groupIndex: 1
 		});
 		expect(match).toBeTruthy();
+	});
+	test('toBeTruthy. Float Version number extract', () => {
+		const match = matchVersion({
+			ua: 'x/14.456',
+			operator: EQUAL,
+			version: 14.456,
+			regExp: /x\/([\d|.]+)/,
+			groupIndex: 1
+		});
+		expect(match).toBeTruthy();
+	});
+	test('toBeFalsy. RegExp match', () => {
+		const match = matchVersion({
+			ua: 'x/xx',
+			operator: MORE_THEN_OR_EQUAL,
+			version: 23,
+			regExp: /x\/([\d|.]+)/,
+			groupIndex: 1
+		});
+		expect(match).toBeFalsy();
+	});
+	test('toBeFalsy. Version number extract', () => {
+		const match = matchVersion({
+			ua: 'x/...5',
+			operator: MORE_THEN_OR_EQUAL,
+			version: 23,
+			regExp: /x\/([\d|.]+)/,
+			groupIndex: 1
+		});
+		expect(match).toBeFalsy();
 	});
 });

@@ -27,4 +27,13 @@ describe('Detect Google Chrome browser version on iOS', () => {
 			});
 		});
 	});
+
+	describe('Not isChromeIOS', () => {
+		testNavigatorListVersion({
+			detect: isChromeIOSVersion(EQUAL, 87),
+			version: browsers.Chrome.v87,
+			name: 'v87',
+			validCase: false
+		});
+	});
 });
