@@ -19,7 +19,8 @@ export function matchVersion({
 }) {
 	const match = ua.match(regExp);
 	if (match) {
-		const value = parseFloat(match[groupIndex]);
+		const int = version === parseInt('' + version, 10);
+		const value = int ? parseInt(match[groupIndex]) : parseFloat(match[groupIndex]);
 		if (isNaN(value)) {
 			return false;
 		} else {

@@ -13,7 +13,7 @@ _This library is not stable yet. We can change some API or behaviors._
 
 | Statements                | Branches                | Functions                | Lines                |
 | ------------------------- | ----------------------- | ------------------------ | -------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-96.04%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-82.14%25-yellow.svg) | ![Functions](https://img.shields.io/badge/Coverage-94.59%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
+| ![Statements](https://img.shields.io/badge/Coverage-93.58%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-71.88%25-red.svg) | ![Functions](https://img.shields.io/badge/Coverage-91.36%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
 
 ## Table of Content:
 
@@ -42,6 +42,7 @@ _This library is not stable yet. We can change some API or behaviors._
         1. [isChromeIOSVersion](#ischromeiosversion)
         1. [isChromium](#ischromeversion)
         1. [isEdge](#isedge)
+        1. [isEdgeVersion](#isedgeversion)
         1. [isEdgeAndroid](#isedgeandroid)
         1. [isEdgeIOS](#isedgeios)
         1. [isFirefox](#isfirefox)
@@ -356,8 +357,8 @@ import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr
 import { isChromeIOSVersion } from '@wezom/browserizr/detect/browsers/chrome-ios-version';
 
 const chromeIOS86v = isChromeIOSVersion(EQUAL, 86);
-const chromeIOS86vOrHigher = isChromeVersion(MORE_THEN_OR_EQUAL, 86);
-const chromeIOS86vOrLater = isChromeVersion(LESS_THEN_OR_EQUAL, 86);
+const chromeIOS86vOrHigher = isChromeIOSVersion(MORE_THEN_OR_EQUAL, 86);
+const chromeIOS86vOrLater = isChromeIOSVersion(LESS_THEN_OR_EQUAL, 86);
 if (browserizr.detect(chromeIOS86vOrHigher)) {
     // code
 }
@@ -387,6 +388,24 @@ if (browserizr.detect(isEdge)) {
     // code
 }
 ```
+
+#### isEdgeVersion
+
+Detect Google Edge browser and wanted version on iOS
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
+import { isEdgeIOSVersion } from '@wezom/browserizr/detect/browsers/edge-ios-version';
+
+const edge86v = isEdgeVersion(EQUAL, 86);
+const edge86vOrHigher = isEdgeVersion(MORE_THEN_OR_EQUAL, 86);
+const edge86vOrLater = isEdgeVersion(LESS_THEN_OR_EQUAL, 86);
+if (browserizr.detect(edge86vOrHigher)) {
+    // code
+}
+// ...
+``` 
 
 #### isEdgeAndroid
 
