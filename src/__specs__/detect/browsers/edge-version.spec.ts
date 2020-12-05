@@ -7,7 +7,7 @@ describe('Detect Microsoft Edge browser version', () => {
 		describe(MORE_THEN_OR_EQUAL, () => {
 			testNavigatorList({
 				detect: isEdgeVersion(MORE_THEN_OR_EQUAL, 40),
-				versions: browsers.Edge,
+				versions: { ...browsers.Edge },
 				validCase: true
 			});
 		});
