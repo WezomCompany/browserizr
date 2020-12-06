@@ -590,6 +590,13 @@ if (browserizr.detect(isYandex)) {
 }
 ```
 
+[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
+
+---
+
+
+
+
 ### Devices
 
 #### isDesktop
@@ -640,13 +647,13 @@ if (browserizr.detect(isIPod)) {
 }
 ```
 
-#### isiPhone
+#### isIPhone
 
 Detect a browser on iPhone device
 
 ```ts
 import browserizr from '@wezom/browserizr';
-import { isiPhone } from '@wezom/browserizr/detect/devices/iphone';
+import { isIPhone } from '@wezom/browserizr/detect/devices/iphone';
 if (browserizr.detect(isiPhone)) {
     // code
 }
