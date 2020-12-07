@@ -40,7 +40,7 @@ _This library is not stable yet. We can change some API or behaviors._
         - [isChromeVersion](#ischromeversion)
         - [isChromeIOS](#ischromeios)
         - [isChromeIOSVersion](#ischromeiosversion)
-        - [isChromium](#ischromeversion)
+        - [isChromium](#ischromium)
         - [isEdge](#isedge)
         - [isEdgeVersion](#isedgeversion)
         - [isEdgeAndroid](#isedgeandroid)
