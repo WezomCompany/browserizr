@@ -403,7 +403,7 @@ export const browsers = {
 		}
 	},
 	Vivaldi: {
-		v3: {
+		v3_4: {
 			Windows: {
 				'Vivaldi (Standard)': [
 					'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Vivaldi/3.4',

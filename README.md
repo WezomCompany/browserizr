@@ -40,7 +40,6 @@ _This library is not stable yet. We can change some API or behaviors._
         - [isChromeVersion](#ischromeversion)
         - [isChromeIOS](#ischromeios)
         - [isChromeIOSVersion](#ischromeiosversion)
-        - [isChromium](#ischromium)
         - [isEdge](#isedge)
         - [isEdgeVersion](#isedgeversion)
         - [isEdgeAndroid](#isedgeandroid)
@@ -365,18 +364,6 @@ if (browserizr.detect(chromeIOS86vOrHigher)) {
     // code
 }
 // ...
-``` 
-
-#### isChromium
-
-Detect browsers that based on Chromium.
-
-```ts
-import browserizr from '@wezom/browserizr';
-import { isChromium } from '@wezom/browserizr/detect/browsers/chromium';
-if (browserizr.detect(isChromium)) {
-    // code
-}
 ``` 
 
 #### isEdge
