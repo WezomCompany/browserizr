@@ -1,138 +1,228 @@
-import { browsers, testNavigatorList, testNavigatorListVersion } from '../../fixtures';
+import browserizr from '../../../core';
 import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
 import { isIEVersion } from '../../../detect/browsers/ie-version';
+import { uaDB } from '../../_test-helpers/db';
 
-describe('detect Internet Explorer browser version', () => {
-	describe('8', () => {
-		describe(MORE_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isIEVersion(MORE_THEN_OR_EQUAL, 8),
-				versions: { ...browsers.InternetExplorer },
-				validCase: true
+describe('Detect Internet Explorer browser version', () => {
+	describe('Internet Explorer 8', () => {
+		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows_XP.InternetExplorer_v8.Standard,
+				...uaDB.Windows_Vista.InternetExplorer_v8.Standard,
+				...uaDB.Windows_Vista.InternetExplorer_v9.Standard,
+				...uaDB.Windows_7.InternetExplorer_v8.Standard,
+				...uaDB.Windows_7.InternetExplorer_v9.Standard,
+				...uaDB.Windows_7.InternetExplorer_v10.Standard,
+				...uaDB.Windows_7.InternetExplorer_v11.Standard,
+				...uaDB.Windows_8.InternetExplorer_v10.Standard,
+				...uaDB.Windows_8.InternetExplorer_v11.Standard,
+				...uaDB.Windows_8_1.InternetExplorer_v11.Standard,
+				...uaDB.Windows_10.InternetExplorer_v11.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isIEVersion(MORE_THEN_OR_EQUAL, 8))
+					).toBeTruthy();
+				});
 			});
 		});
-		describe(EQUAL, () => {
-			testNavigatorListVersion({
-				detect: isIEVersion(EQUAL, 8),
-				version: browsers.InternetExplorer.v8,
-				name: 'v8',
-				validCase: true
+
+		describe(`Should be ${EQUAL}`, () => {
+			[
+				...uaDB.Windows_XP.InternetExplorer_v8.Standard,
+				...uaDB.Windows_Vista.InternetExplorer_v8.Standard,
+				...uaDB.Windows_7.InternetExplorer_v8.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(browserizr.detect(isIEVersion(EQUAL, 8))).toBeTruthy();
+				});
 			});
 		});
-		describe(LESS_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isIEVersion(LESS_THEN_OR_EQUAL, 8),
-				versions: {
-					...browsers.InternetExplorer,
-					v9: null,
-					v10: null,
-					v11: null
-				},
-				validCase: true
+
+		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows_XP.InternetExplorer_v8.Standard,
+				...uaDB.Windows_Vista.InternetExplorer_v8.Standard,
+				...uaDB.Windows_7.InternetExplorer_v8.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isIEVersion(LESS_THEN_OR_EQUAL, 8))
+					).toBeTruthy();
+				});
 			});
 		});
 	});
 
-	describe('9', () => {
-		describe(MORE_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isIEVersion(MORE_THEN_OR_EQUAL, 9),
-				versions: {
-					...browsers.InternetExplorer,
-					v8: null
-				},
-				validCase: true
+	describe('Internet Explorer 9', () => {
+		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows_Vista.InternetExplorer_v9.Standard,
+				...uaDB.Windows_7.InternetExplorer_v9.Standard,
+				...uaDB.Windows_7.InternetExplorer_v10.Standard,
+				...uaDB.Windows_7.InternetExplorer_v11.Standard,
+				...uaDB.Windows_8.InternetExplorer_v10.Standard,
+				...uaDB.Windows_8.InternetExplorer_v11.Standard,
+				...uaDB.Windows_8_1.InternetExplorer_v11.Standard,
+				...uaDB.Windows_10.InternetExplorer_v11.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isIEVersion(MORE_THEN_OR_EQUAL, 9))
+					).toBeTruthy();
+				});
 			});
 		});
-		describe(EQUAL, () => {
-			testNavigatorListVersion({
-				detect: isIEVersion(EQUAL, 9),
-				version: browsers.InternetExplorer.v9,
-				name: 'v9',
-				validCase: true
+
+		describe(`Should be ${EQUAL}`, () => {
+			[
+				...uaDB.Windows_Vista.InternetExplorer_v9.Standard,
+				...uaDB.Windows_7.InternetExplorer_v9.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(browserizr.detect(isIEVersion(EQUAL, 9))).toBeTruthy();
+				});
 			});
 		});
-		describe(LESS_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isIEVersion(LESS_THEN_OR_EQUAL, 9),
-				versions: {
-					...browsers.InternetExplorer,
-					v10: null,
-					v11: null
-				},
-				validCase: true
+
+		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows_XP.InternetExplorer_v8.Standard,
+				...uaDB.Windows_Vista.InternetExplorer_v8.Standard,
+				...uaDB.Windows_Vista.InternetExplorer_v9.Standard,
+				...uaDB.Windows_7.InternetExplorer_v8.Standard,
+				...uaDB.Windows_7.InternetExplorer_v9.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isIEVersion(LESS_THEN_OR_EQUAL, 9))
+					).toBeTruthy();
+				});
 			});
 		});
 	});
 
-	describe('10', () => {
-		describe(MORE_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isIEVersion(MORE_THEN_OR_EQUAL, 10),
-				versions: {
-					...browsers.InternetExplorer,
-					v8: null,
-					v9: null
-				},
-				validCase: true
+	describe('Internet Explorer 10', () => {
+		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows_7.InternetExplorer_v10.Standard,
+				...uaDB.Windows_7.InternetExplorer_v11.Standard,
+				...uaDB.Windows_8.InternetExplorer_v10.Standard,
+				...uaDB.Windows_8.InternetExplorer_v11.Standard,
+				...uaDB.Windows_8_1.InternetExplorer_v11.Standard,
+				...uaDB.Windows_10.InternetExplorer_v11.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isIEVersion(MORE_THEN_OR_EQUAL, 10))
+					).toBeTruthy();
+				});
 			});
 		});
-		describe(EQUAL, () => {
-			testNavigatorListVersion({
-				detect: isIEVersion(EQUAL, 10),
-				version: browsers.InternetExplorer.v10,
-				name: 'v10',
-				validCase: true
+
+		describe(`Should be ${EQUAL}`, () => {
+			[
+				...uaDB.Windows_7.InternetExplorer_v10.Standard,
+				...uaDB.Windows_8.InternetExplorer_v10.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(browserizr.detect(isIEVersion(EQUAL, 10))).toBeTruthy();
+				});
 			});
 		});
-		describe(LESS_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isIEVersion(LESS_THEN_OR_EQUAL, 10),
-				versions: {
-					...browsers.InternetExplorer,
-					v11: null
-				},
-				validCase: true
+
+		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows_XP.InternetExplorer_v8.Standard,
+				...uaDB.Windows_Vista.InternetExplorer_v8.Standard,
+				...uaDB.Windows_Vista.InternetExplorer_v9.Standard,
+				...uaDB.Windows_7.InternetExplorer_v8.Standard,
+				...uaDB.Windows_7.InternetExplorer_v9.Standard,
+				...uaDB.Windows_7.InternetExplorer_v10.Standard,
+				...uaDB.Windows_8.InternetExplorer_v10.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isIEVersion(LESS_THEN_OR_EQUAL, 10))
+					).toBeTruthy();
+				});
 			});
 		});
 	});
 
-	describe('11', () => {
-		describe(MORE_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isIEVersion(MORE_THEN_OR_EQUAL, 11),
-				versions: {
-					...browsers.InternetExplorer,
-					v8: null,
-					v9: null,
-					v10: null
-				},
-				validCase: true
+	describe('Internet Explorer 11', () => {
+		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows_7.InternetExplorer_v11.Standard,
+				...uaDB.Windows_8.InternetExplorer_v11.Standard,
+				...uaDB.Windows_8_1.InternetExplorer_v11.Standard,
+				...uaDB.Windows_10.InternetExplorer_v11.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isIEVersion(MORE_THEN_OR_EQUAL, 11))
+					).toBeTruthy();
+				});
 			});
 		});
-		describe(EQUAL, () => {
-			testNavigatorListVersion({
-				detect: isIEVersion(EQUAL, 11),
-				version: browsers.InternetExplorer.v11,
-				name: 'v11',
-				validCase: true
+
+		describe(`Should be ${EQUAL}`, () => {
+			[
+				...uaDB.Windows_7.InternetExplorer_v11.Standard,
+				...uaDB.Windows_8.InternetExplorer_v11.Standard,
+				...uaDB.Windows_8_1.InternetExplorer_v11.Standard,
+				...uaDB.Windows_10.InternetExplorer_v11.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(browserizr.detect(isIEVersion(EQUAL, 11))).toBeTruthy();
+				});
 			});
 		});
-		describe(LESS_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isIEVersion(LESS_THEN_OR_EQUAL, 11),
-				versions: { ...browsers.InternetExplorer },
-				validCase: true
+
+		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows_XP.InternetExplorer_v8.Standard,
+				...uaDB.Windows_Vista.InternetExplorer_v8.Standard,
+				...uaDB.Windows_Vista.InternetExplorer_v9.Standard,
+				...uaDB.Windows_7.InternetExplorer_v8.Standard,
+				...uaDB.Windows_7.InternetExplorer_v9.Standard,
+				...uaDB.Windows_7.InternetExplorer_v10.Standard,
+				...uaDB.Windows_7.InternetExplorer_v11.Standard,
+				...uaDB.Windows_8.InternetExplorer_v10.Standard,
+				...uaDB.Windows_8.InternetExplorer_v11.Standard,
+				...uaDB.Windows_8_1.InternetExplorer_v11.Standard,
+				...uaDB.Windows_10.InternetExplorer_v11.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isIEVersion(LESS_THEN_OR_EQUAL, 11))
+					).toBeTruthy();
+				});
 			});
 		});
 	});
 
-	describe('Not isIEVersion', () => {
-		testNavigatorListVersion({
-			detect: isIEVersion(EQUAL, 87),
-			version: browsers.Edge.v40,
-			name: 'v87',
-			validCase: false
+	describe('Should not pass', () => {
+		[
+			...uaDB.Windows_Vista.InternetExplorer_v9.Standard,
+			...uaDB.Windows_7.InternetExplorer_v9.Standard
+		].forEach((ua, i) => {
+			test(`Case #${++i}`, () => {
+				browserizr.setUA(ua);
+				expect(browserizr.detect(isIEVersion(LESS_THEN_OR_EQUAL, 8))).toBeFalsy();
+			});
 		});
 	});
 });
