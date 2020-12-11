@@ -1,26 +1,29 @@
-import { browsers, testNavigatorList } from '../../fixtures';
+import browserizr from '../../../core';
 import { isEdgeAndroid } from '../../../detect/browsers/edge-android';
+import { uaDB } from '../../db';
 
-describe('detect Edge browser on Android', () => {
-	describe('Valid cases', () => {
-		testNavigatorList({
-			detect: isEdgeAndroid,
-			versions: browsers.EdgeAndroid,
-			validCase: true
+describe('Detect Microsoft Edge browser on Android', () => {
+	describe('Should pass', () => {
+		[...uaDB.Android_10.EdgeAndroid_45.Standard].forEach((ua, i) => {
+			test(`Case #${++i}`, () => {
+				browserizr.setUA(ua);
+				expect(browserizr.detect(isEdgeAndroid)).toBeTruthy();
+			});
 		});
 	});
-	describe('Invalid cases: pack #1. Edge', () => {
-		testNavigatorList({
-			detect: isEdgeAndroid,
-			versions: browsers.Edge,
-			validCase: false
-		});
-	});
-	describe('Invalid cases: pack #1. Edge iOS', () => {
-		testNavigatorList({
-			detect: isEdgeAndroid,
-			versions: browsers.EdgeIOS,
-			validCase: false
+
+	describe('Should not pass', () => {
+		[
+			...uaDB.iPhone_iOS_14.EdgeIOS_45.Standard,
+			...uaDB.MacOS_11.Edge_87.Standard,
+			...uaDB.Windows_10.Edge_87.Standard,
+			...uaDB.Windows_Mobile.Edge_40.Standard,
+			...uaDB.Xbox.Edge_44.Standard
+		].forEach((ua, i) => {
+			test(`Case #${++i}`, () => {
+				browserizr.setUA(ua);
+				expect(browserizr.detect(isEdgeAndroid)).toBeFalsy();
+			});
 		});
 	});
 });

@@ -26,20 +26,4 @@ describe('detect iPhone device', () => {
 			validCase: true
 		});
 	});
-	describe('Valid cases: pack #4. Yandex on iOS', () => {
-		testNavigatorListBrowser({
-			detect: isIPhone,
-			name: 'Yandex Browser on iPhone',
-			browser: browsers.YandexOnIOS.v20.iOS['Yandex Browser on iPhone'],
-			validCase: true
-		});
-	});
-	describe('Valid cases: pack #5. Edge iOS', () => {
-		testNavigatorListBrowser({
-			detect: isIPhone,
-			name: 'Edge on iPhone',
-			browser: browsers.EdgeIOS.v45.iOS['Edge on iPhone'],
-			validCase: true
-		});
-	});
 });

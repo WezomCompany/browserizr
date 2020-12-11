@@ -1,26 +1,31 @@
-import { browsers, testNavigatorList } from '../../fixtures';
+import browserizr from '../../../core';
 import { isEdge } from '../../../detect/browsers/edge';
+import { uaDB } from '../../db';
 
-describe('detect Edge browser', () => {
-	describe('Valid cases', () => {
-		testNavigatorList({
-			detect: isEdge,
-			versions: browsers.Edge,
-			validCase: true
+describe('Detect Microsoft Edge browser', () => {
+	describe('Should pass', () => {
+		[
+			...uaDB.MacOS_11.Edge_87.Standard,
+			...uaDB.Windows_10.Edge_87.Standard,
+			...uaDB.Windows_Mobile.Edge_40.Standard,
+			...uaDB.Xbox.Edge_44.Standard
+		].forEach((ua, i) => {
+			test(`Case #${++i}`, () => {
+				browserizr.setUA(ua);
+				expect(browserizr.detect(isEdge)).toBeTruthy();
+			});
 		});
 	});
-	describe('Invalid cases: pack #1. Edge iOS', () => {
-		testNavigatorList({
-			detect: isEdge,
-			versions: browsers.EdgeIOS,
-			validCase: false
-		});
-	});
-	describe('Invalid cases: pack #1. Android', () => {
-		testNavigatorList({
-			detect: isEdge,
-			versions: browsers.EdgeAndroid,
-			validCase: false
+
+	describe('Should not pass', () => {
+		[
+			...uaDB.Android_10.EdgeAndroid_45.Standard,
+			...uaDB.iPhone_iOS_14.EdgeIOS_45.Standard
+		].forEach((ua, i) => {
+			test(`Case #${++i}`, () => {
+				browserizr.setUA(ua);
+				expect(browserizr.detect(isEdge)).toBeFalsy();
+			});
 		});
 	});
 });

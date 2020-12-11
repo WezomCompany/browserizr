@@ -191,52 +191,6 @@ export const browsers = {
 			}
 		}
 	},
-	Edge: {
-		v40: {
-			WindowsMobile: {
-				'Edge (Standard)': [
-					
-				]
-			}
-		},
-		v44: {
-			Xbox: {
-				'Edge (Standard)': [
-					
-				]
-			}
-		},
-		v87: {
-			Windows10: {
-				'Edge (Standard)': [
-					
-				]
-			},
-			macOS: {
-				'Edge (Standard)': [
-					
-				]
-			}
-		}
-	},
-	EdgeAndroid: {
-		v45: {
-			Android: {
-				'Edge (Standard)': [
-					
-				]
-			}
-		}
-	},
-	EdgeIOS: {
-		v45: {
-			iOS: {
-				'Edge on iPhone': [
-					
-				]
-			}
-		}
-	},
 	Firefox: {
 		v83: {
 			Windows: {
@@ -279,71 +233,6 @@ export const browsers = {
 				],
 				'Firefox on iPod': [
 					'Mozilla/5.0 (iPod touch; CPU iPhone OS 11_0_1 like Mac OS X) AppleWebKit/604.5.6 (KHTML, like Gecko) FxiOS/29.0 Mobile/15E148 Safari/605.1.15'
-				]
-			}
-		}
-	},
-	InternetExplorer: {
-		v8: {
-			WindowsXP: {
-				'Internet Explorer': [
-					
-				]
-			},
-			WindowsVista: {
-				'Internet Explorer': [
-					
-				]
-			},
-			Windows7: {
-				'Internet Explorer': [
-					
-				]
-			}
-		},
-		v9: {
-			WindowsVista: {
-				'Internet Explorer': [
-					
-				]
-			},
-			Windows7: {
-				'Internet Explorer': [
-					
-				]
-			}
-		},
-		v10: {
-			Windows7: {
-				'Internet Explorer': [
-					
-				]
-			},
-			Windows8: {
-				'Internet Explorer': [
-					
-				]
-			}
-		},
-		v11: {
-			Windows7: {
-				'Internet Explorer': [
-					
-				]
-			},
-			Windows8: {
-				'Internet Explorer': [
-					
-				]
-			},
-			'Windows8.1': {
-				'Internet Explorer': [
-					
-				]
-			},
-			Windows10: {
-				'Internet Explorer': [
-					
 				]
 			}
 		}
@@ -395,60 +284,6 @@ export const browsers = {
 				],
 				'Safari on iPod': [
 					'Mozilla/5.0 (iPod touch; CPU iPhone 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1'
-				]
-			}
-		}
-	},
-	Vivaldi: {
-		v3_4: {
-			Windows: {
-				'Vivaldi (Standard)': [
-					
-				]
-			},
-			macOS: {
-				'Vivaldi (Standard)': [
-					
-				]
-			},
-			Linux: {
-				'Vivaldi (Standard)': [
-					
-				]
-			}
-		}
-	},
-	Yandex: {
-		v20: {
-			Windows: {
-				'Yandex Browser (Standard)': [
-					'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 YaBrowser/20.11.0 Yowser/2.5 Safari/537.36',
-					'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 YaBrowser/20.11.0 Yowser/2.5 Safari/537.36'
-				]
-			},
-			macOS: {
-				'Yandex Browser (Standard)': [
-					'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 YaBrowser/20.11.0 Yowser/2.5 Safari/537.36'
-				]
-			},
-			Android: {
-				'Yandex Browser (Standard)': [
-					'Mozilla/5.0 (Linux; arm_64; Android 11; SM-G965F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 YaBrowser/20.6.3.54 Mobile Safari/537.36'
-				]
-			}
-		}
-	},
-	YandexOnIOS: {
-		v20: {
-			iOS: {
-				'Yandex Browser on iPhone': [
-					'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 YaBrowser/20.9.3.324 Mobile/15E148 Safari/604.1'
-				],
-				'Yandex Browser on iPad': [
-					'Mozilla/5.0 (iPad; CPU OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 YaBrowser/20.9.3.324 Mobile/15E148 Safari/605.1'
-				],
-				'Yandex Browser on iPod': [
-					'Mozilla/5.0 (iPod touch; CPU iPhone 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 YaBrowser/20.9.3.324 Mobile/15E148 Safari/605.1'
 				]
 			}
 		}

@@ -10,10 +10,36 @@ export const uaDB = {
 			]
 		}
 	},
-	iOS_14: {
+	Android_11: {
+		Yandex_20: {
+			Standard: [
+				'Mozilla/5.0 (Linux; arm_64; Android 11; SM-G965F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 YaBrowser/20.6.3.54 Mobile Safari/537.36'
+			]
+		}
+	},
+	iPad_iOS_14: {
+		Yandex_20: {
+			Standard: [
+				'Mozilla/5.0 (iPad; CPU OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 YaBrowser/20.9.3.324 Mobile/15E148 Safari/605.1'
+			]
+		}
+	},
+	iPhone_iOS_14: {
 		EdgeIOS_45: {
 			Standard: [
 				'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 EdgiOS/45.11.1 Mobile/15E148 Safari/605.1.15'
+			]
+		},
+		Yandex_20: {
+			Standard: [
+				'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 YaBrowser/20.9.3.324 Mobile/15E148 Safari/604.1'
+			]
+		}
+	},
+	iPod_iOS_14: {
+		Yandex_20: {
+			Standard: [
+				'Mozilla/5.0 (iPod touch; CPU iPhone 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 YaBrowser/20.9.3.324 Mobile/15E148 Safari/605.1'
 			]
 		}
 	},
@@ -34,6 +60,11 @@ export const uaDB = {
 		Vivaldi_3_4: {
 			Standard: [
 				'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Vivaldi/3.4'
+			]
+		},
+		Yandex_20: {
+			Standard: [
+				'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 YaBrowser/20.11.0 Yowser/2.5 Safari/537.36'
 			]
 		}
 	},
@@ -104,6 +135,12 @@ export const uaDB = {
 			Standard: [
 				'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Vivaldi/3.5.2115.73'
 			]
+		},
+		Yandex_20: {
+			Standard: [
+				'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 YaBrowser/20.11.0 Yowser/2.5 Safari/537.36',
+				'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 YaBrowser/20.11.0 Yowser/2.5 Safari/537.36'
+			]
 		}
 	},
 	Windows_Mobile: {
@@ -114,6 +151,7 @@ export const uaDB = {
 		}
 	},
 	Xbox: {
+		// https://techcommunity.microsoft.com/t5/discussions/new-microsoft-edge-for-xbox-one/m-p/1405502
 		Edge_44: {
 			Standard: [
 				'Mozilla/5.0 (Windows NT 10.0; Win64; x64; Xbox; Xbox One) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Edge/44.18363.8131'

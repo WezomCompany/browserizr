@@ -26,12 +26,4 @@ describe('detect isIPod device', () => {
 			validCase: true
 		});
 	});
-	describe('Valid cases: pack #4. Yandex on iOS', () => {
-		testNavigatorListBrowser({
-			detect: isIPod,
-			name: 'Yandex Browser on iPod',
-			browser: browsers.YandexOnIOS.v20.iOS['Yandex Browser on iPod'],
-			validCase: true
-		});
-	});
 });

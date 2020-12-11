@@ -1,114 +1,137 @@
+import browserizr from '../../../core';
 import { isEdgeVersion } from '../../../detect/browsers/edge-version';
+import { uaDB } from '../../db';
 import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
-import { browsers, testNavigatorList, testNavigatorListVersion } from '../../fixtures';
 
 describe('Detect Microsoft Edge browser version', () => {
-	describe('40', () => {
-		describe(MORE_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isEdgeVersion(MORE_THEN_OR_EQUAL, 40),
-				versions: { ...browsers.Edge },
-				validCase: true
+	describe('Edge 40', () => {
+		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows_Mobile.Edge_40.Standard,
+				...uaDB.Xbox.Edge_44.Standard,
+				...uaDB.MacOS_11.Edge_87.Standard,
+				...uaDB.Windows_10.Edge_87.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isEdgeVersion(MORE_THEN_OR_EQUAL, 40))
+					).toBeTruthy();
+				});
 			});
 		});
-		describe(EQUAL, () => {
-			testNavigatorListVersion({
-				detect: isEdgeVersion(EQUAL, 40),
-				version: browsers.Edge.v40,
-				name: 'v40',
-				validCase: true
+
+		describe(`Should be ${EQUAL}`, () => {
+			[...uaDB.Windows_Mobile.Edge_40.Standard].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(browserizr.detect(isEdgeVersion(EQUAL, 40))).toBeTruthy();
+				});
 			});
 		});
-		describe(LESS_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isEdgeVersion(LESS_THEN_OR_EQUAL, 40),
-				versions: {
-					...browsers.Edge,
-					v44: null,
-					v87: null
-				},
-				validCase: true
+
+		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
+			[...uaDB.Windows_Mobile.Edge_40.Standard].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isEdgeVersion(LESS_THEN_OR_EQUAL, 40))
+					).toBeTruthy();
+				});
+			});
+		});
+
+		describe(`Should not be ${LESS_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Xbox.Edge_44.Standard,
+				...uaDB.MacOS_11.Edge_87.Standard,
+				...uaDB.Windows_10.Edge_87.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isEdgeVersion(LESS_THEN_OR_EQUAL, 40))
+					).toBeFalsy();
+				});
+			});
+		});
+
+		describe(`Should not be ${EQUAL}`, () => {
+			[
+				...uaDB.Xbox.Edge_44.Standard,
+				...uaDB.MacOS_11.Edge_87.Standard,
+				...uaDB.Windows_10.Edge_87.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(browserizr.detect(isEdgeVersion(EQUAL, 40))).toBeFalsy();
+				});
 			});
 		});
 	});
 
-	describe('44', () => {
-		describe(MORE_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isEdgeVersion(MORE_THEN_OR_EQUAL, 44),
-				versions: {
-					...browsers.Edge,
-					v40: null
-				},
-				validCase: true
+	describe('Edge 44', () => {
+		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Xbox.Edge_44.Standard,
+				...uaDB.MacOS_11.Edge_87.Standard,
+				...uaDB.Windows_10.Edge_87.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isEdgeVersion(MORE_THEN_OR_EQUAL, 44))
+					).toBeTruthy();
+				});
 			});
 		});
-		describe(EQUAL, () => {
-			testNavigatorListVersion({
-				detect: isEdgeVersion(EQUAL, 44),
-				version: browsers.Edge.v44,
-				name: 'v44',
-				validCase: true
+
+		describe(`Should be ${EQUAL}`, () => {
+			[...uaDB.Xbox.Edge_44.Standard].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(browserizr.detect(isEdgeVersion(EQUAL, 44))).toBeTruthy();
+				});
 			});
 		});
-		describe(LESS_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isEdgeVersion(LESS_THEN_OR_EQUAL, 44),
-				versions: {
-					...browsers.Edge,
-					v87: null
-				},
-				validCase: true
+
+		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows_Mobile.Edge_40.Standard,
+				...uaDB.Xbox.Edge_44.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isEdgeVersion(LESS_THEN_OR_EQUAL, 44))
+					).toBeTruthy();
+				});
+			});
+		});
+
+		describe(`Should not be ${MORE_THEN_OR_EQUAL}`, () => {
+			[...uaDB.Windows_Mobile.Edge_40.Standard].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isEdgeVersion(MORE_THEN_OR_EQUAL, 44))
+					).toBeFalsy();
+				});
 			});
 		});
 	});
 
-	describe('87', () => {
-		describe(MORE_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isEdgeVersion(MORE_THEN_OR_EQUAL, 87),
-				versions: {
-					...browsers.Edge,
-					v40: null,
-					v44: null
-				},
-				validCase: true
+	describe(`Should not be Edge`, () => {
+		[
+			...uaDB.Android_10.EdgeAndroid_45.Standard,
+			...uaDB.iPhone_iOS_14.EdgeIOS_45.Standard
+		].forEach((ua, i) => {
+			test(`Case #${++i}: ${ua}`, () => {
+				browserizr.setUA(ua);
+				expect(
+					browserizr.detect(isEdgeVersion(MORE_THEN_OR_EQUAL, 44))
+				).toBeFalsy();
 			});
-		});
-		describe(EQUAL, () => {
-			testNavigatorListVersion({
-				detect: isEdgeVersion(EQUAL, 87),
-				version: browsers.Edge.v87,
-				name: 'v87',
-				validCase: true
-			});
-		});
-		describe(LESS_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isEdgeVersion(LESS_THEN_OR_EQUAL, 87),
-				versions: {
-					...browsers.Edge
-				},
-				validCase: true
-			});
-		});
-	});
-
-	describe('Not isEdgeVersion', () => {
-		testNavigatorListVersion({
-			detect: isEdgeVersion(EQUAL, 87),
-			version: browsers.EdgeAndroid.v45,
-			name: 'v87',
-			validCase: false
-		});
-	});
-
-	describe('Not isEdgeVersion', () => {
-		testNavigatorListVersion({
-			detect: isEdgeVersion(EQUAL, 87),
-			version: browsers.EdgeIOS.v45,
-			name: 'v87',
-			validCase: false
 		});
 	});
 });

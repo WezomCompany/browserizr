@@ -216,6 +216,7 @@ describe('Detect Internet Explorer browser version', () => {
 
 	describe('Should not pass', () => {
 		[
+			...uaDB.Windows_Mobile.Edge_40.Standard,
 			...uaDB.Windows_Vista.InternetExplorer_v9.Standard,
 			...uaDB.Windows_7.InternetExplorer_v9.Standard
 		].forEach((ua, i) => {

@@ -26,12 +26,4 @@ describe('detect iPad device', () => {
 			validCase: true
 		});
 	});
-	describe('Valid cases: pack #4. Yandex on iOS', () => {
-		testNavigatorListBrowser({
-			detect: isIPad,
-			name: 'Yandex Browser on iPad',
-			browser: browsers.YandexOnIOS.v20.iOS['Yandex Browser on iPad'],
-			validCase: true
-		});
-	});
 });

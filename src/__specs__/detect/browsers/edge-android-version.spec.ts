@@ -1,39 +1,55 @@
+import browserizr from '../../../core';
 import { isEdgeAndroidVersion } from '../../../detect/browsers/edge-android-version';
+import { uaDB } from '../../db';
 import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
-import { browsers, testNavigatorList, testNavigatorListVersion } from '../../fixtures';
 
 describe('Detect Microsoft Edge browser version on Android', () => {
-	describe('45', () => {
-		describe(MORE_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isEdgeAndroidVersion(MORE_THEN_OR_EQUAL, 45),
-				versions: { ...browsers.EdgeAndroid },
-				validCase: true
+	describe('Edge Android 45', () => {
+		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
+			[...uaDB.Android_10.EdgeAndroid_45.Standard].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isEdgeAndroidVersion(MORE_THEN_OR_EQUAL, 45))
+					).toBeTruthy();
+				});
 			});
 		});
-		describe(EQUAL, () => {
-			testNavigatorListVersion({
-				detect: isEdgeAndroidVersion(EQUAL, 45),
-				version: browsers.EdgeAndroid.v45,
-				name: 'v45',
-				validCase: true
-			});
-		});
-		describe(LESS_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isEdgeAndroidVersion(LESS_THEN_OR_EQUAL, 45),
-				versions: { ...browsers.EdgeAndroid },
-				validCase: true
-			});
-		});
-	});
 
-	describe('Not isEdgeAndroidVersion', () => {
-		testNavigatorListVersion({
-			detect: isEdgeAndroidVersion(EQUAL, 87),
-			version: browsers.Edge.v87,
-			name: 'v87',
-			validCase: false
+		describe(`Should be ${EQUAL}`, () => {
+			[...uaDB.Android_10.EdgeAndroid_45.Standard].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isEdgeAndroidVersion(EQUAL, 45))
+					).toBeTruthy();
+				});
+			});
+		});
+
+		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
+			[...uaDB.Android_10.EdgeAndroid_45.Standard].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isEdgeAndroidVersion(LESS_THEN_OR_EQUAL, 45))
+					).toBeTruthy();
+				});
+			});
+		});
+
+		describe(`Should not be ${MORE_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Android_10.EdgeAndroid_45.Standard,
+				...uaDB.iPhone_iOS_14.EdgeIOS_45.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isEdgeAndroidVersion(MORE_THEN_OR_EQUAL, 50))
+					).toBeFalsy();
+				});
+			});
 		});
 	});
 });
