@@ -195,26 +195,26 @@ export const browsers = {
 		v40: {
 			WindowsMobile: {
 				'Edge (Standard)': [
-					'Mozilla/5.0 (Windows Mobile 10; Android 10.0; Microsoft; Lumia 950XL) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Mobile Safari/537.36 Edge/40.15254.603'
+					
 				]
 			}
 		},
 		v44: {
 			Xbox: {
 				'Edge (Standard)': [
-					'Mozilla/5.0 (Windows NT 10.0; Win64; x64; Xbox; Xbox One) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Edge/44.18363.8131'
+					
 				]
 			}
 		},
 		v87: {
 			Windows10: {
 				'Edge (Standard)': [
-					'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Edg/87.0.664.47'
+					
 				]
 			},
 			macOS: {
 				'Edge (Standard)': [
-					'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Edg/87.0.664.47'
+					
 				]
 			}
 		}
@@ -223,10 +223,7 @@ export const browsers = {
 		v45: {
 			Android: {
 				'Edge (Standard)': [
-					'Mozilla/5.0 (Linux; Android 10; HD1913) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Mobile Safari/537.36 EdgA/45.10.4.5088',
-					'Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Mobile Safari/537.36 EdgA/45.10.4.5088',
-					'Mozilla/5.0 (Linux; Android 10; Pixel 3 XL) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Mobile Safari/537.36 EdgA/45.10.4.5088',
-					'Mozilla/5.0 (Linux; Android 10; ONEPLUS A6003) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Mobile Safari/537.36 EdgA/45.10.4.5088'
+					
 				]
 			}
 		}
@@ -235,7 +232,7 @@ export const browsers = {
 		v45: {
 			iOS: {
 				'Edge on iPhone': [
-					'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 EdgiOS/45.11.1 Mobile/15E148 Safari/605.1.15'
+					
 				]
 			}
 		}
@@ -290,63 +287,63 @@ export const browsers = {
 		v8: {
 			WindowsXP: {
 				'Internet Explorer': [
-					'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)'
+					
 				]
 			},
 			WindowsVista: {
 				'Internet Explorer': [
-					'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; WOW64; Trident/4.0;)'
+					
 				]
 			},
 			Windows7: {
 				'Internet Explorer': [
-					'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)'
+					
 				]
 			}
 		},
 		v9: {
 			WindowsVista: {
 				'Internet Explorer': [
-					'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.0)'
+					
 				]
 			},
 			Windows7: {
 				'Internet Explorer': [
-					'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)'
+					
 				]
 			}
 		},
 		v10: {
 			Windows7: {
 				'Internet Explorer': [
-					'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)'
+					
 				]
 			},
 			Windows8: {
 				'Internet Explorer': [
-					'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2)'
+					
 				]
 			}
 		},
 		v11: {
 			Windows7: {
 				'Internet Explorer': [
-					'Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko'
+					
 				]
 			},
 			Windows8: {
 				'Internet Explorer': [
-					'Mozilla/5.0 (Windows NT 6.2; Trident/7.0; rv:11.0) like Gecko'
+					
 				]
 			},
 			'Windows8.1': {
 				'Internet Explorer': [
-					'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko'
+					
 				]
 			},
 			Windows10: {
 				'Internet Explorer': [
-					'Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11.0) like Gecko'
+					
 				]
 			}
 		}
@@ -406,19 +403,17 @@ export const browsers = {
 		v3_4: {
 			Windows: {
 				'Vivaldi (Standard)': [
-					'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Vivaldi/3.4',
-					'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Vivaldi/3.4'
+					
 				]
 			},
 			macOS: {
 				'Vivaldi (Standard)': [
-					'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Vivaldi/3.4'
+					
 				]
 			},
 			Linux: {
 				'Vivaldi (Standard)': [
-					'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Vivaldi/3.4',
-					'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Vivaldi/3.4'
+					
 				]
 			}
 		}

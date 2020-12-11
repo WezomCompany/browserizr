@@ -1,19 +1,19 @@
-import { browsers, testNavigatorList } from '../../fixtures';
+import browserizr from '../../../core';
 import { isVivaldi } from '../../../detect/browsers/vivaldi';
+import { uaDB } from '../../db';
 
-describe('detect Vivaldi browser', () => {
-	describe('Valid cases', () => {
-		testNavigatorList({
-			detect: isVivaldi,
-			versions: browsers.Vivaldi,
-			validCase: true
-		});
-	});
-	describe('Invalid cases', () => {
-		testNavigatorList({
-			detect: isVivaldi,
-			versions: browsers.Chrome,
-			validCase: false
+describe('Detect Vivaldi browser', () => {
+	describe('Should pass', () => {
+		[
+			...uaDB.Linux.Vivaldi_3_4.Standard,
+			...uaDB.MacOS_11.Vivaldi_3_4.Standard,
+			...uaDB.Windows_10.Vivaldi_3_4.Standard,
+			...uaDB.Windows_10.Vivaldi_3_5.Standard
+		].forEach((ua, i) => {
+			test(`Case #${++i}`, () => {
+				browserizr.setUA(ua);
+				expect(browserizr.detect(isVivaldi)).toBeTruthy();
+			});
 		});
 	});
 });

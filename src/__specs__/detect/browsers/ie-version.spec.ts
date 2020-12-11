@@ -1,7 +1,7 @@
 import browserizr from '../../../core';
 import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
 import { isIEVersion } from '../../../detect/browsers/ie-version';
-import { uaDB } from '../../_test-helpers/db';
+import { uaDB } from '../../db';
 
 describe('Detect Internet Explorer browser version', () => {
 	describe('Internet Explorer 8', () => {

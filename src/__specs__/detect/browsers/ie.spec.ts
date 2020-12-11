@@ -1,6 +1,6 @@
 import browserizr from '../../../core';
 import { isIE } from '../../../detect/browsers/ie';
-import { uaDB } from '../../_test-helpers/db';
+import { uaDB } from '../../db';
 
 describe('Detect Internet Explorer browser', () => {
 	describe('Should pass', () => {

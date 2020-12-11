@@ -17,10 +17,23 @@ export const uaDB = {
 			]
 		}
 	},
+	Linux: {
+		Vivaldi_3_4: {
+			Standard: [
+				'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Vivaldi/3.4',
+				'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Vivaldi/3.4'
+			]
+		}
+	},
 	MacOS_11: {
 		Edge_87: {
 			Standard: [
 				'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Edg/87.0.664.47'
+			]
+		},
+		Vivaldi_3_4: {
+			Standard: [
+				'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Vivaldi/3.4'
 			]
 		}
 	},
@@ -78,6 +91,18 @@ export const uaDB = {
 			Standard: [
 				'Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11.0) like Gecko',
 				'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; Zoom 3.6.0; rv:11.0) like Gecko'
+			]
+		},
+		Vivaldi_3_4: {
+			Standard: [
+				'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36 Vivaldi/3.4.2066.106',
+				'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Vivaldi/3.4',
+				'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Vivaldi/3.4'
+			]
+		},
+		Vivaldi_3_5: {
+			Standard: [
+				'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Vivaldi/3.5.2115.73'
 			]
 		}
 	},
