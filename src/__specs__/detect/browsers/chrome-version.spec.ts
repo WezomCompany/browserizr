@@ -3,7 +3,7 @@ import { isChromeVersion } from '../../../detect/browsers/chrome-version';
 import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
 import { uaDB } from '../../db';
 
-describe('detect Google Chrome browser version', () => {
+describe('Detect Google Chrome browser version', () => {
 	describe('Google Chrome 85', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[

@@ -1,7 +1,7 @@
 import { browsers, testNavigatorListBrowser } from '../../fixtures';
 import { isIPhone } from '../../../detect/devices/iphone';
 
-describe('detect iPhone device', () => {
+describe('Detect iPhone device', () => {
 	describe('Valid cases #1. Chrome iOS', () => {
 		testNavigatorListBrowser({
 			detect: isIPhone,

@@ -1,39 +1,75 @@
+import browserizr from '../../../core';
 import { isFirefoxVersion } from '../../../detect/browsers/firefox-version';
 import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
-import { browsers, testNavigatorList, testNavigatorListVersion } from '../../fixtures';
+import { uaDB } from '../../db';
 
-describe('detect Mozilla Firefox browser version', () => {
-	describe('83', () => {
-		describe(MORE_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isFirefoxVersion(MORE_THEN_OR_EQUAL, 83),
-				versions: { ...browsers.Firefox },
-				validCase: true
+describe('Detect Mozilla Firefox browser version', () => {
+	describe('Mozilla Firefox 83', () => {
+		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Android_11.Firefox_83.Standard,
+				...uaDB.Android_11.Firefox_83['Firefox on Lg'],
+				...uaDB.Linux.Firefox_83.Standard,
+				...uaDB.MacOS_11.Firefox_83.Standard,
+				...uaDB.Windows_10.Firefox_83.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isFirefoxVersion(MORE_THEN_OR_EQUAL, 83))
+					).toBeTruthy();
+				});
 			});
 		});
-		describe(EQUAL, () => {
-			testNavigatorListVersion({
-				detect: isFirefoxVersion(EQUAL, 83),
-				version: browsers.Firefox.v83,
-				name: 'v83',
-				validCase: true
+		describe(`Should be ${EQUAL}`, () => {
+			[
+				...uaDB.Android_11.Firefox_83.Standard,
+				...uaDB.Android_11.Firefox_83['Firefox on Lg'],
+				...uaDB.Linux.Firefox_83.Standard,
+				...uaDB.MacOS_11.Firefox_83.Standard,
+				...uaDB.Windows_10.Firefox_83.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(browserizr.detect(isFirefoxVersion(EQUAL, 83))).toBeTruthy();
+				});
 			});
 		});
-		describe(LESS_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isFirefoxVersion(LESS_THEN_OR_EQUAL, 83),
-				versions: { ...browsers.Firefox },
-				validCase: true
+		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Android_11.Firefox_83.Standard,
+				...uaDB.Android_11.Firefox_83['Firefox on Lg'],
+				...uaDB.Linux.Firefox_83.Standard,
+				...uaDB.MacOS_11.Firefox_83.Standard,
+				...uaDB.Windows_10.Firefox_83.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isFirefoxVersion(LESS_THEN_OR_EQUAL, 83))
+					).toBeTruthy();
+				});
 			});
 		});
-	});
 
-	describe('Not isFirefoxVersion', () => {
-		testNavigatorListVersion({
-			detect: isFirefoxVersion(EQUAL, 87),
-			version: browsers.FirefoxIOS.v29,
-			name: 'v87',
-			validCase: false
+		describe(`Should not be ${MORE_THEN_OR_EQUAL}`, () => {
+			[...uaDB.Linux.Firefox_83.Standard].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isFirefoxVersion(MORE_THEN_OR_EQUAL, 87))
+					).toBeFalsy();
+				});
+			});
+		});
+
+		describe(`Should not pass`, () => {
+			[...uaDB.Windows_10.Yandex_20.Standard].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(browserizr.detect(isFirefoxVersion(EQUAL, 87))).toBeFalsy();
+				});
+			});
 		});
 	});
 });

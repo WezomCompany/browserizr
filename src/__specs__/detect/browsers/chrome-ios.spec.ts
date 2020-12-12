@@ -2,7 +2,7 @@ import browserizr from '../../../core';
 import { isChromeIOS } from '../../../detect/browsers/chrome-ios';
 import { uaDB } from '../../db';
 
-describe('detect Google Chrome browser on iOS', () => {
+describe('Detect Google Chrome browser on iOS', () => {
 	describe('Should pass', () => {
 		[
 			...uaDB.iPad_iOS_14.ChromeIOS_87.Standard,

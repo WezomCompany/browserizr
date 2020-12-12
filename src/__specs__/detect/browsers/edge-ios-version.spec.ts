@@ -1,7 +1,7 @@
 import browserizr from '../../../core';
 import { isEdgeIOSVersion } from '../../../detect/browsers/edge-ios-version';
-import { uaDB } from '../../db';
 import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
+import { uaDB } from '../../db';
 
 describe('Detect Microsoft Edge browser version on iOS', () => {
 	describe('Edge iOS 45', () => {

@@ -1,7 +1,7 @@
 import { browsers, testNavigatorList } from '../../fixtures';
 import { isSafari } from '../../../detect/browsers/safari';
 
-describe('detect Apple Safari browser', () => {
+describe('Detect Apple Safari browser', () => {
 	describe('Valid cases', () => {
 		testNavigatorList({
 			detect: isSafari,

@@ -1,7 +1,7 @@
 import { browsers, testNavigatorList } from '../../fixtures';
 import { isMobile } from '../../../detect/devices/mobile';
 
-describe('detect mobile device', () => {
+describe('Detect mobile device', () => {
 	describe('Valid cases. Chrome', () => {
 		testNavigatorList({
 			detect: isMobile,

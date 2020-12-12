@@ -1,19 +1,33 @@
-import { browsers, testNavigatorList } from '../../fixtures';
+import browserizr from '../../../core';
 import { isFirefox } from '../../../detect/browsers/firefox';
+import { uaDB } from '../../db';
 
-describe('detect Mozilla Firefox browser', () => {
-	describe('Valid cases', () => {
-		testNavigatorList({
-			detect: isFirefox,
-			versions: browsers.Firefox,
-			validCase: true
+describe('Detect Mozilla Firefox browser', () => {
+	describe('Should pass', () => {
+		[
+			...uaDB.Android_11.Firefox_83.Standard,
+			...uaDB.Android_11.Firefox_83['Firefox on Lg'],
+			...uaDB.Linux.Firefox_83.Standard,
+			...uaDB.MacOS_11.Firefox_83.Standard,
+			...uaDB.Windows_10.Firefox_83.Standard
+		].forEach((ua, i) => {
+			test(`Case #${++i}: ${ua}`, () => {
+				browserizr.setUA(ua);
+				expect(browserizr.detect(isFirefox)).toBeTruthy();
+			});
 		});
 	});
-	describe('Invalid cases', () => {
-		testNavigatorList({
-			detect: isFirefox,
-			versions: browsers.FirefoxIOS,
-			validCase: false
+
+	describe('Should not pass', () => {
+		[
+			...uaDB.iPad_iOS_11.FirefoxIOS_29.Standard,
+			...uaDB.iPhone_iOS_11.FirefoxIOS_29.Standard,
+			...uaDB.iPod_iOS_11.FirefoxIOS_29.Standard
+		].forEach((ua, i) => {
+			test(`Case #${++i}: ${ua}`, () => {
+				browserizr.setUA(ua);
+				expect(browserizr.detect(isFirefox)).toBeFalsy();
+			});
 		});
 	});
 });

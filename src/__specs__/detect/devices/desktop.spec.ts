@@ -1,7 +1,7 @@
 import { browsers, testNavigatorList } from '../../fixtures';
 import { isDesktop } from '../../../detect/devices/desktop';
 
-describe('detect desktop device', () => {
+describe('Detect desktop device', () => {
 	describe('Invalid cases. Chrome', () => {
 		testNavigatorList({
 			detect: isDesktop,
