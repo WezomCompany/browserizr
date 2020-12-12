@@ -13,7 +13,7 @@ _This library is not stable yet. We can change some API or behaviors._
 
 | Statements                | Branches                | Functions                | Lines                |
 | ------------------------- | ----------------------- | ------------------------ | -------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-97.62%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
+| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-97.92%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
 
 ## Table of Content:
 
@@ -516,6 +516,36 @@ const ffx83 = isFirefoxVersion(EQUAL, 83);
 const ffx83orHigher = isFirefoxVersion(MORE_THEN_OR_EQUAL, 83);
 const ffx83orLater = isFirefoxVersion(LESS_THEN_OR_EQUAL, 83);
 if (browserizr.detect(ffx83)) {
+    // code
+}
+// ...
+``` 
+
+#### isFirefoxAndroid
+
+Detect Mozilla Firefox browser.
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isFirefoxAndroid } from '@wezom/browserizr/detect/browsers/firefox-android';
+if (browserizr.detect(isFirefoxAndroid)) {
+    // code
+}
+```
+
+#### isFirefoxAndroidVersion
+
+Detect Mozilla Firefox browser and wanted version
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
+import { isFirefoxAndroidVersion } from '@wezom/browserizr/detect/browsers/firefox-android-version';
+
+const ffxAndroid83 = isFirefoxAndroidVersion(EQUAL, 83);
+const ffxAndroid83orHigher = isFirefoxAndroidVersion(MORE_THEN_OR_EQUAL, 83);
+const ffxAndroid83orLater = isFirefoxAndroidVersion(LESS_THEN_OR_EQUAL, 83);
+if (browserizr.detect(ffx83Android)) {
     // code
 }
 // ...
