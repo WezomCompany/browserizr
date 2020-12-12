@@ -5,10 +5,6 @@ import { isChrome } from '../../../detect/browsers/chrome';
 describe('Detect Google Chrome browser', () => {
 	describe('Should pass', () => {
 		[
-			...uaDB.Android_10.ChromeAndroid_85.Standard,
-			...uaDB.Android_10.ChromeAndroid_87.Standard,
-			...uaDB.Android_10.ChromeAndroid_87['Chrome on Lg'],
-			...uaDB.Android_10.ChromeAndroid_87['Chrome on Samsung'],
 			...uaDB.Linux.Chrome_87.Standard,
 			...uaDB.MacOS_11.Chrome_87.Standard,
 			...uaDB.Windows_10.Chrome_87.Standard
@@ -22,6 +18,11 @@ describe('Detect Google Chrome browser', () => {
 
 	describe('Should not pass', () => {
 		[
+			...uaDB.Android_10.ChromeAndroid_85.Standard,
+			...uaDB.Android_10.ChromeAndroid_87.Standard,
+			...uaDB.Android_10.ChromeAndroid_87['Chrome on Lg'],
+			...uaDB.Android_10.ChromeAndroid_87['Chrome on Samsung'],
+			...uaDB.Android_11.Yandex_20.Standard,
 			...uaDB.iPad_iOS_14.ChromeIOS_87.Standard,
 			...uaDB.iPhone_iOS_14.ChromeIOS_87.Standard,
 			...uaDB.iPod_iOS_14.ChromeIOS_87.Standard

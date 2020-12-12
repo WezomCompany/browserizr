@@ -1,5 +1,5 @@
 import browserizr from '../../../core';
-import { isAndroidOSVersion } from '../../../detect/os/android-version';
+import { isAndroidVersion } from '../../../detect/os/android-version';
 import { uaDB } from '../../db';
 import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
 
@@ -21,7 +21,7 @@ describe('Detect Android OS Version', () => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
-						browserizr.detect(isAndroidOSVersion(MORE_THEN_OR_EQUAL, 10))
+						browserizr.detect(isAndroidVersion(MORE_THEN_OR_EQUAL, 10))
 					).toBeTruthy();
 				});
 			});
@@ -39,7 +39,7 @@ describe('Detect Android OS Version', () => {
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
-					expect(browserizr.detect(isAndroidOSVersion(EQUAL, 10))).toBeTruthy();
+					expect(browserizr.detect(isAndroidVersion(EQUAL, 10))).toBeTruthy();
 				});
 			});
 		});
@@ -57,7 +57,7 @@ describe('Detect Android OS Version', () => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
-						browserizr.detect(isAndroidOSVersion(LESS_THEN_OR_EQUAL, 10))
+						browserizr.detect(isAndroidVersion(LESS_THEN_OR_EQUAL, 10))
 					).toBeTruthy();
 				});
 			});
@@ -72,7 +72,7 @@ describe('Detect Android OS Version', () => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
-						browserizr.detect(isAndroidOSVersion(LESS_THEN_OR_EQUAL, 10))
+						browserizr.detect(isAndroidVersion(LESS_THEN_OR_EQUAL, 10))
 					).toBeFalsy();
 				});
 			});
@@ -87,7 +87,7 @@ describe('Detect Android OS Version', () => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
-						browserizr.detect(isAndroidOSVersion(LESS_THEN_OR_EQUAL, 10))
+						browserizr.detect(isAndroidVersion(LESS_THEN_OR_EQUAL, 10))
 					).toBeFalsy();
 				});
 			});
@@ -104,7 +104,7 @@ describe('Detect Android OS Version', () => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
-						browserizr.detect(isAndroidOSVersion(MORE_THEN_OR_EQUAL, 11))
+						browserizr.detect(isAndroidVersion(MORE_THEN_OR_EQUAL, 11))
 					).toBeTruthy();
 				});
 			});
@@ -118,7 +118,7 @@ describe('Detect Android OS Version', () => {
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
-					expect(browserizr.detect(isAndroidOSVersion(EQUAL, 11))).toBeTruthy();
+					expect(browserizr.detect(isAndroidVersion(EQUAL, 11))).toBeTruthy();
 				});
 			});
 		});
@@ -139,7 +139,7 @@ describe('Detect Android OS Version', () => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
-						browserizr.detect(isAndroidOSVersion(LESS_THEN_OR_EQUAL, 11))
+						browserizr.detect(isAndroidVersion(LESS_THEN_OR_EQUAL, 11))
 					).toBeTruthy();
 				});
 			});

@@ -1,13 +1,13 @@
 import { DetectVersionMethod, DetectMethod } from '../../core';
-import { isAndroidOS } from './android';
+import { isAndroid } from './android';
 import { matchVersion } from '../../utils';
 
 /** Detect the Android OS Version */
-export const isAndroidOSVersion: DetectVersionMethod = (
+export const isAndroidVersion: DetectVersionMethod = (
 	operator,
 	version
 ): DetectMethod => (ua) => {
-	if (isAndroidOS(ua)) {
+	if (isAndroid(ua)) {
 		return matchVersion({
 			ua,
 			version,

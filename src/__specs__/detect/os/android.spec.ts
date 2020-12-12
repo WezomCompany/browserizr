@@ -1,5 +1,5 @@
 import browserizr from '../../../core';
-import { isAndroidOS } from '../../../detect/os/android';
+import { isAndroid } from '../../../detect/os/android';
 import { uaDB } from '../../db';
 
 describe('Detect Android OS', () => {
@@ -18,7 +18,7 @@ describe('Detect Android OS', () => {
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
-				expect(browserizr.detect(isAndroidOS)).toBeTruthy();
+				expect(browserizr.detect(isAndroid)).toBeTruthy();
 			});
 		});
 	});

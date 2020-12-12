@@ -13,7 +13,7 @@ _This library is not stable yet. We can change some API or behaviors._
 
 | Statements                | Branches                | Functions                | Lines                |
 | ------------------------- | ----------------------- | ------------------------ | -------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-97.22%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
+| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-97.62%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
 
 ## Table of Content:
 
@@ -38,6 +38,8 @@ _This library is not stable yet. We can change some API or behaviors._
     1. [Browsers](#browsers)
         - [isChrome](#ischrome)
         - [isChromeVersion](#ischromeversion)
+        - [isChromeAndroid](#ischromeandroid)
+        - [isChromeAndroidVersion](#ischromeandroidversion)
         - [isChromeIOS](#ischromeios)
         - [isChromeIOSVersion](#ischromeiosversion)
         - [isEdge](#isedge)
@@ -61,6 +63,9 @@ _This library is not stable yet. We can change some API or behaviors._
         - [isIPad](#isipad)
         - [isIPod](#isipod)
         - [isIPhone](#isiphone)
+    1. [OS](#os)
+        - [isAndroid](#isandroid)
+        - [isAndroidVersion](#isandroidversion)
 1. [Custom detects](#custom-detects)
     1. [Simple example](#simple-example)
 1. [Contributing](#contributing)
@@ -150,8 +155,8 @@ if (browserizr.detect(isIE)) {
 }
 
 // Detect Google Chrome 87+
-const isChrome87vOrHigher = isChromeVersion(87, MORE_THEN_OR_EQUAL);
-if (browserizr.detect(isChrome87vOrHigher)) {
+const isChrome87orHigher = isChromeVersion(87, MORE_THEN_OR_EQUAL);
+if (browserizr.detect(isChrome87orHigher)) {
     // your code ...
 }
 ```
@@ -327,10 +332,40 @@ import browserizr from '@wezom/browserizr';
 import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
 import { isChromeVersion } from '@wezom/browserizr/detect/browsers/chrome-version';
 
-const chrome86v = isChromeVersion(EQUAL, 86);
-const chrome86vOrHigher = isChromeVersion(MORE_THEN_OR_EQUAL, 86);
-const chrome86vOrLater = isChromeVersion(LESS_THEN_OR_EQUAL, 86);
-if (browserizr.detect(chrome86vOrHigher)) {
+const chrome86 = isChromeVersion(EQUAL, 86);
+const chrome86orHigher = isChromeVersion(MORE_THEN_OR_EQUAL, 86);
+const chrome86orLater = isChromeVersion(LESS_THEN_OR_EQUAL, 86);
+if (browserizr.detect(chrome86orHigher)) {
+    // code
+}
+// ...
+``` 
+
+#### isChromeAndroid
+
+Detect Google Chrome browser on Android OS.
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isChromeAndroid } from '@wezom/browserizr/detect/browsers/chrome';
+if (browserizr.detect(isChromeAndroid)) {
+    // code
+}
+``` 
+
+#### isChromeAndroidVersion
+
+Detect Google Chrome browser and wanted version on Android OS
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
+import { isChromeAndroidVersion } from '@wezom/browserizr/detect/browsers/chrome-ios-version';
+
+const chromeAndroid86 = isChromeAndroidVersion(EQUAL, 86);
+const chromeAndroid86orHigher = isChromeAndroidVersion(MORE_THEN_OR_EQUAL, 86);
+const chromeAndroid86orLater = isChromeAndroidVersion(LESS_THEN_OR_EQUAL, 86);
+if (browserizr.detect(chromeAndroid86orHigher)) {
     // code
 }
 // ...
@@ -357,10 +392,10 @@ import browserizr from '@wezom/browserizr';
 import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
 import { isChromeIOSVersion } from '@wezom/browserizr/detect/browsers/chrome-ios-version';
 
-const chromeIOS86v = isChromeIOSVersion(EQUAL, 86);
-const chromeIOS86vOrHigher = isChromeIOSVersion(MORE_THEN_OR_EQUAL, 86);
-const chromeIOS86vOrLater = isChromeIOSVersion(LESS_THEN_OR_EQUAL, 86);
-if (browserizr.detect(chromeIOS86vOrHigher)) {
+const chromeIOS86 = isChromeIOSVersion(EQUAL, 86);
+const chromeIOS86orHigher = isChromeIOSVersion(MORE_THEN_OR_EQUAL, 86);
+const chromeIOS86orLater = isChromeIOSVersion(LESS_THEN_OR_EQUAL, 86);
+if (browserizr.detect(chromeIOS86orHigher)) {
     // code
 }
 // ...
@@ -387,10 +422,10 @@ import browserizr from '@wezom/browserizr';
 import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
 import { isEdgeVersion } from '@wezom/browserizr/detect/browsers/edge-version';
 
-const edge86v = isEdgeVersion(EQUAL, 86);
-const edge86vOrHigher = isEdgeVersion(MORE_THEN_OR_EQUAL, 86);
-const edge86vOrLater = isEdgeVersion(LESS_THEN_OR_EQUAL, 86);
-if (browserizr.detect(edge86vOrHigher)) {
+const edge86 = isEdgeVersion(EQUAL, 86);
+const edge86orHigher = isEdgeVersion(MORE_THEN_OR_EQUAL, 86);
+const edge86orLater = isEdgeVersion(LESS_THEN_OR_EQUAL, 86);
+if (browserizr.detect(edge86orHigher)) {
     // code
 }
 // ...
@@ -417,10 +452,10 @@ import browserizr from '@wezom/browserizr';
 import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
 import { isEdgeAndroidVersion } from '@wezom/browserizr/detect/browsers/edge-android-version';
 
-const edgeAndroid45v = isEdgeAndroidVersion(EQUAL, 45);
-const edgeAndroid45vOrHigher = isEdgeAndroidVersion(MORE_THEN_OR_EQUAL, 45);
-const edgeAndroid45vOrLater = isEdgeAndroidVersion(LESS_THEN_OR_EQUAL, 45);
-if (browserizr.detect(edgeAndroid45vOrHigher)) {
+const edgeAndroid45 = isEdgeAndroidVersion(EQUAL, 45);
+const edgeAndroid45orHigher = isEdgeAndroidVersion(MORE_THEN_OR_EQUAL, 45);
+const edgeAndroid45orLater = isEdgeAndroidVersion(LESS_THEN_OR_EQUAL, 45);
+if (browserizr.detect(edgeAndroid45orHigher)) {
     // code
 }
 // ...
@@ -447,10 +482,10 @@ import browserizr from '@wezom/browserizr';
 import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
 import { isEdgeIOSVersion } from '@wezom/browserizr/detect/browsers/edge-ios-version';
 
-const edgeIOS45v = isEdgeIOSVersion(EQUAL, 45);
-const edgeIOS45vOrHigher = isEdgeIOSVersion(MORE_THEN_OR_EQUAL, 45);
-const edgeIOS45vOrLater = isEdgeIOSVersion(LESS_THEN_OR_EQUAL, 45);
-if (browserizr.detect(edgeIOS45vOrHigher)) {
+const edgeIOS45 = isEdgeIOSVersion(EQUAL, 45);
+const edgeIOS45orHigher = isEdgeIOSVersion(MORE_THEN_OR_EQUAL, 45);
+const edgeIOS45orLater = isEdgeIOSVersion(LESS_THEN_OR_EQUAL, 45);
+if (browserizr.detect(edgeIOS45orHigher)) {
     // code
 }
 // ...
@@ -477,10 +512,10 @@ import browserizr from '@wezom/browserizr';
 import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
 import { isFirefoxVersion } from '@wezom/browserizr/detect/browsers/firefox-version';
 
-const ffx83v = isFirefoxVersion(EQUAL, 83);
-const ffx83vOrHigher = isFirefoxVersion(MORE_THEN_OR_EQUAL, 83);
-const ffx83vOrLater = isFirefoxVersion(LESS_THEN_OR_EQUAL, 83);
-if (browserizr.detect(ffx83v)) {
+const ffx83 = isFirefoxVersion(EQUAL, 83);
+const ffx83orHigher = isFirefoxVersion(MORE_THEN_OR_EQUAL, 83);
+const ffx83orLater = isFirefoxVersion(LESS_THEN_OR_EQUAL, 83);
+if (browserizr.detect(ffx83)) {
     // code
 }
 // ...
@@ -655,27 +690,27 @@ if (browserizr.detect(isiPhone)) {
 
 ### OS
 
-#### isAndroidOS
+#### isAndroid
 
 Detect Android OS
 
 ```ts
 import browserizr from '@wezom/browserizr';
-import { isAndroidOS } from '@wezom/browserizr/detect/os/android';
-if (browserizr.detect(isAndroidOS)) {
+import { isAndroid } from '@wezom/browserizr/detect/os/android';
+if (browserizr.detect(isAndroid)) {
     // code
 }
 ```
 
-#### isAndroidOSVersion
+#### isAndroidVersion
 
 ```ts
 import browserizr from '@wezom/browserizr';
 import { EQUAL, MORE_THAN_OR_EQUAL } from '@wezom/browserizr/utils';
-import { isAndroidOSVersion } from '@wezom/browserizr/detect/os/android-version';
+import { isAndroidVersion } from '@wezom/browserizr/detect/os/android-version';
 
-const android11 = isAndroidOSVersion(EQUAL, 11);
-const android9orHigher = isAndroidOSVersion(MORE_THAN_OR_EQUAL, 9);
+const android11 = isAndroidVersion(EQUAL, 11);
+const android9orHigher = isAndroidVersion(MORE_THAN_OR_EQUAL, 9);
 if (browserizr.detect(android11)) {
     // code
 }

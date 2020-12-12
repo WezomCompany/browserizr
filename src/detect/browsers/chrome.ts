@@ -1,5 +1,6 @@
 import { DetectMethod } from '../../core';
+import { isAndroid } from '../os/android';
+import __chromeBasic from './__chrome-basic';
 
 /** Detect Google Chrome browser */
-export const isChrome: DetectMethod = (ua) =>
-	/\sChrome\/[\d.]+\s(Mobile(\/[\d.]+)?\s)?Safari\/[\d.]+$/.test(ua);
+export const isChrome: DetectMethod = (ua) => !isAndroid(ua) && __chromeBasic(ua);
