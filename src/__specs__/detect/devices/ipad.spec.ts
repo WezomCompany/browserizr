@@ -1,29 +1,19 @@
-import { browsers, testNavigatorListBrowser } from '../../fixtures';
+import browserizr from '../../../core';
 import { isIPad } from '../../../detect/devices/ipad';
+import { uaDB } from '../../db';
 
 describe('Detect iPad device', () => {
-	describe('Valid cases #1. Chrome iOS 87', () => {
-		testNavigatorListBrowser({
-			detect: isIPad,
-			name: 'Chrome on iPad',
-			browser: browsers.ChromeIOS.v87.iOS['Chrome on iPad'],
-			validCase: true
-		});
-	});
-	describe('Valid cases: pack #2. Firefox iOS 29', () => {
-		testNavigatorListBrowser({
-			detect: isIPad,
-			name: 'Firefox on iPad',
-			browser: browsers.FirefoxIOS.v29.iOS['Firefox on iPad'],
-			validCase: true
-		});
-	});
-	describe('Valid cases: pack #3. Safari iOS', () => {
-		testNavigatorListBrowser({
-			detect: isIPad,
-			name: 'Safari on iPad',
-			browser: browsers.Safari.v14.iOS['Safari on iPad'],
-			validCase: true
+	describe('Should pass', () => {
+		[
+			...uaDB.iPad_iOS_11.FirefoxIOS_29.Standard,
+			...uaDB.iPad_iOS_14.ChromeIOS_87.Standard,
+			...uaDB.iPad_iOS_14.Safari_14.Standard,
+			...uaDB.iPad_iOS_14.Yandex_20.Standard
+		].forEach((ua, i) => {
+			test(`Case #${++i}: ${ua}`, () => {
+				browserizr.setUA(ua);
+				expect(browserizr.detect(isIPad)).toBeTruthy();
+			});
 		});
 	});
 });

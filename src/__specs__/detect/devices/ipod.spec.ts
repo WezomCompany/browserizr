@@ -1,29 +1,19 @@
-import { browsers, testNavigatorListBrowser } from '../../fixtures';
+import browserizr from '../../../core';
 import { isIPod } from '../../../detect/devices/ipod';
+import { uaDB } from '../../db';
 
 describe('Detect isIPod device', () => {
-	describe('Valid cases #1. Chrome iOS', () => {
-		testNavigatorListBrowser({
-			detect: isIPod,
-			name: 'Chrome on iPod',
-			browser: browsers.ChromeIOS.v87.iOS['Chrome on iPod'],
-			validCase: true
-		});
-	});
-	describe('Valid cases: pack #2. Firefox iOS', () => {
-		testNavigatorListBrowser({
-			detect: isIPod,
-			name: 'Firefox on iPod',
-			browser: browsers.FirefoxIOS.v29.iOS['Firefox on iPod'],
-			validCase: true
-		});
-	});
-	describe('Valid cases: pack #3. Safari iOS', () => {
-		testNavigatorListBrowser({
-			detect: isIPod,
-			name: 'Safari on iPod',
-			browser: browsers.Safari.v14.iOS['Safari on iPod'],
-			validCase: true
+	describe('Should pass', () => {
+		[
+			...uaDB.iPod_iOS_11.FirefoxIOS_29.Standard,
+			...uaDB.iPod_iOS_14.ChromeIOS_87.Standard,
+			...uaDB.iPod_iOS_14.Safari_14.Standard,
+			...uaDB.iPod_iOS_14.Yandex_20.Standard
+		].forEach((ua, i) => {
+			test(`Case #${++i}: ${ua}`, () => {
+				browserizr.setUA(ua);
+				expect(browserizr.detect(isIPod)).toBeTruthy();
+			});
 		});
 	});
 });

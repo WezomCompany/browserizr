@@ -1,29 +1,20 @@
-import { browsers, testNavigatorListBrowser } from '../../fixtures';
+import browserizr from '../../../core';
 import { isIPhone } from '../../../detect/devices/iphone';
+import { uaDB } from '../../db';
 
 describe('Detect iPhone device', () => {
-	describe('Valid cases #1. Chrome iOS', () => {
-		testNavigatorListBrowser({
-			detect: isIPhone,
-			name: 'Chrome on iPhone',
-			browser: browsers.ChromeIOS.v87.iOS['Chrome on iPhone'],
-			validCase: true
-		});
-	});
-	describe('Valid cases: pack #2. Firefox iOS', () => {
-		testNavigatorListBrowser({
-			detect: isIPhone,
-			name: 'Firefox on iPhone',
-			browser: browsers.FirefoxIOS.v29.iOS['Firefox on iPhone'],
-			validCase: true
-		});
-	});
-	describe('Valid cases: pack #3. Safari iOS', () => {
-		testNavigatorListBrowser({
-			detect: isIPhone,
-			name: 'Safari on iPhone',
-			browser: browsers.Safari.v14.iOS['Safari on iPhone'],
-			validCase: true
+	describe('Should pass', () => {
+		[
+			...uaDB.iPhone_iOS_11.FirefoxIOS_29.Standard,
+			...uaDB.iPhone_iOS_14.ChromeIOS_87.Standard,
+			...uaDB.iPhone_iOS_14.EdgeIOS_45.Standard,
+			...uaDB.iPhone_iOS_14.Safari_14.Standard,
+			...uaDB.iPhone_iOS_14.Yandex_20.Standard
+		].forEach((ua, i) => {
+			test(`Case #${++i}: ${ua}`, () => {
+				browserizr.setUA(ua);
+				expect(browserizr.detect(isIPhone)).toBeTruthy();
+			});
 		});
 	});
 });
