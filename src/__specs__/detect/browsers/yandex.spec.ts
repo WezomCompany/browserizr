@@ -12,7 +12,7 @@ describe('Detect Yandex browser', () => {
 			...uaDB.MacOS_11.Yandex_20.Standard,
 			...uaDB.Windows_10.Yandex_20.Standard
 		].forEach((ua, i) => {
-			test(`Case #${++i}`, () => {
+			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
 				expect(browserizr.detect(isYandex)).toBeTruthy();
 			});

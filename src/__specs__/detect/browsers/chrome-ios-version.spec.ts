@@ -1,39 +1,71 @@
+import browserizr from '../../../core';
 import { isChromeIOSVersion } from '../../../detect/browsers/chrome-ios-version';
 import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
-import { browsers, testNavigatorList, testNavigatorListVersion } from '../../fixtures';
+import { uaDB } from '../../db';
 
 describe('Detect Google Chrome browser version on iOS', () => {
-	describe('87', () => {
-		describe(MORE_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isChromeIOSVersion(MORE_THEN_OR_EQUAL, 87),
-				versions: { ...browsers.ChromeIOS },
-				validCase: true
+	describe('Google Chrome 87 on iOS', () => {
+		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.iPad_iOS_14.ChromeIOS_87.Standard,
+				...uaDB.iPhone_iOS_14.ChromeIOS_87.Standard,
+				...uaDB.iPod_iOS_14.ChromeIOS_87.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isChromeIOSVersion(MORE_THEN_OR_EQUAL, 87))
+					).toBeTruthy();
+				});
 			});
 		});
-		describe(EQUAL, () => {
-			testNavigatorListVersion({
-				detect: isChromeIOSVersion(EQUAL, 87),
-				version: browsers.ChromeIOS.v87,
-				name: 'v87',
-				validCase: true
+		describe(`Should be ${EQUAL}`, () => {
+			[
+				...uaDB.iPad_iOS_14.ChromeIOS_87.Standard,
+				...uaDB.iPhone_iOS_14.ChromeIOS_87.Standard,
+				...uaDB.iPod_iOS_14.ChromeIOS_87.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(browserizr.detect(isChromeIOSVersion(EQUAL, 87))).toBeTruthy();
+				});
 			});
 		});
-		describe(LESS_THEN_OR_EQUAL, () => {
-			testNavigatorList({
-				detect: isChromeIOSVersion(LESS_THEN_OR_EQUAL, 87),
-				versions: { ...browsers.ChromeIOS },
-				validCase: true
+		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.iPad_iOS_14.ChromeIOS_87.Standard,
+				...uaDB.iPhone_iOS_14.ChromeIOS_87.Standard,
+				...uaDB.iPod_iOS_14.ChromeIOS_87.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isChromeIOSVersion(LESS_THEN_OR_EQUAL, 87))
+					).toBeTruthy();
+				});
 			});
 		});
-	});
 
-	describe('Not isChromeIOS', () => {
-		testNavigatorListVersion({
-			detect: isChromeIOSVersion(EQUAL, 87),
-			version: browsers.Chrome.v87,
-			name: 'v87',
-			validCase: false
+		describe(`Should not be ${LESS_THEN_OR_EQUAL}`, () => {
+			[...uaDB.iPad_iOS_14.ChromeIOS_87.Standard].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isChromeIOSVersion(LESS_THEN_OR_EQUAL, 86))
+					).toBeFalsy();
+				});
+			});
+		});
+
+		describe('Should not pass', () => {
+			[...uaDB.MacOS_11.Yandex_20.Standard].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isChromeIOSVersion(LESS_THEN_OR_EQUAL, 86))
+					).toBeFalsy();
+				});
+			});
 		});
 	});
 });

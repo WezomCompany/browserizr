@@ -1,6 +1,6 @@
 import browserizr from '../../../core';
-import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
 import { isIEVersion } from '../../../detect/browsers/ie-version';
+import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
 import { uaDB } from '../../db';
 
 describe('Detect Internet Explorer browser version', () => {
@@ -220,7 +220,7 @@ describe('Detect Internet Explorer browser version', () => {
 			...uaDB.Windows_Vista.InternetExplorer_v9.Standard,
 			...uaDB.Windows_7.InternetExplorer_v9.Standard
 		].forEach((ua, i) => {
-			test(`Case #${++i}`, () => {
+			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
 				expect(browserizr.detect(isIEVersion(LESS_THEN_OR_EQUAL, 8))).toBeFalsy();
 			});

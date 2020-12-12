@@ -17,7 +17,7 @@ describe('Detect Internet Explorer browser', () => {
 			...uaDB.Windows_8_1.InternetExplorer_v11.Standard,
 			...uaDB.Windows_10.InternetExplorer_v11.Standard
 		].forEach((ua, i) => {
-			test(`Case #${++i}`, () => {
+			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
 				expect(browserizr.detect(isIE)).toBeTruthy();
 			});
@@ -30,7 +30,7 @@ describe('Detect Internet Explorer browser', () => {
 			...uaDB.Windows_Mobile.Edge_40.Standard,
 			...uaDB.Xbox.Edge_44.Standard
 		].forEach((ua, i) => {
-			test(`Case #${++i}`, () => {
+			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
 				expect(browserizr.detect(isIE)).toBeFalsy();
 			});

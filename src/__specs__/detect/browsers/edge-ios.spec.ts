@@ -5,7 +5,7 @@ import { uaDB } from '../../db';
 describe('Detect Microsoft Edge browser on iOS', () => {
 	describe('Should pass', () => {
 		[...uaDB.iPhone_iOS_14.EdgeIOS_45.Standard].forEach((ua, i) => {
-			test(`Case #${++i}`, () => {
+			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
 				expect(browserizr.detect(isEdgeIOS)).toBeTruthy();
 			});
@@ -20,7 +20,7 @@ describe('Detect Microsoft Edge browser on iOS', () => {
 			...uaDB.Windows_Mobile.Edge_40.Standard,
 			...uaDB.Xbox.Edge_44.Standard
 		].forEach((ua, i) => {
-			test(`Case #${++i}`, () => {
+			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
 				expect(browserizr.detect(isEdgeIOS)).toBeFalsy();
 			});

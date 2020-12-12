@@ -10,7 +10,7 @@ describe('Detect Microsoft Edge browser', () => {
 			...uaDB.Windows_Mobile.Edge_40.Standard,
 			...uaDB.Xbox.Edge_44.Standard
 		].forEach((ua, i) => {
-			test(`Case #${++i}`, () => {
+			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
 				expect(browserizr.detect(isEdge)).toBeTruthy();
 			});
@@ -22,7 +22,7 @@ describe('Detect Microsoft Edge browser', () => {
 			...uaDB.Android_10.EdgeAndroid_45.Standard,
 			...uaDB.iPhone_iOS_14.EdgeIOS_45.Standard
 		].forEach((ua, i) => {
-			test(`Case #${++i}`, () => {
+			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
 				expect(browserizr.detect(isEdge)).toBeFalsy();
 			});
