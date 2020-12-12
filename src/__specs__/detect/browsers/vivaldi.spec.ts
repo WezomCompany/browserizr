@@ -2,7 +2,7 @@ import browserizr from '../../../core';
 import { isVivaldi } from '../../../detect/browsers/vivaldi';
 import { uaDB } from '../../db';
 
-describe('Detect Vivaldi browser', () => {
+describe('Detect Vivaldi Browser', () => {
 	describe('Should pass', () => {
 		[
 			...uaDB.Linux.Vivaldi_3_4.Standard,

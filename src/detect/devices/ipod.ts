@@ -1,4 +1,4 @@
 import { DetectMethod } from '../../core';
 
-/** Detect a browser on iPod device */
+/** Detect a Browser on iPod device */
 export const isIPod: DetectMethod = (ua) => /iPod/i.test(ua);

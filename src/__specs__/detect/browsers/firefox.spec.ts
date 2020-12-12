@@ -2,7 +2,7 @@ import browserizr from '../../../core';
 import { isFirefox } from '../../../detect/browsers/firefox';
 import { uaDB } from '../../db';
 
-describe('Detect Mozilla Firefox browser', () => {
+describe('Detect Mozilla Firefox Browser', () => {
 	describe('Should pass', () => {
 		[
 			...uaDB.Android_11.FirefoxAndroid_83.Standard,

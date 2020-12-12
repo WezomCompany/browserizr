@@ -2,7 +2,7 @@ import { isChromeIOS } from './chrome-ios';
 import { DetectVersionMethod } from '../../core';
 import { matchVersion } from '../../utils';
 
-/** Detect Google Chrome browser version on iOS */
+/** Detect Google Chrome Browser version on iOS */
 export const isChromeIOSVersion: DetectVersionMethod = (operator, version) => (ua) => {
 	if (isChromeIOS(ua)) {
 		return matchVersion({

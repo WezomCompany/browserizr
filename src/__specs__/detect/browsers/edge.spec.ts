@@ -2,7 +2,7 @@ import browserizr from '../../../core';
 import { isEdge } from '../../../detect/browsers/edge';
 import { uaDB } from '../../db';
 
-describe('Detect Microsoft Edge browser', () => {
+describe('Detect Microsoft Edge Browser', () => {
 	describe('Should pass', () => {
 		[
 			...uaDB.MacOS_11.Edge_87.Standard,

@@ -2,7 +2,7 @@ import browserizr from '../../../core';
 import { isYandex } from '../../../detect/browsers/yandex';
 import { uaDB } from '../../db';
 
-describe('Detect Yandex browser', () => {
+describe('Detect Yandex Browser', () => {
 	describe('Should pass', () => {
 		[
 			...uaDB.Android_11.Yandex_20.Standard,

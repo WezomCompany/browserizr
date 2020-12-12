@@ -2,7 +2,7 @@ import browserizr from '../../../core';
 import { uaDB } from '../../db';
 import { isChrome } from '../../../detect/browsers/chrome';
 
-describe('Detect Google Chrome browser', () => {
+describe('Detect Google Chrome Browser', () => {
 	describe('Should pass', () => {
 		[
 			...uaDB.Linux.Chrome_87.Standard,

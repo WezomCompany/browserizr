@@ -3,7 +3,7 @@ import { isEdgeAndroidVersion } from '../../../detect/browsers/edge-android-vers
 import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
 import { uaDB } from '../../db';
 
-describe('Detect Microsoft Edge browser version on Android', () => {
+describe('Detect Microsoft Edge Browser version on Android', () => {
 	describe('Edge Android 45', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[...uaDB.Android_10.EdgeAndroid_45.Standard].forEach((ua, i) => {

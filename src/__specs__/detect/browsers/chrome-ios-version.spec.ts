@@ -3,7 +3,7 @@ import { isChromeIOSVersion } from '../../../detect/browsers/chrome-ios-version'
 import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
 import { uaDB } from '../../db';
 
-describe('Detect Google Chrome browser version on iOS', () => {
+describe('Detect Google Chrome Browser version on iOS', () => {
 	describe('Google Chrome 87 on iOS', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[

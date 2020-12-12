@@ -2,7 +2,7 @@ import browserizr from '../../../core';
 import { isEdgeIOS } from '../../../detect/browsers/edge-ios';
 import { uaDB } from '../../db';
 
-describe('Detect Microsoft Edge browser on iOS', () => {
+describe('Detect Microsoft Edge Browser on iOS', () => {
 	describe('Should pass', () => {
 		[...uaDB.iPhone_iOS_14.EdgeIOS_45.Standard].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {

@@ -2,7 +2,7 @@ import browserizr from '../../../core';
 import { isOpera } from '../../../detect/browsers/opera';
 import { uaDB } from '../../db';
 
-describe('Detect Opera browser', () => {
+describe('Detect Opera Browser', () => {
 	describe('Should pass', () => {
 		[
 			...uaDB.Android_10.Opera_59['Opera on Huawei'],

@@ -2,7 +2,7 @@ import { DetectMethod, DetectVersionMethod } from '../../core';
 import { isChromeAndroid } from './chrome-android';
 import { matchVersion } from '../../utils';
 
-/** Detect Google Chrome browser version on Android OS */
+/** Detect Google Chrome Browser version on Android OS */
 export const isChromeAndroidVersion: DetectVersionMethod = (
 	operator,
 	version

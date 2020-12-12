@@ -2,7 +2,7 @@ import browserizr from '../../../core';
 import { isFirefoxIOS } from '../../../detect/browsers/firefox-ios';
 import { uaDB } from '../../db';
 
-describe('Detect Mozilla Firefox browser on iOS', () => {
+describe('Detect Mozilla Firefox Browser on iOS', () => {
 	describe('Should pass', () => {
 		[
 			...uaDB.iPad_iOS_11.FirefoxIOS_29.Standard,

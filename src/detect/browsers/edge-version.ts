@@ -2,7 +2,7 @@ import { isEdge } from './edge';
 import { DetectVersionMethod } from '../../core';
 import { matchVersion } from '../../utils';
 
-/** Detect Microsoft Edge browser version */
+/** Detect Microsoft Edge Browser version */
 export const isEdgeVersion: DetectVersionMethod = (operator, version) => (ua) => {
 	if (isEdge(ua)) {
 		return matchVersion({

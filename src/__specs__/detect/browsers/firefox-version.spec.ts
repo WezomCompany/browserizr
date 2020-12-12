@@ -3,7 +3,7 @@ import { isFirefoxVersion } from '../../../detect/browsers/firefox-version';
 import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
 import { uaDB } from '../../db';
 
-describe('Detect Mozilla Firefox browser version', () => {
+describe('Detect Mozilla Firefox Browser version', () => {
 	describe('Mozilla Firefox 83', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[

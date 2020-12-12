@@ -1,4 +1,4 @@
 import { DetectMethod } from '../../core';
 
-/** Detect Vivaldi browser */
+/** Detect Vivaldi Browser */
 export const isVivaldi: DetectMethod = (ua) => /\sVivaldi\/[\d.]+/.test(ua);

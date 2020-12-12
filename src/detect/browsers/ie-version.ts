@@ -2,7 +2,7 @@ import { DetectVersionMethod } from '../../core';
 import { isIE } from './ie';
 import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../utils';
 
-/** Detect Internet Explorer browser and wanted version */
+/** Detect Internet Explorer Browser and wanted version */
 export const isIEVersion: DetectVersionMethod = (operator, version) => (ua) => {
 	if (isIE(ua)) {
 		const versions = [];

@@ -2,7 +2,7 @@ import browserizr from '../../../core';
 import { isSafari } from '../../../detect/browsers/safari';
 import { uaDB } from '../../db';
 
-describe('Detect Apple Safari browser', () => {
+describe('Detect Apple Safari Browser', () => {
 	describe('Should pass', () => {
 		[
 			...uaDB.iPad_iOS_14.Safari_14.Standard,

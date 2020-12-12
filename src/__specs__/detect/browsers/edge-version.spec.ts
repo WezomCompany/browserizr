@@ -3,7 +3,7 @@ import { isEdgeVersion } from '../../../detect/browsers/edge-version';
 import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
 import { uaDB } from '../../db';
 
-describe('Detect Microsoft Edge browser version', () => {
+describe('Detect Microsoft Edge Browser version', () => {
 	describe('Edge 40', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[

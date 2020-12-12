@@ -2,7 +2,7 @@ import { isFirefox } from './firefox';
 import { DetectVersionMethod } from '../../core';
 import { matchVersion } from '../../utils';
 
-/** Detect Mozilla Firefox browser version */
+/** Detect Mozilla Firefox Browser version */
 export const isFirefoxVersion: DetectVersionMethod = (operator, version) => (ua) => {
 	if (isFirefox(ua)) {
 		return matchVersion({

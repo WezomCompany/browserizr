@@ -3,7 +3,7 @@ import { isIEVersion } from '../../../detect/browsers/ie-version';
 import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
 import { uaDB } from '../../db';
 
-describe('Detect Internet Explorer browser version', () => {
+describe('Detect Internet Explorer Browser version', () => {
 	describe('Internet Explorer 8', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[

@@ -3,7 +3,7 @@ import { isChromeAndroidVersion } from '../../../detect/browsers/chrome-android-
 import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
 import { uaDB } from '../../db';
 
-describe('Detect Google Chrome browser version on Android OS', () => {
+describe('Detect Google Chrome Browser version on Android OS', () => {
 	describe('Google Chrome Android 85', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[

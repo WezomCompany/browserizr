@@ -2,7 +2,7 @@ import browserizr from '../../../core';
 import { isIE } from '../../../detect/browsers/ie';
 import { uaDB } from '../../db';
 
-describe('Detect Internet Explorer browser', () => {
+describe('Detect Internet Explorer Browser', () => {
 	describe('Should pass', () => {
 		[
 			...uaDB.Windows_XP.InternetExplorer_v8.Standard,

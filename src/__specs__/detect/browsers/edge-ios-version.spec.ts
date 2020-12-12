@@ -3,7 +3,7 @@ import { isEdgeIOSVersion } from '../../../detect/browsers/edge-ios-version';
 import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
 import { uaDB } from '../../db';
 
-describe('Detect Microsoft Edge browser version on iOS', () => {
+describe('Detect Microsoft Edge Browser version on iOS', () => {
 	describe('Edge iOS 45', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[...uaDB.iPhone_iOS_14.EdgeIOS_45.Standard].forEach((ua, i) => {

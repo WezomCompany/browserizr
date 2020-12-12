@@ -2,7 +2,7 @@ import browserizr from '../../../core';
 import { uaDB } from '../../db';
 import { isChromeAndroid } from '../../../detect/browsers/chrome-android';
 
-describe('Detect Google Chrome browser on Android OS', () => {
+describe('Detect Google Chrome Browser on Android OS', () => {
 	describe('Should pass', () => {
 		[
 			...uaDB.Android_10.ChromeAndroid_85.Standard,
