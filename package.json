@@ -1,6 +1,6 @@
 {
   "name": "@wezom/browserizr",
-  "version": "5.2.1-beta",
+  "version": "6.0.0-beta",
   "description": "description",
   "main": "dist/ts/core.ts",
   "files": [
