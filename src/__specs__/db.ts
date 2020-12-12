@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/camelcase */
 export const uaDB = {
 	Android_10: {
-		Chrome_85: {
+		ChromeAndroid_85: {
 			Standard: [
 				'Mozilla/5.0 (Linux; Android 10; HD1910) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.127 Mobile Safari/537.36'
 			]
 		},
-		Chrome_87: {
+		ChromeAndroid_87: {
 			Standard: [
 				'Mozilla/5.0 (Linux; Android 10; HD1910) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.101 Mobile Safari/537.36',
 				'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Mobile Safari/537.36'
@@ -53,7 +53,7 @@ export const uaDB = {
 		}
 	},
 	Android_11: {
-		Firefox_83: {
+		FirefoxAndroid_83: {
 			Standard: [
 				'Mozilla/5.0 (Android 11; Mobile; rv:68.0) Gecko/68.0 Firefox/83.0'
 			],

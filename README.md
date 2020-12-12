@@ -653,6 +653,42 @@ if (browserizr.detect(isiPhone)) {
 
 
 
+### OS
+
+#### isAndroidOS
+
+Detect Android OS
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isAndroidOS } from '@wezom/browserizr/detect/os/android';
+if (browserizr.detect(isAndroidOS)) {
+    // code
+}
+```
+
+#### isAndroidOSVersion
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { EQUAL, MORE_THAN_OR_EQUAL } from '@wezom/browserizr/utils';
+import { isAndroidOSVersion } from '@wezom/browserizr/detect/os/android-version';
+
+const android11 = isAndroidOSVersion(EQUAL, 11);
+const android9orHigher = isAndroidOSVersion(MORE_THAN_OR_EQUAL, 9);
+if (browserizr.detect(android11)) {
+    // code
+}
+// ...
+```
+
+[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
+
+---
+
+
+
+
 ## Custom detects
 
 You can write your own methods to detect what you want in your own way.

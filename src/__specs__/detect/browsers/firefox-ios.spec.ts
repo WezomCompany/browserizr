@@ -18,8 +18,8 @@ describe('Detect Mozilla Firefox browser on iOS', () => {
 
 	describe('Should not pass', () => {
 		[
-			...uaDB.Android_11.Firefox_83.Standard,
-			...uaDB.Android_11.Firefox_83['Firefox on Lg'],
+			...uaDB.Android_11.FirefoxAndroid_83.Standard,
+			...uaDB.Android_11.FirefoxAndroid_83['Firefox on Lg'],
 			...uaDB.Linux.Firefox_83.Standard,
 			...uaDB.MacOS_11.Firefox_83.Standard,
 			...uaDB.Windows_10.Firefox_83.Standard

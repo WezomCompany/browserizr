@@ -19,10 +19,10 @@ describe('Detect Apple Safari browser', () => {
 
 	describe('Should not pass', () => {
 		[
-			...uaDB.Android_10.Chrome_85.Standard,
-			...uaDB.Android_10.Chrome_87.Standard,
-			...uaDB.Android_10.Chrome_87['Chrome on Lg'],
-			...uaDB.Android_10.Chrome_87['Chrome on Samsung'],
+			...uaDB.Android_10.ChromeAndroid_85.Standard,
+			...uaDB.Android_10.ChromeAndroid_87.Standard,
+			...uaDB.Android_10.ChromeAndroid_87['Chrome on Lg'],
+			...uaDB.Android_10.ChromeAndroid_87['Chrome on Samsung'],
 			...uaDB.Android_10.EdgeAndroid_45.Standard,
 			...uaDB.Android_10.Opera_59['Opera on Sumsung'],
 			...uaDB.Android_10.Opera_59['Opera on Huawei'],

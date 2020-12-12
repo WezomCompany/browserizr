@@ -7,8 +7,8 @@ describe('Detect Mozilla Firefox browser version', () => {
 	describe('Mozilla Firefox 83', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Android_11.Firefox_83.Standard,
-				...uaDB.Android_11.Firefox_83['Firefox on Lg'],
+				...uaDB.Android_11.FirefoxAndroid_83.Standard,
+				...uaDB.Android_11.FirefoxAndroid_83['Firefox on Lg'],
 				...uaDB.Linux.Firefox_83.Standard,
 				...uaDB.MacOS_11.Firefox_83.Standard,
 				...uaDB.Windows_10.Firefox_83.Standard
@@ -23,8 +23,8 @@ describe('Detect Mozilla Firefox browser version', () => {
 		});
 		describe(`Should be ${EQUAL}`, () => {
 			[
-				...uaDB.Android_11.Firefox_83.Standard,
-				...uaDB.Android_11.Firefox_83['Firefox on Lg'],
+				...uaDB.Android_11.FirefoxAndroid_83.Standard,
+				...uaDB.Android_11.FirefoxAndroid_83['Firefox on Lg'],
 				...uaDB.Linux.Firefox_83.Standard,
 				...uaDB.MacOS_11.Firefox_83.Standard,
 				...uaDB.Windows_10.Firefox_83.Standard
@@ -37,8 +37,8 @@ describe('Detect Mozilla Firefox browser version', () => {
 		});
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Android_11.Firefox_83.Standard,
-				...uaDB.Android_11.Firefox_83['Firefox on Lg'],
+				...uaDB.Android_11.FirefoxAndroid_83.Standard,
+				...uaDB.Android_11.FirefoxAndroid_83['Firefox on Lg'],
 				...uaDB.Linux.Firefox_83.Standard,
 				...uaDB.MacOS_11.Firefox_83.Standard,
 				...uaDB.Windows_10.Firefox_83.Standard

@@ -7,10 +7,10 @@ describe('Detect Google Chrome browser version', () => {
 	describe('Google Chrome 85', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Android_10.Chrome_85.Standard,
-				...uaDB.Android_10.Chrome_87.Standard,
-				...uaDB.Android_10.Chrome_87['Chrome on Lg'],
-				...uaDB.Android_10.Chrome_87['Chrome on Samsung'],
+				...uaDB.Android_10.ChromeAndroid_85.Standard,
+				...uaDB.Android_10.ChromeAndroid_87.Standard,
+				...uaDB.Android_10.ChromeAndroid_87['Chrome on Lg'],
+				...uaDB.Android_10.ChromeAndroid_87['Chrome on Samsung'],
 				...uaDB.Linux.Chrome_87.Standard,
 				...uaDB.MacOS_11.Chrome_87.Standard,
 				...uaDB.Windows_10.Chrome_87.Standard
@@ -24,7 +24,7 @@ describe('Detect Google Chrome browser version', () => {
 			});
 		});
 		describe(`Should be ${EQUAL}`, () => {
-			[...uaDB.Android_10.Chrome_85.Standard].forEach((ua, i) => {
+			[...uaDB.Android_10.ChromeAndroid_85.Standard].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(browserizr.detect(isChromeVersion(EQUAL, 85))).toBeTruthy();
@@ -32,7 +32,7 @@ describe('Detect Google Chrome browser version', () => {
 			});
 		});
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
-			[...uaDB.Android_10.Chrome_85.Standard].forEach((ua, i) => {
+			[...uaDB.Android_10.ChromeAndroid_85.Standard].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
@@ -46,9 +46,9 @@ describe('Detect Google Chrome browser version', () => {
 	describe('Google Chrome 87', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Android_10.Chrome_87.Standard,
-				...uaDB.Android_10.Chrome_87['Chrome on Lg'],
-				...uaDB.Android_10.Chrome_87['Chrome on Samsung'],
+				...uaDB.Android_10.ChromeAndroid_87.Standard,
+				...uaDB.Android_10.ChromeAndroid_87['Chrome on Lg'],
+				...uaDB.Android_10.ChromeAndroid_87['Chrome on Samsung'],
 				...uaDB.Linux.Chrome_87.Standard,
 				...uaDB.MacOS_11.Chrome_87.Standard,
 				...uaDB.Windows_10.Chrome_87.Standard
@@ -63,9 +63,9 @@ describe('Detect Google Chrome browser version', () => {
 		});
 		describe(`Should be ${EQUAL}`, () => {
 			[
-				...uaDB.Android_10.Chrome_87.Standard,
-				...uaDB.Android_10.Chrome_87['Chrome on Lg'],
-				...uaDB.Android_10.Chrome_87['Chrome on Samsung'],
+				...uaDB.Android_10.ChromeAndroid_87.Standard,
+				...uaDB.Android_10.ChromeAndroid_87['Chrome on Lg'],
+				...uaDB.Android_10.ChromeAndroid_87['Chrome on Samsung'],
 				...uaDB.Linux.Chrome_87.Standard,
 				...uaDB.MacOS_11.Chrome_87.Standard,
 				...uaDB.Windows_10.Chrome_87.Standard
@@ -78,10 +78,10 @@ describe('Detect Google Chrome browser version', () => {
 		});
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Android_10.Chrome_85.Standard,
-				...uaDB.Android_10.Chrome_87.Standard,
-				...uaDB.Android_10.Chrome_87['Chrome on Lg'],
-				...uaDB.Android_10.Chrome_87['Chrome on Samsung'],
+				...uaDB.Android_10.ChromeAndroid_85.Standard,
+				...uaDB.Android_10.ChromeAndroid_87.Standard,
+				...uaDB.Android_10.ChromeAndroid_87['Chrome on Lg'],
+				...uaDB.Android_10.ChromeAndroid_87['Chrome on Samsung'],
 				...uaDB.Linux.Chrome_87.Standard,
 				...uaDB.MacOS_11.Chrome_87.Standard,
 				...uaDB.Windows_10.Chrome_87.Standard
@@ -96,7 +96,7 @@ describe('Detect Google Chrome browser version', () => {
 		});
 
 		describe(`Should not be ${EQUAL}`, () => {
-			[...uaDB.Android_10.Chrome_85.Standard].forEach((ua, i) => {
+			[...uaDB.Android_10.ChromeAndroid_85.Standard].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(browserizr.detect(isChromeVersion(EQUAL, 87))).toBeFalsy();
