@@ -13,7 +13,7 @@ _This library is not stable yet. We can change some API or behaviors._
 
 | Statements                | Branches                | Functions                | Lines                |
 | ------------------------- | ----------------------- | ------------------------ | -------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-97.92%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
+| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-98%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
 
 ## Table of Content:
 
@@ -50,7 +50,10 @@ _This library is not stable yet. We can change some API or behaviors._
         - [isEdgeIOSVersion](#isedgeiosversion)
         - [isFirefox](#isfirefox)
         - [isFirefoxVersion](#isfirefoxversion)
+        - [isFirefoxAndroid](#isfirefoxandroid)
+        - [isFirefoxAndroidVersion](#isfirefoxandroidversion)
         - [isFirefoxIOS](#isfirefoxios)
+        - [isFirefoxIOSVersion](#isfirefoxiosversion)
         - [isIE](#isie)
         - [isIEVersion](#isieversion)
         - [isOpera](#isopera)
@@ -562,6 +565,24 @@ if (browserizr.detect(isFirefoxIOS)) {
     // code
 }
 ```
+
+#### isFirefoxIOSVersion
+
+Detect Mozilla Firefox browser and wanted version on iOS
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
+import { isFirefoxIOSVersion } from '@wezom/browserizr/detect/browsers/firefox-ios-version';
+
+const ffxIOS29 = isFirefoxIOSVersion(EQUAL, 29);
+const ffxIOS29orHigher = isFirefoxIOSVersion(MORE_THEN_OR_EQUAL, 29);
+const ffxIOS29orLater = isFirefoxIOSVersion(LESS_THEN_OR_EQUAL, 29);
+if (browserizr.detect(ffx29IOS)) {
+    // code
+}
+// ...
+``` 
 
 #### isIE
 
