@@ -69,6 +69,7 @@ _This library is not stable yet. We can change some API or behaviors._
     1. [OS](#os)
         - [isAndroid](#isandroid)
         - [isAndroidVersion](#isandroidversion)
+        - [isWindows](#iswindows)
 1. [Custom detects](#custom-detects)
     1. [Simple example](#simple-example)
 1. [Contributing](#contributing)
@@ -766,6 +767,18 @@ if (browserizr.detect(android11)) {
     // code
 }
 // ...
+```
+
+#### isWindows
+
+Detect Windows OS
+
+```ts
+import browserizr from '@wezom/browserizr';
+import { isWindows } from '@wezom/browserizr/detect/os/windows';
+if (browserizr.detect(isWindows)) {
+    // code
+}
 ```
 
 [▲ Go Top](#) | [▲ Table of Content](#table-of-content)
