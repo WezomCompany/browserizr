@@ -14,7 +14,8 @@ describe('Detect Android OS', () => {
 			...uaDB.Android_10.Opera_59['Opera on Sumsung'],
 			...uaDB.Android_11.FirefoxAndroid_83.Standard,
 			...uaDB.Android_11.FirefoxAndroid_83['Firefox on Lg'],
-			...uaDB.Android_11.Yandex_20.Standard
+			...uaDB.Android_11.Yandex_20.Standard,
+			...uaDB.Windows_Mobile.Edge_40.Standard
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);

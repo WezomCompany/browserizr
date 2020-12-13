@@ -14,6 +14,7 @@ describe('Detect Android OS Version', () => {
 				...uaDB.Android_10.EdgeAndroid_45.Standard,
 				...uaDB.Android_10.Opera_59['Opera on Huawei'],
 				...uaDB.Android_10.Opera_59['Opera on Sumsung'],
+				...uaDB.Windows_Mobile.Edge_40.Standard,
 				...uaDB.Android_11.FirefoxAndroid_83.Standard,
 				...uaDB.Android_11.FirefoxAndroid_83['Firefox on Lg'],
 				...uaDB.Android_11.Yandex_20.Standard
@@ -35,7 +36,8 @@ describe('Detect Android OS Version', () => {
 				...uaDB.Android_10.ChromeAndroid_87['Chrome on Samsung'],
 				...uaDB.Android_10.EdgeAndroid_45.Standard,
 				...uaDB.Android_10.Opera_59['Opera on Huawei'],
-				...uaDB.Android_10.Opera_59['Opera on Sumsung']
+				...uaDB.Android_10.Opera_59['Opera on Sumsung'],
+				...uaDB.Windows_Mobile.Edge_40.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -52,7 +54,8 @@ describe('Detect Android OS Version', () => {
 				...uaDB.Android_10.ChromeAndroid_87['Chrome on Samsung'],
 				...uaDB.Android_10.EdgeAndroid_45.Standard,
 				...uaDB.Android_10.Opera_59['Opera on Huawei'],
-				...uaDB.Android_10.Opera_59['Opera on Sumsung']
+				...uaDB.Android_10.Opera_59['Opera on Sumsung'],
+				...uaDB.Windows_Mobile.Edge_40.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -132,6 +135,7 @@ describe('Detect Android OS Version', () => {
 				...uaDB.Android_10.EdgeAndroid_45.Standard,
 				...uaDB.Android_10.Opera_59['Opera on Huawei'],
 				...uaDB.Android_10.Opera_59['Opera on Sumsung'],
+				...uaDB.Windows_Mobile.Edge_40.Standard,
 				...uaDB.Android_11.FirefoxAndroid_83.Standard,
 				...uaDB.Android_11.FirefoxAndroid_83['Firefox on Lg'],
 				...uaDB.Android_11.Yandex_20.Standard

@@ -1,18 +1,13 @@
-import { isChromeIOS } from './chrome-ios';
 import { DetectVersionMethod } from '../../core';
 import { matchVersion } from '../../utils';
+import __chromeIOSRegexp from './__chrome-ios-regexp';
 
 /** Detect Google Chrome Browser version on iOS */
-export const isChromeIOSVersion: DetectVersionMethod = (operator, version) => (ua) => {
-	if (isChromeIOS(ua)) {
-		return matchVersion({
-			ua,
-			version,
-			operator,
-			regExp: /\sCriOS\/([\d.]+)/,
-			groupIndex: 1
-		});
-	} else {
-		return false;
-	}
-};
+export const isChromeIOSVersion: DetectVersionMethod = (operator, version) => (ua) =>
+	matchVersion({
+		ua,
+		version,
+		operator,
+		regExp: __chromeIOSRegexp,
+		groupIndex: 1
+	});

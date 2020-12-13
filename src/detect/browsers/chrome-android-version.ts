@@ -1,21 +1,18 @@
 import { DetectMethod, DetectVersionMethod } from '../../core';
-import { isChromeAndroid } from './chrome-android';
 import { matchVersion } from '../../utils';
+import { isAndroid } from '../os/android';
+import __chromeRegexp from './__chrome-regexp';
 
 /** Detect Google Chrome Browser version on Android OS */
 export const isChromeAndroidVersion: DetectVersionMethod = (
 	operator,
 	version
-): DetectMethod => (ua) => {
-	if (isChromeAndroid(ua)) {
-		return matchVersion({
-			ua,
-			version,
-			operator,
-			regExp: /\sChrome\/([\d.]+)/,
-			groupIndex: 1
-		});
-	} else {
-		return false;
-	}
-};
+): DetectMethod => (ua) =>
+	isAndroid(ua) &&
+	matchVersion({
+		ua,
+		version,
+		operator,
+		regExp: __chromeRegexp,
+		groupIndex: 1
+	});

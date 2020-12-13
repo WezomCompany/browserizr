@@ -1,21 +1,17 @@
 import { DetectVersionMethod, DetectMethod } from '../../core';
-import { isAndroid } from './android';
 import { matchVersion } from '../../utils';
+import __regexp from './__android-regexp';
 
 /** Detect the Android OS Version */
 export const isAndroidVersion: DetectVersionMethod = (
 	operator,
 	version
 ): DetectMethod => (ua) => {
-	if (isAndroid(ua)) {
-		return matchVersion({
-			ua,
-			version,
-			operator,
-			regExp: /[\s(]Android\s([\d]+)[;)]/,
-			groupIndex: 1
-		});
-	} else {
-		return false;
-	}
+	return matchVersion({
+		ua,
+		version,
+		operator,
+		regExp: __regexp,
+		groupIndex: 1
+	});
 };

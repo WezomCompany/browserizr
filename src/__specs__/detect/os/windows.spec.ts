@@ -22,7 +22,9 @@ describe('Detect Windows OS', () => {
 			...uaDB.Windows_10.Opera_72.Standard,
 			...uaDB.Windows_10.Yandex_20.Standard,
 			...uaDB.Windows_10.Vivaldi_3_4.Standard,
-			...uaDB.Windows_10.Vivaldi_3_5.Standard
+			...uaDB.Windows_10.Vivaldi_3_5.Standard,
+			...uaDB.Windows_Mobile.Edge_40.Standard,
+			...uaDB.Xbox.Edge_44.Standard
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
