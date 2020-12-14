@@ -1,18 +1,13 @@
-import { isEdgeIOS } from './edge-ios';
 import { DetectVersionMethod } from '../../core';
 import { matchVersion } from '../../utils';
+import __edgeIOSRegexp from './__edge-ios-regexp';
 
 /** Detect Microsoft Edge Browser version on iOS */
-export const isEdgeIOSVersion: DetectVersionMethod = (operator, version) => (ua) => {
-	if (isEdgeIOS(ua)) {
-		return matchVersion({
-			ua,
-			version,
-			operator,
-			regExp: /\sEdgiOS\/([\d.]+)/,
-			groupIndex: 1
-		});
-	} else {
-		return false;
-	}
-};
+export const isEdgeIOSVersion: DetectVersionMethod = (operator, version) => (ua) =>
+	matchVersion({
+		ua,
+		version,
+		operator,
+		regExp: __edgeIOSRegexp,
+		groupIndex: 1
+	});
