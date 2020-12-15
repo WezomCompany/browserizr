@@ -66,6 +66,18 @@ describe('Detect Windows OS Version', () => {
 			});
 		});
 
+		describe(`XX Should not be ${EQUAL}`, () => {
+			const version = 'XX' as 'XP';
+			[...uaDB.Windows.XP.InternetExplorer.v8.Standard].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isWindowsVersion(EQUAL, version))
+					).toBeFalsy();
+				});
+			});
+		});
+
 		describe(`Should not pass at all`, () => {
 			[...uaDB.MacOS.v11.Safari.v14.Standard].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {

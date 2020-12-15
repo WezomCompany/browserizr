@@ -13,7 +13,7 @@ _This library is not stable yet. We can change some API or behaviors._
 
 | Statements                | Branches                | Functions                | Lines                |
 | ------------------------- | ----------------------- | ------------------------ | -------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-96.86%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-95.65%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-96.61%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-96.84%25-brightgreen.svg) |
+| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-97.83%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
 
 ## Table of Content:
 

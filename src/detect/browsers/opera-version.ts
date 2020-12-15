@@ -11,5 +11,5 @@ export const isOperaVersion: DetectVersionMethod = (operator, version): DetectMe
 		version,
 		operator,
 		regExp: __operaRegexp,
-		groupIndex: 2
+		groupIndex: 1
 	});
