@@ -7,10 +7,10 @@ describe('Detect Microsoft Edge Browser version', () => {
 	describe('Edge 40', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Windows_Mobile.Edge_40.Standard,
-				...uaDB.Xbox.Edge_44.Standard,
-				...uaDB.MacOS_11.Edge_87.Standard,
-				...uaDB.Windows_10.Edge_87.Standard
+				...uaDB.WindowsMobile.Edge.v40.Standard,
+				...uaDB.Xbox.Edge.v44.Standard,
+				...uaDB.MacOS.v11.Edge.v87.Standard,
+				...uaDB.Windows.v10.Edge.v87.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -22,7 +22,7 @@ describe('Detect Microsoft Edge Browser version', () => {
 		});
 
 		describe(`Should be ${EQUAL}`, () => {
-			[...uaDB.Windows_Mobile.Edge_40.Standard].forEach((ua, i) => {
+			[...uaDB.WindowsMobile.Edge.v40.Standard].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(browserizr.detect(isEdgeVersion(EQUAL, 40))).toBeTruthy();
@@ -31,7 +31,7 @@ describe('Detect Microsoft Edge Browser version', () => {
 		});
 
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
-			[...uaDB.Windows_Mobile.Edge_40.Standard].forEach((ua, i) => {
+			[...uaDB.WindowsMobile.Edge.v40.Standard].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
@@ -43,9 +43,9 @@ describe('Detect Microsoft Edge Browser version', () => {
 
 		describe(`Should not be ${LESS_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Xbox.Edge_44.Standard,
-				...uaDB.MacOS_11.Edge_87.Standard,
-				...uaDB.Windows_10.Edge_87.Standard
+				...uaDB.Xbox.Edge.v44.Standard,
+				...uaDB.MacOS.v11.Edge.v87.Standard,
+				...uaDB.Windows.v10.Edge.v87.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -58,9 +58,9 @@ describe('Detect Microsoft Edge Browser version', () => {
 
 		describe(`Should not be ${EQUAL}`, () => {
 			[
-				...uaDB.Xbox.Edge_44.Standard,
-				...uaDB.MacOS_11.Edge_87.Standard,
-				...uaDB.Windows_10.Edge_87.Standard
+				...uaDB.Xbox.Edge.v44.Standard,
+				...uaDB.MacOS.v11.Edge.v87.Standard,
+				...uaDB.Windows.v10.Edge.v87.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -73,9 +73,9 @@ describe('Detect Microsoft Edge Browser version', () => {
 	describe('Edge 44', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Xbox.Edge_44.Standard,
-				...uaDB.MacOS_11.Edge_87.Standard,
-				...uaDB.Windows_10.Edge_87.Standard
+				...uaDB.Xbox.Edge.v44.Standard,
+				...uaDB.MacOS.v11.Edge.v87.Standard,
+				...uaDB.Windows.v10.Edge.v87.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -87,7 +87,7 @@ describe('Detect Microsoft Edge Browser version', () => {
 		});
 
 		describe(`Should be ${EQUAL}`, () => {
-			[...uaDB.Xbox.Edge_44.Standard].forEach((ua, i) => {
+			[...uaDB.Xbox.Edge.v44.Standard].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(browserizr.detect(isEdgeVersion(EQUAL, 44))).toBeTruthy();
@@ -97,8 +97,8 @@ describe('Detect Microsoft Edge Browser version', () => {
 
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Windows_Mobile.Edge_40.Standard,
-				...uaDB.Xbox.Edge_44.Standard
+				...uaDB.WindowsMobile.Edge.v40.Standard,
+				...uaDB.Xbox.Edge.v44.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -110,7 +110,7 @@ describe('Detect Microsoft Edge Browser version', () => {
 		});
 
 		describe(`Should not be ${MORE_THEN_OR_EQUAL}`, () => {
-			[...uaDB.Windows_Mobile.Edge_40.Standard].forEach((ua, i) => {
+			[...uaDB.WindowsMobile.Edge.v40.Standard].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
@@ -122,16 +122,15 @@ describe('Detect Microsoft Edge Browser version', () => {
 	});
 
 	describe(`Should not be Edge`, () => {
-		[
-			...uaDB.Android_10.EdgeAndroid_45.Standard,
-			...uaDB.iPhone_iOS_14.EdgeIOS_45.Standard
-		].forEach((ua, i) => {
-			test(`Case #${++i}: ${ua}`, () => {
-				browserizr.setUA(ua);
-				expect(
-					browserizr.detect(isEdgeVersion(MORE_THEN_OR_EQUAL, 44))
-				).toBeFalsy();
-			});
-		});
+		[...uaDB.Android.v10.Edge.v45.Standard, ...uaDB.iOS.v14.Edge.v45.iPhone].forEach(
+			(ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isEdgeVersion(MORE_THEN_OR_EQUAL, 44))
+					).toBeFalsy();
+				});
+			}
+		);
 	});
 });

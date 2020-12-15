@@ -5,9 +5,9 @@ import { uaDB } from '../../db';
 describe('Detect Google Chrome Browser on iOS', () => {
 	describe('Should pass', () => {
 		[
-			...uaDB.iPad_iOS_14.ChromeIOS_87.Standard,
-			...uaDB.iPhone_iOS_14.ChromeIOS_87.Standard,
-			...uaDB.iPod_iOS_14.ChromeIOS_87.Standard
+			...uaDB.iOS.v14.Chrome.v87.iPad,
+			...uaDB.iOS.v14.Chrome.v87.iPhone,
+			...uaDB.iOS.v14.Chrome.v87.iPod
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
@@ -18,9 +18,9 @@ describe('Detect Google Chrome Browser on iOS', () => {
 
 	describe('Should not pass', () => {
 		[
-			...uaDB.MacOS_11.Chrome_87.Standard,
-			...uaDB.Linux.Chrome_87.Standard,
-			...uaDB.Windows_10.Chrome_87.Standard
+			...uaDB.MacOS.v11.Chrome.v87.Standard,
+			...uaDB.Linux.Chrome.v87.Standard,
+			...uaDB.Windows.v10.Chrome.v87.Standard
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);

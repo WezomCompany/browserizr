@@ -7,17 +7,17 @@ describe('Detect Internet Explorer Browser version', () => {
 	describe('Internet Explorer 8', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Windows_XP.InternetExplorer_v8.Standard,
-				...uaDB.Windows_Vista.InternetExplorer_v8.Standard,
-				...uaDB.Windows_Vista.InternetExplorer_v9.Standard,
-				...uaDB.Windows_7.InternetExplorer_v8.Standard,
-				...uaDB.Windows_7.InternetExplorer_v9.Standard,
-				...uaDB.Windows_7.InternetExplorer_v10.Standard,
-				...uaDB.Windows_7.InternetExplorer_v11.Standard,
-				...uaDB.Windows_8.InternetExplorer_v10.Standard,
-				...uaDB.Windows_8.InternetExplorer_v11.Standard,
-				...uaDB.Windows_8_1.InternetExplorer_v11.Standard,
-				...uaDB.Windows_10.InternetExplorer_v11.Standard
+				...uaDB.Windows.XP.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v8.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8_1.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.InternetExplorer.v11.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -30,9 +30,9 @@ describe('Detect Internet Explorer Browser version', () => {
 
 		describe(`Should be ${EQUAL}`, () => {
 			[
-				...uaDB.Windows_XP.InternetExplorer_v8.Standard,
-				...uaDB.Windows_Vista.InternetExplorer_v8.Standard,
-				...uaDB.Windows_7.InternetExplorer_v8.Standard
+				...uaDB.Windows.XP.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v8.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v8.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -43,9 +43,9 @@ describe('Detect Internet Explorer Browser version', () => {
 
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Windows_XP.InternetExplorer_v8.Standard,
-				...uaDB.Windows_Vista.InternetExplorer_v8.Standard,
-				...uaDB.Windows_7.InternetExplorer_v8.Standard
+				...uaDB.Windows.XP.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v8.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v8.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -60,14 +60,14 @@ describe('Detect Internet Explorer Browser version', () => {
 	describe('Internet Explorer 9', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Windows_Vista.InternetExplorer_v9.Standard,
-				...uaDB.Windows_7.InternetExplorer_v9.Standard,
-				...uaDB.Windows_7.InternetExplorer_v10.Standard,
-				...uaDB.Windows_7.InternetExplorer_v11.Standard,
-				...uaDB.Windows_8.InternetExplorer_v10.Standard,
-				...uaDB.Windows_8.InternetExplorer_v11.Standard,
-				...uaDB.Windows_8_1.InternetExplorer_v11.Standard,
-				...uaDB.Windows_10.InternetExplorer_v11.Standard
+				...uaDB.Windows.Vista.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8_1.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.InternetExplorer.v11.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -80,8 +80,8 @@ describe('Detect Internet Explorer Browser version', () => {
 
 		describe(`Should be ${EQUAL}`, () => {
 			[
-				...uaDB.Windows_Vista.InternetExplorer_v9.Standard,
-				...uaDB.Windows_7.InternetExplorer_v9.Standard
+				...uaDB.Windows.Vista.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v9.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -92,11 +92,11 @@ describe('Detect Internet Explorer Browser version', () => {
 
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Windows_XP.InternetExplorer_v8.Standard,
-				...uaDB.Windows_Vista.InternetExplorer_v8.Standard,
-				...uaDB.Windows_Vista.InternetExplorer_v9.Standard,
-				...uaDB.Windows_7.InternetExplorer_v8.Standard,
-				...uaDB.Windows_7.InternetExplorer_v9.Standard
+				...uaDB.Windows.XP.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v8.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v9.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -111,12 +111,12 @@ describe('Detect Internet Explorer Browser version', () => {
 	describe('Internet Explorer 10', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Windows_7.InternetExplorer_v10.Standard,
-				...uaDB.Windows_7.InternetExplorer_v11.Standard,
-				...uaDB.Windows_8.InternetExplorer_v10.Standard,
-				...uaDB.Windows_8.InternetExplorer_v11.Standard,
-				...uaDB.Windows_8_1.InternetExplorer_v11.Standard,
-				...uaDB.Windows_10.InternetExplorer_v11.Standard
+				...uaDB.Windows.v7.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8_1.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.InternetExplorer.v11.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -129,8 +129,8 @@ describe('Detect Internet Explorer Browser version', () => {
 
 		describe(`Should be ${EQUAL}`, () => {
 			[
-				...uaDB.Windows_7.InternetExplorer_v10.Standard,
-				...uaDB.Windows_8.InternetExplorer_v10.Standard
+				...uaDB.Windows.v7.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v10.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -141,13 +141,13 @@ describe('Detect Internet Explorer Browser version', () => {
 
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Windows_XP.InternetExplorer_v8.Standard,
-				...uaDB.Windows_Vista.InternetExplorer_v8.Standard,
-				...uaDB.Windows_Vista.InternetExplorer_v9.Standard,
-				...uaDB.Windows_7.InternetExplorer_v8.Standard,
-				...uaDB.Windows_7.InternetExplorer_v9.Standard,
-				...uaDB.Windows_7.InternetExplorer_v10.Standard,
-				...uaDB.Windows_8.InternetExplorer_v10.Standard
+				...uaDB.Windows.XP.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v8.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v10.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -162,10 +162,10 @@ describe('Detect Internet Explorer Browser version', () => {
 	describe('Internet Explorer 11', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Windows_7.InternetExplorer_v11.Standard,
-				...uaDB.Windows_8.InternetExplorer_v11.Standard,
-				...uaDB.Windows_8_1.InternetExplorer_v11.Standard,
-				...uaDB.Windows_10.InternetExplorer_v11.Standard
+				...uaDB.Windows.v7.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8_1.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.InternetExplorer.v11.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -178,10 +178,10 @@ describe('Detect Internet Explorer Browser version', () => {
 
 		describe(`Should be ${EQUAL}`, () => {
 			[
-				...uaDB.Windows_7.InternetExplorer_v11.Standard,
-				...uaDB.Windows_8.InternetExplorer_v11.Standard,
-				...uaDB.Windows_8_1.InternetExplorer_v11.Standard,
-				...uaDB.Windows_10.InternetExplorer_v11.Standard
+				...uaDB.Windows.v7.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8_1.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.InternetExplorer.v11.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -192,17 +192,17 @@ describe('Detect Internet Explorer Browser version', () => {
 
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Windows_XP.InternetExplorer_v8.Standard,
-				...uaDB.Windows_Vista.InternetExplorer_v8.Standard,
-				...uaDB.Windows_Vista.InternetExplorer_v9.Standard,
-				...uaDB.Windows_7.InternetExplorer_v8.Standard,
-				...uaDB.Windows_7.InternetExplorer_v9.Standard,
-				...uaDB.Windows_7.InternetExplorer_v10.Standard,
-				...uaDB.Windows_7.InternetExplorer_v11.Standard,
-				...uaDB.Windows_8.InternetExplorer_v10.Standard,
-				...uaDB.Windows_8.InternetExplorer_v11.Standard,
-				...uaDB.Windows_8_1.InternetExplorer_v11.Standard,
-				...uaDB.Windows_10.InternetExplorer_v11.Standard
+				...uaDB.Windows.XP.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v8.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8_1.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.InternetExplorer.v11.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -216,9 +216,9 @@ describe('Detect Internet Explorer Browser version', () => {
 
 	describe('Should not pass', () => {
 		[
-			...uaDB.Windows_Mobile.Edge_40.Standard,
-			...uaDB.Windows_Vista.InternetExplorer_v9.Standard,
-			...uaDB.Windows_7.InternetExplorer_v9.Standard
+			...uaDB.WindowsMobile.Edge.v40.Standard,
+			...uaDB.Windows.Vista.InternetExplorer.v9.Standard,
+			...uaDB.Windows.v7.InternetExplorer.v9.Standard
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);

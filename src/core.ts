@@ -17,17 +17,17 @@ export interface DetectClassNameMethod {
 export default (function (_ua) {
 	return {
 		/** Set custom `userAgent` string */
-		setUA(userAgent: string) {
+		setUA(userAgent: string): void {
 			_ua = userAgent;
 		},
 
 		/** Detection by given function */
-		detect(fn: DetectMethod) {
+		detect(fn: DetectMethod): boolean {
 			return fn(_ua);
 		},
 
 		/** Generate CSS class names string */
-		classNames(classes: DetectClassNameMethod[]) {
+		classNames(classes: DetectClassNameMethod[]): string[] {
 			return classes.map((item) => (item.fn(_ua) ? item.is : item.not));
 		}
 	};

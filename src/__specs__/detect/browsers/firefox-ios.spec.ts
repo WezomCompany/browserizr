@@ -5,9 +5,9 @@ import { uaDB } from '../../db';
 describe('Detect Mozilla Firefox Browser on iOS', () => {
 	describe('Should pass', () => {
 		[
-			...uaDB.iPad_iOS_11.FirefoxIOS_29.Standard,
-			...uaDB.iPhone_iOS_11.FirefoxIOS_29.Standard,
-			...uaDB.iPod_iOS_11.FirefoxIOS_29.Standard
+			...uaDB.iOS.v11.Firefox.v29.iPad,
+			...uaDB.iOS.v11.Firefox.v29.iPhone,
+			...uaDB.iOS.v11.Firefox.v29.iPod
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
@@ -18,11 +18,11 @@ describe('Detect Mozilla Firefox Browser on iOS', () => {
 
 	describe('Should not pass', () => {
 		[
-			...uaDB.Android_11.FirefoxAndroid_83.Standard,
-			...uaDB.Android_11.FirefoxAndroid_83['Firefox on Lg'],
-			...uaDB.Linux.Firefox_83.Standard,
-			...uaDB.MacOS_11.Firefox_83.Standard,
-			...uaDB.Windows_10.Firefox_83.Standard
+			...uaDB.Android.v11.Firefox.v83.Standard,
+			...uaDB.Android.v11.Firefox.v83['Firefox on Lg'],
+			...uaDB.Linux.Firefox.v83.Standard,
+			...uaDB.MacOS.v11.Firefox.v83.Standard,
+			...uaDB.Windows.v10.Firefox.v83.Standard
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);

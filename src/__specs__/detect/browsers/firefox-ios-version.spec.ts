@@ -7,9 +7,9 @@ describe('Detect Mozilla Firefox Browser version on iOS', () => {
 	describe('Mozilla Firefox 29 on iOS', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.iPad_iOS_11.FirefoxIOS_29.Standard,
-				...uaDB.iPhone_iOS_11.FirefoxIOS_29.Standard,
-				...uaDB.iPod_iOS_11.FirefoxIOS_29.Standard
+				...uaDB.iOS.v11.Firefox.v29.iPad,
+				...uaDB.iOS.v11.Firefox.v29.iPhone,
+				...uaDB.iOS.v11.Firefox.v29.iPod
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -21,9 +21,9 @@ describe('Detect Mozilla Firefox Browser version on iOS', () => {
 		});
 		describe(`Should be ${EQUAL}`, () => {
 			[
-				...uaDB.iPad_iOS_11.FirefoxIOS_29.Standard,
-				...uaDB.iPhone_iOS_11.FirefoxIOS_29.Standard,
-				...uaDB.iPod_iOS_11.FirefoxIOS_29.Standard
+				...uaDB.iOS.v11.Firefox.v29.iPad,
+				...uaDB.iOS.v11.Firefox.v29.iPhone,
+				...uaDB.iOS.v11.Firefox.v29.iPod
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -36,9 +36,9 @@ describe('Detect Mozilla Firefox Browser version on iOS', () => {
 
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.iPad_iOS_11.FirefoxIOS_29.Standard,
-				...uaDB.iPhone_iOS_11.FirefoxIOS_29.Standard,
-				...uaDB.iPod_iOS_11.FirefoxIOS_29.Standard
+				...uaDB.iOS.v11.Firefox.v29.iPad,
+				...uaDB.iOS.v11.Firefox.v29.iPhone,
+				...uaDB.iOS.v11.Firefox.v29.iPod
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -50,7 +50,7 @@ describe('Detect Mozilla Firefox Browser version on iOS', () => {
 		});
 
 		describe('Should not pass', () => {
-			[...uaDB.Windows_10.Firefox_83.Standard].forEach((ua, i) => {
+			[...uaDB.Windows.v10.Firefox.v83.Standard].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(

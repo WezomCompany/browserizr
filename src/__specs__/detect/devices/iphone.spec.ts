@@ -5,11 +5,11 @@ import { uaDB } from '../../db';
 describe('Detect iPhone device', () => {
 	describe('Should pass', () => {
 		[
-			...uaDB.iPhone_iOS_11.FirefoxIOS_29.Standard,
-			...uaDB.iPhone_iOS_14.ChromeIOS_87.Standard,
-			...uaDB.iPhone_iOS_14.EdgeIOS_45.Standard,
-			...uaDB.iPhone_iOS_14.Safari_14.Standard,
-			...uaDB.iPhone_iOS_14.Yandex_20.Standard
+			...uaDB.iOS.v11.Firefox.v29.iPhone,
+			...uaDB.iOS.v14.Chrome.v87.iPhone,
+			...uaDB.iOS.v14.Edge.v45.iPhone,
+			...uaDB.iOS.v14.Safari.v14.iPhone,
+			...uaDB.iOS.v14.Yandex.v20.iPhone
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);

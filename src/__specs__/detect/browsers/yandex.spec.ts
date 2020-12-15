@@ -5,12 +5,12 @@ import { uaDB } from '../../db';
 describe('Detect Yandex Browser', () => {
 	describe('Should pass', () => {
 		[
-			...uaDB.Android_11.Yandex_20.Standard,
-			...uaDB.iPad_iOS_14.Yandex_20.Standard,
-			...uaDB.iPhone_iOS_14.Yandex_20.Standard,
-			...uaDB.iPod_iOS_14.Yandex_20.Standard,
-			...uaDB.MacOS_11.Yandex_20.Standard,
-			...uaDB.Windows_10.Yandex_20.Standard
+			...uaDB.Android.v11.Yandex.v20.Standard,
+			...uaDB.iOS.v14.Yandex.v20.iPad,
+			...uaDB.iOS.v14.Yandex.v20.iPhone,
+			...uaDB.iOS.v14.Yandex.v20.iPod,
+			...uaDB.MacOS.v11.Yandex.v20.Standard,
+			...uaDB.Windows.v10.Yandex.v20.Standard
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);

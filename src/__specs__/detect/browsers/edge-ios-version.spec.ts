@@ -6,7 +6,7 @@ import { uaDB } from '../../db';
 describe('Detect Microsoft Edge Browser version on iOS', () => {
 	describe('Edge iOS 45', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
-			[...uaDB.iPhone_iOS_14.EdgeIOS_45.Standard].forEach((ua, i) => {
+			[...uaDB.iOS.v14.Edge.v45.iPhone].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
@@ -17,7 +17,7 @@ describe('Detect Microsoft Edge Browser version on iOS', () => {
 		});
 
 		describe(`Should be ${EQUAL}`, () => {
-			[...uaDB.iPhone_iOS_14.EdgeIOS_45.Standard].forEach((ua, i) => {
+			[...uaDB.iOS.v14.Edge.v45.iPhone].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(browserizr.detect(isEdgeIOSVersion(EQUAL, 45))).toBeTruthy();
@@ -26,7 +26,7 @@ describe('Detect Microsoft Edge Browser version on iOS', () => {
 		});
 
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
-			[...uaDB.iPhone_iOS_14.EdgeIOS_45.Standard].forEach((ua, i) => {
+			[...uaDB.iOS.v14.Edge.v45.iPhone].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
@@ -38,8 +38,8 @@ describe('Detect Microsoft Edge Browser version on iOS', () => {
 
 		describe(`Should not be ${MORE_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.iPhone_iOS_14.EdgeIOS_45.Standard,
-				...uaDB.Android_10.EdgeAndroid_45.Standard
+				...uaDB.iOS.v14.Edge.v45.iPhone,
+				...uaDB.Android.v10.Edge.v45.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);

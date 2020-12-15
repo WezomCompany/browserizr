@@ -5,10 +5,10 @@ import { uaDB } from '../../db';
 describe('Detect Apple Safari Browser', () => {
 	describe('Should pass', () => {
 		[
-			...uaDB.iPad_iOS_14.Safari_14.Standard,
-			...uaDB.iPhone_iOS_14.Safari_14.Standard,
-			...uaDB.iPod_iOS_14.Safari_14.Standard,
-			...uaDB.MacOS_11.Safari_14.Standard
+			...uaDB.iOS.v14.Safari.v14.iPad,
+			...uaDB.iOS.v14.Safari.v14.iPhone,
+			...uaDB.iOS.v14.Safari.v14.iPod,
+			...uaDB.MacOS.v11.Safari.v14.Standard
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
@@ -19,36 +19,36 @@ describe('Detect Apple Safari Browser', () => {
 
 	describe('Should not pass', () => {
 		[
-			...uaDB.Android_10.ChromeAndroid_85.Standard,
-			...uaDB.Android_10.ChromeAndroid_87.Standard,
-			...uaDB.Android_10.ChromeAndroid_87['Chrome on Lg'],
-			...uaDB.Android_10.ChromeAndroid_87['Chrome on Samsung'],
-			...uaDB.Android_10.EdgeAndroid_45.Standard,
-			...uaDB.Android_10.Opera_59['Opera on Sumsung'],
-			...uaDB.Android_10.Opera_59['Opera on Huawei'],
-			...uaDB.Android_10.Opera_60.Standard,
-			...uaDB.Android_10.Opera_61.Standard,
-			...uaDB.Android_11.Yandex_20.Standard,
-			...uaDB.iPad_iOS_14.ChromeIOS_87.Standard,
-			...uaDB.iPad_iOS_14.Yandex_20.Standard,
-			...uaDB.iPhone_iOS_14.ChromeIOS_87.Standard,
-			...uaDB.iPhone_iOS_14.EdgeIOS_45.Standard,
-			...uaDB.iPhone_iOS_14.Yandex_20.Standard,
-			...uaDB.iPod_iOS_14.ChromeIOS_87.Standard,
-			...uaDB.iPod_iOS_14.Yandex_20.Standard,
-			...uaDB.Linux.Chrome_87.Standard,
-			...uaDB.Linux.Opera_72.Standard,
-			...uaDB.Linux.Vivaldi_3_4.Standard,
-			...uaDB.MacOS_11.Chrome_87.Standard,
-			...uaDB.MacOS_11.Edge_87.Standard,
-			...uaDB.MacOS_11.Opera_72.Standard,
-			...uaDB.MacOS_11.Vivaldi_3_4.Standard,
-			...uaDB.MacOS_11.Yandex_20.Standard,
-			...uaDB.Windows_10.Chrome_87.Standard,
-			...uaDB.Windows_10.Edge_87.Standard,
-			...uaDB.Windows_10.Opera_72.Standard,
-			...uaDB.Windows_10.Vivaldi_3_5.Standard,
-			...uaDB.Windows_10.Yandex_20.Standard
+			...uaDB.Android.v10.Chrome.v85.Standard,
+			...uaDB.Android.v10.Chrome.v87.Standard,
+			...uaDB.Android.v10.Chrome.v87['Chrome on Lg'],
+			...uaDB.Android.v10.Chrome.v87['Chrome on Samsung'],
+			...uaDB.Android.v10.Edge.v45.Standard,
+			...uaDB.Android.v10.Opera.v59['Opera on Sumsung'],
+			...uaDB.Android.v10.Opera.v59['Opera on Huawei'],
+			...uaDB.Android.v10.Opera.v60.Standard,
+			...uaDB.Android.v10.Opera.v61.Standard,
+			...uaDB.Android.v11.Yandex.v20.Standard,
+			...uaDB.iOS.v14.Chrome.v87.iPad,
+			...uaDB.iOS.v14.Chrome.v87.iPhone,
+			...uaDB.iOS.v14.Chrome.v87.iPod,
+			...uaDB.iOS.v14.Edge.v45.iPhone,
+			...uaDB.iOS.v14.Yandex.v20.iPad,
+			...uaDB.iOS.v14.Yandex.v20.iPhone,
+			...uaDB.iOS.v14.Yandex.v20.iPod,
+			...uaDB.Linux.Chrome.v87.Standard,
+			...uaDB.Linux.Opera.v72.Standard,
+			...uaDB.Linux.Vivaldi.v3_4.Standard,
+			...uaDB.MacOS.v11.Chrome.v87.Standard,
+			...uaDB.MacOS.v11.Edge.v87.Standard,
+			...uaDB.MacOS.v11.Opera.v72.Standard,
+			...uaDB.MacOS.v11.Vivaldi.v3_4.Standard,
+			...uaDB.MacOS.v11.Yandex.v20.Standard,
+			...uaDB.Windows.v10.Chrome.v87.Standard,
+			...uaDB.Windows.v10.Edge.v87.Standard,
+			...uaDB.Windows.v10.Opera.v72.Standard,
+			...uaDB.Windows.v10.Vivaldi.v3_5.Standard,
+			...uaDB.Windows.v10.Yandex.v20.Standard
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);

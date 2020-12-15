@@ -5,10 +5,10 @@ import { isChromeAndroid } from '../../../detect/browsers/chrome-android';
 describe('Detect Google Chrome Browser on Android OS', () => {
 	describe('Should pass', () => {
 		[
-			...uaDB.Android_10.ChromeAndroid_85.Standard,
-			...uaDB.Android_10.ChromeAndroid_87.Standard,
-			...uaDB.Android_10.ChromeAndroid_87['Chrome on Lg'],
-			...uaDB.Android_10.ChromeAndroid_87['Chrome on Samsung']
+			...uaDB.Android.v10.Chrome.v85.Standard,
+			...uaDB.Android.v10.Chrome.v87.Standard,
+			...uaDB.Android.v10.Chrome.v87['Chrome on Lg'],
+			...uaDB.Android.v10.Chrome.v87['Chrome on Samsung']
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
@@ -19,9 +19,9 @@ describe('Detect Google Chrome Browser on Android OS', () => {
 
 	describe('Should not pass', () => {
 		[
-			...uaDB.iPad_iOS_14.ChromeIOS_87.Standard,
-			...uaDB.iPhone_iOS_14.ChromeIOS_87.Standard,
-			...uaDB.iPod_iOS_14.ChromeIOS_87.Standard
+			...uaDB.iOS.v14.Chrome.v87.iPad,
+			...uaDB.iOS.v14.Chrome.v87.iPhone,
+			...uaDB.iOS.v14.Chrome.v87.iPod
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);

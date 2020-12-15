@@ -4,7 +4,7 @@ import { uaDB } from '../../db';
 
 describe('Detect Microsoft Edge Browser on Android', () => {
 	describe('Should pass', () => {
-		[...uaDB.Android_10.EdgeAndroid_45.Standard].forEach((ua, i) => {
+		[...uaDB.Android.v10.Edge.v45.Standard].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
 				expect(browserizr.detect(isEdgeAndroid)).toBeTruthy();
@@ -14,11 +14,11 @@ describe('Detect Microsoft Edge Browser on Android', () => {
 
 	describe('Should not pass', () => {
 		[
-			...uaDB.iPhone_iOS_14.EdgeIOS_45.Standard,
-			...uaDB.MacOS_11.Edge_87.Standard,
-			...uaDB.Windows_10.Edge_87.Standard,
-			...uaDB.Windows_Mobile.Edge_40.Standard,
-			...uaDB.Xbox.Edge_44.Standard
+			...uaDB.iOS.v14.Edge.v45.iPhone,
+			...uaDB.MacOS.v11.Edge.v87.Standard,
+			...uaDB.Windows.v10.Edge.v87.Standard,
+			...uaDB.WindowsMobile.Edge.v40.Standard,
+			...uaDB.Xbox.Edge.v44.Standard
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);

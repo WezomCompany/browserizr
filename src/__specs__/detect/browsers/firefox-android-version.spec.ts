@@ -7,8 +7,8 @@ describe('Detect Mozilla Firefox Browser version', () => {
 	describe('Mozilla Firefox 83', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Android_11.FirefoxAndroid_83.Standard,
-				...uaDB.Android_11.FirefoxAndroid_83['Firefox on Lg']
+				...uaDB.Android.v11.Firefox.v83.Standard,
+				...uaDB.Android.v11.Firefox.v83['Firefox on Lg']
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -20,8 +20,8 @@ describe('Detect Mozilla Firefox Browser version', () => {
 		});
 		describe(`Should be ${EQUAL}`, () => {
 			[
-				...uaDB.Android_11.FirefoxAndroid_83.Standard,
-				...uaDB.Android_11.FirefoxAndroid_83['Firefox on Lg']
+				...uaDB.Android.v11.Firefox.v83.Standard,
+				...uaDB.Android.v11.Firefox.v83['Firefox on Lg']
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -33,8 +33,8 @@ describe('Detect Mozilla Firefox Browser version', () => {
 		});
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Android_11.FirefoxAndroid_83.Standard,
-				...uaDB.Android_11.FirefoxAndroid_83['Firefox on Lg']
+				...uaDB.Android.v11.Firefox.v83.Standard,
+				...uaDB.Android.v11.Firefox.v83['Firefox on Lg']
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -46,7 +46,7 @@ describe('Detect Mozilla Firefox Browser version', () => {
 		});
 
 		describe(`Should not be ${MORE_THEN_OR_EQUAL}`, () => {
-			[...uaDB.Android_11.FirefoxAndroid_83.Standard].forEach((ua, i) => {
+			[...uaDB.Android.v11.Firefox.v83.Standard].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
@@ -58,9 +58,9 @@ describe('Detect Mozilla Firefox Browser version', () => {
 
 		describe(`Should not pass`, () => {
 			[
-				...uaDB.Linux.Firefox_83.Standard,
-				...uaDB.MacOS_11.Firefox_83.Standard,
-				...uaDB.Windows_10.Firefox_83.Standard
+				...uaDB.Linux.Firefox.v83.Standard,
+				...uaDB.MacOS.v11.Firefox.v83.Standard,
+				...uaDB.Windows.v10.Firefox.v83.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);

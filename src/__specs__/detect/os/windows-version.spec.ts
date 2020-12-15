@@ -7,24 +7,24 @@ describe('Detect Windows OS Version', () => {
 	describe('Windows XP', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Windows_XP.InternetExplorer_v8.Standard,
-				...uaDB.Windows_Vista.InternetExplorer_v8.Standard,
-				...uaDB.Windows_Vista.InternetExplorer_v9.Standard,
-				...uaDB.Windows_7.InternetExplorer_v8.Standard,
-				...uaDB.Windows_7.InternetExplorer_v9.Standard,
-				...uaDB.Windows_7.InternetExplorer_v10.Standard,
-				...uaDB.Windows_7.InternetExplorer_v11.Standard,
-				...uaDB.Windows_8.InternetExplorer_v10.Standard,
-				...uaDB.Windows_8.InternetExplorer_v11.Standard,
-				...uaDB.Windows_8_1.InternetExplorer_v11.Standard,
-				...uaDB.Windows_10.Chrome_87.Standard,
-				...uaDB.Windows_10.Edge_87.Standard,
-				...uaDB.Windows_10.InternetExplorer_v11.Standard,
-				...uaDB.Windows_10.Firefox_83.Standard,
-				...uaDB.Windows_10.Opera_72.Standard,
-				...uaDB.Windows_10.Yandex_20.Standard,
-				...uaDB.Windows_10.Vivaldi_3_4.Standard,
-				...uaDB.Windows_10.Vivaldi_3_5.Standard
+				...uaDB.Windows.XP.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v8.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8_1.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.Chrome.v87.Standard,
+				...uaDB.Windows.v10.Edge.v87.Standard,
+				...uaDB.Windows.v10.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.Firefox.v83.Standard,
+				...uaDB.Windows.v10.Opera.v72.Standard,
+				...uaDB.Windows.v10.Yandex.v20.Standard,
+				...uaDB.Windows.v10.Vivaldi.v3_4.Standard,
+				...uaDB.Windows.v10.Vivaldi.v3_5.Standard
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -36,7 +36,7 @@ describe('Detect Windows OS Version', () => {
 		});
 
 		describe(`Should be ${EQUAL}`, () => {
-			[...uaDB.Windows_XP.InternetExplorer_v8.Standard].forEach((ua, i) => {
+			[...uaDB.Windows.XP.InternetExplorer.v8.Standard].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(browserizr.detect(isWindowsVersion(EQUAL, 'XP'))).toBeTruthy();
@@ -45,7 +45,7 @@ describe('Detect Windows OS Version', () => {
 		});
 
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
-			[...uaDB.Windows_XP.InternetExplorer_v8.Standard].forEach((ua, i) => {
+			[...uaDB.Windows.XP.InternetExplorer.v8.Standard].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
@@ -56,7 +56,7 @@ describe('Detect Windows OS Version', () => {
 		});
 
 		describe(`Should not be ${MORE_THEN_OR_EQUAL}`, () => {
-			[...uaDB.Windows_XP.InternetExplorer_v8.Standard].forEach((ua, i) => {
+			[...uaDB.Windows.XP.InternetExplorer.v8.Standard].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
@@ -67,12 +67,312 @@ describe('Detect Windows OS Version', () => {
 		});
 
 		describe(`Should not pass at all`, () => {
-			[...uaDB.MacOS_11.Safari_14.Standard].forEach((ua, i) => {
+			[...uaDB.MacOS.v11.Safari.v14.Standard].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
 						browserizr.detect(isWindowsVersion(LESS_THEN_OR_EQUAL, 10))
 					).toBeFalsy();
+				});
+			});
+		});
+	});
+	describe('Windows Vista', () => {
+		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows.Vista.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v8.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8_1.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.Chrome.v87.Standard,
+				...uaDB.Windows.v10.Edge.v87.Standard,
+				...uaDB.Windows.v10.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.Firefox.v83.Standard,
+				...uaDB.Windows.v10.Opera.v72.Standard,
+				...uaDB.Windows.v10.Yandex.v20.Standard,
+				...uaDB.Windows.v10.Vivaldi.v3_4.Standard,
+				...uaDB.Windows.v10.Vivaldi.v3_5.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isWindowsVersion(MORE_THEN_OR_EQUAL, 'Vista'))
+					).toBeTruthy();
+				});
+			});
+		});
+
+		describe(`Should be ${EQUAL}`, () => {
+			[
+				...uaDB.Windows.Vista.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v9.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isWindowsVersion(EQUAL, 'Vista'))
+					).toBeTruthy();
+				});
+			});
+		});
+
+		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows.XP.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v9.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isWindowsVersion(LESS_THEN_OR_EQUAL, 'Vista'))
+					).toBeTruthy();
+				});
+			});
+		});
+	});
+	describe('Windows 7', () => {
+		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows.v7.InternetExplorer.v8.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8_1.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.Chrome.v87.Standard,
+				...uaDB.Windows.v10.Edge.v87.Standard,
+				...uaDB.Windows.v10.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.Firefox.v83.Standard,
+				...uaDB.Windows.v10.Opera.v72.Standard,
+				...uaDB.Windows.v10.Yandex.v20.Standard,
+				...uaDB.Windows.v10.Vivaldi.v3_4.Standard,
+				...uaDB.Windows.v10.Vivaldi.v3_5.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isWindowsVersion(MORE_THEN_OR_EQUAL, 7))
+					).toBeTruthy();
+				});
+			});
+		});
+
+		describe(`Should be ${EQUAL}`, () => {
+			[
+				...uaDB.Windows.v7.InternetExplorer.v8.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v11.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(browserizr.detect(isWindowsVersion(EQUAL, 7))).toBeTruthy();
+				});
+			});
+		});
+
+		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows.Vista.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v8.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v11.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isWindowsVersion(LESS_THEN_OR_EQUAL, 7))
+					).toBeTruthy();
+				});
+			});
+		});
+	});
+	describe('Windows 8', () => {
+		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows.v8.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8_1.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.Chrome.v87.Standard,
+				...uaDB.Windows.v10.Edge.v87.Standard,
+				...uaDB.Windows.v10.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.Firefox.v83.Standard,
+				...uaDB.Windows.v10.Opera.v72.Standard,
+				...uaDB.Windows.v10.Yandex.v20.Standard,
+				...uaDB.Windows.v10.Vivaldi.v3_4.Standard,
+				...uaDB.Windows.v10.Vivaldi.v3_5.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isWindowsVersion(MORE_THEN_OR_EQUAL, 8))
+					).toBeTruthy();
+				});
+			});
+		});
+
+		describe(`Should be ${EQUAL}`, () => {
+			[
+				...uaDB.Windows.v8.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v11.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(browserizr.detect(isWindowsVersion(EQUAL, 8))).toBeTruthy();
+				});
+			});
+		});
+
+		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows.XP.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v8.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v11.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isWindowsVersion(LESS_THEN_OR_EQUAL, 8))
+					).toBeTruthy();
+				});
+			});
+		});
+	});
+
+	describe('Windows 8.1', () => {
+		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows.v8_1.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.Chrome.v87.Standard,
+				...uaDB.Windows.v10.Edge.v87.Standard,
+				...uaDB.Windows.v10.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.Firefox.v83.Standard,
+				...uaDB.Windows.v10.Opera.v72.Standard,
+				...uaDB.Windows.v10.Yandex.v20.Standard,
+				...uaDB.Windows.v10.Vivaldi.v3_4.Standard,
+				...uaDB.Windows.v10.Vivaldi.v3_5.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isWindowsVersion(MORE_THEN_OR_EQUAL, 8.1))
+					).toBeTruthy();
+				});
+			});
+		});
+
+		describe(`Should be ${EQUAL}`, () => {
+			[...uaDB.Windows.v8_1.InternetExplorer.v11.Standard].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(browserizr.detect(isWindowsVersion(EQUAL, 8.1))).toBeTruthy();
+				});
+			});
+		});
+
+		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows.XP.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v8.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8_1.InternetExplorer.v11.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isWindowsVersion(LESS_THEN_OR_EQUAL, 8.1))
+					).toBeTruthy();
+				});
+			});
+		});
+	});
+
+	describe('Windows 10', () => {
+		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows.v10.Chrome.v87.Standard,
+				...uaDB.Windows.v10.Edge.v87.Standard,
+				...uaDB.Windows.v10.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.Firefox.v83.Standard,
+				...uaDB.Windows.v10.Opera.v72.Standard,
+				...uaDB.Windows.v10.Yandex.v20.Standard,
+				...uaDB.Windows.v10.Vivaldi.v3_4.Standard,
+				...uaDB.Windows.v10.Vivaldi.v3_5.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isWindowsVersion(MORE_THEN_OR_EQUAL, 10))
+					).toBeTruthy();
+				});
+			});
+		});
+
+		describe(`Should be ${EQUAL}`, () => {
+			[
+				...uaDB.Windows.v10.Chrome.v87.Standard,
+				...uaDB.Windows.v10.Edge.v87.Standard,
+				...uaDB.Windows.v10.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.Firefox.v83.Standard,
+				...uaDB.Windows.v10.Opera.v72.Standard,
+				...uaDB.Windows.v10.Yandex.v20.Standard,
+				...uaDB.Windows.v10.Vivaldi.v3_4.Standard,
+				...uaDB.Windows.v10.Vivaldi.v3_5.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(browserizr.detect(isWindowsVersion(EQUAL, 10))).toBeTruthy();
+				});
+			});
+		});
+
+		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
+			[
+				...uaDB.Windows.XP.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v8.Standard,
+				...uaDB.Windows.Vista.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v8.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v9.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v7.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v10.Standard,
+				...uaDB.Windows.v8.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v8_1.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.Chrome.v87.Standard,
+				...uaDB.Windows.v10.Edge.v87.Standard,
+				...uaDB.Windows.v10.InternetExplorer.v11.Standard,
+				...uaDB.Windows.v10.Firefox.v83.Standard,
+				...uaDB.Windows.v10.Opera.v72.Standard,
+				...uaDB.Windows.v10.Yandex.v20.Standard,
+				...uaDB.Windows.v10.Vivaldi.v3_4.Standard,
+				...uaDB.Windows.v10.Vivaldi.v3_5.Standard
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(
+						browserizr.detect(isWindowsVersion(LESS_THEN_OR_EQUAL, 10))
+					).toBeTruthy();
 				});
 			});
 		});

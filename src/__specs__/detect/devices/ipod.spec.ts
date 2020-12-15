@@ -5,10 +5,10 @@ import { uaDB } from '../../db';
 describe('Detect isIPod device', () => {
 	describe('Should pass', () => {
 		[
-			...uaDB.iPod_iOS_11.FirefoxIOS_29.Standard,
-			...uaDB.iPod_iOS_14.ChromeIOS_87.Standard,
-			...uaDB.iPod_iOS_14.Safari_14.Standard,
-			...uaDB.iPod_iOS_14.Yandex_20.Standard
+			...uaDB.iOS.v11.Firefox.v29.iPod,
+			...uaDB.iOS.v14.Chrome.v87.iPod,
+			...uaDB.iOS.v14.Safari.v14.iPod,
+			...uaDB.iOS.v14.Yandex.v20.iPod
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
