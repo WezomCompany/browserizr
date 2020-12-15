@@ -1,5 +1,6 @@
 import { DetectMethod } from '../../core';
+import { isIOS } from '../os/ios';
+import __safariRegexp from './__safari-regexp';
 
 /** Detect Apple Safari Browser */
-export const isSafari: DetectMethod = (ua) =>
-	/\)\sVersion\/[\d.]+\d\s(Mobile\/[\dE.]+\s)?Safari\/[\d.]+\d$/.test(ua);
+export const isSafari: DetectMethod = (ua) => __safariRegexp.test(ua) && !isIOS(ua);

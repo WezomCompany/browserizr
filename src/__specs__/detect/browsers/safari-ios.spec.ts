@@ -1,13 +1,17 @@
 import browserizr from '../../../core';
-import { isSafari } from '../../../detect/browsers/safari';
+import { isSafariIOS } from '../../../detect/browsers/safari-ios';
 import { uaDB } from '../../db';
 
 describe('Detect Apple Safari Browser', () => {
 	describe('Should pass', () => {
-		[...uaDB.MacOS.v11.Safari.v14.Standard].forEach((ua, i) => {
+		[
+			...uaDB.iOS.v14.Safari.v14.iPad,
+			...uaDB.iOS.v14.Safari.v14.iPhone,
+			...uaDB.iOS.v14.Safari.v14.iPod
+		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
-				expect(browserizr.detect(isSafari)).toBeTruthy();
+				expect(browserizr.detect(isSafariIOS)).toBeTruthy();
 			});
 		});
 	});
@@ -28,9 +32,6 @@ describe('Detect Apple Safari Browser', () => {
 			...uaDB.iOS.v14.Chrome.v87.iPhone,
 			...uaDB.iOS.v14.Chrome.v87.iPod,
 			...uaDB.iOS.v14.Edge.v45.iPhone,
-			...uaDB.iOS.v14.Safari.v14.iPad,
-			...uaDB.iOS.v14.Safari.v14.iPhone,
-			...uaDB.iOS.v14.Safari.v14.iPod,
 			...uaDB.iOS.v14.Yandex.v20.iPad,
 			...uaDB.iOS.v14.Yandex.v20.iPhone,
 			...uaDB.iOS.v14.Yandex.v20.iPod,
@@ -40,6 +41,7 @@ describe('Detect Apple Safari Browser', () => {
 			...uaDB.MacOS.v11.Chrome.v87.Standard,
 			...uaDB.MacOS.v11.Edge.v87.Standard,
 			...uaDB.MacOS.v11.Opera.v72.Standard,
+			...uaDB.MacOS.v11.Safari.v14.Standard,
 			...uaDB.MacOS.v11.Vivaldi.v3_4.Standard,
 			...uaDB.MacOS.v11.Yandex.v20.Standard,
 			...uaDB.Windows.v10.Chrome.v87.Standard,
@@ -50,7 +52,7 @@ describe('Detect Apple Safari Browser', () => {
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
-				expect(browserizr.detect(isSafari)).toBeFalsy();
+				expect(browserizr.detect(isSafariIOS)).toBeFalsy();
 			});
 		});
 	});
