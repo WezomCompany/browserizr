@@ -67,7 +67,9 @@
         - [isSafariIOS](#issafariios)
         - [isSafariIOSVersion](#issafariiosversion)
         - [isVivaldi](#isvivaldi)
+        - [isVivaldiVersion](#isvivaldiversion)
         - [isYandex](#isyandex)
+        - [isYandexVersion](#isyandexversion)
     1. [Devices](#devices)
         - [isDesktop](#isdesktop)
         - [isMobile](#ismobile)
@@ -857,6 +859,32 @@ if (browserizr.detect(isVivaldi)) {
 </div>
 </details>
 
+#### isVivaldiVersion
+
+<details>
+<summary><em>Detect Vivaldi browser and wanted version.</em></summary>
+<div>
+
+```js
+import browserizr, {
+    isVivaldiVersion,
+    MORE_THEN_OR_EQUAL,
+    EQUAL,
+    LESS_THEN_OR_EQUAL
+} from '@wezom/browserizr';
+
+const vivaldi3dot4 = isVivaldiVersion(EQUAL, 3.4);
+const vivaldi3dot4orHigher = isVivaldiVersion(MORE_THEN_OR_EQUAL, 3.4);
+const vivaldi3dot4orLater = isVivaldiVersion(LESS_THEN_OR_EQUAL, 3.5);
+if (browserizr.detect(vivaldi3dot4)) {
+    // code
+}
+// ...
+``` 
+
+</div>
+</details>
+
 #### isYandex
 
 <details>
@@ -869,6 +897,32 @@ if (browserizr.detect(isYandex)) {
     // code
 }
 ```
+
+</div>
+</details>
+
+#### isYandexVersion
+
+<details>
+<summary><em>Detect Yandex browser and wanted version</em></summary>
+<div>
+
+```js
+import browserizr, {
+    isYandexVersion,
+    MORE_THEN_OR_EQUAL,
+    EQUAL,
+    LESS_THEN_OR_EQUAL
+} from '@wezom/browserizr';
+
+const yandex20 = isYandexVersion(EQUAL, 20);
+const yandex20orHigher = isYandexVersion(MORE_THEN_OR_EQUAL, 20);
+const yandex20orLater = isYandexVersion(LESS_THEN_OR_EQUAL, 20);
+if (browserizr.detect(vivaldi3dot4)) {
+    // code
+}
+// ...
+``` 
 
 </div>
 </details>

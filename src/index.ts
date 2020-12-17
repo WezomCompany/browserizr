@@ -35,8 +35,10 @@ export { default as isSafariIOS } from './detect/browsers/safari-ios';
 export { default as isSafariIOSVersion } from './detect/browsers/safari-ios-version';
 // Vivaldi
 export { default as isVivaldi } from './detect/browsers/vivaldi';
+export { default as isVivaldiVersion } from './detect/browsers/vivaldi-version';
 // Yandex
 export { default as isYandex } from './detect/browsers/yandex';
+export { default as isYandexVersion } from './detect/browsers/yandex-version';
 // Desktop
 export { default as isDesktop } from './detect/devices/desktop';
 // Mobile
