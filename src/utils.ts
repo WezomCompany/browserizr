@@ -8,18 +8,21 @@ export function matchVersion({
 	regExp,
 	groupIndex,
 	version,
-	operator
+	operator,
+	transformMarch = (v: string): string => v
 }: {
 	ua: string;
 	regExp: RegExp;
 	groupIndex: number;
 	version: number;
 	operator: DetectVersionOperator;
+	transformMarch?: (v: string) => string;
 }) {
 	const match = ua.match(regExp);
 	if (match) {
 		const int = version === parseInt('' + version, 10);
-		const value = int ? parseInt(match[groupIndex]) : parseFloat(match[groupIndex]);
+		const _m = transformMarch(match[groupIndex]);
+		const value = int ? parseInt(_m) : parseFloat(_m);
 		if (isNaN(value)) {
 			return false;
 		} else {

@@ -9,7 +9,7 @@
 
 | Statements                | Branches                | Functions                | Lines                |
 | ------------------------- | ----------------------- | ------------------------ | -------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-98.21%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
+| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-98.18%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
 
 ---
 
@@ -80,6 +80,7 @@
         - [isAndroid](#isandroid)
         - [isAndroidVersion](#isandroidversion)
         - [isIOS](#isios)
+        - [isIOSVersion](#isiosversion)
         - [isWindows](#iswindows)
         - [isWindowsVersion](#iswindowsversion)
 1. [Custom detects](#custom-detects)
@@ -1077,6 +1078,31 @@ import browserizr, { isIOS } from '@wezom/browserizr';
 if (browserizr.detect(isIOS)) {
     // code
 }
+```
+
+</div>
+</details>
+
+#### isIOSVersion
+
+<details>
+<summary><em>Detect iOS and wanted OS version</em></summary>
+<div>
+
+```js
+import browserizr, {
+    isIOSVersion,
+    MORE_THEN_OR_EQUAL,
+    EQUAL,
+    LESS_THEN_OR_EQUAL
+} from '@wezom/browserizr';
+
+const iOS14 = isIOSVersion(EQUAL, 14);
+const iOS11orHigher = isIOSVersion(MORE_THAN_OR_EQUAL, 11);
+if (browserizr.detect(iOS14)) {
+    // code
+}
+// ...
 ```
 
 </div>

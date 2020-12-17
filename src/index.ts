@@ -54,6 +54,7 @@ export { default as isAndroid } from './detect/os/android';
 export { default as isAndroidVersion } from './detect/os/android-version';
 // iOS
 export { default as isIOS } from './detect/os/ios';
+export { default as isIOSVersion } from './detect/os/ios-version';
 // Android
 export { default as isWindows } from './detect/os/windows';
 export { default as isWindowsVersion } from './detect/os/windows-version';
