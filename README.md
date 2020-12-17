@@ -95,7 +95,7 @@ _The package [`babel-loader-exclude-node-modules-except`](https://www.npmjs.com/
 
 #### CommonJS Version
 
-Also we have compiled CommonJS version of each library file. So if you cannot change your bundler config or if you don not want to include _esnext_ code version into your project - you can import `*.cjs.js` files. They ready to use without excluding `node_modules` and else. But these files may have redundant code that is necessary for them to work "out of the box".
+If you cannot change your bundler config or if you don not want to include _esnext_ code version into your project - for this we have compiled CommonJS version of each library file and you can import `*.cjs.js` files. They ready to use without excluding `node_modules` and else. These files may have redundant code that is necessary for them to work "out of the box". And they will also be deprived of all the features of the _ESNext_ specifications.
 
 
 ```js
