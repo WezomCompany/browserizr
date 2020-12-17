@@ -531,7 +531,9 @@ if (browserizr.detect(edgeIOS45orHigher)) {
 
 #### isFirefox
 
-Detect Mozilla Firefox browser.
+<details>
+<summary><em>Detect Mozilla Firefox browser.</em></summary>
+<div>
 
 ```ts
 import browserizr, { isFirefox } from '@wezom/browserizr';
@@ -540,13 +542,22 @@ if (browserizr.detect(isFirefox)) {
 }
 ```
 
+</div>
+</details>
+
 #### isFirefoxVersion
 
-Detect Mozilla Firefox browser and wanted version
+<details>
+<summary><em>Detect Mozilla Firefox browser and wanted version.</em></summary>
+<div>
 
 ```ts
-import browserizr, { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr';
-import { isFirefoxVersion } from '@wezom/browserizr';
+import browserizr, {
+    isFirefoxVersion,
+    MORE_THEN_OR_EQUAL,
+    EQUAL,
+    LESS_THEN_OR_EQUAL
+} from '@wezom/browserizr';
 
 const ffx83 = isFirefoxVersion(EQUAL, 83);
 const ffx83orHigher = isFirefoxVersion(MORE_THEN_OR_EQUAL, 83);
@@ -557,9 +568,14 @@ if (browserizr.detect(ffx83)) {
 // ...
 ``` 
 
+</div>
+</details>
+
 #### isFirefoxAndroid
 
-Detect Mozilla Firefox browser.
+<details>
+<summary><em>Detect Mozilla Firefox browser on Android OS.</em></summary>
+<div>
 
 ```ts
 import browserizr, { isFirefoxAndroid } from '@wezom/browserizr';
@@ -568,13 +584,22 @@ if (browserizr.detect(isFirefoxAndroid)) {
 }
 ```
 
+</div>
+</details>
+
 #### isFirefoxAndroidVersion
 
-Detect Mozilla Firefox browser and wanted version
+<details>
+<summary><em>Detect Mozilla Firefox browser and wanted version on Android OS.</em></summary>
+<div>
 
 ```ts
-import browserizr, { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr';
-import { isFirefoxAndroidVersion } from '@wezom/browserizr';
+import browserizr, {
+    isFirefoxAndroidVersion,
+    MORE_THEN_OR_EQUAL,
+    EQUAL,
+    LESS_THEN_OR_EQUAL
+} from '@wezom/browserizr';
 
 const ffxAndroid83 = isFirefoxAndroidVersion(EQUAL, 83);
 const ffxAndroid83orHigher = isFirefoxAndroidVersion(MORE_THEN_OR_EQUAL, 83);
@@ -585,9 +610,14 @@ if (browserizr.detect(ffx83Android)) {
 // ...
 ``` 
 
+</div>
+</details>
+
 #### isFirefoxIOS
 
-Detect Mozilla Firefox browser on iOS.
+<details>
+<summary><em>Detect Mozilla Firefox browser on iOS.</em></summary>
+<div>
 
 ```ts
 import browserizr, { isFirefoxIOS } from '@wezom/browserizr';
@@ -596,13 +626,22 @@ if (browserizr.detect(isFirefoxIOS)) {
 }
 ```
 
+</div>
+</details>
+
 #### isFirefoxIOSVersion
 
-Detect Mozilla Firefox browser and wanted version on iOS
+<details>
+<summary><em>Detect Mozilla Firefox browser and wanted version on iOS.</em></summary>
+<div>
 
 ```ts
-import browserizr, { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr';
-import { isFirefoxIOSVersion } from '@wezom/browserizr';
+import browserizr, {
+    isFirefoxIOSVersion,
+    MORE_THEN_OR_EQUAL,
+    EQUAL,
+    LESS_THEN_OR_EQUAL
+} from '@wezom/browserizr';
 
 const ffxIOS29 = isFirefoxIOSVersion(EQUAL, 29);
 const ffxIOS29orHigher = isFirefoxIOSVersion(MORE_THEN_OR_EQUAL, 29);
@@ -613,9 +652,14 @@ if (browserizr.detect(ffx29IOS)) {
 // ...
 ``` 
 
+</div>
+</details>
+
 #### isIE
 
-Detect Internet Explorer browser
+<details>
+<summary><em>Detect Internet Explorer browser.</em></summary>
+<div>
 
 ```ts
 import browserizr, { isIE } from '@wezom/browserizr';
@@ -624,9 +668,14 @@ if (browserizr.detect(isIE)) {
 }
 ```
 
+</div>
+</details>
+
 #### isIEVersion
 
-Detect Internet Explorer browser and wanted version
+<details>
+<summary><em>Detect Internet Explorer browser and wanted version.</em></summary>
+<div>
 
 ```ts
 import browserizr, { EQUAL } from '@wezom/browserizr';
@@ -642,9 +691,14 @@ if (browserizr.detect(ie8)) {
 // ...
 ``` 
 
+</div>
+</details>
+
 #### isOpera
 
-Detect Opera browser
+<details>
+<summary><em>Detect Opera browser.</em></summary>
+<div>
 
 ```ts
 import browserizr, { isOpera } from '@wezom/browserizr';
@@ -653,20 +707,124 @@ if (browserizr.detect(isOpera)) {
 }
 ```
 
+</div>
+</details>
+
+#### isOperaVersion
+
+<details>
+<summary><em>Detect Opera browser and wanted version.</em></summary>
+<div>
+
+```ts
+import browserizr, {
+    isOperaVersion,
+    MORE_THEN_OR_EQUAL,
+    EQUAL,
+    LESS_THEN_OR_EQUAL
+} from '@wezom/browserizr';
+
+const opera60 = isOperaVersion(EQUAL, 60);
+const opera60orHigher = isOperaVersion(MORE_THEN_OR_EQUAL, 60);
+const opera60orLater = isOperaVersion(LESS_THEN_OR_EQUAL, 60);
+if (browserizr.detect(opera60)) {
+    // code
+}
+// ...
+``` 
+
+</div>
+</details>
+
 #### isSafari
 
-Detect Apple Safari browser
+<details>
+<summary><em>Detect Apple Safari browser.</em></summary>
+<div>
 
 ```ts
 import browserizr, { isSafari } from '@wezom/browserizr';
 if (browserizr.detect(isSafari)) {
     // code
 }
-```
+``` 
+
+</div>
+</details>
+
+#### isSafariVersion
+
+<details>
+<summary><em>Detect Apple Safari browser and wanted version.</em></summary>
+<div>
+
+```ts
+import browserizr, {
+    isSafariVersion,
+    MORE_THEN_OR_EQUAL,
+    EQUAL,
+    LESS_THEN_OR_EQUAL
+} from '@wezom/browserizr';
+
+const safari14 = isSafariVersion(EQUAL, 14);
+const safari14orHigher = isSafariVersion(MORE_THEN_OR_EQUAL, 14);
+const safari14orLater = isSafariVersion(LESS_THEN_OR_EQUAL, 14);
+if (browserizr.detect(safari14)) {
+    // code
+}
+// ...
+``` 
+
+</div>
+</details>
+
+#### isSafariIOS
+
+<details>
+<summary><em>Detect Apple Safari browser on iOS.</em></summary>
+<div>
+
+```ts
+import browserizr, { isSafariIOS } from '@wezom/browserizr';
+if (browserizr.detect(isSafariIOS)) {
+    // code
+}
+``` 
+
+</div>
+</details>
+
+#### isSafariIOSVersion
+
+<details>
+<summary><em>Detect Apple Safari browser and wanted version on iOS.</em></summary>
+<div>
+
+```ts
+import browserizr, {
+    isSafariIOSVersion,
+    MORE_THEN_OR_EQUAL,
+    EQUAL,
+    LESS_THEN_OR_EQUAL
+} from '@wezom/browserizr';
+
+const safarIOSi14 = isSafariIOSVersion(EQUAL, 14);
+const safarIOSi14orHigher = isSafariIOSVersion(MORE_THEN_OR_EQUAL, 14);
+const safarIOSi14orLater = isSafariIOSVersion(LESS_THEN_OR_EQUAL, 14);
+if (browserizr.detect(safariIOS14)) {
+    // code
+}
+// ...
+``` 
+
+</div>
+</details>
 
 #### isVivaldi
 
-Detect Vivaldi browser
+<details>
+<summary><em>Detect Vivaldi browser.</em></summary>
+<div>
 
 ```ts
 import browserizr, { isVivaldi } from '@wezom/browserizr';
@@ -675,9 +833,14 @@ if (browserizr.detect(isVivaldi)) {
 }
 ```
 
+</div>
+</details>
+
 #### isYandex
 
-Detect Yandex browser
+<details>
+<summary><em>Detect Yandex browser.</em></summary>
+<div>
 
 ```ts
 import browserizr, { isYandex } from '@wezom/browserizr';
@@ -685,6 +848,9 @@ if (browserizr.detect(isYandex)) {
     // code
 }
 ```
+
+</div>
+</details>
 
 [▲ Go Top](#) | [▲ Table of Content](#table-of-content)
 
