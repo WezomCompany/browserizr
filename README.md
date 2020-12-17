@@ -279,7 +279,7 @@ You can import each of them separately and only those which need in your project
 #### isChrome
 
 <details>
-<summary>Detect Google Chrome browser</summary>
+<summary><em>Detect Google Chrome browser</em></summary>
 <div>
 
 ```ts
@@ -295,7 +295,7 @@ if (browserizr.detect(isChrome)) {
 #### isChromeVersion
 
 <details>
-<summary>Detect Google Chrome browser and wanted version</summary>
+<summary><em>Detect Google Chrome browser and wanted version</em></summary>
 <div>
 
 ```ts
@@ -321,7 +321,7 @@ if (browserizr.detect(chrome86orHigher)) {
 #### isChromeAndroid
 
 <details>
-<summary>Detect Google Chrome browser on Android OS</summary>
+<summary><em>Detect Google Chrome browser on Android OS</em></summary>
 <div>
 
 ```ts
@@ -337,7 +337,7 @@ if (browserizr.detect(isChromeAndroid)) {
 #### isChromeAndroidVersion
 
 <details>
-<summary>Detect Google Chrome browser and wanted version on Android OS</summary>
+<summary><h4>Detect Google Chrome browser and wanted version on Android OS</h4></summary>
 <div>
 
 ```ts
