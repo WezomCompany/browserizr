@@ -2,17 +2,16 @@
   "name": "@wezom/browserizr",
   "version": "7.0.0",
   "description": "description",
-  "main": "dist/ts/core.ts",
+  "main": "dist/ts/index.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "dev": "tsc --watch",
-    "build": "npm run build:clean && npm run build:tsc-es6 && npm run build:finalize",
+    "build": "npm run build:clean && npm run build:tsc-es && npm run build:ts && npm run build:finalize",
     "----------------------------------------------- BUIL-STEPS": "SECTION",
     "build:clean": "del-cli ./dist",
-    "build:tsc-es6": "tsc",
-    "build:tsc-es5": "tsc --project tsconfig-es5.json",
+    "build:tsc-es": "tsc",
     "build:ts": "cp-cli src/core.ts dist/ts/core.ts && cp-cli src/detect dist/ts/detect",
     "build:finalize": "prettier dist/**/*.{d.ts,js} --check --write",
     "----------------------------------------------- TEST": "SECTION",

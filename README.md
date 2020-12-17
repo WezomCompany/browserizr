@@ -126,10 +126,7 @@ You can import compiled files from special folders.
 // ES6: const, let, spread, rest and other modern JavaScript features
 // but requires to be not exclude in `node_modules`.
 // Check your `babebl-loader` (if your use webpack as bandler)
-import browserizr, { isSafari } from '@wezom/browserizr/dist/es-6';
-
-// or ES5: no ES6 features but ready for use as is, without transpiling
-import browserizr, { isSafari } from '@wezom/browserizr/dist/es-5';
+import browserizr, { isSafari } from '@wezom/browserizr/dist/es';
 ```
 
 ### Usage example
