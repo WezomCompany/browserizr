@@ -1,15 +1,14 @@
-import { DetectMethod, DetectVersionMethod } from '../../core';
 import __operaRegexp from './__opera-regexp';
-import { matchVersion } from '../../utils';
+import { DetectVersionOperator, matchVersion } from '../../utils';
 
 /** Detect Opera Browser version */
-export const isOperaVersion: DetectVersionMethod = (operator, version): DetectMethod => (
-	ua
-) =>
-	matchVersion({
-		ua,
-		version,
-		operator,
-		regExp: __operaRegexp,
-		groupIndex: 1
-	});
+export default function isOperaVersion(operator: DetectVersionOperator, version: number) {
+	return (ua: string): boolean =>
+		matchVersion({
+			ua,
+			version,
+			operator,
+			regExp: __operaRegexp,
+			groupIndex: 1
+		});
+}

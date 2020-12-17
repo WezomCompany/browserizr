@@ -1,7 +1,7 @@
-import { DetectMethod } from '../../core';
-import { isAndroid } from '../os/android';
-import __firefoxRegexp from './__firefox-regexp';
+import isAndroid from '../os/android';
+import __regexp from './__firefox-regexp';
 
 /** Detect Mozilla Firefox Browser on Android OS */
-export const isFirefoxAndroid: DetectMethod = (ua) =>
-	__firefoxRegexp.test(ua) && isAndroid(ua);
+export default function isFirefoxAndroid(ua: string): boolean {
+	return __regexp.test(ua) && isAndroid(ua);
+}

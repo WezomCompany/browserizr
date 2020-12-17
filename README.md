@@ -50,19 +50,25 @@
         - [isIE](#isie)
         - [isIEVersion](#isieversion)
         - [isOpera](#isopera)
+        - [isOperaVersion](#isoperaversion)
         - [isSafari](#issafari)
+        - [isSafariVersion](#issafariversion)
+        - [isSafariIOS](#issafariios)
+        - [isSafariIOSVersion](#issafariiosversion)
         - [isVivaldi](#isvivaldi)
         - [isYandex](#isyandex)
     1. [Devices](#devices)
         - [isDesktop](#isdesktop)
         - [isMobile](#ismobile)
         - [isIPad](#isipad)
-        - [isIPod](#isipod)
         - [isIPhone](#isiphone)
+        - [isIPod](#isipod)
     1. [OS](#os)
         - [isAndroid](#isandroid)
         - [isAndroidVersion](#isandroidversion)
+        - [isIOS](#isios)
         - [isWindows](#iswindows)
+        - [isWindowsVersion](#iswindowsversion)
 1. [Custom detects](#custom-detects)
     1. [Simple example](#simple-example)
 1. [Contributing](#contributing)
@@ -863,7 +869,9 @@ if (browserizr.detect(isYandex)) {
 
 #### isDesktop
 
-Detect desktop browser
+<details>
+<summary><em>Detect desktop browser.</em></summary>
+<div>
 
 ```ts
 import browserizr, { isDesktop } from '@wezom/browserizr';
@@ -872,9 +880,14 @@ if (browserizr.detect(isDesktop)) {
 }
 ```
 
+</div>
+</details>
+
 #### isMobile
 
-Detect mobile browser
+<details>
+<summary><em>Detect mobile browser.</em></summary>
+<div>
 
 ```ts
 import browserizr, { isMobile } from '@wezom/browserizr';
@@ -883,9 +896,14 @@ if (browserizr.detect(isMobile)) {
 }
 ```
 
+</div>
+</details>
+
 #### isIPad
 
-Detect the browser on iPad device
+<details>
+<summary><em>Detect the browser on iPad device.</em></summary>
+<div>
 
 ```ts
 import browserizr, { isIPad } from '@wezom/browserizr';
@@ -894,9 +912,30 @@ if (browserizr.detect(isIPad)) {
 }
 ```
 
+</div>
+</details>
+
+#### isIPhone
+
+<details>
+<summary><em>Detect a browser on iPhone device.</em></summary>
+<div>
+
+```ts
+import browserizr, { isIPhone } from '@wezom/browserizr';
+if (browserizr.detect(isiPhone)) {
+    // code
+}
+```
+
+</div>
+</details>
+
 #### isIPod
 
-Detect a browser on iPod device
+<details>
+<summary><em>Detect a browser on iPod device.</em></summary>
+<div>
 
 ```ts
 import browserizr, { isIPod } from '@wezom/browserizr';
@@ -905,16 +944,8 @@ if (browserizr.detect(isIPod)) {
 }
 ```
 
-#### isIPhone
-
-Detect a browser on iPhone device
-
-```ts
-import browserizr, { isIPhone } from '@wezom/browserizr';
-if (browserizr.detect(isiPhone)) {
-    // code
-}
-```
+</div>
+</details>
 
 [▲ Go Top](#) | [▲ Table of Content](#table-of-content)
 
@@ -927,7 +958,9 @@ if (browserizr.detect(isiPhone)) {
 
 #### isAndroid
 
-Detect Android OS
+<details>
+<summary><em>Detect Android OS.</em></summary>
+<div>
 
 ```ts
 import browserizr, { isAndroid } from '@wezom/browserizr';
@@ -936,11 +969,22 @@ if (browserizr.detect(isAndroid)) {
 }
 ```
 
+</div>
+</details>
+
 #### isAndroidVersion
 
+<details>
+<summary><em>Detect Android and wanted OS version</em></summary>
+<div>
+
 ```ts
-import browserizr, { EQUAL, MORE_THAN_OR_EQUAL } from '@wezom/browserizr';
-import { isAndroidVersion } from '@wezom/browserizr';
+import browserizr, {
+    isAndroidVersion,
+    MORE_THEN_OR_EQUAL,
+    EQUAL,
+    LESS_THEN_OR_EQUAL
+} from '@wezom/browserizr';
 
 const android11 = isAndroidVersion(EQUAL, 11);
 const android9orHigher = isAndroidVersion(MORE_THAN_OR_EQUAL, 9);
@@ -950,9 +994,30 @@ if (browserizr.detect(android11)) {
 // ...
 ```
 
+</div>
+</details>
+
+#### isIOS
+
+<details>
+<summary><em>Detect the iOS</em></summary>
+<div>
+
+```ts
+import browserizr, { isIOS } from '@wezom/browserizr';
+if (browserizr.detect(isIOS)) {
+    // code
+}
+```
+
+</div>
+</details>
+
 #### isWindows
 
-Detect Windows OS
+<details>
+<summary><em>Detect Windows OS.</em></summary>
+<div>
 
 ```ts
 import browserizr, { isWindows } from '@wezom/browserizr';
@@ -960,6 +1025,39 @@ if (browserizr.detect(isWindows)) {
     // code
 }
 ```
+
+</div>
+</details>
+
+#### isWindowsVersion
+
+<details>
+<summary><em>Detect Windows and wanted OS version</em></summary>
+<div>
+
+```ts
+import browserizr, {
+    isWindowVersion,
+    MORE_THEN_OR_EQUAL,
+    EQUAL,
+    LESS_THEN_OR_EQUAL
+} from '@wezom/browserizr';
+
+const windowXP = isWindowVersion(EQUAL, 'XP');
+const windowsVista = isWindowVersion(EQUAL, 'Vista');
+const window7 = isWindowVersion(EQUAL, 7);
+const window8 = isWindowVersion(EQUAL, 8);
+const window8dot1 = isWindowVersion(EQUAL, 8.1);
+const window10 = isWindowVersion(EQUAL, 10);
+
+if (browserizr.detect(windowXP)) {
+    // code
+}
+// ...
+```
+
+</div>
+</details>
 
 [▲ Go Top](#) | [▲ Table of Content](#table-of-content)
 
@@ -985,30 +1083,17 @@ So we can expect that name-value like `MXSBrowser`  in userAgent string:
 
 We can write regular expression for test this string and return result.
 
-*TypeScript example*
-
-```js
+```ts
 // my-detects/is-mxs.ts
-import { DetectMethod } from '@wezom/browserizr';
-export const isMXSBrowser: DetectMethod = (ua) => /\sMXSBrowser\/[\d.]+\s/.test(ua);
-
-// app.ts
-import browserizr, { isMXSBrowser } from 'my-detects/is-mxs';
-
-if (browserizr.detect(isMXSBrowser)) {
-    console.log('Yeah! Thats it!');
-}
+export default function isMXSBrowser(ua: string): boolean {
+    return /\sMXSBrowser\/[\d.]+\s/.test(ua);
+};
 ```
 
-*JavaScript example*
-
-```js
-// my-detects/is-mxs.js
-export const isMXSBrowser = (ua) => /\sMXSBrowser\/[\d.]+\s/.test(ua);
-
-// app.js
-import browserizr from '@wezom/browserizr/es-6/core';
-import { isMXSBrowser } from 'my-detects/is-mxs';
+```ts
+// app.ts
+import browserizr from '@wezom/browserizr';
+import isMXSBrowser from 'my-detects/is-mxs';
 
 if (browserizr.detect(isMXSBrowser)) {
     console.log('Yeah! Thats it!');

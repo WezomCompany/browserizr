@@ -1,6 +1,9 @@
-import browserizr from '../../../core';
-import { isOperaVersion } from '../../../detect/browsers/opera-version';
-import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
+import browserizr, {
+	EQUAL,
+	isOperaVersion,
+	LESS_THEN_OR_EQUAL,
+	MORE_THEN_OR_EQUAL
+} from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Opera Browser', () => {

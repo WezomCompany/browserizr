@@ -1,4 +1,4 @@
-import { DetectMethod } from '../../core';
-
 /** Detect Internet Explorer Browser */
-export const isIE: DetectMethod = (ua) => /(MSIE|Trident)/.test(ua);
+export default function isIE(ua: string): boolean {
+	return /(MSIE|Trident)/.test(ua);
+}

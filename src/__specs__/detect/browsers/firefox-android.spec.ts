@@ -1,5 +1,4 @@
-import browserizr from '../../../core';
-import { isFirefoxAndroid } from '../../../detect/browsers/firefox-android';
+import browserizr, { isFirefoxAndroid } from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Mozilla Firefox Browser on Android OS', () => {

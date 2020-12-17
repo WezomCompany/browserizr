@@ -1,5 +1,4 @@
-import { DetectVersionOperator } from './core';
-
+export type DetectVersionOperator = '>=' | '==' | '<=';
 export const MORE_THEN_OR_EQUAL = '>=';
 export const EQUAL = '==';
 export const LESS_THEN_OR_EQUAL = '<=';

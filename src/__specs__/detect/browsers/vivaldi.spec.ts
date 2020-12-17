@@ -1,5 +1,4 @@
-import browserizr from '../../../core';
-import { isVivaldi } from '../../../detect/browsers/vivaldi';
+import browserizr, { isVivaldi } from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Vivaldi Browser', () => {

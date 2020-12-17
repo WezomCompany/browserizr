@@ -1,4 +1,6 @@
-import { DetectMethod } from '../../core';
+import __regexp from './__vivaldi-regexp';
 
 /** Detect Vivaldi Browser */
-export const isVivaldi: DetectMethod = (ua) => /\sVivaldi\/[\d.]+/.test(ua);
+export default function isVivaldi(ua: string): boolean {
+	return __regexp.test(ua);
+}

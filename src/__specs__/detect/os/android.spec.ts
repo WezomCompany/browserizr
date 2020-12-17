@@ -1,5 +1,4 @@
-import browserizr from '../../../core';
-import { isAndroid } from '../../../detect/os/android';
+import browserizr, { isAndroid } from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Android OS', () => {

@@ -1,6 +1,5 @@
-import browserizr from '../../../core';
+import browserizr, { isChrome } from '../../../index';
 import { uaDB } from '../../db';
-import { isChrome } from '../../../detect/browsers/chrome';
 
 describe('Detect Google Chrome Browser', () => {
 	describe('Should pass', () => {

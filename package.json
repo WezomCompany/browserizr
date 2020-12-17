@@ -1,6 +1,6 @@
 {
   "name": "@wezom/browserizr",
-  "version": "6.2.0-beta",
+  "version": "7.0.0",
   "description": "description",
   "main": "dist/ts/core.ts",
   "files": [
@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "dev": "tsc --watch",
-    "build": "npm run build:clean && npm run build:tsc-es6 && npm run build:tsc-es5 && npm run build:ts && npm run build:finalize",
+    "build": "npm run build:clean && npm run build:tsc-es6 && npm run build:finalize",
     "----------------------------------------------- BUIL-STEPS": "SECTION",
     "build:clean": "del-cli ./dist",
     "build:tsc-es6": "tsc",

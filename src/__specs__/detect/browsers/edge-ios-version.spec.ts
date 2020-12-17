@@ -1,6 +1,9 @@
-import browserizr from '../../../core';
-import { isEdgeIOSVersion } from '../../../detect/browsers/edge-ios-version';
-import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
+import browserizr, {
+	EQUAL,
+	isEdgeIOSVersion,
+	LESS_THEN_OR_EQUAL,
+	MORE_THEN_OR_EQUAL
+} from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Microsoft Edge Browser version on iOS', () => {

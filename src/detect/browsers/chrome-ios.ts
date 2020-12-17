@@ -1,5 +1,6 @@
-import { DetectMethod } from '../../core';
-import __chromeIOSRegexp from './__chrome-ios-regexp';
+import __regexp from './__chrome-ios-regexp';
 
 /** Detect Google Chrome Browser on iOS */
-export const isChromeIOS: DetectMethod = (ua) => __chromeIOSRegexp.test(ua);
+export default function isChromeIOS(ua: string): boolean {
+	return __regexp.test(ua);
+}

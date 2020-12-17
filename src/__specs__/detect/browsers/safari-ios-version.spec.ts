@@ -1,6 +1,9 @@
-import browserizr from '../../../core';
-import { isSafariIOSVersion } from '../../../detect/browsers/safari-ios-version';
-import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
+import browserizr, {
+	EQUAL,
+	isSafariIOSVersion,
+	LESS_THEN_OR_EQUAL,
+	MORE_THEN_OR_EQUAL
+} from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Apple Safari Browser version on iOS', () => {

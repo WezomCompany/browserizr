@@ -1,5 +1,4 @@
-import browserizr from '../../../core';
-import { isIE } from '../../../detect/browsers/ie';
+import browserizr, { isIE } from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Internet Explorer Browser', () => {

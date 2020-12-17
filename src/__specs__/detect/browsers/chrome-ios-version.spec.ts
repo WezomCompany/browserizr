@@ -1,6 +1,9 @@
-import browserizr from '../../../core';
-import { isChromeIOSVersion } from '../../../detect/browsers/chrome-ios-version';
-import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
+import browserizr, {
+	EQUAL,
+	isChromeIOSVersion,
+	LESS_THEN_OR_EQUAL,
+	MORE_THEN_OR_EQUAL
+} from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Google Chrome Browser version on iOS', () => {

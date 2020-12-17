@@ -1,5 +1,4 @@
-import browserizr from '../../../core';
-import { isDesktop } from '../../../detect/devices/desktop';
+import browserizr, { isDesktop } from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect desktop device', () => {

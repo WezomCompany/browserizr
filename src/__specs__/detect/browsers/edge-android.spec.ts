@@ -1,5 +1,4 @@
-import browserizr from '../../../core';
-import { isEdgeAndroid } from '../../../detect/browsers/edge-android';
+import browserizr, { isEdgeAndroid } from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Microsoft Edge Browser on Android', () => {

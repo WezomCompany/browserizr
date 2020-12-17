@@ -1,5 +1,4 @@
-import browserizr from '../../../core';
-import { isFirefox } from '../../../detect/browsers/firefox';
+import browserizr, { isFirefox } from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Mozilla Firefox Browser', () => {

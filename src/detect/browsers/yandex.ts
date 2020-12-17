@@ -1,4 +1,6 @@
-import { DetectMethod } from '../../core';
+import __regexp from './__yandex-regexp';
 
 /** Detect Yandex Browser */
-export const isYandex: DetectMethod = (ua) => /\sYaBrowser\/[\d.]+/.test(ua);
+export default function isYandex(ua: string): boolean {
+	return __regexp.test(ua);
+}

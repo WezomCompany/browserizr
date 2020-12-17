@@ -1,5 +1,4 @@
-import browserizr from '../../../core';
-import { isOpera } from '../../../detect/browsers/opera';
+import browserizr, { isOpera } from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Opera Browser', () => {

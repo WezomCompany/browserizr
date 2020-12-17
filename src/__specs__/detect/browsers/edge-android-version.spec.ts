@@ -1,6 +1,9 @@
-import browserizr from '../../../core';
-import { isEdgeAndroidVersion } from '../../../detect/browsers/edge-android-version';
-import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
+import browserizr, {
+	EQUAL,
+	isEdgeAndroidVersion,
+	LESS_THEN_OR_EQUAL,
+	MORE_THEN_OR_EQUAL
+} from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Microsoft Edge Browser version on Android', () => {

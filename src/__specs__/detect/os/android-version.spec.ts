@@ -1,7 +1,10 @@
-import browserizr from '../../../core';
-import { isAndroidVersion } from '../../../detect/os/android-version';
+import browserizr, {
+	isAndroidVersion,
+	EQUAL,
+	LESS_THEN_OR_EQUAL,
+	MORE_THEN_OR_EQUAL
+} from '../../../index';
 import { uaDB } from '../../db';
-import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
 
 describe('Detect Android OS Version', () => {
 	describe('Android 10', () => {

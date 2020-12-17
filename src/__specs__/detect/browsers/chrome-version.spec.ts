@@ -1,6 +1,9 @@
-import browserizr from '../../../core';
-import { isChromeVersion } from '../../../detect/browsers/chrome-version';
-import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
+import browserizr, {
+	EQUAL,
+	isChromeVersion,
+	LESS_THEN_OR_EQUAL,
+	MORE_THEN_OR_EQUAL
+} from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Google Chrome Browser version', () => {

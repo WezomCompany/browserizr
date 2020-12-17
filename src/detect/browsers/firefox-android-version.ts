@@ -1,15 +1,19 @@
-import { DetectVersionMethod } from '../../core';
-import { matchVersion } from '../../utils';
-import { isAndroid } from '../os/android';
-import __firefoxRegexp from './__firefox-regexp';
+import { DetectVersionOperator, matchVersion } from '../../utils';
+import isAndroid from '../os/android';
+import __regexp from './__firefox-regexp';
 
 /** Detect Mozilla Firefox Browser version on Android OS */
-export const isFirefoxAndroidVersion: DetectVersionMethod = (operator, version) => (ua) =>
-	isAndroid(ua) &&
-	matchVersion({
-		ua,
-		version,
-		operator,
-		regExp: __firefoxRegexp,
-		groupIndex: 1
-	});
+export default function isFirefoxAndroidVersion(
+	operator: DetectVersionOperator,
+	version: number
+) {
+	return (ua: string): boolean =>
+		isAndroid(ua) &&
+		matchVersion({
+			ua,
+			version,
+			operator,
+			regExp: __regexp,
+			groupIndex: 1
+		});
+}

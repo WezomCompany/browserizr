@@ -1,5 +1,4 @@
-import browserizr from '../../../core';
-import { isSafariIOS } from '../../../detect/browsers/safari-ios';
+import browserizr, { isSafariIOS } from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Apple Safari Browser', () => {

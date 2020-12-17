@@ -1,5 +1,4 @@
-import browserizr from '../../../core';
-import { isIPad } from '../../../detect/devices/ipad';
+import browserizr, { isIPad } from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect iPad device', () => {

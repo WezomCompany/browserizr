@@ -1,5 +1,6 @@
-import { DetectMethod } from '../../core';
-import __firefoxIOSRegexp from './__firefox-ios-regexp';
+import __regexp from './__firefox-ios-regexp';
 
 /** Detect Mozilla Firefox Browser on iOS */
-export const isFirefoxIOS: DetectMethod = (ua) => __firefoxIOSRegexp.test(ua);
+export default function isFirefoxIOS(ua: string): boolean {
+	return __regexp.test(ua);
+}

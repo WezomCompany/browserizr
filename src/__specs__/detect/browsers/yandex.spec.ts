@@ -1,5 +1,4 @@
-import browserizr from '../../../core';
-import { isYandex } from '../../../detect/browsers/yandex';
+import browserizr, { isYandex } from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Yandex Browser', () => {

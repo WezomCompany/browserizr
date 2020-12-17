@@ -1,5 +1,4 @@
-import browserizr from '../../../core';
-import { isChromeIOS } from '../../../detect/browsers/chrome-ios';
+import browserizr, { isChromeIOS } from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Google Chrome Browser on iOS', () => {

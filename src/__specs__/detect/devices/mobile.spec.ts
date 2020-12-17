@@ -1,5 +1,4 @@
-import browserizr from '../../../core';
-import { isMobile } from '../../../detect/devices/mobile';
+import browserizr, { isMobile } from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect mobile device', () => {

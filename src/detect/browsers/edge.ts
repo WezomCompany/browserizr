@@ -1,5 +1,6 @@
-import { DetectMethod } from '../../core';
-import __edgeRegexp from './__edge-regexp';
+import __regexp from './__edge-regexp';
 
 /** Detect Microsoft Edge Browser */
-export const isEdge: DetectMethod = (ua) => __edgeRegexp.test(ua);
+export default function isEdge(ua: string): boolean {
+	return __regexp.test(ua);
+}

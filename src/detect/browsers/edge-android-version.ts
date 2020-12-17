@@ -1,13 +1,17 @@
-import { DetectVersionMethod } from '../../core';
-import { matchVersion } from '../../utils';
-import __edgeAndroidRegexp from './__edge-android-regexp';
+import { DetectVersionOperator, matchVersion } from '../../utils';
+import __regexp from './__edge-android-regexp';
 
 /** Detect Microsoft Edge Browser version on Android */
-export const isEdgeAndroidVersion: DetectVersionMethod = (operator, version) => (ua) =>
-	matchVersion({
-		ua,
-		version,
-		operator,
-		regExp: __edgeAndroidRegexp,
-		groupIndex: 1
-	});
+export default function isChromeAndroidVersion(
+	operator: DetectVersionOperator,
+	version: number
+) {
+	return (ua: string): boolean =>
+		matchVersion({
+			ua,
+			version,
+			operator,
+			regExp: __regexp,
+			groupIndex: 1
+		});
+}

@@ -1,5 +1,4 @@
-import browserizr from '../../../core';
-import { isEdge } from '../../../detect/browsers/edge';
+import browserizr, { isEdge } from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Microsoft Edge Browser', () => {

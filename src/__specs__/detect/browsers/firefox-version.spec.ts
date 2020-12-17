@@ -1,6 +1,9 @@
-import browserizr from '../../../core';
-import { isFirefoxVersion } from '../../../detect/browsers/firefox-version';
-import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
+import browserizr, {
+	EQUAL,
+	isFirefoxVersion,
+	LESS_THEN_OR_EQUAL,
+	MORE_THEN_OR_EQUAL
+} from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Mozilla Firefox Browser version', () => {

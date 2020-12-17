@@ -1,4 +1,4 @@
-import { DetectMethod } from '../../core';
-
 /** Detect a Browser on iPhone device */
-export const isIPhone: DetectMethod = (ua) => /iPhone/i.test(ua);
+export default function isIPhone(ua: string): boolean {
+	return /iPhone/i.test(ua);
+}

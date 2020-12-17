@@ -1,5 +1,4 @@
-import browserizr from '../../../core';
-import { isWindows } from '../../../detect/os/windows';
+import browserizr, { isWindows } from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Windows OS', () => {

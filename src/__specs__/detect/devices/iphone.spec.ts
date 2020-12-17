@@ -1,5 +1,4 @@
-import browserizr from '../../../core';
-import { isIPhone } from '../../../detect/devices/iphone';
+import browserizr, { isIPhone } from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect iPhone device', () => {

@@ -1,5 +1,4 @@
-import browserizr from '../../../core';
-import { isFirefoxIOS } from '../../../detect/browsers/firefox-ios';
+import browserizr, { isFirefoxIOS } from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Mozilla Firefox Browser on iOS', () => {

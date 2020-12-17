@@ -1,6 +1,9 @@
-import browserizr from '../../../core';
-import { isEdgeVersion } from '../../../detect/browsers/edge-version';
-import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
+import browserizr, {
+	EQUAL,
+	isEdgeVersion,
+	LESS_THEN_OR_EQUAL,
+	MORE_THEN_OR_EQUAL
+} from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Microsoft Edge Browser version', () => {

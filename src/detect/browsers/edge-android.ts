@@ -1,5 +1,6 @@
-import { DetectMethod } from '../../core';
-import __edgeAndroidRegexp from './__edge-android-regexp';
+import __regexp from './__edge-android-regexp';
 
 /** Detect Microsoft Edge Browser on Android */
-export const isEdgeAndroid: DetectMethod = (ua) => __edgeAndroidRegexp.test(ua);
+export default function isEdgeAndroid(ua: string) {
+	return __regexp.test(ua);
+}

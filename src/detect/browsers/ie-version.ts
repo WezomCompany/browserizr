@@ -1,10 +1,16 @@
-import { DetectVersionMethod } from '../../core';
-import { isIE } from './ie';
-import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../utils';
+import {
+	DetectVersionOperator,
+	EQUAL,
+	LESS_THEN_OR_EQUAL,
+	MORE_THEN_OR_EQUAL
+} from '../../utils';
 
 /** Detect Internet Explorer Browser and wanted version */
-export const isIEVersion: DetectVersionMethod = (operator, version) => (ua) => {
-	if (isIE(ua)) {
+export default function isIEVersion(
+	operator: DetectVersionOperator,
+	version: 8 | 9 | 10 | 11
+) {
+	return (ua: string): boolean => {
 		const versions = [];
 		versions[8] = () =>
 			/MSIE 8\.\d/i.test(ua) || /MSIE 7\.0; Windows NT 6\.0/i.test(ua);
@@ -21,7 +27,8 @@ export const isIEVersion: DetectVersionMethod = (operator, version) => (ua) => {
 				return versions.slice(version).some((fn) => fn());
 			case LESS_THEN_OR_EQUAL:
 				return versions.slice(0, version + 1).some((fn) => fn());
+			default:
+				return false;
 		}
-	}
-	return false;
-};
+	};
+}

@@ -1,6 +1,5 @@
-import browserizr from '../../../core';
+import browserizr, { isChromeAndroid } from '../../../index';
 import { uaDB } from '../../db';
-import { isChromeAndroid } from '../../../detect/browsers/chrome-android';
 
 describe('Detect Google Chrome Browser on Android OS', () => {
 	describe('Should pass', () => {

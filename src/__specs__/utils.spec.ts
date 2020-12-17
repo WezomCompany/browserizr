@@ -2,7 +2,7 @@
 // Deps
 // -----------------------------------------------------------------------------
 
-import { EQUAL, LESS_THEN_OR_EQUAL, matchVersion, MORE_THEN_OR_EQUAL } from '../utils';
+import { EQUAL, LESS_THEN_OR_EQUAL, matchVersion, MORE_THEN_OR_EQUAL } from '../index';
 
 // -----------------------------------------------------------------------------
 // Tests

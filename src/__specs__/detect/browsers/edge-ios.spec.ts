@@ -1,5 +1,4 @@
-import browserizr from '../../../core';
-import { isEdgeIOS } from '../../../detect/browsers/edge-ios';
+import browserizr, { isEdgeIOS } from '../../../index';
 import { uaDB } from '../../db';
 
 describe('Detect Microsoft Edge Browser on iOS', () => {

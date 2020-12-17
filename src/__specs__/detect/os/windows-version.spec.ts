@@ -1,7 +1,10 @@
-import browserizr from '../../../core';
-import { isWindowsVersion } from '../../../detect/os/windows-version';
+import browserizr, {
+	EQUAL,
+	isWindowsVersion,
+	LESS_THEN_OR_EQUAL,
+	MORE_THEN_OR_EQUAL
+} from '../../../index';
 import { uaDB } from '../../db';
-import { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL } from '../../../utils';
 
 describe('Detect Windows OS Version', () => {
 	describe('Windows XP', () => {
