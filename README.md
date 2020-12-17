@@ -278,10 +278,8 @@ You can import each of them separately and only those which need in your project
 
 #### isChrome
 
-Detect Google Chrome browser
-
 <details>
-<summary>CLICK ME</summary>
+<summary>Detect Google Chrome browser</summary>
 <div>
 
 ```ts
@@ -296,12 +294,17 @@ if (browserizr.detect(isChrome)) {
 
 #### isChromeVersion
 
-Detect Google Chrome browser and wanted version
+<details>
+<summary>Detect Google Chrome browser and wanted version</summary>
+<div>
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
-import { isChromeVersion } from '@wezom/browserizr/detect/browsers/chrome-version';
+import browserizr, {
+    isChromeVersion,
+    MORE_THEN_OR_EQUAL,
+    EQUAL,
+    LESS_THEN_OR_EQUAL
+} from '@wezom/browserizr';
 
 const chrome86 = isChromeVersion(EQUAL, 86);
 const chrome86orHigher = isChromeVersion(MORE_THEN_OR_EQUAL, 86);
@@ -312,26 +315,38 @@ if (browserizr.detect(chrome86orHigher)) {
 // ...
 ``` 
 
+</div>
+</details>
+
 #### isChromeAndroid
 
-Detect Google Chrome browser on Android OS.
+<details>
+<summary>Detect Google Chrome browser on Android OS</summary>
+<div>
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isChromeAndroid } from '@wezom/browserizr/detect/browsers/chrome';
+import browserizr, { isChromeAndroid } from '@wezom/browserizr';
 if (browserizr.detect(isChromeAndroid)) {
     // code
 }
 ``` 
 
+</div>
+</details>
+
 #### isChromeAndroidVersion
 
-Detect Google Chrome browser and wanted version on Android OS
+<details>
+<summary>Detect Google Chrome browser and wanted version on Android OS</summary>
+<div>
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
-import { isChromeAndroidVersion } from '@wezom/browserizr/detect/browsers/chrome-ios-version';
+import browserizr, {
+    isChromeAndroidVersion,
+    MORE_THEN_OR_EQUAL,
+    EQUAL,
+    LESS_THEN_OR_EQUAL
+} from '@wezom/browserizr';
 
 const chromeAndroid86 = isChromeAndroidVersion(EQUAL, 86);
 const chromeAndroid86orHigher = isChromeAndroidVersion(MORE_THEN_OR_EQUAL, 86);
@@ -341,6 +356,9 @@ if (browserizr.detect(chromeAndroid86orHigher)) {
 }
 // ...
 ``` 
+
+</div>
+</details>
 
 #### isChromeIOS
 
