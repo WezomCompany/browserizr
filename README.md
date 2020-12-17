@@ -9,18 +9,15 @@
 
 | Statements                | Branches                | Functions                | Lines                |
 | ------------------------- | ----------------------- | ------------------------ | -------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-99.67%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-96.43%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-99.6%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
+| ![Statements](https://img.shields.io/badge/Coverage-99.67%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-96.43%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-99.07%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-99.61%25-brightgreen.svg) |
 
 ## Table of Content:
 
-1. [Introduction](#introduction)
-    1. [TypeScript-First](#typescript-first)
-    1. [Code examples](#code-examples)
 1. [Usage](#usage)
     1. [Install npm package](#install-npm-package)
     1. [Import to your codebase](#import-to-your-codebase)
-        - [TypeScript](#typescript)
-        - [JavaScript](#javascript)
+        - [ESNext](#esnext)
+        - [CommonJS Version](#commonjs-version)
     1. [Usage example](#usage-example)
 1. [API](#api)
     1. [Methods](#methods)
@@ -79,23 +76,6 @@
 
 
 
-## Introduction
-
-### TypeScript-First
-
-We use TypeScript as the primary language for developing our library and distribute the source code "as is" by default. This feature allows you to import a clean codebase, without many portable additional constructs, fallbacks and polyfills.
-
-### Code examples
-
-_We use TypeScript for most of the examples. Even if you don't work with TypeScript - these examples are easy to understand, but if you run into problems or not understanding of this code, please feel free to [submit issue](https://github.com/WezomCompany/browserizr/issues). For your convenience, we will supplement our examples._
-
-[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
-
----
-
-
-
-
 ## Usage
 
 ### Install npm package
@@ -106,32 +86,26 @@ npm i @wezom/browserizr
 
 ### Import to your codebase
 
-#### TypeScript
+#### ESNext
 
-As stated earlier, we use TypeScript as main development language and  
- by default distribute our lib "AS IS", in original TypeScript files.
+We use TypeScript as main development language and distribute our lib in the maximum compliance with modern JavaScript specifications. 
+You project bundler (wabpack or something else) must not exclude this installed package from `node_modules` folder.
 
-```ts
-// Import original ts code
-// but requires to be not exclude in `node_modules`.
-// Check your `tsconfig.json`
-import browserizr, { isSafari } from '@wezom/browserizr';
-```
+_The package [`babel-loader-exclude-node-modules-except`](https://www.npmjs.com/package/babel-loader-exclude-node-modules-except) can help you with this_
 
-#### JavaScript
+#### CommonJS Version
 
-You can import compiled files from special folders.
+Also we have compiled CommonJS version of each library file. So if you cannot change your bundler config or if you don not want to include _esnext_ code version into your project - you can import `*.cjs.js` files. They ready to use without excluding `node_modules` and else. But these files may have redundant code that is necessary for them to work "out of the box".
+
 
 ```js
-// ES6: const, let, spread, rest and other modern JavaScript features
-// but requires to be not exclude in `node_modules`.
-// Check your `babebl-loader` (if your use webpack as bandler)
-import browserizr, { isSafari } from '@wezom/browserizr/dist/es';
+// no ES6 features but ready for use as is, without transpiling
+import browserizr, { isSafari } from '@wezom/browserizr/dist/index.cjs';
 ```
 
 ### Usage example
 
-```ts
+```js
 import browserizr, { 
     isIE,
     isChromeVersion,
@@ -170,9 +144,17 @@ _Signature:_
 detect(fn: (ua: string) => boolean): boolen
 ```
 
+_Parameters:_
+
+Name | Data type | Description
+ --- | --- | ---
+ `fn` | `function` | Function that will accept string argument userAgent and must return boolean result of detect
+ 
+_Return type:_ `boolean`
+
 You can use one of the [built-in methods](#built-in-detects) or write [custom detects](#custom-detects)
 
-```ts
+```js
 import browserizr, { isChrome, isMobile } from '@wezom/browserizr';
 
 if (browserizr.detect(isChrome)) {
@@ -190,16 +172,30 @@ _Signature:_
 
 ```ts
 /** Generate CSS class names string */
-classNames(classes: {
-    is: string;
-    not: string;
-    fn: DetectMethod;
-}[]): string
+classNames(
+    classes: {
+        is: string;
+        not: string;
+        fn: DetectMethod;
+    }[]
+): string
 ```
+
+_Parameters:_
+
+Name | Data type | Description
+ --- | --- | ---
+ `classes` | `Array` | Array of options
+ `classes[N]` | `Object` | Options for generating class name
+ `classes[N].is` | `string` | Class name for positive detects result
+ `classes[N].not` | `string` | Class name for negative detects result
+ `classes[N].fn` | `function` | Function for detect method, see [browserizr.detect()](#browserizrdetect)
+ 
+_Return type:_ `boolean`
 
 A little example for explanation: 
 
-```ts
+```js
 import browserizr, { DetectClassNameMethod, isSafari, isMobile } from '@wezom/browserizr';
 
 const classes: DetectClassNameMethod[] = [
@@ -227,12 +223,12 @@ console.log(browserizr.classNames(classes)); // => "not-like-mobile is-not-safar
 
 You can do what you want with this string. Like this:
 
-```ts
+```js
 // Add classes in browser
 document.body.classList.add(browserizr.classNames(classes));
 ```
 
-```tsx
+```jsx
 // Render JSX components
 <div className={browserizr.classNames(classes)}>
     ...
@@ -248,19 +244,27 @@ _Signature:_
 setUA(ua: string): void
 ```
 
+_Parameters:_
+
+Name | Data type | Description
+ --- | --- | ---
+ `ua` | `string` | Custom `userAgent` string
+ 
+_Return type:_ `undefined`
+
 By default, `browserizr` trying to resolve global object `navigator` and get `userAgent` field from that.
 Global object `navigator` exist only in a browser environment.
 
 So if you work in another environment - you may use `.setUA()` method to set custom string:
 
-```ts
+```js
 // working with express server on Node.js
 browserizr.setUA(req.headers['user-agent']);
 ```
 
 Also, method `setUA` will help you with tests [your own detection methods](#custom-detects)
 
-```ts
+```js
 browserizr.setUA('My custom userAgent string');
 browserizr.detect(isMyCustomDetectMethod);
 ```
@@ -285,7 +289,7 @@ You can import each of them separately and only those which need in your project
 <summary><em>Detect Google Chrome browser</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isChrome } from '@wezom/browserizr';
 if (browserizr.detect(isChrome)) {
     // code
@@ -301,7 +305,7 @@ if (browserizr.detect(isChrome)) {
 <summary><em>Detect Google Chrome browser and wanted version</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, {
     isChromeVersion,
     MORE_THEN_OR_EQUAL,
@@ -327,7 +331,7 @@ if (browserizr.detect(chrome86orHigher)) {
 <summary><em>Detect Google Chrome browser on Android OS</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isChromeAndroid } from '@wezom/browserizr';
 if (browserizr.detect(isChromeAndroid)) {
     // code
@@ -343,7 +347,7 @@ if (browserizr.detect(isChromeAndroid)) {
 <summary><em>Detect Google Chrome browser and wanted version on Android OS</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, {
     isChromeAndroidVersion,
     MORE_THEN_OR_EQUAL,
@@ -369,7 +373,7 @@ if (browserizr.detect(chromeAndroid86orHigher)) {
 <summary><em>Detect Google Chrome browser on iPad, iPod or iPhone device.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isChromeIOS } from '@wezom/browserizr';
 if (browserizr.detect(isChromeIOS)) {
     // code
@@ -385,7 +389,7 @@ if (browserizr.detect(isChromeIOS)) {
 <summary><em>Detect Google Chrome browser and wanted version on iOS.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, {
     isChromeIOSVersion,
     MORE_THEN_OR_EQUAL,
@@ -411,7 +415,7 @@ if (browserizr.detect(chromeIOS86orHigher)) {
 <summary><em>Detect Microsoft Edge browser.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isEdge } from '@wezom/browserizr';
 if (browserizr.detect(isEdge)) {
     // code
@@ -428,7 +432,7 @@ if (browserizr.detect(isEdge)) {
 <summary><em>Detect Microsoft Edge browser and wanted version.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, {
     isEdgeVersion,
     MORE_THEN_OR_EQUAL,
@@ -454,7 +458,7 @@ if (browserizr.detect(edge86orHigher)) {
 <summary><em>Detect Microsoft Edge browser on Android.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isEdgeAndroid } from '@wezom/browserizr';
 if (browserizr.detect(isEdgeAndroid)) {
     // code
@@ -470,7 +474,7 @@ if (browserizr.detect(isEdgeAndroid)) {
 <summary><em>Detect Microsoft Edge browser and wanted version on Android.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, {
     isEdgeAndroidVersion,
     MORE_THEN_OR_EQUAL,
@@ -496,7 +500,7 @@ if (browserizr.detect(edgeAndroid45orHigher)) {
 <summary><em>Detect Microsoft Edge browser on iOS.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isEdgeIOS } from '@wezom/browserizr';
 if (browserizr.detect(isEdgeIOS)) {
     // code
@@ -512,7 +516,7 @@ if (browserizr.detect(isEdgeIOS)) {
 <summary><em>Detect Microsoft Edge browser and wanted version on iOS.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, {
     isEdgeIOSVersion,
     MORE_THEN_OR_EQUAL,
@@ -538,7 +542,7 @@ if (browserizr.detect(edgeIOS45orHigher)) {
 <summary><em>Detect Mozilla Firefox browser.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isFirefox } from '@wezom/browserizr';
 if (browserizr.detect(isFirefox)) {
     // code
@@ -554,7 +558,7 @@ if (browserizr.detect(isFirefox)) {
 <summary><em>Detect Mozilla Firefox browser and wanted version.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, {
     isFirefoxVersion,
     MORE_THEN_OR_EQUAL,
@@ -580,7 +584,7 @@ if (browserizr.detect(ffx83)) {
 <summary><em>Detect Mozilla Firefox browser on Android OS.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isFirefoxAndroid } from '@wezom/browserizr';
 if (browserizr.detect(isFirefoxAndroid)) {
     // code
@@ -596,7 +600,7 @@ if (browserizr.detect(isFirefoxAndroid)) {
 <summary><em>Detect Mozilla Firefox browser and wanted version on Android OS.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, {
     isFirefoxAndroidVersion,
     MORE_THEN_OR_EQUAL,
@@ -622,7 +626,7 @@ if (browserizr.detect(ffx83Android)) {
 <summary><em>Detect Mozilla Firefox browser on iOS.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isFirefoxIOS } from '@wezom/browserizr';
 if (browserizr.detect(isFirefoxIOS)) {
     // code
@@ -638,7 +642,7 @@ if (browserizr.detect(isFirefoxIOS)) {
 <summary><em>Detect Mozilla Firefox browser and wanted version on iOS.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, {
     isFirefoxIOSVersion,
     MORE_THEN_OR_EQUAL,
@@ -664,7 +668,7 @@ if (browserizr.detect(ffx29IOS)) {
 <summary><em>Detect Internet Explorer browser.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isIE } from '@wezom/browserizr';
 if (browserizr.detect(isIE)) {
     // code
@@ -680,7 +684,7 @@ if (browserizr.detect(isIE)) {
 <summary><em>Detect Internet Explorer browser and wanted version.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { EQUAL } from '@wezom/browserizr';
 import { isIEVersion } from '@wezom/browserizr';
 
@@ -703,7 +707,7 @@ if (browserizr.detect(ie8)) {
 <summary><em>Detect Opera browser.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isOpera } from '@wezom/browserizr';
 if (browserizr.detect(isOpera)) {
     // code
@@ -719,7 +723,7 @@ if (browserizr.detect(isOpera)) {
 <summary><em>Detect Opera browser and wanted version.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, {
     isOperaVersion,
     MORE_THEN_OR_EQUAL,
@@ -745,7 +749,7 @@ if (browserizr.detect(opera60)) {
 <summary><em>Detect Apple Safari browser.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isSafari } from '@wezom/browserizr';
 if (browserizr.detect(isSafari)) {
     // code
@@ -761,7 +765,7 @@ if (browserizr.detect(isSafari)) {
 <summary><em>Detect Apple Safari browser and wanted version.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, {
     isSafariVersion,
     MORE_THEN_OR_EQUAL,
@@ -787,7 +791,7 @@ if (browserizr.detect(safari14)) {
 <summary><em>Detect Apple Safari browser on iOS.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isSafariIOS } from '@wezom/browserizr';
 if (browserizr.detect(isSafariIOS)) {
     // code
@@ -803,7 +807,7 @@ if (browserizr.detect(isSafariIOS)) {
 <summary><em>Detect Apple Safari browser and wanted version on iOS.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, {
     isSafariIOSVersion,
     MORE_THEN_OR_EQUAL,
@@ -829,7 +833,7 @@ if (browserizr.detect(safariIOS14)) {
 <summary><em>Detect Vivaldi browser.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isVivaldi } from '@wezom/browserizr';
 if (browserizr.detect(isVivaldi)) {
     // code
@@ -845,7 +849,7 @@ if (browserizr.detect(isVivaldi)) {
 <summary><em>Detect Yandex browser.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isYandex } from '@wezom/browserizr';
 if (browserizr.detect(isYandex)) {
     // code
@@ -870,7 +874,7 @@ if (browserizr.detect(isYandex)) {
 <summary><em>Detect desktop browser.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isDesktop } from '@wezom/browserizr';
 if (browserizr.detect(isDesktop)) {
     // code
@@ -886,7 +890,7 @@ if (browserizr.detect(isDesktop)) {
 <summary><em>Detect mobile browser.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isMobile } from '@wezom/browserizr';
 if (browserizr.detect(isMobile)) {
     // code
@@ -902,7 +906,7 @@ if (browserizr.detect(isMobile)) {
 <summary><em>Detect the browser on iPad device.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isIPad } from '@wezom/browserizr';
 if (browserizr.detect(isIPad)) {
     // code
@@ -918,7 +922,7 @@ if (browserizr.detect(isIPad)) {
 <summary><em>Detect a browser on iPhone device.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isIPhone } from '@wezom/browserizr';
 if (browserizr.detect(isiPhone)) {
     // code
@@ -934,7 +938,7 @@ if (browserizr.detect(isiPhone)) {
 <summary><em>Detect a browser on iPod device.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isIPod } from '@wezom/browserizr';
 if (browserizr.detect(isIPod)) {
     // code
@@ -959,7 +963,7 @@ if (browserizr.detect(isIPod)) {
 <summary><em>Detect Android OS.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isAndroid } from '@wezom/browserizr';
 if (browserizr.detect(isAndroid)) {
     // code
@@ -975,7 +979,7 @@ if (browserizr.detect(isAndroid)) {
 <summary><em>Detect Android and wanted OS version</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, {
     isAndroidVersion,
     MORE_THEN_OR_EQUAL,
@@ -1000,7 +1004,7 @@ if (browserizr.detect(android11)) {
 <summary><em>Detect the iOS</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isIOS } from '@wezom/browserizr';
 if (browserizr.detect(isIOS)) {
     // code
@@ -1016,7 +1020,7 @@ if (browserizr.detect(isIOS)) {
 <summary><em>Detect Windows OS.</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, { isWindows } from '@wezom/browserizr';
 if (browserizr.detect(isWindows)) {
     // code
@@ -1032,7 +1036,7 @@ if (browserizr.detect(isWindows)) {
 <summary><em>Detect Windows and wanted OS version</em></summary>
 <div>
 
-```ts
+```js
 import browserizr, {
     isWindowVersion,
     MORE_THEN_OR_EQUAL,
@@ -1079,6 +1083,8 @@ So we can expect that name-value like `MXSBrowser`  in userAgent string:
 ```
 
 We can write regular expression for test this string and return result.
+
+_TypeScript example_
 
 ```ts
 // my-detects/is-mxs.ts

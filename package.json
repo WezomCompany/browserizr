@@ -2,18 +2,18 @@
   "name": "@wezom/browserizr",
   "version": "7.0.0",
   "description": "description",
-  "main": "dist/ts/index.ts",
+  "main": "dist/index.js",
   "files": [
     "dist"
   ],
   "scripts": {
     "dev": "tsc --watch",
-    "build": "npm run build:clean && npm run build:tsc-es && npm run build:ts && npm run build:finalize",
+    "build": "npm run build:clean && npm run build:ts-es && npm run build:ts-cjs && npm run build:finalize",
     "----------------------------------------------- BUIL-STEPS": "SECTION",
     "build:clean": "del-cli ./dist",
     "build:ts-es": "tsc",
-    "build:ts-cjs": "tsc --project tsconfig-cjs.json",
-    "build:finalize": "prettier dist/**/*.{d.ts,js} --check --write",
+    "build:ts-cjs": "tsc --project ./tsconfig-cjs.json",
+    "build:finalize": "prettier ./dist/**/*.{d.ts,js} --check --write",
     "----------------------------------------------- TEST": "SECTION",
     "test": "npm run prettier && npm run eslint-js && npm run eslint-ts && npm run jest",
     "test:autofix": "npm run prettier:autofix && npm run eslint-js:autofix && npm run eslint-ts:autofix && npm run jest:coverage",
@@ -25,7 +25,8 @@
     "prettier": "prettier src/**/*.ts --check",
     "prettier:autofix": "npm run prettier -- --write",
     "jest": "jest",
-    "jest:coverage": "del-cli ./coverage && jest --coverage --collectCoverageFrom=\"./src/**/*.ts\" && istanbul-badges-readme"
+    "jest:coverage": "del-cli ./coverage && jest --coverage --collectCoverageFrom=\"./src/**/*.ts\" && istanbul-badges-readme",
+    "postbuild:ts-cjs": "node ./utils.js && del-cli ./dist/cjs"
   },
   "repository": {
     "type": "git",
