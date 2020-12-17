@@ -11,9 +11,22 @@
 | ------------------------- | ----------------------- | ------------------------ | -------------------- |
 | ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-98.21%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
 
+---
+
+## Features
+
+🌟 Fully treeshackable  
+🌟 Types included  
+🌟 [ESNext distribute](#esnext)  
+🌟 [CommonJS version available](#commonjs-version)  
+🌟 [SSR support](#browserizrsetua)  
+🌟 [Custom detects available](#custom-detects)
+
+
+---
+
 ## Table of Content:
 
-1. [Features](#features)
 1. [Usage](#usage)
     1. [Install npm package](#install-npm-package)
     1. [Import to your codebase](#import-to-your-codebase)
@@ -71,19 +84,6 @@
     1. [Simple example](#simple-example)
 1. [Contributing](#contributing)
 1. [License](#licence)
-
----
-
-
-
-## Features
-
-🌟 Fully treeshackable  
-🌟 Types included  
-🌟 SSR support (see [description](#browserizrsetua))  
-🌟 Custom detects available (see [examlpe](#custom-detects))
-
-[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
 
 ---
 
