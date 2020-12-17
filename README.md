@@ -1,6 +1,6 @@
 # `browserizr`
 
-![Typescript first](https://img.shields.io/badge/TypeScript-First-blue)
+![types](https://img.shields.io/badge/types-TypeScript-blue)
 [![BSD-3-Clause License badge](https://img.shields.io/github/license/WezomCompany/browserizr)](https://github.com/WezomCompany/browserizr/blob/master/LICENSE)
 [![NPM package badge](https://img.shields.io/badge/npm-install-orange.svg)](https://www.npmjs.com/package/@wezom/browserizr)
 ![Test and Build status badge](https://github.com/WezomCompany/browserizr/workflows/Test%20and%20Build/badge.svg)
