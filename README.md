@@ -337,7 +337,7 @@ if (browserizr.detect(isChromeAndroid)) {
 #### isChromeAndroidVersion
 
 <details>
-<summary><h4>Detect Google Chrome browser and wanted version on Android OS</h4></summary>
+<summary><em>Detect Google Chrome browser and wanted version on Android OS</em></summary>
 <div>
 
 ```ts
@@ -362,24 +362,33 @@ if (browserizr.detect(chromeAndroid86orHigher)) {
 
 #### isChromeIOS
 
-Detect Google Chrome browser on iPad, iPod or iPhone device.
+<details>
+<summary><em>Detect Google Chrome browser on iPad, iPod or iPhone device.</em></summary>
+<div>
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isChromeIOS } from '@wezom/browserizr/detect/browsers/chrome';
+import browserizr, { isChromeIOS } from '@wezom/browserizr';
 if (browserizr.detect(isChromeIOS)) {
     // code
 }
 ``` 
 
+</div>
+</details>
+
 #### isChromeIOSVersion
 
-Detect Google Chrome browser and wanted version on iOS
+<details>
+<summary><em>Detect Google Chrome browser and wanted version on iOS.</em></summary>
+<div>
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
-import { isChromeIOSVersion } from '@wezom/browserizr/detect/browsers/chrome-ios-version';
+import browserizr, {
+    isChromeIOSVersion,
+    MORE_THEN_OR_EQUAL,
+    EQUAL,
+    LESS_THEN_OR_EQUAL
+} from '@wezom/browserizr';
 
 const chromeIOS86 = isChromeIOSVersion(EQUAL, 86);
 const chromeIOS86orHigher = isChromeIOSVersion(MORE_THEN_OR_EQUAL, 86);
@@ -390,26 +399,39 @@ if (browserizr.detect(chromeIOS86orHigher)) {
 // ...
 ``` 
 
+</div>
+</details>
+
 #### isEdge
 
-Detect Microsoft Edge browser.
+<details>
+<summary><em>Detect Microsoft Edge browser.</em></summary>
+<div>
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isEdge } from '@wezom/browserizr/detect/browsers/edge';
+import browserizr, { isEdge } from '@wezom/browserizr';
 if (browserizr.detect(isEdge)) {
     // code
 }
 ```
 
+</div>
+</details>
+
+
 #### isEdgeVersion
 
-Detect Microsoft Edge browser and wanted version
+<details>
+<summary><em>Detect Microsoft Edge browser and wanted version.</em></summary>
+<div>
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
-import { isEdgeVersion } from '@wezom/browserizr/detect/browsers/edge-version';
+import browserizr, {
+    isEdgeVersion,
+    MORE_THEN_OR_EQUAL,
+    EQUAL,
+    LESS_THEN_OR_EQUAL
+} from '@wezom/browserizr';
 
 const edge86 = isEdgeVersion(EQUAL, 86);
 const edge86orHigher = isEdgeVersion(MORE_THEN_OR_EQUAL, 86);
@@ -420,26 +442,38 @@ if (browserizr.detect(edge86orHigher)) {
 // ...
 ``` 
 
+</div>
+</details>
+
 #### isEdgeAndroid
 
-Detect Microsoft Edge browser on Android.
+<details>
+<summary><em>Detect Microsoft Edge browser on Android.</em></summary>
+<div>
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isEdgeAndroid } from '@wezom/browserizr/detect/browsers/edge-android';
+import browserizr, { isEdgeAndroid } from '@wezom/browserizr';
 if (browserizr.detect(isEdgeAndroid)) {
     // code
 }
 ```
 
+</div>
+</details>
+
 #### isEdgeAndroidVersion
 
-Detect Microsoft Edge browser and wanted version on Android.
+<details>
+<summary><em>Detect Microsoft Edge browser and wanted version on Android.</em></summary>
+<div>
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
-import { isEdgeAndroidVersion } from '@wezom/browserizr/detect/browsers/edge-android-version';
+import browserizr, {
+    isEdgeAndroidVersion,
+    MORE_THEN_OR_EQUAL,
+    EQUAL,
+    LESS_THEN_OR_EQUAL
+} from '@wezom/browserizr';
 
 const edgeAndroid45 = isEdgeAndroidVersion(EQUAL, 45);
 const edgeAndroid45orHigher = isEdgeAndroidVersion(MORE_THEN_OR_EQUAL, 45);
@@ -450,26 +484,38 @@ if (browserizr.detect(edgeAndroid45orHigher)) {
 // ...
 ```
 
+</div>
+</details>
+
 #### isEdgeIOS
 
-Detect Microsoft Edge browser on iOS.
+<details>
+<summary><em>Detect Microsoft Edge browser on iOS.</em></summary>
+<div>
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isEdgeIOS } from '@wezom/browserizr/detect/browsers/edge-ios';
+import browserizr, { isEdgeIOS } from '@wezom/browserizr';
 if (browserizr.detect(isEdgeIOS)) {
     // code
 }
 ```
 
+</div>
+</details>
+
 #### isEdgeIOSVersion
 
-Detect Microsoft Edge browser and wanted version on iOS.
+<details>
+<summary><em>Detect Microsoft Edge browser and wanted version on iOS.</em></summary>
+<div>
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
-import { isEdgeIOSVersion } from '@wezom/browserizr/detect/browsers/edge-ios-version';
+import browserizr, {
+    isEdgeIOSVersion,
+    MORE_THEN_OR_EQUAL,
+    EQUAL,
+    LESS_THEN_OR_EQUAL
+} from '@wezom/browserizr';
 
 const edgeIOS45 = isEdgeIOSVersion(EQUAL, 45);
 const edgeIOS45orHigher = isEdgeIOSVersion(MORE_THEN_OR_EQUAL, 45);
@@ -480,13 +526,15 @@ if (browserizr.detect(edgeIOS45orHigher)) {
 // ...
 ```
 
+</div>
+</details>
+
 #### isFirefox
 
 Detect Mozilla Firefox browser.
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isFirefox } from '@wezom/browserizr/detect/browsers/firefox';
+import browserizr, { isFirefox } from '@wezom/browserizr';
 if (browserizr.detect(isFirefox)) {
     // code
 }
@@ -497,9 +545,8 @@ if (browserizr.detect(isFirefox)) {
 Detect Mozilla Firefox browser and wanted version
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
-import { isFirefoxVersion } from '@wezom/browserizr/detect/browsers/firefox-version';
+import browserizr, { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr';
+import { isFirefoxVersion } from '@wezom/browserizr';
 
 const ffx83 = isFirefoxVersion(EQUAL, 83);
 const ffx83orHigher = isFirefoxVersion(MORE_THEN_OR_EQUAL, 83);
@@ -515,8 +562,7 @@ if (browserizr.detect(ffx83)) {
 Detect Mozilla Firefox browser.
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isFirefoxAndroid } from '@wezom/browserizr/detect/browsers/firefox-android';
+import browserizr, { isFirefoxAndroid } from '@wezom/browserizr';
 if (browserizr.detect(isFirefoxAndroid)) {
     // code
 }
@@ -527,9 +573,8 @@ if (browserizr.detect(isFirefoxAndroid)) {
 Detect Mozilla Firefox browser and wanted version
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
-import { isFirefoxAndroidVersion } from '@wezom/browserizr/detect/browsers/firefox-android-version';
+import browserizr, { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr';
+import { isFirefoxAndroidVersion } from '@wezom/browserizr';
 
 const ffxAndroid83 = isFirefoxAndroidVersion(EQUAL, 83);
 const ffxAndroid83orHigher = isFirefoxAndroidVersion(MORE_THEN_OR_EQUAL, 83);
@@ -545,8 +590,7 @@ if (browserizr.detect(ffx83Android)) {
 Detect Mozilla Firefox browser on iOS.
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isFirefoxIOS } from '@wezom/browserizr/detect/browsers/firefox-ios';
+import browserizr, { isFirefoxIOS } from '@wezom/browserizr';
 if (browserizr.detect(isFirefoxIOS)) {
     // code
 }
@@ -557,9 +601,8 @@ if (browserizr.detect(isFirefoxIOS)) {
 Detect Mozilla Firefox browser and wanted version on iOS
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
-import { isFirefoxIOSVersion } from '@wezom/browserizr/detect/browsers/firefox-ios-version';
+import browserizr, { MORE_THEN_OR_EQUAL, EQUAL, LESS_THEN_OR_EQUAL } from '@wezom/browserizr';
+import { isFirefoxIOSVersion } from '@wezom/browserizr';
 
 const ffxIOS29 = isFirefoxIOSVersion(EQUAL, 29);
 const ffxIOS29orHigher = isFirefoxIOSVersion(MORE_THEN_OR_EQUAL, 29);
@@ -575,8 +618,7 @@ if (browserizr.detect(ffx29IOS)) {
 Detect Internet Explorer browser
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isIE } from '@wezom/browserizr/detect/browsers/ie';
+import browserizr, { isIE } from '@wezom/browserizr';
 if (browserizr.detect(isIE)) {
     // code
 }
@@ -587,9 +629,8 @@ if (browserizr.detect(isIE)) {
 Detect Internet Explorer browser and wanted version
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { EQUAL } from '@wezom/browserizr/utils';
-import { isIEVersion } from '@wezom/browserizr/detect/browsers/ie-version';
+import browserizr, { EQUAL } from '@wezom/browserizr';
+import { isIEVersion } from '@wezom/browserizr';
 
 const ie8 = isIEVersion(EQUAL, 8);
 const ie9 = isIEVersion(EQUAL, 9);
@@ -606,8 +647,7 @@ if (browserizr.detect(ie8)) {
 Detect Opera browser
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isOpera } from '@wezom/browserizr/detect/browsers/opera';
+import browserizr, { isOpera } from '@wezom/browserizr';
 if (browserizr.detect(isOpera)) {
     // code
 }
@@ -618,8 +658,7 @@ if (browserizr.detect(isOpera)) {
 Detect Apple Safari browser
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isSafari } from '@wezom/browserizr/detect/browsers/safari';
+import browserizr, { isSafari } from '@wezom/browserizr';
 if (browserizr.detect(isSafari)) {
     // code
 }
@@ -630,8 +669,7 @@ if (browserizr.detect(isSafari)) {
 Detect Vivaldi browser
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isVivaldi } from '@wezom/browserizr/detect/browsers/vivaldi';
+import browserizr, { isVivaldi } from '@wezom/browserizr';
 if (browserizr.detect(isVivaldi)) {
     // code
 }
@@ -642,8 +680,7 @@ if (browserizr.detect(isVivaldi)) {
 Detect Yandex browser
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isYandex } from '@wezom/browserizr/detect/browsers/yandex';
+import browserizr, { isYandex } from '@wezom/browserizr';
 if (browserizr.detect(isYandex)) {
     // code
 }
@@ -663,8 +700,7 @@ if (browserizr.detect(isYandex)) {
 Detect desktop browser
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isDesktop } from '@wezom/browserizr/detect/devices/desktop';
+import browserizr, { isDesktop } from '@wezom/browserizr';
 if (browserizr.detect(isDesktop)) {
     // code
 }
@@ -675,8 +711,7 @@ if (browserizr.detect(isDesktop)) {
 Detect mobile browser
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isMobile } from '@wezom/browserizr/detect/devices/mobile';
+import browserizr, { isMobile } from '@wezom/browserizr';
 if (browserizr.detect(isMobile)) {
     // code
 }
@@ -687,8 +722,7 @@ if (browserizr.detect(isMobile)) {
 Detect the browser on iPad device
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isIPad } from '@wezom/browserizr/detect/devices/ipad';
+import browserizr, { isIPad } from '@wezom/browserizr';
 if (browserizr.detect(isIPad)) {
     // code
 }
@@ -699,8 +733,7 @@ if (browserizr.detect(isIPad)) {
 Detect a browser on iPod device
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isIPod } from '@wezom/browserizr/detect/devices/ipod';
+import browserizr, { isIPod } from '@wezom/browserizr';
 if (browserizr.detect(isIPod)) {
     // code
 }
@@ -711,8 +744,7 @@ if (browserizr.detect(isIPod)) {
 Detect a browser on iPhone device
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isIPhone } from '@wezom/browserizr/detect/devices/iphone';
+import browserizr, { isIPhone } from '@wezom/browserizr';
 if (browserizr.detect(isiPhone)) {
     // code
 }
@@ -732,8 +764,7 @@ if (browserizr.detect(isiPhone)) {
 Detect Android OS
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isAndroid } from '@wezom/browserizr/detect/os/android';
+import browserizr, { isAndroid } from '@wezom/browserizr';
 if (browserizr.detect(isAndroid)) {
     // code
 }
@@ -742,9 +773,8 @@ if (browserizr.detect(isAndroid)) {
 #### isAndroidVersion
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { EQUAL, MORE_THAN_OR_EQUAL } from '@wezom/browserizr/utils';
-import { isAndroidVersion } from '@wezom/browserizr/detect/os/android-version';
+import browserizr, { EQUAL, MORE_THAN_OR_EQUAL } from '@wezom/browserizr';
+import { isAndroidVersion } from '@wezom/browserizr';
 
 const android11 = isAndroidVersion(EQUAL, 11);
 const android9orHigher = isAndroidVersion(MORE_THAN_OR_EQUAL, 9);
@@ -759,8 +789,7 @@ if (browserizr.detect(android11)) {
 Detect Windows OS
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isWindows } from '@wezom/browserizr/detect/os/windows';
+import browserizr, { isWindows } from '@wezom/browserizr';
 if (browserizr.detect(isWindows)) {
     // code
 }
@@ -798,8 +827,7 @@ import { DetectMethod } from '@wezom/browserizr';
 export const isMXSBrowser: DetectMethod = (ua) => /\sMXSBrowser\/[\d.]+\s/.test(ua);
 
 // app.ts
-import browserizr from '@wezom/browserizr';
-import { isMXSBrowser } from 'my-detects/is-mxs';
+import browserizr, { isMXSBrowser } from 'my-detects/is-mxs';
 
 if (browserizr.detect(isMXSBrowser)) {
     console.log('Yeah! Thats it!');
