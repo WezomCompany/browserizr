@@ -7,6 +7,26 @@ import browserizr, {
 import { uaDB } from '../../db';
 
 describe('Detect Internet Explorer Browser version', () => {
+	describe(`Should not pass. IE 12 not exist`, () => {
+		[...uaDB.Windows.XP.InternetExplorer.v8.Standard].forEach((ua, i) => {
+			test(`Case #${++i}: ${ua}`, () => {
+				browserizr.setUA(ua);
+				expect(
+					browserizr.detect(isIEVersion(MORE_THEN_OR_EQUAL, 12 as 8))
+				).toBeFalsy();
+			});
+		});
+	});
+
+	describe(`Should not pass. Wrong version operator`, () => {
+		[...uaDB.Windows.XP.InternetExplorer.v8.Standard].forEach((ua, i) => {
+			test(`Case #${++i}: ${ua}`, () => {
+				browserizr.setUA(ua);
+				expect(browserizr.detect(isIEVersion('XX' as '==', 8))).toBeFalsy();
+			});
+		});
+	});
+
 	describe('Internet Explorer 8', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[
