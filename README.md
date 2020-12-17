@@ -5,15 +5,11 @@
 [![NPM package badge](https://img.shields.io/badge/npm-install-orange.svg)](https://www.npmjs.com/package/@wezom/browserizr)
 ![Test and Build status badge](https://github.com/WezomCompany/browserizr/workflows/Test%20and%20Build/badge.svg)
 
-
-**THIS LIBRARY IS IN BETA VERSION! DO NOT USE THIS IN YOUR PRODUCTION CODE!**  
-_This library is not stable yet. We can change some API or behaviors._
-
 ## Coverage
 
 | Statements                | Branches                | Functions                | Lines                |
 | ------------------------- | ----------------------- | ------------------------ | -------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-98.25%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
+| ![Statements](https://img.shields.io/badge/Coverage-99.67%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-96.43%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-99.6%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
 
 ## Table of Content:
 
@@ -26,9 +22,6 @@ _This library is not stable yet. We can change some API or behaviors._
         - [TypeScript](#typescript)
         - [JavaScript](#javascript)
     1. [Usage example](#usage-example)
-1. [Detect methodology](#detect-methodology)
-    1. [Detect method](#detect-method)
-    1. [Detect version](#detect-version)
 1. [API](#api)
     1. [Methods](#methods)
     	- [browserizr.detect()](#browserizrdetect)
@@ -116,7 +109,7 @@ As stated earlier, we use TypeScript as main development language and
 // Import original ts code
 // but requires to be not exclude in `node_modules`.
 // Check your `tsconfig.json`
-import browserizr from '@wezom/browserizr';
+import browserizr, { isSafari } from '@wezom/browserizr';
 ```
 
 #### JavaScript
@@ -127,31 +120,20 @@ You can import compiled files from special folders.
 // ES6: const, let, spread, rest and other modern JavaScript features
 // but requires to be not exclude in `node_modules`.
 // Check your `babebl-loader` (if your use webpack as bandler)
-import browserizr from '@wezom/browserizr/dist/es-6';
+import browserizr, { isSafari } from '@wezom/browserizr/dist/es-6';
 
 // or ES5: no ES6 features but ready for use as is, without transpiling
-import browserizr from '@wezom/browserizr/dist/es-5';
-```
-
-_In all examples bellow, we will import from TypeScript folder. So if your work with JavaScript, just change parent folder. En example_
-
-```ts
-// ts
-import { isIE } from '@wezom/browserizr/detects/ie';
-
-// js
-import { isIE } from '@wezom/browserizr/dist/es-6/detects/ie';
-// or
-import { isIE } from '@wezom/browserizr/dist/es-5/detects/ie';
+import browserizr, { isSafari } from '@wezom/browserizr/dist/es-5';
 ```
 
 ### Usage example
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { MORE_THEN_OR_EQUAL } from '@wezom/browserizr/utils';
-import { isIE } from '@wezom/browserizr/detects/ie';
-import { isChromeVersion } from '@wezom/browserizr/detects/chrome-version';
+import browserizr, { 
+    isIE,
+    isChromeVersion,
+    MORE_THEN_OR_EQUAL
+} from '@wezom/browserizr';
 
 // Detect Internet Explorer
 if (browserizr.detect(isIE)) {
@@ -172,23 +154,6 @@ if (browserizr.detect(isChrome87orHigher)) {
 
 
 
-## Detect methodology
-
-### Detect method
-
-_description in progress..._
-
-### Detect version
-
-_description in progress..._
-
-[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
-
----
-
-
-
-
 ## API
 
 ### Methods
@@ -199,15 +164,13 @@ _Signature:_
 
 ```ts
 /** Detection by given function */
-detect(fn: DetectMethod): boolen
+detect(fn: (ua: string) => boolean): boolen
 ```
 
 You can use one of the [built-in methods](#built-in-detects) or write [custom detects](#custom-detects)
 
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isChrome } from '@wezom/browserizr/detect/browsers/chrome';
-import { isMobile } from '@wezom/browserizr/detect/device/mobile';
+import browserizr, { isChrome, isMobile } from '@wezom/browserizr';
 
 if (browserizr.detect(isChrome)) {
     console.log('Yeah! Thats Chrome!');
@@ -234,9 +197,7 @@ classNames(classes: {
 A little example for explanation: 
 
 ```ts
-import browserizr, { DetectClassNameMethod } from '@wezom/browserizr';
-import { isSafari } from '@wezom/browserizr/detect/browsers/safari';
-import { isMobile } from '@weomz/browserizr/detect/device/mobile';
+import browserizr, { DetectClassNameMethod, isSafari, isMobile } from '@wezom/browserizr';
 
 const classes: DetectClassNameMethod[] = [
     {
@@ -319,13 +280,19 @@ You can import each of them separately and only those which need in your project
 
 Detect Google Chrome browser
 
+<details>
+<summary>CLICK ME</summary>
+<div>
+
 ```ts
-import browserizr from '@wezom/browserizr';
-import { isChrome } from '@wezom/browserizr/detect/browsers/chrome';
+import browserizr, { isChrome } from '@wezom/browserizr';
 if (browserizr.detect(isChrome)) {
     // code
 }
 ``` 
+
+</div>
+</details>
 
 #### isChromeVersion
 
