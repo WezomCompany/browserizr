@@ -4,16 +4,14 @@ import browserizr, {
 	LESS_THEN_OR_EQUAL,
 	MORE_THEN_OR_EQUAL
 } from '../../../index';
-import { uaDB } from '../../db';
+import { deepFlatFromObject, uaDB } from '../../db';
 
 describe('Detect Google Chrome Browser version on Android OS', () => {
 	describe('Google Chrome Android 85', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Android.v10.Chrome.v85.Standard,
-				...uaDB.Android.v10.Chrome.v87.Standard,
-				...uaDB.Android.v10.Chrome.v87['Chrome on Lg'],
-				...uaDB.Android.v10.Chrome.v87['Chrome on Samsung']
+				...deepFlatFromObject(uaDB.Android.v10.Chrome.v85),
+				...deepFlatFromObject(uaDB.Android.v10.Chrome.v87)
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -24,7 +22,7 @@ describe('Detect Google Chrome Browser version on Android OS', () => {
 			});
 		});
 		describe(`Should be ${EQUAL}`, () => {
-			[...uaDB.Android.v10.Chrome.v85.Standard].forEach((ua, i) => {
+			[...deepFlatFromObject(uaDB.Android.v10.Chrome.v85)].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
@@ -34,7 +32,7 @@ describe('Detect Google Chrome Browser version on Android OS', () => {
 			});
 		});
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
-			[...uaDB.Android.v10.Chrome.v85.Standard].forEach((ua, i) => {
+			[...deepFlatFromObject(uaDB.Android.v10.Chrome.v85)].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
@@ -47,11 +45,7 @@ describe('Detect Google Chrome Browser version on Android OS', () => {
 
 	describe('Google Chrome Android 87', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
-			[
-				...uaDB.Android.v10.Chrome.v87.Standard,
-				...uaDB.Android.v10.Chrome.v87['Chrome on Lg'],
-				...uaDB.Android.v10.Chrome.v87['Chrome on Samsung']
-			].forEach((ua, i) => {
+			[...deepFlatFromObject(uaDB.Android.v10.Chrome.v87)].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
@@ -61,11 +55,7 @@ describe('Detect Google Chrome Browser version on Android OS', () => {
 			});
 		});
 		describe(`Should be ${EQUAL}`, () => {
-			[
-				...uaDB.Android.v10.Chrome.v87.Standard,
-				...uaDB.Android.v10.Chrome.v87['Chrome on Lg'],
-				...uaDB.Android.v10.Chrome.v87['Chrome on Samsung']
-			].forEach((ua, i) => {
+			[...deepFlatFromObject(uaDB.Android.v10.Chrome.v87)].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
@@ -76,43 +66,14 @@ describe('Detect Google Chrome Browser version on Android OS', () => {
 		});
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Android.v10.Chrome.v85.Standard,
-				...uaDB.Android.v10.Chrome.v87.Standard,
-				...uaDB.Android.v10.Chrome.v87['Chrome on Lg'],
-				...uaDB.Android.v10.Chrome.v87['Chrome on Samsung']
+				...deepFlatFromObject(uaDB.Android.v10.Chrome.v85),
+				...deepFlatFromObject(uaDB.Android.v10.Chrome.v87)
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
 						browserizr.detect(isChromeAndroidVersion(LESS_THEN_OR_EQUAL, 87))
 					).toBeTruthy();
-				});
-			});
-		});
-
-		describe(`Should not be ${EQUAL}`, () => {
-			[...uaDB.Android.v10.Chrome.v85.Standard].forEach((ua, i) => {
-				test(`Case #${++i}: ${ua}`, () => {
-					browserizr.setUA(ua);
-					expect(
-						browserizr.detect(isChromeAndroidVersion(EQUAL, 87))
-					).toBeFalsy();
-				});
-			});
-		});
-
-		describe(`Should not pass`, () => {
-			[
-				...uaDB.Linux.Chrome.v87.Standard,
-				...uaDB.MacOS.v11.Chrome.v87.Standard,
-				...uaDB.Windows.v10.Chrome.v87.Standard,
-				...uaDB.Windows.v10.Yandex.v20.Standard
-			].forEach((ua, i) => {
-				test(`Case #${++i}: ${ua}`, () => {
-					browserizr.setUA(ua);
-					expect(
-						browserizr.detect(isChromeAndroidVersion(EQUAL, 87))
-					).toBeFalsy();
 				});
 			});
 		});

@@ -12,9 +12,6 @@ export default function isWindowsVersion(
 			case 'XP':
 				v = 5.1;
 				break;
-			case 'Vista':
-				v = 6;
-				break;
 			case 7:
 				v = 6.1;
 				break;
@@ -23,6 +20,9 @@ export default function isWindowsVersion(
 				break;
 			case 8.1:
 				v = 6.3;
+				break;
+			case 'Vista':
+				v = 6;
 				break;
 			case 10:
 				v = 10;

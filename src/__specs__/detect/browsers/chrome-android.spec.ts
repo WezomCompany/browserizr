@@ -1,14 +1,9 @@
 import browserizr, { isChromeAndroid } from '../../../index';
-import { uaDB } from '../../db';
+import { deepFlatFromObject, uaDB } from '../../db';
 
 describe('Detect Google Chrome Browser on Android OS', () => {
 	describe('Should pass', () => {
-		[
-			...uaDB.Android.v10.Chrome.v85.Standard,
-			...uaDB.Android.v10.Chrome.v87.Standard,
-			...uaDB.Android.v10.Chrome.v87['Chrome on Lg'],
-			...uaDB.Android.v10.Chrome.v87['Chrome on Samsung']
-		].forEach((ua, i) => {
+		[...deepFlatFromObject(uaDB.Android.v10.Chrome)].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
 				expect(browserizr.detect(isChromeAndroid)).toBeTruthy();
@@ -18,9 +13,11 @@ describe('Detect Google Chrome Browser on Android OS', () => {
 
 	describe('Should not pass', () => {
 		[
-			...uaDB.iOS.v14.Chrome.v87.iPad,
-			...uaDB.iOS.v14.Chrome.v87.iPhone,
-			...uaDB.iOS.v14.Chrome.v87.iPod
+			...deepFlatFromObject(uaDB.iOS),
+			...deepFlatFromObject(uaDB.Windows),
+			...deepFlatFromObject(uaDB.MacOS),
+			...deepFlatFromObject(uaDB.Xbox),
+			...deepFlatFromObject(uaDB.Linux)
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);

@@ -4,25 +4,15 @@ import browserizr, {
 	LESS_THEN_OR_EQUAL,
 	MORE_THEN_OR_EQUAL
 } from '../../../index';
-import { uaDB } from '../../db';
+import { deepFlatFromObject, uaDB } from '../../db';
 
 describe('Detect Android OS Version', () => {
 	describe('Android 10', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Android.v10.Chrome.v85.Standard,
-				...uaDB.Android.v10.Chrome.v87.Standard,
-				...uaDB.Android.v10.Chrome.v87['Chrome on Lg'],
-				...uaDB.Android.v10.Chrome.v87['Chrome on Samsung'],
-				...uaDB.Android.v10.Edge.v45.Standard,
-				...uaDB.Android.v10.Opera.v59['Opera on Huawei'],
-				...uaDB.Android.v10.Opera.v59['Opera on Sumsung'],
-				...uaDB.Android.v10.Opera.v60.Standard,
-				...uaDB.Android.v10.Opera.v61.Standard,
-				...uaDB.WindowsMobile.Edge.v40.Standard,
-				...uaDB.Android.v11.Firefox.v83.Standard,
-				...uaDB.Android.v11.Firefox.v83['Firefox on Lg'],
-				...uaDB.Android.v11.Yandex.v20.Standard
+				...deepFlatFromObject(uaDB.Android.v10),
+				...deepFlatFromObject(uaDB.Android.v11),
+				...deepFlatFromObject(uaDB.WindowsMobile)
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -35,16 +25,8 @@ describe('Detect Android OS Version', () => {
 
 		describe(`Should be ${EQUAL}`, () => {
 			[
-				...uaDB.Android.v10.Chrome.v85.Standard,
-				...uaDB.Android.v10.Chrome.v87.Standard,
-				...uaDB.Android.v10.Chrome.v87['Chrome on Lg'],
-				...uaDB.Android.v10.Chrome.v87['Chrome on Samsung'],
-				...uaDB.Android.v10.Edge.v45.Standard,
-				...uaDB.Android.v10.Opera.v59['Opera on Huawei'],
-				...uaDB.Android.v10.Opera.v59['Opera on Sumsung'],
-				...uaDB.Android.v10.Opera.v60.Standard,
-				...uaDB.Android.v10.Opera.v61.Standard,
-				...uaDB.WindowsMobile.Edge.v40.Standard
+				...deepFlatFromObject(uaDB.Android.v10),
+				...deepFlatFromObject(uaDB.WindowsMobile)
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -55,16 +37,8 @@ describe('Detect Android OS Version', () => {
 
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Android.v10.Chrome.v85.Standard,
-				...uaDB.Android.v10.Chrome.v87.Standard,
-				...uaDB.Android.v10.Chrome.v87['Chrome on Lg'],
-				...uaDB.Android.v10.Chrome.v87['Chrome on Samsung'],
-				...uaDB.Android.v10.Edge.v45.Standard,
-				...uaDB.Android.v10.Opera.v59['Opera on Huawei'],
-				...uaDB.Android.v10.Opera.v59['Opera on Sumsung'],
-				...uaDB.Android.v10.Opera.v60.Standard,
-				...uaDB.Android.v10.Opera.v61.Standard,
-				...uaDB.WindowsMobile.Edge.v40.Standard
+				...deepFlatFromObject(uaDB.Android.v10),
+				...deepFlatFromObject(uaDB.WindowsMobile)
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -76,26 +50,7 @@ describe('Detect Android OS Version', () => {
 		});
 
 		describe(`Should not be ${LESS_THEN_OR_EQUAL}`, () => {
-			[
-				...uaDB.Android.v11.Firefox.v83.Standard,
-				...uaDB.Android.v11.Firefox.v83['Firefox on Lg'],
-				...uaDB.Android.v11.Yandex.v20.Standard
-			].forEach((ua, i) => {
-				test(`Case #${++i}: ${ua}`, () => {
-					browserizr.setUA(ua);
-					expect(
-						browserizr.detect(isAndroidVersion(LESS_THEN_OR_EQUAL, 10))
-					).toBeFalsy();
-				});
-			});
-		});
-
-		describe(`Should not pass at all`, () => {
-			[
-				...uaDB.Linux.Chrome.v87.Standard,
-				...uaDB.MacOS.v11.Safari.v14.Standard,
-				...uaDB.Windows.v10.Chrome.v87.Standard
-			].forEach((ua, i) => {
+			[...deepFlatFromObject(uaDB.Android.v11)].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
@@ -108,11 +63,7 @@ describe('Detect Android OS Version', () => {
 
 	describe('Android 11', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
-			[
-				...uaDB.Android.v11.Firefox.v83.Standard,
-				...uaDB.Android.v11.Firefox.v83['Firefox on Lg'],
-				...uaDB.Android.v11.Yandex.v20.Standard
-			].forEach((ua, i) => {
+			[...deepFlatFromObject(uaDB.Android.v11)].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
@@ -123,11 +74,7 @@ describe('Detect Android OS Version', () => {
 		});
 
 		describe(`Should be ${EQUAL}`, () => {
-			[
-				...uaDB.Android.v11.Firefox.v83.Standard,
-				...uaDB.Android.v11.Firefox.v83['Firefox on Lg'],
-				...uaDB.Android.v11.Yandex.v20.Standard
-			].forEach((ua, i) => {
+			[...deepFlatFromObject(uaDB.Android.v11)].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(browserizr.detect(isAndroidVersion(EQUAL, 11))).toBeTruthy();
@@ -137,19 +84,9 @@ describe('Detect Android OS Version', () => {
 
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Android.v10.Chrome.v85.Standard,
-				...uaDB.Android.v10.Chrome.v87.Standard,
-				...uaDB.Android.v10.Chrome.v87['Chrome on Lg'],
-				...uaDB.Android.v10.Chrome.v87['Chrome on Samsung'],
-				...uaDB.Android.v10.Edge.v45.Standard,
-				...uaDB.Android.v10.Opera.v59['Opera on Huawei'],
-				...uaDB.Android.v10.Opera.v59['Opera on Sumsung'],
-				...uaDB.Android.v10.Opera.v60.Standard,
-				...uaDB.Android.v10.Opera.v61.Standard,
-				...uaDB.WindowsMobile.Edge.v40.Standard,
-				...uaDB.Android.v11.Firefox.v83.Standard,
-				...uaDB.Android.v11.Firefox.v83['Firefox on Lg'],
-				...uaDB.Android.v11.Yandex.v20.Standard
+				...deepFlatFromObject(uaDB.Android.v10),
+				...deepFlatFromObject(uaDB.Android.v11),
+				...deepFlatFromObject(uaDB.WindowsMobile)
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);

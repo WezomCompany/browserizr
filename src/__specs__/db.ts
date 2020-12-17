@@ -382,3 +382,21 @@ export const uaDB = {
 		}
 	}
 };
+
+interface Obj {
+	[p: string]: Obj | string[];
+}
+
+export const deepFlatFromObject = (data: Obj | string[]): string[] => {
+	if (Array.isArray(data)) {
+		return data;
+	} else {
+		const arr: string[] = [];
+		for (const key in data) {
+			if (data.hasOwnProperty(key)) {
+				arr.push(...deepFlatFromObject(data[key]));
+			}
+		}
+		return arr;
+	}
+};

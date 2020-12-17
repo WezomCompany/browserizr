@@ -4,16 +4,12 @@ import browserizr, {
 	LESS_THEN_OR_EQUAL,
 	MORE_THEN_OR_EQUAL
 } from '../../../index';
-import { uaDB } from '../../db';
+import { deepFlatFromObject, uaDB } from '../../db';
 
 describe('Detect Google Chrome Browser version on iOS', () => {
 	describe('Google Chrome 87 on iOS', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
-			[
-				...uaDB.iOS.v14.Chrome.v87.iPad,
-				...uaDB.iOS.v14.Chrome.v87.iPhone,
-				...uaDB.iOS.v14.Chrome.v87.iPod
-			].forEach((ua, i) => {
+			[...deepFlatFromObject(uaDB.iOS.v14.Chrome.v87)].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
@@ -23,11 +19,7 @@ describe('Detect Google Chrome Browser version on iOS', () => {
 			});
 		});
 		describe(`Should be ${EQUAL}`, () => {
-			[
-				...uaDB.iOS.v14.Chrome.v87.iPad,
-				...uaDB.iOS.v14.Chrome.v87.iPhone,
-				...uaDB.iOS.v14.Chrome.v87.iPod
-			].forEach((ua, i) => {
+			[...deepFlatFromObject(uaDB.iOS.v14.Chrome.v87)].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(browserizr.detect(isChromeIOSVersion(EQUAL, 87))).toBeTruthy();
@@ -35,11 +27,7 @@ describe('Detect Google Chrome Browser version on iOS', () => {
 			});
 		});
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
-			[
-				...uaDB.iOS.v14.Chrome.v87.iPad,
-				...uaDB.iOS.v14.Chrome.v87.iPhone,
-				...uaDB.iOS.v14.Chrome.v87.iPod
-			].forEach((ua, i) => {
+			[...deepFlatFromObject(uaDB.iOS.v14.Chrome.v87)].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
@@ -51,17 +39,6 @@ describe('Detect Google Chrome Browser version on iOS', () => {
 
 		describe(`Should not be ${LESS_THEN_OR_EQUAL}`, () => {
 			[...uaDB.iOS.v14.Chrome.v87.iPad].forEach((ua, i) => {
-				test(`Case #${++i}: ${ua}`, () => {
-					browserizr.setUA(ua);
-					expect(
-						browserizr.detect(isChromeIOSVersion(LESS_THEN_OR_EQUAL, 86))
-					).toBeFalsy();
-				});
-			});
-		});
-
-		describe('Should not pass', () => {
-			[...uaDB.MacOS.v11.Yandex.v20.Standard].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(

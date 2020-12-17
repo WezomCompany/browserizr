@@ -4,16 +4,16 @@ import browserizr, {
 	LESS_THEN_OR_EQUAL,
 	MORE_THEN_OR_EQUAL
 } from '../../../index';
-import { uaDB } from '../../db';
+import { deepFlatFromObject, uaDB } from '../../db';
 
 describe('Detect Microsoft Edge Browser version', () => {
 	describe('Edge 40', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.WindowsMobile.Edge.v40.Standard,
-				...uaDB.Xbox.Edge.v44.Standard,
-				...uaDB.MacOS.v11.Edge.v87.Standard,
-				...uaDB.Windows.v10.Edge.v87.Standard
+				...deepFlatFromObject(uaDB.WindowsMobile.Edge.v40),
+				...deepFlatFromObject(uaDB.Xbox.Edge.v44),
+				...deepFlatFromObject(uaDB.MacOS.v11.Edge.v87),
+				...deepFlatFromObject(uaDB.Windows.v10.Edge.v87)
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -25,7 +25,7 @@ describe('Detect Microsoft Edge Browser version', () => {
 		});
 
 		describe(`Should be ${EQUAL}`, () => {
-			[...uaDB.WindowsMobile.Edge.v40.Standard].forEach((ua, i) => {
+			[...deepFlatFromObject(uaDB.WindowsMobile.Edge.v40)].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(browserizr.detect(isEdgeVersion(EQUAL, 40))).toBeTruthy();
@@ -34,7 +34,7 @@ describe('Detect Microsoft Edge Browser version', () => {
 		});
 
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
-			[...uaDB.WindowsMobile.Edge.v40.Standard].forEach((ua, i) => {
+			[...deepFlatFromObject(uaDB.WindowsMobile.Edge.v40)].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
@@ -43,42 +43,14 @@ describe('Detect Microsoft Edge Browser version', () => {
 				});
 			});
 		});
-
-		describe(`Should not be ${LESS_THEN_OR_EQUAL}`, () => {
-			[
-				...uaDB.Xbox.Edge.v44.Standard,
-				...uaDB.MacOS.v11.Edge.v87.Standard,
-				...uaDB.Windows.v10.Edge.v87.Standard
-			].forEach((ua, i) => {
-				test(`Case #${++i}: ${ua}`, () => {
-					browserizr.setUA(ua);
-					expect(
-						browserizr.detect(isEdgeVersion(LESS_THEN_OR_EQUAL, 40))
-					).toBeFalsy();
-				});
-			});
-		});
-
-		describe(`Should not be ${EQUAL}`, () => {
-			[
-				...uaDB.Xbox.Edge.v44.Standard,
-				...uaDB.MacOS.v11.Edge.v87.Standard,
-				...uaDB.Windows.v10.Edge.v87.Standard
-			].forEach((ua, i) => {
-				test(`Case #${++i}: ${ua}`, () => {
-					browserizr.setUA(ua);
-					expect(browserizr.detect(isEdgeVersion(EQUAL, 40))).toBeFalsy();
-				});
-			});
-		});
 	});
 
 	describe('Edge 44', () => {
 		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.Xbox.Edge.v44.Standard,
-				...uaDB.MacOS.v11.Edge.v87.Standard,
-				...uaDB.Windows.v10.Edge.v87.Standard
+				...deepFlatFromObject(uaDB.Xbox.Edge.v44),
+				...deepFlatFromObject(uaDB.MacOS.v11.Edge.v87),
+				...deepFlatFromObject(uaDB.Windows.v10.Edge.v87)
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -90,7 +62,7 @@ describe('Detect Microsoft Edge Browser version', () => {
 		});
 
 		describe(`Should be ${EQUAL}`, () => {
-			[...uaDB.Xbox.Edge.v44.Standard].forEach((ua, i) => {
+			[...deepFlatFromObject(uaDB.Xbox.Edge.v44)].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(browserizr.detect(isEdgeVersion(EQUAL, 44))).toBeTruthy();
@@ -100,8 +72,8 @@ describe('Detect Microsoft Edge Browser version', () => {
 
 		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
 			[
-				...uaDB.WindowsMobile.Edge.v40.Standard,
-				...uaDB.Xbox.Edge.v44.Standard
+				...deepFlatFromObject(uaDB.WindowsMobile.Edge.v40),
+				...deepFlatFromObject(uaDB.Xbox.Edge.v44)
 			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
@@ -111,29 +83,49 @@ describe('Detect Microsoft Edge Browser version', () => {
 				});
 			});
 		});
+	});
 
-		describe(`Should not be ${MORE_THEN_OR_EQUAL}`, () => {
-			[...uaDB.WindowsMobile.Edge.v40.Standard].forEach((ua, i) => {
+	describe('Edge 87', () => {
+		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
+			[
+				...deepFlatFromObject(uaDB.MacOS.v11.Edge.v87),
+				...deepFlatFromObject(uaDB.Windows.v10.Edge.v87)
+			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
-						browserizr.detect(isEdgeVersion(MORE_THEN_OR_EQUAL, 44))
-					).toBeFalsy();
+						browserizr.detect(isEdgeVersion(MORE_THEN_OR_EQUAL, 87))
+					).toBeTruthy();
 				});
 			});
 		});
-	});
 
-	describe(`Should not be Edge`, () => {
-		[...uaDB.Android.v10.Edge.v45.Standard, ...uaDB.iOS.v14.Edge.v45.iPhone].forEach(
-			(ua, i) => {
+		describe(`Should be ${EQUAL}`, () => {
+			[
+				...deepFlatFromObject(uaDB.MacOS.v11.Edge.v87),
+				...deepFlatFromObject(uaDB.Windows.v10.Edge.v87)
+			].forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(browserizr.detect(isEdgeVersion(EQUAL, 87))).toBeTruthy();
+				});
+			});
+		});
+
+		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
+			[
+				...deepFlatFromObject(uaDB.WindowsMobile.Edge.v40),
+				...deepFlatFromObject(uaDB.Xbox.Edge.v44),
+				...deepFlatFromObject(uaDB.MacOS.v11.Edge.v87),
+				...deepFlatFromObject(uaDB.Windows.v10.Edge.v87)
+			].forEach((ua, i) => {
 				test(`Case #${++i}: ${ua}`, () => {
 					browserizr.setUA(ua);
 					expect(
-						browserizr.detect(isEdgeVersion(MORE_THEN_OR_EQUAL, 44))
-					).toBeFalsy();
+						browserizr.detect(isEdgeVersion(LESS_THEN_OR_EQUAL, 87))
+					).toBeTruthy();
 				});
-			}
-		);
+			});
+		});
 	});
 });

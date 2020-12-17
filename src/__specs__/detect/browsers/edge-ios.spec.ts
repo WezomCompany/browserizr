@@ -1,9 +1,9 @@
 import browserizr, { isEdgeIOS } from '../../../index';
-import { uaDB } from '../../db';
+import { deepFlatFromObject, uaDB } from '../../db';
 
 describe('Detect Microsoft Edge Browser on iOS', () => {
 	describe('Should pass', () => {
-		[...uaDB.iOS.v14.Edge.v45.iPhone].forEach((ua, i) => {
+		[...deepFlatFromObject(uaDB.iOS.v14.Edge)].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
 				expect(browserizr.detect(isEdgeIOS)).toBeTruthy();
@@ -13,11 +13,13 @@ describe('Detect Microsoft Edge Browser on iOS', () => {
 
 	describe('Should not pass', () => {
 		[
-			...uaDB.Android.v10.Edge.v45.Standard,
-			...uaDB.MacOS.v11.Edge.v87.Standard,
-			...uaDB.Windows.v10.Edge.v87.Standard,
-			...uaDB.WindowsMobile.Edge.v40.Standard,
-			...uaDB.Xbox.Edge.v44.Standard
+			...deepFlatFromObject(uaDB.Android),
+			...deepFlatFromObject(uaDB.Linux),
+			...deepFlatFromObject(uaDB.MacOS),
+			...deepFlatFromObject(uaDB.Linux),
+			...deepFlatFromObject(uaDB.Xbox),
+			...deepFlatFromObject(uaDB.Windows),
+			...deepFlatFromObject(uaDB.WindowsMobile)
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);

@@ -1,15 +1,15 @@
 import { DetectVersionOperator, matchVersion } from '../../utils';
-import __regexp from './__ios-regexp';
+import __regexp from './__mac-os-regexp';
 
-/** Detect the iOS Version */
-export default function isIOSVersion(operator: DetectVersionOperator, version: number) {
+/** Detect the macOS Version */
+export default function isMacOSVersion(operator: DetectVersionOperator, version: number) {
 	return (ua: string): boolean =>
 		matchVersion({
 			ua,
 			version,
 			operator,
 			regExp: __regexp,
-			groupIndex: 2,
+			groupIndex: 1,
 			transformMarch: (v: string) => v.replace(/_/g, '.')
 		});
 }
