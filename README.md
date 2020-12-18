@@ -106,7 +106,7 @@ npm i @wezom/browserizr
 #### ESNext
 
 We use TypeScript as main development language and distribute our lib in the maximum compliance with modern JavaScript specifications. 
-You project bundler (wabpack or something else) must not exclude this installed package from `node_modules` folder.
+You project bundler (webpack or something else) must not exclude this installed package from `node_modules` folder.
 
 _The package [`babel-loader-exclude-node-modules-except`](https://www.npmjs.com/package/babel-loader-exclude-node-modules-except) can help you with this_
 
