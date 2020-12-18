@@ -14,4 +14,17 @@ describe('Detect Windows OS', () => {
 			});
 		});
 	});
+	describe('Should not pass', () => {
+		[
+			...deepFlatFromObject(uaDB.Android),
+			...deepFlatFromObject(uaDB.iOS),
+			...deepFlatFromObject(uaDB.Linux),
+			...deepFlatFromObject(uaDB.MacOS)
+		].forEach((ua, i) => {
+			test(`Case #${++i}: ${ua}`, () => {
+				browserizr.setUA(ua);
+				expect(browserizr.detect(isWindows)).toBeFalsy();
+			});
+		});
+	});
 });

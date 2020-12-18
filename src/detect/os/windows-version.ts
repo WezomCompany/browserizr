@@ -1,4 +1,4 @@
-import { DetectVersionOperator, matchVersion } from '../../utils';
+import { DetectVersionOperator, DetectVersionReduction, matchVersion } from '../../utils';
 import __regexp from './__windows-regexp';
 
 /** Detect the Windows OS Version */
@@ -8,6 +8,7 @@ export default function isWindowsVersion(
 ) {
 	return (ua: string): boolean => {
 		let v;
+		let r: DetectVersionReduction = 'auto';
 		switch (version) {
 			case 'XP':
 				v = 5.1;
@@ -23,9 +24,11 @@ export default function isWindowsVersion(
 				break;
 			case 'Vista':
 				v = 6;
+				r = 'float';
 				break;
 			case 10:
 				v = 10;
+				r = 'int';
 				break;
 		}
 		if (typeof v === 'number') {
@@ -34,6 +37,7 @@ export default function isWindowsVersion(
 				version: v,
 				operator,
 				regExp: __regexp,
+				reductionToNumber: r,
 				groupIndex: 2
 			});
 		} else {

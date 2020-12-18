@@ -384,11 +384,13 @@ export const uaDB = {
 };
 
 interface Obj {
-	[p: string]: Obj | string[];
+	[p: string]: Obj | string[] | null;
 }
 
-export const deepFlatFromObject = (data: Obj | string[]): string[] => {
-	if (Array.isArray(data)) {
+export const deepFlatFromObject = (data: Obj | string[] | null): string[] => {
+	if (data === null) {
+		return [];
+	} else if (Array.isArray(data)) {
 		return data;
 	} else {
 		const arr: string[] = [];

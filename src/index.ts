@@ -1,6 +1,6 @@
 export { default } from './core';
 export { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL, matchVersion } from './utils';
-export type { DetectVersionOperator } from './utils';
+export type { DetectVersionOperator, DetectVersionReduction } from './utils';
 // Chrome
 export { default as isChrome } from './detect/browsers/chrome';
 export { default as isChromeVersion } from './detect/browsers/chrome-version';

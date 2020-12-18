@@ -13,11 +13,20 @@ describe('Detect Google Chrome Browser on Android OS', () => {
 
 	describe('Should not pass', () => {
 		[
+			...deepFlatFromObject({
+				...uaDB.Android.v10,
+				Chrome: null
+			}),
+			...deepFlatFromObject({
+				...uaDB.Android.v11,
+				Chrome: null
+			}),
 			...deepFlatFromObject(uaDB.iOS),
 			...deepFlatFromObject(uaDB.Windows),
 			...deepFlatFromObject(uaDB.MacOS),
 			...deepFlatFromObject(uaDB.Xbox),
-			...deepFlatFromObject(uaDB.Linux)
+			...deepFlatFromObject(uaDB.Linux),
+			...deepFlatFromObject(uaDB.WindowsMobile)
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
