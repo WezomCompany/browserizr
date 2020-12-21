@@ -195,7 +195,7 @@ classNames(
         not: string;
         fn: DetectMethod;
     }[]
-): string
+): string[]
 ```
 
 _Parameters:_
@@ -208,9 +208,9 @@ Name | Data type | Description
  `classes[N].not` | `string` | Class name for negative detects result
  `classes[N].fn` | `function` | Function for detect method, see [browserizr.detect()](#browserizrdetect)
  
-_Return type:_ `boolean`
+_Return type:_ `string[]`
 
-A little example for explanation: 
+A little example for the explanation: 
 
 ```js
 import browserizr, { DetectClassNameMethod, isSafari, isMobile } from '@wezom/browserizr';
@@ -229,25 +229,25 @@ const classes: DetectClassNameMethod[] = [
 ];
 
 // if mobile Safari browser
-console.log(browserizr.classNames(classes)); // => "is-mobile-device is-safari"
+console.log(browserizr.classNames(classes)); // => ['is-mobile-device', 'is-safari']
 
 // if mobile but not Safari browser
-console.log(browserizr.classNames(classes)); // => "is-mobile-device is-not-safari"
+console.log(browserizr.classNames(classes)); // => ['is-mobile-device', 'is-not-safari']
 
 // if not mobile and not Safari browser
-console.log(browserizr.classNames(classes)); // => "not-like-mobile is-not-safari"
+console.log(browserizr.classNames(classes)); // => ['not-like-mobile', 'is-not-safari']
 ```
 
-You can do what you want with this string. Like this:
+You can do what you want with this array of strings. Like this:
 
 ```js
 // Add classes in browser
-document.body.classList.add(browserizr.classNames(classes));
+document.body.classList.add(...browserizr.classNames(classes));
 ```
 
 ```jsx
 // Render JSX components
-<div className={browserizr.classNames(classes)}>
+<div className={browserizr.classNames(classes).join(' ')}>
     ...
 </div>
 ```
@@ -270,9 +270,9 @@ Name | Data type | Description
 _Return type:_ `undefined`
 
 By default, `browserizr` trying to resolve global object `navigator` and get `userAgent` field from that.
-Global object `navigator` exist only in a browser environment.
+Global object `navigator` exist only in the browser environment.
 
-So if you work in another environment - you may use `.setUA()` method to set custom string:
+So if you work in the another environment - you may use `.setUA()` method to set custom string:
 
 ```js
 // working with express server on Node.js
@@ -295,8 +295,7 @@ browserizr.detect(isMyCustomDetectMethod);
 
 ## Built-in detects
 
-We had often used detects ready for use.  
-You can import each of them separately and only those which need in your project.
+We have prepared a list of commonly used detects:
 
 ### Browsers
 

@@ -1,6 +1,6 @@
 {
   "name": "@wezom/browserizr",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "description": "Detects your browser, device and platform",
   "main": "dist/index.js",
   "files": [
