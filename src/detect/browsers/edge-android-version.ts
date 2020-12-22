@@ -1,7 +1,7 @@
 import { DetectVersionOperator, matchVersion } from '../../utils';
 import __regexp from './__edge-android-regexp';
 
-/** Detect Microsoft Edge Browser version on Android */
+/** Detect Microsoft Edge Android Browser version */
 export default function isChromeAndroidVersion(
 	operator: DetectVersionOperator,
 	version: number
@@ -12,11 +12,6 @@ export default function isChromeAndroidVersion(
 			version,
 			operator,
 			regExp: __regexp,
-			groupIndex: 1,
-			transformMarch: (version: string): string => {
-				//
-				const number = parseFloat(version);
-				return number < 79 ? '79' : version;
-			}
+			groupIndex: 1
 		});
 }

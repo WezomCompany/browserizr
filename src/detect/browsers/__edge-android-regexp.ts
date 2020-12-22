@@ -1,4 +1,4 @@
 // PRIVATE DATA!
 // DO NOT IMPORT THIS DIRECTLY IN YOUR PROJECT!
 // IT CAN BE CHANGED AT ANY TIME
-export default /Chrome\/([\d.]+).+\sEdgA\/([\d.]+)/;
+export default /\sEdgA\/([\d.]+)/;

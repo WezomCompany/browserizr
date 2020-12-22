@@ -1,7 +1,7 @@
 import browserizr, { isEdgeAndroid } from '../../../index';
 import { deepFlatFromObject, uaDB } from '../../db';
 
-describe('Detect Microsoft Edge Browser on Android', () => {
+describe('Detect Microsoft Edge Android Browser', () => {
 	describe('Should pass', () => {
 		[...deepFlatFromObject(uaDB.Android.v10.EdgeAndroid)].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {

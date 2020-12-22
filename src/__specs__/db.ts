@@ -27,9 +27,13 @@ export const uaDB = {
 				}
 			},
 			EdgeAndroid: {
-				v79: {
+				v45: {
 					Standard: [
-						'Mozilla/5.0 (Linux; Android 10; HD1910) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.116 Mobile Safari/537.36 EdgA/45.11.4.5116'
+						'Mozilla/5.0 (Linux; Android 10; HD1910) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.116 Mobile Safari/537.36 EdgA/45.11.4.5116',
+						'Mozilla/5.0 (Linux; Android 10; HD1913) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Mobile Safari/537.36 EdgA/45.10.4.5088',
+						'Mozilla/5.0 (Linux; Android 10; SM-G973F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Mobile Safari/537.36 EdgA/45.10.4.5088',
+						'Mozilla/5.0 (Linux; Android 10; Pixel 3 XL) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Mobile Safari/537.36 EdgA/45.10.4.5088',
+						'Mozilla/5.0 (Linux; Android 10; ONEPLUS A6003) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Mobile Safari/537.36 EdgA/45.10.4.5088'
 					]
 				}
 			},
