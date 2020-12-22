@@ -1,7 +1,7 @@
 import { DetectVersionOperator, matchVersion } from '../../utils';
 import __regexp from './__firefox-ios-regexp';
 
-/** Detect Mozilla Firefox Browser version on iOS */
+/** Detect Mozilla Firefox iOS Browser version */
 export default function isFirefoxIOSVersion(
 	operator: DetectVersionOperator,
 	version: number

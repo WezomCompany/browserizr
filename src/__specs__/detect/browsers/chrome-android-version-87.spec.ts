@@ -6,7 +6,7 @@ import browserizr, {
 } from '../../../index';
 import { deepFlatFromObject, uaDB } from '../../db';
 
-describe('Google Chrome Android 87', () => {
+describe('Google Chrome Android Browser 87 version', () => {
 	describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 		[...deepFlatFromObject(uaDB.Android.v10.Chrome.v87)].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {

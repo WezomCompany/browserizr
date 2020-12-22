@@ -6,7 +6,7 @@ import browserizr, {
 } from '../../../index';
 import { deepFlatFromObject, uaDB } from '../../db';
 
-describe('Google Chrome Android 85', () => {
+describe('Google Chrome Android Browser 85 version', () => {
 	describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
 		[
 			...deepFlatFromObject(uaDB.Android.v10.Chrome.v85),

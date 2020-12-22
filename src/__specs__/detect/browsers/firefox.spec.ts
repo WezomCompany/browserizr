@@ -16,13 +16,31 @@ describe('Detect Mozilla Firefox Browser', () => {
 	});
 
 	describe('Should not pass', () => {
-		[...deepFlatFromObject(uaDB.Android), ...deepFlatFromObject(uaDB.iOS)].forEach(
-			(ua, i) => {
-				test(`Case #${++i}: ${ua}`, () => {
-					browserizr.setUA(ua);
-					expect(browserizr.detect(isFirefox)).toBeFalsy();
-				});
-			}
-		);
+		[
+			...deepFlatFromObject(uaDB.Android),
+			...deepFlatFromObject(uaDB.iOS),
+			...deepFlatFromObject({
+				...uaDB.Linux,
+				Firefox: null
+			}),
+			...deepFlatFromObject({
+				...uaDB.MacOS.v11,
+				Firefox: null
+			}),
+			...deepFlatFromObject({
+				...uaDB.Windows,
+				v10: {
+					...uaDB.Windows.v10,
+					Firefox: null
+				}
+			}),
+			...deepFlatFromObject(uaDB.WindowsMobile),
+			...deepFlatFromObject(uaDB.Xbox)
+		].forEach((ua, i) => {
+			test(`Case #${++i}: ${ua}`, () => {
+				browserizr.setUA(ua);
+				expect(browserizr.detect(isFirefox)).toBeFalsy();
+			});
+		});
 	});
 });

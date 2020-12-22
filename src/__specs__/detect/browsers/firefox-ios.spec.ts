@@ -1,13 +1,9 @@
 import browserizr, { isFirefoxIOS } from '../../../index';
-import { uaDB } from '../../db';
+import { deepFlatFromObject, uaDB } from '../../db';
 
-describe('Detect Mozilla Firefox Browser on iOS', () => {
+describe('Detect Mozilla Firefox iOS Browser', () => {
 	describe('Should pass', () => {
-		[
-			...uaDB.iOS.v11.Firefox.v29.iPad,
-			...uaDB.iOS.v11.Firefox.v29.iPhone,
-			...uaDB.iOS.v11.Firefox.v29.iPod
-		].forEach((ua, i) => {
+		[...deepFlatFromObject(uaDB.iOS.v11.Firefox)].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
 				expect(browserizr.detect(isFirefoxIOS)).toBeTruthy();
@@ -17,11 +13,16 @@ describe('Detect Mozilla Firefox Browser on iOS', () => {
 
 	describe('Should not pass', () => {
 		[
-			...uaDB.Android.v11.Firefox.v83.Standard,
-			...uaDB.Android.v11.Firefox.v83['Firefox on Lg'],
-			...uaDB.Linux.Firefox.v83.Standard,
-			...uaDB.MacOS.v11.Firefox.v83.Standard,
-			...uaDB.Windows.v10.Firefox.v83.Standard
+			...deepFlatFromObject({
+				...uaDB,
+				iOS: {
+					...uaDB.iOS,
+					v11: {
+						...uaDB.iOS.v11,
+						Firefox: null
+					}
+				}
+			})
 		].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);

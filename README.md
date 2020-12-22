@@ -318,7 +318,7 @@ if (browserizr.detect(isChrome)) {
 #### isChromeVersion
 
 <details>
-<summary><em>Detect Google Chrome browser and wanted version</em></summary>
+<summary><em>Detect Google Chrome Browser version.</em></summary>
 <div>
 
 ```js
@@ -344,7 +344,7 @@ if (browserizr.detect(chrome86orHigher)) {
 #### isChromeAndroid
 
 <details>
-<summary><em>Detect Google Chrome browser on Android OS</em></summary>
+<summary><em>Detect Google Chrome Android Browser</em></summary>
 <div>
 
 ```js
@@ -360,7 +360,7 @@ if (browserizr.detect(isChromeAndroid)) {
 #### isChromeAndroidVersion
 
 <details>
-<summary><em>Detect Google Chrome browser and wanted version on Android OS</em></summary>
+<summary><em>Detect Google Chrome Android Browser version.</em></summary>
 <div>
 
 ```js
@@ -386,7 +386,7 @@ if (browserizr.detect(chromeAndroid86orHigher)) {
 #### isChromeIOS
 
 <details>
-<summary><em>Detect Google Chrome browser on iPad, iPod or iPhone device.</em></summary>
+<summary><em>Detect Google Chrome iOS Browser.</em></summary>
 <div>
 
 ```js
@@ -402,7 +402,7 @@ if (browserizr.detect(isChromeIOS)) {
 #### isChromeIOSVersion
 
 <details>
-<summary><em>Detect Google Chrome browser and wanted version on iOS.</em></summary>
+<summary><em>Detect Google Chrome iOS Browser version.</em></summary>
 <div>
 
 ```js
@@ -471,7 +471,7 @@ if (browserizr.detect(edge86orHigher)) {
 #### isEdgeAndroid
 
 <details>
-<summary><em>Detect Microsoft Edge browser on Android.</em></summary>
+<summary><em>Detect Microsoft Edge Android Browser.</em></summary>
 <div>
 
 ```js
@@ -487,7 +487,7 @@ if (browserizr.detect(isEdgeAndroid)) {
 #### isEdgeAndroidVersion
 
 <details>
-<summary><em>Detect Microsoft Edge browser and wanted version on Android.</em></summary>
+<summary><em>Detect Microsoft Edge Android Browser version.</em></summary>
 <div>
 
 ```js
@@ -513,7 +513,7 @@ if (browserizr.detect(edgeAndroid45orHigher)) {
 #### isEdgeIOS
 
 <details>
-<summary><em>Detect Microsoft Edge browser on iOS.</em></summary>
+<summary><em>Detect Microsoft Edge iOS Browser.</em></summary>
 <div>
 
 ```js
@@ -529,7 +529,7 @@ if (browserizr.detect(isEdgeIOS)) {
 #### isEdgeIOSVersion
 
 <details>
-<summary><em>Detect Microsoft Edge browser and wanted version on iOS.</em></summary>
+<summary><em>Detect Microsoft Edge iOS Browser version.</em></summary>
 <div>
 
 ```js
@@ -555,7 +555,7 @@ if (browserizr.detect(edgeIOS45orHigher)) {
 #### isFirefox
 
 <details>
-<summary><em>Detect Mozilla Firefox browser.</em></summary>
+<summary><em>Detect Mozilla Firefox Browser.</em></summary>
 <div>
 
 ```js
@@ -571,7 +571,7 @@ if (browserizr.detect(isFirefox)) {
 #### isFirefoxVersion
 
 <details>
-<summary><em>Detect Mozilla Firefox browser and wanted version.</em></summary>
+<summary><em>Detect Mozilla Firefox Browser and wanted version.</em></summary>
 <div>
 
 ```js
@@ -597,7 +597,7 @@ if (browserizr.detect(ffx83)) {
 #### isFirefoxAndroid
 
 <details>
-<summary><em>Detect Mozilla Firefox browser on Android OS.</em></summary>
+<summary><em>Detect Mozilla Firefox Android Browser.</em></summary>
 <div>
 
 ```js
@@ -613,7 +613,7 @@ if (browserizr.detect(isFirefoxAndroid)) {
 #### isFirefoxAndroidVersion
 
 <details>
-<summary><em>Detect Mozilla Firefox browser and wanted version on Android OS.</em></summary>
+<summary><em>Detect Mozilla Firefox Android Browser version.</em></summary>
 <div>
 
 ```js
@@ -639,7 +639,7 @@ if (browserizr.detect(ffx83Android)) {
 #### isFirefoxIOS
 
 <details>
-<summary><em>Detect Mozilla Firefox browser on iOS.</em></summary>
+<summary><em>Detect Mozilla Firefox iOS Browser.</em></summary>
 <div>
 
 ```js
@@ -655,7 +655,7 @@ if (browserizr.detect(isFirefoxIOS)) {
 #### isFirefoxIOSVersion
 
 <details>
-<summary><em>Detect Mozilla Firefox browser and wanted version on iOS.</em></summary>
+<summary><em>Detect Mozilla Firefox iOS Browser version.</em></summary>
 <div>
 
 ```js

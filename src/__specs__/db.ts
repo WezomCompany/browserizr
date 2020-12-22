@@ -121,7 +121,7 @@ export const uaDB = {
 					]
 				}
 			},
-			Edge: {
+			EdgeIOS: {
 				v45: {
 					iPhone: [
 						'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 EdgiOS/45.11.1 Mobile/15E148 Safari/605.1.15'
