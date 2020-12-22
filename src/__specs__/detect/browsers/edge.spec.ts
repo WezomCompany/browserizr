@@ -17,13 +17,36 @@ describe('Detect Microsoft Edge Browser', () => {
 	});
 
 	describe('Should not pass', () => {
-		[...deepFlatFromObject(uaDB.Android), ...deepFlatFromObject(uaDB.iOS)].forEach(
-			(ua, i) => {
-				test(`Case #${++i}: ${ua}`, () => {
-					browserizr.setUA(ua);
-					expect(browserizr.detect(isEdge)).toBeFalsy();
-				});
-			}
-		);
+		[
+			...deepFlatFromObject(uaDB.Android),
+			...deepFlatFromObject(uaDB.iOS),
+			...deepFlatFromObject({
+				...uaDB.MacOS,
+				v11: {
+					...uaDB.MacOS.v11,
+					Edge: null
+				}
+			}),
+			...deepFlatFromObject({
+				...uaDB.Windows,
+				v10: {
+					...uaDB.Windows.v10,
+					Edge: null
+				}
+			}),
+			...deepFlatFromObject({
+				...uaDB.WindowsMobile,
+				Edge: null
+			}),
+			...deepFlatFromObject({
+				...uaDB.Xbox,
+				Edge: null
+			})
+		].forEach((ua, i) => {
+			test(`Case #${++i}: ${ua}`, () => {
+				browserizr.setUA(ua);
+				expect(browserizr.detect(isEdge)).toBeFalsy();
+			});
+		});
 	});
 });

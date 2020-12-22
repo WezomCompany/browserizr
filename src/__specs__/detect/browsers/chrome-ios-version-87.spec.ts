@@ -36,16 +36,5 @@ describe('Detect Google Chrome Browser version on iOS', () => {
 				});
 			});
 		});
-
-		describe(`Should not be ${LESS_THEN_OR_EQUAL}`, () => {
-			[...uaDB.iOS.v14.Chrome.v87.iPad].forEach((ua, i) => {
-				test(`Case #${++i}: ${ua}`, () => {
-					browserizr.setUA(ua);
-					expect(
-						browserizr.detect(isChromeIOSVersion(LESS_THEN_OR_EQUAL, 86))
-					).toBeFalsy();
-				});
-			});
-		});
 	});
 });

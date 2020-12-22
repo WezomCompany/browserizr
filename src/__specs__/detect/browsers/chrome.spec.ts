@@ -22,12 +22,18 @@ describe('Detect Google Chrome Browser', () => {
 				Chrome: null
 			}),
 			...deepFlatFromObject({
-				...uaDB.MacOS.v11,
-				Chrome: null
+				...uaDB.MacOS,
+				v11: {
+					...uaDB.MacOS.v11,
+					Chrome: null
+				}
 			}),
 			...deepFlatFromObject({
-				...uaDB.Windows.v10,
-				Chrome: null
+				...uaDB.Windows,
+				v10: {
+					...uaDB.Windows.v10,
+					Chrome: null
+				}
 			}),
 			...deepFlatFromObject(uaDB.iOS),
 			...deepFlatFromObject(uaDB.Android),

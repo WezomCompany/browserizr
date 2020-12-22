@@ -14,12 +14,21 @@ describe('Detect Google Chrome Browser on Android OS', () => {
 	describe('Should not pass', () => {
 		[
 			...deepFlatFromObject({
-				...uaDB.Android.v10,
-				Chrome: null
+				v10: {
+					...uaDB.Android.v10,
+					Chrome: null
+				},
+				v11: {
+					...uaDB.Android.v11,
+					Chrome: null
+				}
 			}),
 			...deepFlatFromObject({
-				...uaDB.Android.v11,
-				Chrome: null
+				...uaDB.Windows,
+				v10: {
+					...uaDB.Windows.v10,
+					Chrome: null
+				}
 			}),
 			...deepFlatFromObject(uaDB.iOS),
 			...deepFlatFromObject(uaDB.Windows),

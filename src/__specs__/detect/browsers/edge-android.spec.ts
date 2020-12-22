@@ -3,7 +3,7 @@ import { deepFlatFromObject, uaDB } from '../../db';
 
 describe('Detect Microsoft Edge Browser on Android', () => {
 	describe('Should pass', () => {
-		[...deepFlatFromObject(uaDB.Android.v10.Edge)].forEach((ua, i) => {
+		[...deepFlatFromObject(uaDB.Android.v10.EdgeAndroid)].forEach((ua, i) => {
 			test(`Case #${++i}: ${ua}`, () => {
 				browserizr.setUA(ua);
 				expect(browserizr.detect(isEdgeAndroid)).toBeTruthy();
@@ -13,6 +13,13 @@ describe('Detect Microsoft Edge Browser on Android', () => {
 
 	describe('Should not pass', () => {
 		[
+			...deepFlatFromObject({
+				...uaDB.Android,
+				v10: {
+					...uaDB.Android.v10,
+					EdgeAndroid: null
+				}
+			}),
 			...deepFlatFromObject(uaDB.iOS),
 			...deepFlatFromObject(uaDB.Linux),
 			...deepFlatFromObject(uaDB.MacOS),

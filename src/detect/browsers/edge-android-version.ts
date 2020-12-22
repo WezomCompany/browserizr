@@ -12,6 +12,11 @@ export default function isChromeAndroidVersion(
 			version,
 			operator,
 			regExp: __regexp,
-			groupIndex: 1
+			groupIndex: 1,
+			transformMarch: (version: string): string => {
+				//
+				const number = parseFloat(version);
+				return number < 79 ? '79' : version;
+			}
 		});
 }
