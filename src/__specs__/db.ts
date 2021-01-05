@@ -1,4 +1,12 @@
 /* eslint-disable @typescript-eslint/camelcase */
+import {
+	DetectVersionOperator,
+	EQUAL,
+	LESS_THEN_OR_EQUAL,
+	MORE_THEN_OR_EQUAL
+} from '../utils';
+import browserizr from '../core';
+
 export const uaDB = {
 	Android: {
 		v10: {
@@ -339,6 +347,11 @@ export const uaDB = {
 					Standard: [
 						'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0'
 					]
+				},
+				v84: {
+					Standard: [
+						'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0'
+					]
 				}
 			},
 			Opera: {
@@ -413,4 +426,69 @@ export const deepFlatFromObject = (data: Obj | string[] | null): string[] => {
 		}
 		return arr;
 	}
+};
+
+export const testVersionHelper = (
+	version: number,
+	operator: DetectVersionOperator,
+	detectVersion: (
+		operator: DetectVersionOperator,
+		version: number
+	) => (ua: string) => boolean,
+	shouldBe: string[],
+	shouldNotBe: string[]
+) => {
+	if (shouldBe.length) {
+		describe(`Should be ${operator}`, () => {
+			shouldBe.forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					const result = browserizr.detect(detectVersion(operator, version));
+					expect(result).toBeTruthy();
+				});
+			});
+		});
+	}
+
+	if (shouldNotBe.length) {
+		describe(`Should not be ${operator}`, () => {
+			shouldNotBe.forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					const result = browserizr.detect(detectVersion(operator, version));
+					expect(result).toBeFalsy();
+				});
+			});
+		});
+	}
+};
+
+export const testVersionGroupHelper = (
+	detectVersion: (
+		operator: DetectVersionOperator,
+		version: number
+	) => (ua: string) => boolean,
+	version: number,
+	shouldBeEqual: string[] = [],
+	shouldNotBeEqual: string[] = [],
+	shouldBeMoreThenOrEqual: string[] = [],
+	shouldNotBeMoreThenOrEqual: string[] = [],
+	shouldBeLessThenOrEqual: string[] = [],
+	shouldNotBeLessThenOrEqual: string[] = []
+) => {
+	testVersionHelper(version, EQUAL, detectVersion, shouldBeEqual, shouldNotBeEqual);
+	testVersionHelper(
+		version,
+		MORE_THEN_OR_EQUAL,
+		detectVersion,
+		shouldBeMoreThenOrEqual,
+		shouldNotBeMoreThenOrEqual
+	);
+	testVersionHelper(
+		version,
+		LESS_THEN_OR_EQUAL,
+		detectVersion,
+		shouldBeLessThenOrEqual,
+		shouldNotBeLessThenOrEqual
+	);
 };
