@@ -1,19 +1,25 @@
-import browserizr, { isIPhone } from '../../../index';
-import { uaDB } from '../../db';
+import { isIPhone } from '../../../index';
+import { deepFlatFromObject, testHelper, uaDB } from '../../db';
 
 describe('Detect iPhone device', () => {
-	describe('Should pass', () => {
+	testHelper(
+		isIPhone,
 		[
-			...uaDB.iOS.v11.Firefox.v29.iPhone,
-			...uaDB.iOS.v14.Chrome.v87.iPhone,
-			...uaDB.iOS.v14.EdgeIOS.v45.iPhone,
-			...uaDB.iOS.v14.Safari.v14.iPhone,
-			...uaDB.iOS.v14.Yandex.v20.iPhone
-		].forEach((ua, i) => {
-			test(`Case #${++i}: ${ua}`, () => {
-				browserizr.setUA(ua);
-				expect(browserizr.detect(isIPhone)).toBeTruthy();
-			});
-		});
-	});
+			...deepFlatFromObject(uaDB.iOS.v11.Firefox.v29.iPhone),
+			...deepFlatFromObject(uaDB.iOS.v14.Chrome.v87.iPhone),
+			...deepFlatFromObject(uaDB.iOS.v14.EdgeIOS.v45.iPhone),
+			...deepFlatFromObject(uaDB.iOS.v14.Safari.v14.iPhone),
+			...deepFlatFromObject(uaDB.iOS.v14.Yandex.v20.iPhone)
+		],
+		[
+			...deepFlatFromObject({
+				...uaDB.iOS.v11.Firefox.v29,
+				...uaDB.iOS.v14.Chrome.v87,
+				...uaDB.iOS.v14.EdgeIOS.v45,
+				...uaDB.iOS.v14.Safari.v14,
+				...uaDB.iOS.v14.Yandex.v20,
+				iPhone: null
+			})
+		]
+	);
 });

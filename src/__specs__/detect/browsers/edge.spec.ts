@@ -1,22 +1,15 @@
-import browserizr, { isEdge } from '../../../index';
-import { deepFlatFromObject, uaDB } from '../../db';
+import { isEdge } from '../../../index';
+import { deepFlatFromObject, testHelper, uaDB } from '../../db';
 
 describe('Detect Microsoft Edge Browser', () => {
-	describe('Should pass', () => {
+	testHelper(
+		isEdge,
 		[
 			...deepFlatFromObject(uaDB.MacOS.v11.Edge),
 			...deepFlatFromObject(uaDB.Windows.v10.Edge),
 			...deepFlatFromObject(uaDB.WindowsMobile.Edge),
 			...deepFlatFromObject(uaDB.Xbox.Edge)
-		].forEach((ua, i) => {
-			test(`Case #${++i}: ${ua}`, () => {
-				browserizr.setUA(ua);
-				expect(browserizr.detect(isEdge)).toBeTruthy();
-			});
-		});
-	});
-
-	describe('Should not pass', () => {
+		],
 		[
 			...deepFlatFromObject(uaDB.Android),
 			...deepFlatFromObject(uaDB.iOS),
@@ -42,11 +35,6 @@ describe('Detect Microsoft Edge Browser', () => {
 				...uaDB.Xbox,
 				Edge: null
 			})
-		].forEach((ua, i) => {
-			test(`Case #${++i}: ${ua}`, () => {
-				browserizr.setUA(ua);
-				expect(browserizr.detect(isEdge)).toBeFalsy();
-			});
-		});
-	});
+		]
+	);
 });

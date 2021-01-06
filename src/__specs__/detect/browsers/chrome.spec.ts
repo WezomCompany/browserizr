@@ -1,21 +1,14 @@
-import browserizr, { isChrome } from '../../../index';
-import { deepFlatFromObject, uaDB } from '../../db';
+import { isChrome } from '../../../index';
+import { deepFlatFromObject, testHelper, uaDB } from '../../db';
 
 describe('Detect Google Chrome Browser', () => {
-	describe('Should pass', () => {
+	testHelper(
+		isChrome,
 		[
 			...deepFlatFromObject(uaDB.Linux.Chrome),
 			...deepFlatFromObject(uaDB.MacOS.v11.Chrome),
 			...deepFlatFromObject(uaDB.Windows.v10.Chrome)
-		].forEach((ua, i) => {
-			test(`Case #${++i}: ${ua}`, () => {
-				browserizr.setUA(ua);
-				expect(browserizr.detect(isChrome)).toBeTruthy();
-			});
-		});
-	});
-
-	describe('Should not pass', () => {
+		],
 		[
 			...deepFlatFromObject({
 				...uaDB.Linux,
@@ -39,11 +32,6 @@ describe('Detect Google Chrome Browser', () => {
 			...deepFlatFromObject(uaDB.Android),
 			...deepFlatFromObject(uaDB.Xbox),
 			...deepFlatFromObject(uaDB.WindowsMobile)
-		].forEach((ua, i) => {
-			test(`Case #${++i}: ${ua}`, () => {
-				browserizr.setUA(ua);
-				expect(browserizr.detect(isChrome)).toBeFalsy();
-			});
-		});
-	});
+		]
+	);
 });

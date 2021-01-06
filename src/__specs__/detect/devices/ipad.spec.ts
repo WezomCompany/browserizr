@@ -1,18 +1,24 @@
-import browserizr, { isIPad } from '../../../index';
-import { uaDB } from '../../db';
+import { isIPad } from '../../../index';
+import { deepFlatFromObject, testHelper, uaDB } from '../../db';
 
 describe('Detect iPad device', () => {
-	describe('Should pass', () => {
+	testHelper(
+		isIPad,
 		[
-			...uaDB.iOS.v11.Firefox.v29.iPad,
-			...uaDB.iOS.v14.Chrome.v87.iPad,
-			...uaDB.iOS.v14.Safari.v14.iPad,
-			...uaDB.iOS.v14.Yandex.v20.iPad
-		].forEach((ua, i) => {
-			test(`Case #${++i}: ${ua}`, () => {
-				browserizr.setUA(ua);
-				expect(browserizr.detect(isIPad)).toBeTruthy();
-			});
-		});
-	});
+			...deepFlatFromObject(uaDB.iOS.v11.Firefox.v29.iPad),
+			...deepFlatFromObject(uaDB.iOS.v14.Chrome.v87.iPad),
+			...deepFlatFromObject(uaDB.iOS.v14.Safari.v14.iPad),
+			...deepFlatFromObject(uaDB.iOS.v14.Yandex.v20.iPad)
+		],
+		[
+			...deepFlatFromObject({
+				...uaDB.iOS.v11.Firefox.v29,
+				...uaDB.iOS.v14.Chrome.v87,
+				...uaDB.iOS.v14.EdgeIOS.v45,
+				...uaDB.iOS.v14.Safari.v14,
+				...uaDB.iOS.v14.Yandex.v20,
+				iPad: null
+			})
+		]
+	);
 });

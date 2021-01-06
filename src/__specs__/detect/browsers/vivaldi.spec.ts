@@ -1,18 +1,18 @@
-import browserizr, { isVivaldi } from '../../../index';
-import { uaDB } from '../../db';
+import { isVivaldi } from '../../../index';
+import { deepFlatFromObject, testHelper, uaDB } from '../../db';
 
 describe('Detect Vivaldi Browser', () => {
-	describe('Should pass', () => {
+	testHelper(
+		isVivaldi,
 		[
-			...uaDB.Linux.Vivaldi.v3_4.Standard,
-			...uaDB.MacOS.v11.Vivaldi.v3_4.Standard,
-			...uaDB.Windows.v10.Vivaldi.v3_4.Standard,
-			...uaDB.Windows.v10.Vivaldi.v3_5.Standard
-		].forEach((ua, i) => {
-			test(`Case #${++i}: ${ua}`, () => {
-				browserizr.setUA(ua);
-				expect(browserizr.detect(isVivaldi)).toBeTruthy();
-			});
-		});
-	});
+			...deepFlatFromObject(uaDB.Linux.Vivaldi),
+			...deepFlatFromObject(uaDB.MacOS.v11.Vivaldi),
+			...deepFlatFromObject(uaDB.Windows.v10.Vivaldi)
+		],
+		[
+			...deepFlatFromObject(uaDB.Linux.Chrome),
+			...deepFlatFromObject(uaDB.MacOS.v11.Chrome),
+			...deepFlatFromObject(uaDB.Windows.v10.Chrome)
+		]
+	);
 });

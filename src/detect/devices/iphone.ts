@@ -1,4 +1,4 @@
 /** Detect a Browser on iPhone device */
 export default function isIPhone(ua: string): boolean {
-	return /iPhone/i.test(ua);
+	return /iPhone/i.test(ua) && !/iPod/i.test(ua);
 }

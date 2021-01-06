@@ -1,17 +1,10 @@
-import browserizr, { isSafari } from '../../../index';
-import { uaDB, deepFlatFromObject } from '../../db';
+import { isSafari } from '../../../index';
+import { deepFlatFromObject, testHelper, uaDB } from '../../db';
 
 describe('Detect Apple Safari Browser', () => {
-	describe('Should pass', () => {
-		[...uaDB.MacOS.v11.Safari.v14.Standard].forEach((ua, i) => {
-			test(`Case #${++i}: ${ua}`, () => {
-				browserizr.setUA(ua);
-				expect(browserizr.detect(isSafari)).toBeTruthy();
-			});
-		});
-	});
-
-	describe('Should not pass', () => {
+	testHelper(
+		isSafari,
+		[...uaDB.MacOS.v11.Safari.v14.Standard],
 		[
 			...deepFlatFromObject(uaDB.Android),
 			...deepFlatFromObject(uaDB.iOS),
@@ -26,11 +19,6 @@ describe('Detect Apple Safari Browser', () => {
 			...deepFlatFromObject(uaDB.Windows),
 			...deepFlatFromObject(uaDB.WindowsMobile),
 			...deepFlatFromObject(uaDB.Xbox)
-		].forEach((ua, i) => {
-			test(`Case #${++i}: ${ua}`, () => {
-				browserizr.setUA(ua);
-				expect(browserizr.detect(isSafari)).toBeFalsy();
-			});
-		});
-	});
+		]
+	);
 });

@@ -1,21 +1,19 @@
-import browserizr, { isOpera } from '../../../index';
-import { uaDB } from '../../db';
+import { isOpera } from '../../../index';
+import { deepFlatFromObject, testHelper, uaDB } from '../../db';
 
 describe('Detect Opera Browser', () => {
-	describe('Should pass', () => {
+	testHelper(
+		isOpera,
 		[
-			...uaDB.Android.v10.Opera.v59['Opera on Huawei'],
-			...uaDB.Android.v10.Opera.v59['Opera on Sumsung'],
-			...uaDB.Android.v10.Opera.v60.Standard,
-			...uaDB.Android.v10.Opera.v61.Standard,
-			...uaDB.Linux.Opera.v72.Standard,
-			...uaDB.MacOS.v11.Opera.v72.Standard,
-			...uaDB.Windows.v10.Opera.v72.Standard
-		].forEach((ua, i) => {
-			test(`Case #${++i}: ${ua}`, () => {
-				browserizr.setUA(ua);
-				expect(browserizr.detect(isOpera)).toBeTruthy();
-			});
-		});
-	});
+			...deepFlatFromObject(uaDB.Android.v10.Opera),
+			...deepFlatFromObject(uaDB.Linux.Opera),
+			...deepFlatFromObject(uaDB.MacOS.v11.Opera),
+			...deepFlatFromObject(uaDB.Windows.v10.Opera)
+		],
+		[
+			...deepFlatFromObject(uaDB.Linux.Chrome),
+			...deepFlatFromObject(uaDB.MacOS.v11.Chrome),
+			...deepFlatFromObject(uaDB.Windows.v10.Chrome)
+		]
+	);
 });

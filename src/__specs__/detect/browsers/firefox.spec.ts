@@ -1,21 +1,14 @@
-import browserizr, { isFirefox } from '../../../index';
-import { deepFlatFromObject, uaDB } from '../../db';
+import { isFirefox } from '../../../index';
+import { deepFlatFromObject, testHelper, uaDB } from '../../db';
 
 describe('Detect Mozilla Firefox Browser', () => {
-	describe('Should pass', () => {
+	testHelper(
+		isFirefox,
 		[
 			...deepFlatFromObject(uaDB.Linux.Firefox),
 			...deepFlatFromObject(uaDB.MacOS.v11.Firefox),
 			...deepFlatFromObject(uaDB.Windows.v10.Firefox)
-		].forEach((ua, i) => {
-			test(`Case #${++i}: ${ua}`, () => {
-				browserizr.setUA(ua);
-				expect(browserizr.detect(isFirefox)).toBeTruthy();
-			});
-		});
-	});
-
-	describe('Should not pass', () => {
+		],
 		[
 			...deepFlatFromObject(uaDB.Android),
 			...deepFlatFromObject(uaDB.iOS),
@@ -36,11 +29,6 @@ describe('Detect Mozilla Firefox Browser', () => {
 			}),
 			...deepFlatFromObject(uaDB.WindowsMobile),
 			...deepFlatFromObject(uaDB.Xbox)
-		].forEach((ua, i) => {
-			test(`Case #${++i}: ${ua}`, () => {
-				browserizr.setUA(ua);
-				expect(browserizr.detect(isFirefox)).toBeFalsy();
-			});
-		});
-	});
+		]
+	);
 });

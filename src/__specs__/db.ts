@@ -428,16 +428,44 @@ export const deepFlatFromObject = (data: Obj | string[] | null): string[] => {
 	}
 };
 
-export const testVersionHelper = (
-	version: number,
+export const testHelper = (
+	detect: (ua: string) => boolean,
+	shouldPass: string[],
+	shouldNotPass: string[]
+) => {
+	if (shouldPass.length) {
+		describe('Should pass', () => {
+			shouldPass.forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(browserizr.detect(detect)).toBeTruthy();
+				});
+			});
+		});
+	}
+
+	if (shouldNotPass.length) {
+		describe('Should not pass', () => {
+			shouldNotPass.forEach((ua, i) => {
+				test(`Case #${++i}: ${ua}`, () => {
+					browserizr.setUA(ua);
+					expect(browserizr.detect(detect)).toBeFalsy();
+				});
+			});
+		});
+	}
+};
+
+export function testVersionsHelper<Version = number>(
+	version: Version,
 	operator: DetectVersionOperator,
 	detectVersion: (
 		operator: DetectVersionOperator,
-		version: number
+		version: Version
 	) => (ua: string) => boolean,
 	shouldBe: string[],
 	shouldNotBe: string[]
-) => {
+) {
 	if (shouldBe.length) {
 		describe(`Should be ${operator}`, () => {
 			shouldBe.forEach((ua, i) => {
@@ -461,34 +489,49 @@ export const testVersionHelper = (
 			});
 		});
 	}
-};
+}
 
-export const testVersionGroupHelper = (
+export function testVersionsListHelper<Version = number>(
 	detectVersion: (
 		operator: DetectVersionOperator,
-		version: number
+		version: Version
 	) => (ua: string) => boolean,
-	version: number,
-	shouldBeEqual: string[] = [],
-	shouldNotBeEqual: string[] = [],
-	shouldBeMoreThenOrEqual: string[] = [],
-	shouldNotBeMoreThenOrEqual: string[] = [],
-	shouldBeLessThenOrEqual: string[] = [],
-	shouldNotBeLessThenOrEqual: string[] = []
-) => {
-	testVersionHelper(version, EQUAL, detectVersion, shouldBeEqual, shouldNotBeEqual);
-	testVersionHelper(
-		version,
-		MORE_THEN_OR_EQUAL,
-		detectVersion,
-		shouldBeMoreThenOrEqual,
-		shouldNotBeMoreThenOrEqual
-	);
-	testVersionHelper(
-		version,
-		LESS_THEN_OR_EQUAL,
-		detectVersion,
-		shouldBeLessThenOrEqual,
-		shouldNotBeLessThenOrEqual
-	);
-};
+	versions: { version: Version; values: string[] }[]
+) {
+	versions.forEach(({ version, values: currentVersions }, i) => {
+		if (currentVersions.length) {
+			const prevVersions = versions
+				.filter((v, j) => j < i)
+				.reduce<string[]>((acc, { values }) => acc.concat(values), []);
+
+			const nextVersions = versions
+				.filter((v, j) => j > i)
+				.reduce<string[]>((acc, { values }) => acc.concat(values), []);
+
+			describe(String(version), () => {
+				testVersionsHelper<Version>(
+					version,
+					EQUAL,
+					detectVersion,
+					[...currentVersions],
+					[...prevVersions, ...nextVersions]
+				);
+
+				testVersionsHelper<Version>(
+					version,
+					MORE_THEN_OR_EQUAL,
+					detectVersion,
+					[...currentVersions, ...nextVersions],
+					[...prevVersions]
+				);
+				testVersionsHelper<Version>(
+					version,
+					LESS_THEN_OR_EQUAL,
+					detectVersion,
+					[...currentVersions, ...prevVersions],
+					[...nextVersions]
+				);
+			});
+		}
+	});
+}

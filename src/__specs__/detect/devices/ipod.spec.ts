@@ -1,18 +1,24 @@
-import browserizr, { isIPod } from '../../../index';
-import { uaDB } from '../../db';
+import { isIPod } from '../../../index';
+import { deepFlatFromObject, testHelper, uaDB } from '../../db';
 
 describe('Detect isIPod device', () => {
-	describe('Should pass', () => {
+	testHelper(
+		isIPod,
 		[
-			...uaDB.iOS.v11.Firefox.v29.iPod,
-			...uaDB.iOS.v14.Chrome.v87.iPod,
-			...uaDB.iOS.v14.Safari.v14.iPod,
-			...uaDB.iOS.v14.Yandex.v20.iPod
-		].forEach((ua, i) => {
-			test(`Case #${++i}: ${ua}`, () => {
-				browserizr.setUA(ua);
-				expect(browserizr.detect(isIPod)).toBeTruthy();
-			});
-		});
-	});
+			...deepFlatFromObject(uaDB.iOS.v11.Firefox.v29.iPod),
+			...deepFlatFromObject(uaDB.iOS.v14.Chrome.v87.iPod),
+			...deepFlatFromObject(uaDB.iOS.v14.Safari.v14.iPod),
+			...deepFlatFromObject(uaDB.iOS.v14.Yandex.v20.iPod)
+		],
+		[
+			...deepFlatFromObject({
+				...uaDB.iOS.v11.Firefox.v29,
+				...uaDB.iOS.v14.Chrome.v87,
+				...uaDB.iOS.v14.EdgeIOS.v45,
+				...uaDB.iOS.v14.Safari.v14,
+				...uaDB.iOS.v14.Yandex.v20,
+				iPod: null
+			})
+		]
+	);
 });

@@ -1,20 +1,21 @@
-import browserizr, { isYandex } from '../../../index';
-import { uaDB } from '../../db';
+import { isYandex } from '../../../index';
+import { deepFlatFromObject, testHelper, uaDB } from '../../db';
 
 describe('Detect Yandex Browser', () => {
-	describe('Should pass', () => {
+	testHelper(
+		isYandex,
 		[
-			...uaDB.Android.v11.Yandex.v20.Standard,
-			...uaDB.iOS.v14.Yandex.v20.iPad,
-			...uaDB.iOS.v14.Yandex.v20.iPhone,
-			...uaDB.iOS.v14.Yandex.v20.iPod,
-			...uaDB.MacOS.v11.Yandex.v20.Standard,
-			...uaDB.Windows.v10.Yandex.v20.Standard
-		].forEach((ua, i) => {
-			test(`Case #${++i}: ${ua}`, () => {
-				browserizr.setUA(ua);
-				expect(browserizr.detect(isYandex)).toBeTruthy();
-			});
-		});
-	});
+			...deepFlatFromObject(uaDB.Android.v11.Yandex),
+			...deepFlatFromObject(uaDB.iOS.v14.Yandex),
+			...deepFlatFromObject(uaDB.MacOS.v11.Yandex),
+			...deepFlatFromObject(uaDB.Windows.v10.Yandex)
+		],
+		[
+			...deepFlatFromObject(uaDB.Android.v10.Chrome),
+			...deepFlatFromObject(uaDB.iOS.v14.Chrome),
+			...deepFlatFromObject(uaDB.Linux.Chrome),
+			...deepFlatFromObject(uaDB.MacOS.v11.Chrome),
+			...deepFlatFromObject(uaDB.Windows.v10.Chrome)
+		]
+	);
 });

@@ -1,13 +1,10 @@
-import browserizr, { isMacOS } from '../../../index';
-import { deepFlatFromObject, uaDB } from '../../db';
+import { isMacOS } from '../../../index';
+import { deepFlatFromObject, testHelper, uaDB } from '../../db';
 
 describe('Detect macOS', () => {
-	describe('Should pass', () => {
-		[...deepFlatFromObject(uaDB.MacOS)].forEach((ua, i) => {
-			test(`Case #${++i}: ${ua}`, () => {
-				browserizr.setUA(ua);
-				expect(browserizr.detect(isMacOS)).toBeTruthy();
-			});
-		});
-	});
+	testHelper(
+		isMacOS,
+		[...deepFlatFromObject(uaDB.MacOS)],
+		[...deepFlatFromObject(uaDB.iOS)]
+	);
 });
