@@ -1,4 +1,4 @@
-import browserizr, { isIEVersion, MORE_THEN_OR_EQUAL } from '../../../index';
+import browserizr, { EQUAL, isIEVersion, MORE_THEN_OR_EQUAL } from '../../../index';
 import { deepFlatFromObject, testVersionsListHelper, uaDB } from '../../db';
 
 describe('Detect Internet Explorer Browser version', () => {
@@ -15,6 +15,17 @@ describe('Detect Internet Explorer Browser version', () => {
 				browserizr.setUA(ua);
 				expect(
 					browserizr.detect(isIEVersion(MORE_THEN_OR_EQUAL, 12 as 8))
+				).toBeFalsy();
+			});
+		});
+	});
+
+	describe(`Should not pass. Wrong version operator`, () => {
+		[...uaDB.Windows.XP.InternetExplorer.v8.Standard].forEach((ua, i) => {
+			test(`Case #${++i}: ${ua}`, () => {
+				browserizr.setUA(ua);
+				expect(
+					browserizr.detect(isIEVersion('XX' as typeof EQUAL, 8))
 				).toBeFalsy();
 			});
 		});
