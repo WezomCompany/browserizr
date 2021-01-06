@@ -46,6 +46,8 @@
         - [isChromeAndroidVersion](#ischromeandroidversion)
         - [isChromeIOS](#ischromeios)
         - [isChromeIOSVersion](#ischromeiosversion)
+        - [isChromiumBased](#ischromiumbased)
+        - [isChromiumBasedVersion](#ischromiumbasedversion)
         - [isEdge](#isedge)
         - [isEdgeVersion](#isedgeversion)
         - [isEdgeAndroid](#isedgeandroid)
@@ -418,6 +420,48 @@ const chromeIOS86orHigher = isChromeIOSVersion(MORE_THEN_OR_EQUAL, 86);
 const chromeIOS86orLater = isChromeIOSVersion(LESS_THEN_OR_EQUAL, 86);
 if (browserizr.detect(chromeIOS86orHigher)) {
     // code
+}
+// ...
+``` 
+
+</div>
+</details>
+
+#### isChromiumBased
+
+<details>
+<summary><em>Detect Chromium-based Browser.</em></summary>
+<div>
+
+```js
+import browserizr, { isChromiumBased } from '@wezom/browserizr';
+if (browserizr.detect(isChromiumBased)) {
+    // code
+}
+``` 
+
+</div>
+</details>
+
+#### isChromiumBasedVersion
+
+<details>
+<summary><em>Detect Chromium-based Browser version.</em></summary>
+<div>
+
+```js
+import browserizr, {
+	isChromiumBasedVersion,
+	MORE_THEN_OR_EQUAL,
+	EQUAL,
+	LESS_THEN_OR_EQUAL
+} from '@wezom/browserizr';
+
+const chromiumBased86 = isChromiumBasedVersion(EQUAL, 86);
+const chromiumBased86orHigher = isChromiumBasedVersion(MORE_THEN_OR_EQUAL, 86);
+const chromiumBased86orLater = isChromiumBasedVersion(LESS_THEN_OR_EQUAL, 86);
+if (browserizr.detect(chromiumBased86)) {
+	// code
 }
 // ...
 ``` 

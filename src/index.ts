@@ -8,6 +8,8 @@ export { default as isChromeAndroid } from './detect/browsers/chrome-android';
 export { default as isChromeAndroidVersion } from './detect/browsers/chrome-android-version';
 export { default as isChromeIOS } from './detect/browsers/chrome-ios';
 export { default as isChromeIOSVersion } from './detect/browsers/chrome-ios-version';
+export { default as isChromiumBased } from './detect/browsers/chromium-based';
+export { default as isChromiumBasedVersion } from './detect/browsers/chromium-based-version';
 // Edge
 export { default as isEdge } from './detect/browsers/edge';
 export { default as isEdgeVersion } from './detect/browsers/edge-version';
