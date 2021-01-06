@@ -1,17 +1,11 @@
 import { isChromeIOSVersion } from '../../../index';
-import { deepFlatFromObject, testVersionGroupHelper, uaDB } from '../../db';
+import { deepFlatFromObject, testVersionsListHelper, uaDB } from '../../db';
 
-describe('Detect Google Chrome iOS Browser version', () => {
-	describe(87, () => {
-		testVersionGroupHelper(
-			isChromeIOSVersion,
-			87,
-			[...deepFlatFromObject(uaDB.iOS.v14.Chrome.v87)],
-			[],
-			[...deepFlatFromObject(uaDB.iOS.v14.Chrome.v87)],
-			[],
-			[...deepFlatFromObject(uaDB.iOS.v14.Chrome.v87)],
-			[]
-		);
-	});
+describe('Detect Google Chrome iOS Browser versions', () => {
+	testVersionsListHelper(isChromeIOSVersion, [
+		{
+			version: 87,
+			values: [...deepFlatFromObject(uaDB.iOS.v14.Chrome.v87)]
+		}
+	]);
 });

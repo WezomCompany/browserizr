@@ -1,53 +1,11 @@
-import browserizr, {
-	EQUAL,
-	isSafariVersion,
-	LESS_THEN_OR_EQUAL,
-	MORE_THEN_OR_EQUAL
-} from '../../../index';
-import { uaDB } from '../../db';
+import { isSafariVersion } from '../../../index';
+import { deepFlatFromObject, testVersionsListHelper, uaDB } from '../../db';
 
-describe('Detect Apple Safari Browser version', () => {
-	describe('Safari 14', () => {
-		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
-			[...uaDB.MacOS.v11.Safari.v14.Standard].forEach((ua, i) => {
-				test(`Case #${++i}: ${ua}`, () => {
-					browserizr.setUA(ua);
-					expect(
-						browserizr.detect(isSafariVersion(MORE_THEN_OR_EQUAL, 14))
-					).toBeTruthy();
-				});
-			});
-		});
-		describe(`Should be ${EQUAL}`, () => {
-			[...uaDB.MacOS.v11.Safari.v14.Standard].forEach((ua, i) => {
-				test(`Case #${++i}: ${ua}`, () => {
-					browserizr.setUA(ua);
-					expect(browserizr.detect(isSafariVersion(EQUAL, 14))).toBeTruthy();
-				});
-			});
-		});
-		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
-			[...uaDB.MacOS.v11.Safari.v14.Standard].forEach((ua, i) => {
-				test(`Case #${++i}: ${ua}`, () => {
-					browserizr.setUA(ua);
-					expect(
-						browserizr.detect(isSafariVersion(LESS_THEN_OR_EQUAL, 14))
-					).toBeTruthy();
-				});
-			});
-		});
-
-		describe(`Should not pass`, () => {
-			[
-				...uaDB.iOS.v14.Safari.v14.iPad,
-				...uaDB.iOS.v14.Safari.v14.iPhone,
-				...uaDB.iOS.v14.Safari.v14.iPod
-			].forEach((ua, i) => {
-				test(`Case #${++i}: ${ua}`, () => {
-					browserizr.setUA(ua);
-					expect(browserizr.detect(isSafariVersion(EQUAL, 14))).toBeFalsy();
-				});
-			});
-		});
-	});
+describe('Detect Apple Safari Browser versions', () => {
+	testVersionsListHelper(isSafariVersion, [
+		{
+			version: 14,
+			values: [...deepFlatFromObject(uaDB.MacOS.v11.Safari.v14)]
+		}
+	]);
 });

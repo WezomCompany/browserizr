@@ -1,17 +1,10 @@
-import browserizr, { isEdgeAndroid } from '../../../index';
-import { deepFlatFromObject, uaDB } from '../../db';
+import { isEdgeAndroid } from '../../../index';
+import { deepFlatFromObject, testHelper, uaDB } from '../../db';
 
 describe('Detect Microsoft Edge Android Browser', () => {
-	describe('Should pass', () => {
-		[...deepFlatFromObject(uaDB.Android.v10.EdgeAndroid)].forEach((ua, i) => {
-			test(`Case #${++i}: ${ua}`, () => {
-				browserizr.setUA(ua);
-				expect(browserizr.detect(isEdgeAndroid)).toBeTruthy();
-			});
-		});
-	});
-
-	describe('Should not pass', () => {
+	testHelper(
+		isEdgeAndroid,
+		[...deepFlatFromObject(uaDB.Android.v10.EdgeAndroid)],
 		[
 			...deepFlatFromObject({
 				...uaDB.Android,
@@ -27,11 +20,6 @@ describe('Detect Microsoft Edge Android Browser', () => {
 			...deepFlatFromObject(uaDB.Xbox),
 			...deepFlatFromObject(uaDB.Windows),
 			...deepFlatFromObject(uaDB.WindowsMobile)
-		].forEach((ua, i) => {
-			test(`Case #${++i}: ${ua}`, () => {
-				browserizr.setUA(ua);
-				expect(browserizr.detect(isEdgeAndroid)).toBeFalsy();
-			});
-		});
-	});
+		]
+	);
 });

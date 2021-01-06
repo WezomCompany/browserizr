@@ -1,61 +1,11 @@
-import browserizr, {
-	EQUAL,
-	isSafariIOSVersion,
-	LESS_THEN_OR_EQUAL,
-	MORE_THEN_OR_EQUAL
-} from '../../../index';
-import { uaDB } from '../../db';
+import { isSafariIOSVersion } from '../../../index';
+import { deepFlatFromObject, testVersionsListHelper, uaDB } from '../../db';
 
-describe('Detect Apple Safari Browser version on iOS', () => {
-	describe('Safari iOS 14', () => {
-		describe(`Should be ${MORE_THEN_OR_EQUAL}`, () => {
-			[
-				...uaDB.iOS.v14.Safari.v14.iPad,
-				...uaDB.iOS.v14.Safari.v14.iPhone,
-				...uaDB.iOS.v14.Safari.v14.iPod
-			].forEach((ua, i) => {
-				test(`Case #${++i}: ${ua}`, () => {
-					browserizr.setUA(ua);
-					expect(
-						browserizr.detect(isSafariIOSVersion(MORE_THEN_OR_EQUAL, 14))
-					).toBeTruthy();
-				});
-			});
-		});
-		describe(`Should be ${EQUAL}`, () => {
-			[
-				...uaDB.iOS.v14.Safari.v14.iPad,
-				...uaDB.iOS.v14.Safari.v14.iPhone,
-				...uaDB.iOS.v14.Safari.v14.iPod
-			].forEach((ua, i) => {
-				test(`Case #${++i}: ${ua}`, () => {
-					browserizr.setUA(ua);
-					expect(browserizr.detect(isSafariIOSVersion(EQUAL, 14))).toBeTruthy();
-				});
-			});
-		});
-		describe(`Should be ${LESS_THEN_OR_EQUAL}`, () => {
-			[
-				...uaDB.iOS.v14.Safari.v14.iPad,
-				...uaDB.iOS.v14.Safari.v14.iPhone,
-				...uaDB.iOS.v14.Safari.v14.iPod
-			].forEach((ua, i) => {
-				test(`Case #${++i}: ${ua}`, () => {
-					browserizr.setUA(ua);
-					expect(
-						browserizr.detect(isSafariIOSVersion(LESS_THEN_OR_EQUAL, 14))
-					).toBeTruthy();
-				});
-			});
-		});
-
-		describe(`Should not pass`, () => {
-			[...uaDB.MacOS.v11.Safari.v14.Standard].forEach((ua, i) => {
-				test(`Case #${++i}: ${ua}`, () => {
-					browserizr.setUA(ua);
-					expect(browserizr.detect(isSafariIOSVersion(EQUAL, 14))).toBeFalsy();
-				});
-			});
-		});
-	});
+describe('Detect Apple Safari Browser versions on iOS', () => {
+	testVersionsListHelper(isSafariIOSVersion, [
+		{
+			version: 14,
+			values: [...deepFlatFromObject(uaDB.iOS.v14.Safari.v14)]
+		}
+	]);
 });

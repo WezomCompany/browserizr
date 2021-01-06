@@ -1,87 +1,22 @@
 import { isEdgeVersion } from '../../../index';
-import { deepFlatFromObject, testVersionGroupHelper, uaDB } from '../../db';
+import { deepFlatFromObject, testVersionsListHelper, uaDB } from '../../db';
 
-describe('Detect Microsoft Edge Browser version', () => {
-	describe(40, () => {
-		testVersionGroupHelper(
-			isEdgeVersion,
-			40,
-			[...deepFlatFromObject(uaDB.WindowsMobile.Edge.v40)],
-			[
-				...deepFlatFromObject(uaDB.Xbox.Edge.v44),
-				...deepFlatFromObject(uaDB.MacOS.v11.Edge.v87),
-				...deepFlatFromObject(uaDB.Windows.v10.Edge.v87)
-			],
-			[
-				...deepFlatFromObject(uaDB.WindowsMobile.Edge.v40),
-				...deepFlatFromObject(uaDB.Xbox.Edge.v44),
-				...deepFlatFromObject(uaDB.MacOS.v11.Edge.v87),
-				...deepFlatFromObject(uaDB.Windows.v10.Edge.v87)
-			],
-			[],
-			[...deepFlatFromObject(uaDB.WindowsMobile.Edge.v40)],
-			[
-				...deepFlatFromObject(uaDB.Xbox.Edge.v44),
+describe('Detect Microsoft Edge Browser versions', () => {
+	testVersionsListHelper(isEdgeVersion, [
+		{
+			version: 40,
+			values: [...deepFlatFromObject(uaDB.WindowsMobile.Edge.v40)]
+		},
+		{
+			version: 44,
+			values: [...deepFlatFromObject(uaDB.Xbox.Edge.v44)]
+		},
+		{
+			version: 87,
+			values: [
 				...deepFlatFromObject(uaDB.MacOS.v11.Edge.v87),
 				...deepFlatFromObject(uaDB.Windows.v10.Edge.v87)
 			]
-		);
-	});
-
-	describe(44, () => {
-		testVersionGroupHelper(
-			isEdgeVersion,
-			44,
-			[...deepFlatFromObject(uaDB.Xbox.Edge.v44)],
-			[
-				...deepFlatFromObject(uaDB.WindowsMobile.Edge.v40),
-				...deepFlatFromObject(uaDB.MacOS.v11.Edge.v87),
-				...deepFlatFromObject(uaDB.Windows.v10.Edge.v87)
-			],
-			[
-				...deepFlatFromObject(uaDB.Xbox.Edge.v44),
-				...deepFlatFromObject(uaDB.MacOS.v11.Edge.v87),
-				...deepFlatFromObject(uaDB.Windows.v10.Edge.v87)
-			],
-			[...deepFlatFromObject(uaDB.WindowsMobile.Edge.v40)],
-			[
-				...deepFlatFromObject(uaDB.WindowsMobile.Edge.v40),
-				...deepFlatFromObject(uaDB.Xbox.Edge.v44)
-			],
-			[
-				...deepFlatFromObject(uaDB.MacOS.v11.Edge.v87),
-				...deepFlatFromObject(uaDB.Windows.v10.Edge.v87)
-			]
-		);
-	});
-
-	describe(87, () => {
-		testVersionGroupHelper(
-			isEdgeVersion,
-			87,
-			[
-				...deepFlatFromObject(uaDB.MacOS.v11.Edge.v87),
-				...deepFlatFromObject(uaDB.Windows.v10.Edge.v87)
-			],
-			[
-				...deepFlatFromObject(uaDB.WindowsMobile.Edge.v40),
-				...deepFlatFromObject(uaDB.Xbox.Edge.v44)
-			],
-			[
-				...deepFlatFromObject(uaDB.MacOS.v11.Edge.v87),
-				...deepFlatFromObject(uaDB.Windows.v10.Edge.v87)
-			],
-			[
-				...deepFlatFromObject(uaDB.WindowsMobile.Edge.v40),
-				...deepFlatFromObject(uaDB.Xbox.Edge.v44)
-			],
-			[
-				...deepFlatFromObject(uaDB.WindowsMobile.Edge.v40),
-				...deepFlatFromObject(uaDB.Xbox.Edge.v44),
-				...deepFlatFromObject(uaDB.MacOS.v11.Edge.v87),
-				...deepFlatFromObject(uaDB.Windows.v10.Edge.v87)
-			],
-			[]
-		);
-	});
+		}
+	]);
 });

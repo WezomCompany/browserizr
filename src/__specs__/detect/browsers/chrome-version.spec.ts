@@ -1,29 +1,15 @@
 import { isChromeVersion } from '../../../index';
-import { deepFlatFromObject, testVersionGroupHelper, uaDB } from '../../db';
+import { deepFlatFromObject, testVersionsListHelper, uaDB } from '../../db';
 
-describe('Detect Google Chrome Browser version', () => {
-	describe(87, () => {
-		testVersionGroupHelper(
-			isChromeVersion,
-			87,
-			[
+describe('Detect Google Chrome Browser versions', () => {
+	testVersionsListHelper(isChromeVersion, [
+		{
+			version: 87,
+			values: [
 				...deepFlatFromObject(uaDB.Linux.Chrome.v87),
 				...deepFlatFromObject(uaDB.MacOS.v11.Chrome.v87),
 				...deepFlatFromObject(uaDB.Windows.v10.Chrome.v87)
-			],
-			[],
-			[
-				...deepFlatFromObject(uaDB.Linux.Chrome.v87),
-				...deepFlatFromObject(uaDB.MacOS.v11.Chrome.v87),
-				...deepFlatFromObject(uaDB.Windows.v10.Chrome.v87)
-			],
-			[],
-			[
-				...deepFlatFromObject(uaDB.Linux.Chrome.v87),
-				...deepFlatFromObject(uaDB.MacOS.v11.Chrome.v87),
-				...deepFlatFromObject(uaDB.Windows.v10.Chrome.v87)
-			],
-			[]
-		);
-	});
+			]
+		}
+	]);
 });
