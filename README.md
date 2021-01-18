@@ -9,7 +9,7 @@
 
 | Statements                                                                   | Branches                                                               | Functions                                                                    | Lines                                                                  |
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-98.7%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
+| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
 
 ---
 
@@ -1127,6 +1127,63 @@ if (browserizr.detect(iOS14)) {
 </div>
 </details>
 
+#### isMacOS
+
+<details>
+<summary><em>Detect macOS.</em></summary>
+<div>
+
+```js
+import browserizr, { isMacOS } from '@wezom/browserizr';
+if (browserizr.detect(isMacOS)) {
+	// code
+}
+```
+
+</div>
+</details>
+
+#### isMacOSVersion
+
+##### _versions_
+
+- Snow Leopard
+- Lion.Safari
+- Mountain Lion
+- Mavericks
+- Yosemite
+- El Capitan
+- Sierra
+- High Sierra
+- Mojave
+- Catalina
+- Big Sur
+
+<details>
+<summary><em>Detect macOS and wanted OS version</em></summary>
+<div>
+
+```js
+import browserizr, {
+	isMacOSVersion,
+	MORE_THEN_OR_EQUAL,
+	EQUAL,
+	LESS_THEN_OR_EQUAL
+} from '@wezom/browserizr';
+
+const macOSCatalina = isMacOSVersion(MORE_THEN_OR_EQUAL, 'Catalina');
+const macOSBigSur = isMacOSVersion(EQUAL, 'Big Sur');
+const macOSHighSierra = isMacOSVersion(LESS_THEN_OR_EQUAL, 'High Sierra');
+
+if (browserizr.detect(macOSCatalina)) {
+	// code
+}
+// ...
+```
+
+</div>
+</details>
+
 #### isWindows
 
 <details>
@@ -1151,18 +1208,18 @@ if (browserizr.detect(isWindows)) {
 
 ```js
 import browserizr, {
-	isWindowVersion,
+	isWindowsVersion,
 	MORE_THEN_OR_EQUAL,
 	EQUAL,
 	LESS_THEN_OR_EQUAL
 } from '@wezom/browserizr';
 
-const windowXP = isWindowVersion(EQUAL, 'XP');
-const windowsVista = isWindowVersion(EQUAL, 'Vista');
-const window7 = isWindowVersion(EQUAL, 7);
-const window8 = isWindowVersion(EQUAL, 8);
-const window8dot1 = isWindowVersion(EQUAL, 8.1);
-const window10 = isWindowVersion(EQUAL, 10);
+const windowXP = isWindowsVersion(EQUAL, 'XP');
+const windowsVista = isWindowsVersion(EQUAL, 'Vista');
+const window7 = isWindowsVersion(EQUAL, 7);
+const window8 = isWindowsVersion(EQUAL, 8);
+const window8dot1 = isWindowsVersion(EQUAL, 8.1);
+const window10 = isWindowsVersion(EQUAL, 10);
 
 if (browserizr.detect(windowXP)) {
 	// code

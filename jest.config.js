@@ -4,7 +4,7 @@ module.exports = {
 	coveragePathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/src/__specs__/'],
 	testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.cache/'],
 	displayName: 'tsc',
-	testEnvironment: 'node',
+	testEnvironment: 'jsdom',
 	moduleFileExtensions: ['js', 'ts', 'node'],
 	transform: {
 		'\\.ts': ['ts-jest']

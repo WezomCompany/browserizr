@@ -9,13 +9,13 @@ import browserizr from '../index';
 // -----------------------------------------------------------------------------
 
 describe('navigator.userAgent', () => {
-	test('Should be an empty string in non-browser env', () => {
-		let _ua = '';
+	test('Arg `ua` should be stored same as `navigator.userAgent`', () => {
+		let _ua = 'xXx';
 		browserizr.detect((ua) => {
 			_ua = ua;
 			return false;
 		});
-		expect(_ua).toHaveLength(0);
+		expect(_ua).toStrictEqual(navigator.userAgent);
 	});
 
 	test('Should be a custom string', () => {

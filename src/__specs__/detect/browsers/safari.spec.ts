@@ -5,6 +5,12 @@ describe('Detect Apple Safari Browser', () => {
 	testHelper(
 		isSafari,
 		[
+			...deepFlatFromObject(uaDB.macOS['Snow Leopard'].Safari),
+			...deepFlatFromObject(uaDB.macOS.Lion.Safari),
+			...deepFlatFromObject(uaDB.macOS['Mountain Lion'].Safari),
+			...deepFlatFromObject(uaDB.macOS.Mavericks.Safari),
+			...deepFlatFromObject(uaDB.macOS.Yosemite.Safari),
+			...deepFlatFromObject(uaDB.macOS['El Capitan'].Safari),
 			...deepFlatFromObject(uaDB.macOS.Sierra.Safari),
 			...deepFlatFromObject(uaDB.macOS['High Sierra'].Safari),
 			...deepFlatFromObject(uaDB.macOS.Mojave.Safari),
