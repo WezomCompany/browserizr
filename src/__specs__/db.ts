@@ -237,6 +237,13 @@ export const uaDB = {
 						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Edg/87.0.664.41'
 					]
 				}
+			},
+			Safari: {
+				v10: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/10.1.2 Safari/605.1.15'
+					]
+				}
 			}
 		},
 		'10.13 High Sierra': {
@@ -274,6 +281,13 @@ export const uaDB = {
 				v87: {
 					Standard: [
 						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Edg/87.0.664.41'
+					]
+				}
+			},
+			Safari: {
+				v11: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.1.2 Safari/605.1.15'
 					]
 				}
 			}
@@ -315,6 +329,13 @@ export const uaDB = {
 						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Edg/87.0.664.41'
 					]
 				}
+			},
+			Safari: {
+				v12: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.2 Safari/605.1.15'
+					]
+				}
 			}
 		},
 		'10.15 Catalina': {
@@ -352,6 +373,13 @@ export const uaDB = {
 				v87: {
 					Standard: [
 						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36 Edg/87.0.664.41'
+					]
+				}
+			},
+			Safari: {
+				v13: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Safari/605.1.15'
 					]
 				}
 			}
@@ -418,6 +446,7 @@ export const uaDB = {
 			Safari: {
 				v14: {
 					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16_0) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.1 Safari/605.1.15',
 						'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.1 Safari/605.1.15'
 					]
 				}
