@@ -4,15 +4,36 @@ import { deepFlatFromObject, testHelper, uaDB } from '../../db';
 describe('Detect Apple Safari Browser', () => {
 	testHelper(
 		isSafari,
-		[...uaDB.MacOS.v11.Safari.v14.Standard],
+		[
+			...deepFlatFromObject(uaDB.macOS.Sierra.Safari),
+			...deepFlatFromObject(uaDB.macOS['High Sierra'].Safari),
+			...deepFlatFromObject(uaDB.macOS.Mojave.Safari),
+			...deepFlatFromObject(uaDB.macOS.Catalina.Safari),
+			...deepFlatFromObject(uaDB.macOS['Big Sur'].Safari)
+		],
 		[
 			...deepFlatFromObject(uaDB.Android),
 			...deepFlatFromObject(uaDB.iOS),
 			...deepFlatFromObject(uaDB.Linux),
 			...deepFlatFromObject({
-				...uaDB.MacOS,
-				v11: {
-					...uaDB.MacOS.v11,
+				Sierra: {
+					...uaDB.macOS.Sierra,
+					Safari: null
+				},
+				'High Sierra': {
+					...uaDB.macOS['High Sierra'],
+					Safari: null
+				},
+				Mojave: {
+					...uaDB.macOS.Mojave,
+					Safari: null
+				},
+				Catalina: {
+					...uaDB.macOS.Catalina,
+					Safari: null
+				},
+				'Big Sur': {
+					...uaDB.macOS['Big Sur'],
 					Safari: null
 				}
 			}),

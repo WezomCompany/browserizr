@@ -7,9 +7,9 @@
 
 ## Coverage
 
-| Statements                | Branches                | Functions                | Lines                |
-| ------------------------- | ----------------------- | ------------------------ | -------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-98.39%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
+| Statements                                                                   | Branches                                                               | Functions                                                                    | Lines                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| ![Statements](https://img.shields.io/badge/Coverage-93.9%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-83.53%25-yellow.svg) | ![Functions](https://img.shields.io/badge/Coverage-92.96%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
 
 ---
 
@@ -21,7 +21,6 @@
 🌟 [CommonJS version available](#commonjs-version)  
 🌟 [SSR support](#browserizrsetua)  
 🌟 [Custom detects available](#custom-detects)
-
 
 ---
 
@@ -35,9 +34,9 @@
     1. [Usage example](#usage-example)
 1. [API](#api)
     1. [Methods](#methods)
-    	- [browserizr.detect()](#browserizrdetect)
-    	- [browserizr.classNames()](#browserizrclassnames)
-    	- [browserizr.setUA()](#browserizrsetua)
+        - [browserizr.detect()](#browserizrdetect)
+        - [browserizr.classNames()](#browserizrclassnames)
+        - [browserizr.setUA()](#browserizrsetua)
 1. [Built-in detects](#built-in-detects)
     1. [Browsers](#browsers)
         - [isChrome](#ischrome)
@@ -92,9 +91,6 @@
 
 ---
 
-
-
-
 ## Usage
 
 ### Install npm package
@@ -107,7 +103,7 @@ npm i @wezom/browserizr
 
 #### ESNext
 
-We use TypeScript as main development language and distribute our lib in the maximum compliance with modern JavaScript specifications. 
+We use TypeScript as main development language and distribute our lib in the maximum compliance with modern JavaScript specifications.
 You project bundler (webpack or something else) must not exclude this installed package from `node_modules` folder.
 
 _The package [`babel-loader-exclude-node-modules-except`](https://www.npmjs.com/package/babel-loader-exclude-node-modules-except) can help you with this_
@@ -115,7 +111,6 @@ _The package [`babel-loader-exclude-node-modules-except`](https://www.npmjs.com/
 #### CommonJS Version
 
 If you cannot change your bundler config or if you don not want to include _esnext_ code version into your project - for this we have compiled CommonJS version of each library file and you can import `*.cjs.js` files. They ready to use without excluding `node_modules` and else. These files may have redundant code that is necessary for them to work "out of the box". And they will also be deprived of all the features of the _ESNext_ specifications.
-
 
 ```js
 // no ES6 features but ready for use as is, without transpiling
@@ -125,30 +120,23 @@ import browserizr, { isSafari } from '@wezom/browserizr/dist/index.cjs';
 ### Usage example
 
 ```js
-import browserizr, { 
-    isIE,
-    isChromeVersion,
-    MORE_THEN_OR_EQUAL
-} from '@wezom/browserizr';
+import browserizr, { isIE, isChromeVersion, MORE_THEN_OR_EQUAL } from '@wezom/browserizr';
 
 // Detect Internet Explorer
 if (browserizr.detect(isIE)) {
-    // your code ...
+	// your code ...
 }
 
 // Detect Google Chrome 87+
 const isChrome87orHigher = isChromeVersion(87, MORE_THEN_OR_EQUAL);
 if (browserizr.detect(isChrome87orHigher)) {
-    // your code ...
+	// your code ...
 }
 ```
 
 [▲ Go Top](#) | [▲ Table of Content](#table-of-content)
 
 ---
-
-
-
 
 ## API
 
@@ -165,10 +153,10 @@ detect(fn: (ua: string) => boolean): boolen
 
 _Parameters:_
 
-Name | Data type | Description
- --- | --- | ---
- `fn` | `function` | Function that will accept string argument userAgent and must return boolean result of detect
- 
+| Name | Data type  | Description                                                                                  |
+| ---- | ---------- | -------------------------------------------------------------------------------------------- |
+| `fn` | `function` | Function that will accept string argument userAgent and must return boolean result of detect |
+
 _Return type:_ `boolean`
 
 You can use one of the [built-in methods](#built-in-detects) or write [custom detects](#custom-detects)
@@ -177,11 +165,11 @@ You can use one of the [built-in methods](#built-in-detects) or write [custom de
 import browserizr, { isChrome, isMobile } from '@wezom/browserizr';
 
 if (browserizr.detect(isChrome)) {
-    console.log('Yeah! Thats Chrome!');
+	console.log('Yeah! Thats Chrome!');
 }
 
 if (browserizr.detect(isMobile)) {
-    console.log('Yeah! Thats is Mobile device');
+	console.log('Yeah! Thats is Mobile device');
 }
 ```
 
@@ -202,32 +190,32 @@ classNames(
 
 _Parameters:_
 
-Name | Data type | Description
- --- | --- | ---
- `classes` | `Array` | Array of options
- `classes[N]` | `Object` | Options for generating class name
- `classes[N].is` | `string` | Class name for positive detects result
- `classes[N].not` | `string` | Class name for negative detects result
- `classes[N].fn` | `function` | Function for detect method, see [browserizr.detect()](#browserizrdetect)
- 
+| Name             | Data type  | Description                                                              |
+| ---------------- | ---------- | ------------------------------------------------------------------------ |
+| `classes`        | `Array`    | Array of options                                                         |
+| `classes[N]`     | `Object`   | Options for generating class name                                        |
+| `classes[N].is`  | `string`   | Class name for positive detects result                                   |
+| `classes[N].not` | `string`   | Class name for negative detects result                                   |
+| `classes[N].fn`  | `function` | Function for detect method, see [browserizr.detect()](#browserizrdetect) |
+
 _Return type:_ `string[]`
 
-A little example for the explanation: 
+A little example for the explanation:
 
 ```js
 import browserizr, { DetectClassNameMethod, isSafari, isMobile } from '@wezom/browserizr';
 
 const classes: DetectClassNameMethod[] = [
-    {
-        is: 'is-mobile-device',   // You can use
-        not: 'not-like-mobile',   // your own class names like you want
-        fn: isMobile
-    },
-    {
-        is: 'is-safari',
-        not: 'is-not-safari',
-        fn: isSafari
-    }
+	{
+		is: 'is-mobile-device', // You can use
+		not: 'not-like-mobile', // your own class names like you want
+		fn: isMobile
+	},
+	{
+		is: 'is-safari',
+		not: 'is-not-safari',
+		fn: isSafari
+	}
 ];
 
 // if mobile Safari browser
@@ -249,9 +237,7 @@ document.body.classList.add(...browserizr.classNames(classes));
 
 ```jsx
 // Render JSX components
-<div className={browserizr.classNames(classes).join(' ')}>
-    ...
-</div>
+<div className={browserizr.classNames(classes).join(' ')}>...</div>
 ```
 
 #### browserizr.setUA()
@@ -265,10 +251,10 @@ setUA(ua: string): void
 
 _Parameters:_
 
-Name | Data type | Description
- --- | --- | ---
- `ua` | `string` | Custom `userAgent` string
- 
+| Name | Data type | Description               |
+| ---- | --------- | ------------------------- |
+| `ua` | `string`  | Custom `userAgent` string |
+
 _Return type:_ `undefined`
 
 By default, `browserizr` trying to resolve global object `navigator` and get `userAgent` field from that.
@@ -292,9 +278,6 @@ browserizr.detect(isMyCustomDetectMethod);
 
 ---
 
-
-
-
 ## Built-in detects
 
 We have prepared a list of commonly used detects:
@@ -310,9 +293,9 @@ We have prepared a list of commonly used detects:
 ```js
 import browserizr, { isChrome } from '@wezom/browserizr';
 if (browserizr.detect(isChrome)) {
-    // code
+	// code
 }
-``` 
+```
 
 </div>
 </details>
@@ -325,20 +308,20 @@ if (browserizr.detect(isChrome)) {
 
 ```js
 import browserizr, {
-    isChromeVersion,
-    MORE_THEN_OR_EQUAL,
-    EQUAL,
-    LESS_THEN_OR_EQUAL
+	isChromeVersion,
+	MORE_THEN_OR_EQUAL,
+	EQUAL,
+	LESS_THEN_OR_EQUAL
 } from '@wezom/browserizr';
 
 const chrome86 = isChromeVersion(EQUAL, 86);
 const chrome86orHigher = isChromeVersion(MORE_THEN_OR_EQUAL, 86);
 const chrome86orLater = isChromeVersion(LESS_THEN_OR_EQUAL, 86);
 if (browserizr.detect(chrome86orHigher)) {
-    // code
+	// code
 }
 // ...
-``` 
+```
 
 </div>
 </details>
@@ -352,9 +335,9 @@ if (browserizr.detect(chrome86orHigher)) {
 ```js
 import browserizr, { isChromeAndroid } from '@wezom/browserizr';
 if (browserizr.detect(isChromeAndroid)) {
-    // code
+	// code
 }
-``` 
+```
 
 </div>
 </details>
@@ -367,20 +350,20 @@ if (browserizr.detect(isChromeAndroid)) {
 
 ```js
 import browserizr, {
-    isChromeAndroidVersion,
-    MORE_THEN_OR_EQUAL,
-    EQUAL,
-    LESS_THEN_OR_EQUAL
+	isChromeAndroidVersion,
+	MORE_THEN_OR_EQUAL,
+	EQUAL,
+	LESS_THEN_OR_EQUAL
 } from '@wezom/browserizr';
 
 const chromeAndroid86 = isChromeAndroidVersion(EQUAL, 86);
 const chromeAndroid86orHigher = isChromeAndroidVersion(MORE_THEN_OR_EQUAL, 86);
 const chromeAndroid86orLater = isChromeAndroidVersion(LESS_THEN_OR_EQUAL, 86);
 if (browserizr.detect(chromeAndroid86orHigher)) {
-    // code
+	// code
 }
 // ...
-``` 
+```
 
 </div>
 </details>
@@ -394,9 +377,9 @@ if (browserizr.detect(chromeAndroid86orHigher)) {
 ```js
 import browserizr, { isChromeIOS } from '@wezom/browserizr';
 if (browserizr.detect(isChromeIOS)) {
-    // code
+	// code
 }
-``` 
+```
 
 </div>
 </details>
@@ -409,20 +392,20 @@ if (browserizr.detect(isChromeIOS)) {
 
 ```js
 import browserizr, {
-    isChromeIOSVersion,
-    MORE_THEN_OR_EQUAL,
-    EQUAL,
-    LESS_THEN_OR_EQUAL
+	isChromeIOSVersion,
+	MORE_THEN_OR_EQUAL,
+	EQUAL,
+	LESS_THEN_OR_EQUAL
 } from '@wezom/browserizr';
 
 const chromeIOS86 = isChromeIOSVersion(EQUAL, 86);
 const chromeIOS86orHigher = isChromeIOSVersion(MORE_THEN_OR_EQUAL, 86);
 const chromeIOS86orLater = isChromeIOSVersion(LESS_THEN_OR_EQUAL, 86);
 if (browserizr.detect(chromeIOS86orHigher)) {
-    // code
+	// code
 }
 // ...
-``` 
+```
 
 </div>
 </details>
@@ -436,9 +419,9 @@ if (browserizr.detect(chromeIOS86orHigher)) {
 ```js
 import browserizr, { isChromiumBased } from '@wezom/browserizr';
 if (browserizr.detect(isChromiumBased)) {
-    // code
+	// code
 }
-``` 
+```
 
 </div>
 </details>
@@ -464,7 +447,7 @@ if (browserizr.detect(chromiumBased86)) {
 	// code
 }
 // ...
-``` 
+```
 
 </div>
 </details>
@@ -478,13 +461,12 @@ if (browserizr.detect(chromiumBased86)) {
 ```js
 import browserizr, { isEdge } from '@wezom/browserizr';
 if (browserizr.detect(isEdge)) {
-    // code
+	// code
 }
 ```
 
 </div>
 </details>
-
 
 #### isEdgeVersion
 
@@ -494,20 +476,20 @@ if (browserizr.detect(isEdge)) {
 
 ```js
 import browserizr, {
-    isEdgeVersion,
-    MORE_THEN_OR_EQUAL,
-    EQUAL,
-    LESS_THEN_OR_EQUAL
+	isEdgeVersion,
+	MORE_THEN_OR_EQUAL,
+	EQUAL,
+	LESS_THEN_OR_EQUAL
 } from '@wezom/browserizr';
 
 const edge86 = isEdgeVersion(EQUAL, 86);
 const edge86orHigher = isEdgeVersion(MORE_THEN_OR_EQUAL, 86);
 const edge86orLater = isEdgeVersion(LESS_THEN_OR_EQUAL, 86);
 if (browserizr.detect(edge86orHigher)) {
-    // code
+	// code
 }
 // ...
-``` 
+```
 
 </div>
 </details>
@@ -521,7 +503,7 @@ if (browserizr.detect(edge86orHigher)) {
 ```js
 import browserizr, { isEdgeAndroid } from '@wezom/browserizr';
 if (browserizr.detect(isEdgeAndroid)) {
-    // code
+	// code
 }
 ```
 
@@ -536,17 +518,17 @@ if (browserizr.detect(isEdgeAndroid)) {
 
 ```js
 import browserizr, {
-    isEdgeAndroidVersion,
-    MORE_THEN_OR_EQUAL,
-    EQUAL,
-    LESS_THEN_OR_EQUAL
+	isEdgeAndroidVersion,
+	MORE_THEN_OR_EQUAL,
+	EQUAL,
+	LESS_THEN_OR_EQUAL
 } from '@wezom/browserizr';
 
 const edgeAndroid45 = isEdgeAndroidVersion(EQUAL, 45);
 const edgeAndroid45orHigher = isEdgeAndroidVersion(MORE_THEN_OR_EQUAL, 45);
 const edgeAndroid45orLater = isEdgeAndroidVersion(LESS_THEN_OR_EQUAL, 45);
 if (browserizr.detect(edgeAndroid45orHigher)) {
-    // code
+	// code
 }
 // ...
 ```
@@ -563,7 +545,7 @@ if (browserizr.detect(edgeAndroid45orHigher)) {
 ```js
 import browserizr, { isEdgeIOS } from '@wezom/browserizr';
 if (browserizr.detect(isEdgeIOS)) {
-    // code
+	// code
 }
 ```
 
@@ -578,17 +560,17 @@ if (browserizr.detect(isEdgeIOS)) {
 
 ```js
 import browserizr, {
-    isEdgeIOSVersion,
-    MORE_THEN_OR_EQUAL,
-    EQUAL,
-    LESS_THEN_OR_EQUAL
+	isEdgeIOSVersion,
+	MORE_THEN_OR_EQUAL,
+	EQUAL,
+	LESS_THEN_OR_EQUAL
 } from '@wezom/browserizr';
 
 const edgeIOS45 = isEdgeIOSVersion(EQUAL, 45);
 const edgeIOS45orHigher = isEdgeIOSVersion(MORE_THEN_OR_EQUAL, 45);
 const edgeIOS45orLater = isEdgeIOSVersion(LESS_THEN_OR_EQUAL, 45);
 if (browserizr.detect(edgeIOS45orHigher)) {
-    // code
+	// code
 }
 // ...
 ```
@@ -605,7 +587,7 @@ if (browserizr.detect(edgeIOS45orHigher)) {
 ```js
 import browserizr, { isFirefox } from '@wezom/browserizr';
 if (browserizr.detect(isFirefox)) {
-    // code
+	// code
 }
 ```
 
@@ -620,20 +602,20 @@ if (browserizr.detect(isFirefox)) {
 
 ```js
 import browserizr, {
-    isFirefoxVersion,
-    MORE_THEN_OR_EQUAL,
-    EQUAL,
-    LESS_THEN_OR_EQUAL
+	isFirefoxVersion,
+	MORE_THEN_OR_EQUAL,
+	EQUAL,
+	LESS_THEN_OR_EQUAL
 } from '@wezom/browserizr';
 
 const ffx83 = isFirefoxVersion(EQUAL, 83);
 const ffx83orHigher = isFirefoxVersion(MORE_THEN_OR_EQUAL, 83);
 const ffx83orLater = isFirefoxVersion(LESS_THEN_OR_EQUAL, 83);
 if (browserizr.detect(ffx83)) {
-    // code
+	// code
 }
 // ...
-``` 
+```
 
 </div>
 </details>
@@ -647,7 +629,7 @@ if (browserizr.detect(ffx83)) {
 ```js
 import browserizr, { isFirefoxAndroid } from '@wezom/browserizr';
 if (browserizr.detect(isFirefoxAndroid)) {
-    // code
+	// code
 }
 ```
 
@@ -662,20 +644,20 @@ if (browserizr.detect(isFirefoxAndroid)) {
 
 ```js
 import browserizr, {
-    isFirefoxAndroidVersion,
-    MORE_THEN_OR_EQUAL,
-    EQUAL,
-    LESS_THEN_OR_EQUAL
+	isFirefoxAndroidVersion,
+	MORE_THEN_OR_EQUAL,
+	EQUAL,
+	LESS_THEN_OR_EQUAL
 } from '@wezom/browserizr';
 
 const ffxAndroid83 = isFirefoxAndroidVersion(EQUAL, 83);
 const ffxAndroid83orHigher = isFirefoxAndroidVersion(MORE_THEN_OR_EQUAL, 83);
 const ffxAndroid83orLater = isFirefoxAndroidVersion(LESS_THEN_OR_EQUAL, 83);
 if (browserizr.detect(ffx83Android)) {
-    // code
+	// code
 }
 // ...
-``` 
+```
 
 </div>
 </details>
@@ -689,7 +671,7 @@ if (browserizr.detect(ffx83Android)) {
 ```js
 import browserizr, { isFirefoxIOS } from '@wezom/browserizr';
 if (browserizr.detect(isFirefoxIOS)) {
-    // code
+	// code
 }
 ```
 
@@ -704,20 +686,20 @@ if (browserizr.detect(isFirefoxIOS)) {
 
 ```js
 import browserizr, {
-    isFirefoxIOSVersion,
-    MORE_THEN_OR_EQUAL,
-    EQUAL,
-    LESS_THEN_OR_EQUAL
+	isFirefoxIOSVersion,
+	MORE_THEN_OR_EQUAL,
+	EQUAL,
+	LESS_THEN_OR_EQUAL
 } from '@wezom/browserizr';
 
 const ffxIOS29 = isFirefoxIOSVersion(EQUAL, 29);
 const ffxIOS29orHigher = isFirefoxIOSVersion(MORE_THEN_OR_EQUAL, 29);
 const ffxIOS29orLater = isFirefoxIOSVersion(LESS_THEN_OR_EQUAL, 29);
 if (browserizr.detect(ffx29IOS)) {
-    // code
+	// code
 }
 // ...
-``` 
+```
 
 </div>
 </details>
@@ -731,7 +713,7 @@ if (browserizr.detect(ffx29IOS)) {
 ```js
 import browserizr, { isIE } from '@wezom/browserizr';
 if (browserizr.detect(isIE)) {
-    // code
+	// code
 }
 ```
 
@@ -753,10 +735,10 @@ const ie9 = isIEVersion(EQUAL, 9);
 const ie10 = isIEVersion(EQUAL, 10);
 const ie11 = isIEVersion(EQUAL, 11);
 if (browserizr.detect(ie8)) {
-    // code
+	// code
 }
 // ...
-``` 
+```
 
 </div>
 </details>
@@ -770,7 +752,7 @@ if (browserizr.detect(ie8)) {
 ```js
 import browserizr, { isOpera } from '@wezom/browserizr';
 if (browserizr.detect(isOpera)) {
-    // code
+	// code
 }
 ```
 
@@ -785,20 +767,20 @@ if (browserizr.detect(isOpera)) {
 
 ```js
 import browserizr, {
-    isOperaVersion,
-    MORE_THEN_OR_EQUAL,
-    EQUAL,
-    LESS_THEN_OR_EQUAL
+	isOperaVersion,
+	MORE_THEN_OR_EQUAL,
+	EQUAL,
+	LESS_THEN_OR_EQUAL
 } from '@wezom/browserizr';
 
 const opera60 = isOperaVersion(EQUAL, 60);
 const opera60orHigher = isOperaVersion(MORE_THEN_OR_EQUAL, 60);
 const opera60orLater = isOperaVersion(LESS_THEN_OR_EQUAL, 60);
 if (browserizr.detect(opera60)) {
-    // code
+	// code
 }
 // ...
-``` 
+```
 
 </div>
 </details>
@@ -812,9 +794,9 @@ if (browserizr.detect(opera60)) {
 ```js
 import browserizr, { isSafari } from '@wezom/browserizr';
 if (browserizr.detect(isSafari)) {
-    // code
+	// code
 }
-``` 
+```
 
 </div>
 </details>
@@ -827,20 +809,20 @@ if (browserizr.detect(isSafari)) {
 
 ```js
 import browserizr, {
-    isSafariVersion,
-    MORE_THEN_OR_EQUAL,
-    EQUAL,
-    LESS_THEN_OR_EQUAL
+	isSafariVersion,
+	MORE_THEN_OR_EQUAL,
+	EQUAL,
+	LESS_THEN_OR_EQUAL
 } from '@wezom/browserizr';
 
 const safari14 = isSafariVersion(EQUAL, 14);
 const safari14orHigher = isSafariVersion(MORE_THEN_OR_EQUAL, 14);
 const safari14orLater = isSafariVersion(LESS_THEN_OR_EQUAL, 14);
 if (browserizr.detect(safari14)) {
-    // code
+	// code
 }
 // ...
-``` 
+```
 
 </div>
 </details>
@@ -854,9 +836,9 @@ if (browserizr.detect(safari14)) {
 ```js
 import browserizr, { isSafariIOS } from '@wezom/browserizr';
 if (browserizr.detect(isSafariIOS)) {
-    // code
+	// code
 }
-``` 
+```
 
 </div>
 </details>
@@ -869,20 +851,20 @@ if (browserizr.detect(isSafariIOS)) {
 
 ```js
 import browserizr, {
-    isSafariIOSVersion,
-    MORE_THEN_OR_EQUAL,
-    EQUAL,
-    LESS_THEN_OR_EQUAL
+	isSafariIOSVersion,
+	MORE_THEN_OR_EQUAL,
+	EQUAL,
+	LESS_THEN_OR_EQUAL
 } from '@wezom/browserizr';
 
 const safarIOSi14 = isSafariIOSVersion(EQUAL, 14);
 const safarIOSi14orHigher = isSafariIOSVersion(MORE_THEN_OR_EQUAL, 14);
 const safarIOSi14orLater = isSafariIOSVersion(LESS_THEN_OR_EQUAL, 14);
 if (browserizr.detect(safariIOS14)) {
-    // code
+	// code
 }
 // ...
-``` 
+```
 
 </div>
 </details>
@@ -896,7 +878,7 @@ if (browserizr.detect(safariIOS14)) {
 ```js
 import browserizr, { isVivaldi } from '@wezom/browserizr';
 if (browserizr.detect(isVivaldi)) {
-    // code
+	// code
 }
 ```
 
@@ -911,20 +893,20 @@ if (browserizr.detect(isVivaldi)) {
 
 ```js
 import browserizr, {
-    isVivaldiVersion,
-    MORE_THEN_OR_EQUAL,
-    EQUAL,
-    LESS_THEN_OR_EQUAL
+	isVivaldiVersion,
+	MORE_THEN_OR_EQUAL,
+	EQUAL,
+	LESS_THEN_OR_EQUAL
 } from '@wezom/browserizr';
 
 const vivaldi3dot4 = isVivaldiVersion(EQUAL, 3.4);
 const vivaldi3dot4orHigher = isVivaldiVersion(MORE_THEN_OR_EQUAL, 3.4);
 const vivaldi3dot4orLater = isVivaldiVersion(LESS_THEN_OR_EQUAL, 3.5);
 if (browserizr.detect(vivaldi3dot4)) {
-    // code
+	// code
 }
 // ...
-``` 
+```
 
 </div>
 </details>
@@ -938,7 +920,7 @@ if (browserizr.detect(vivaldi3dot4)) {
 ```js
 import browserizr, { isYandex } from '@wezom/browserizr';
 if (browserizr.detect(isYandex)) {
-    // code
+	// code
 }
 ```
 
@@ -953,20 +935,20 @@ if (browserizr.detect(isYandex)) {
 
 ```js
 import browserizr, {
-    isYandexVersion,
-    MORE_THEN_OR_EQUAL,
-    EQUAL,
-    LESS_THEN_OR_EQUAL
+	isYandexVersion,
+	MORE_THEN_OR_EQUAL,
+	EQUAL,
+	LESS_THEN_OR_EQUAL
 } from '@wezom/browserizr';
 
 const yandex20 = isYandexVersion(EQUAL, 20);
 const yandex20orHigher = isYandexVersion(MORE_THEN_OR_EQUAL, 20);
 const yandex20orLater = isYandexVersion(LESS_THEN_OR_EQUAL, 20);
 if (browserizr.detect(vivaldi3dot4)) {
-    // code
+	// code
 }
 // ...
-``` 
+```
 
 </div>
 </details>
@@ -974,9 +956,6 @@ if (browserizr.detect(vivaldi3dot4)) {
 [▲ Go Top](#) | [▲ Table of Content](#table-of-content)
 
 ---
-
-
-
 
 ### Devices
 
@@ -989,7 +968,7 @@ if (browserizr.detect(vivaldi3dot4)) {
 ```js
 import browserizr, { isDesktop } from '@wezom/browserizr';
 if (browserizr.detect(isDesktop)) {
-    // code
+	// code
 }
 ```
 
@@ -1005,7 +984,7 @@ if (browserizr.detect(isDesktop)) {
 ```js
 import browserizr, { isMobile } from '@wezom/browserizr';
 if (browserizr.detect(isMobile)) {
-    // code
+	// code
 }
 ```
 
@@ -1021,7 +1000,7 @@ if (browserizr.detect(isMobile)) {
 ```js
 import browserizr, { isIPad } from '@wezom/browserizr';
 if (browserizr.detect(isIPad)) {
-    // code
+	// code
 }
 ```
 
@@ -1037,7 +1016,7 @@ if (browserizr.detect(isIPad)) {
 ```js
 import browserizr, { isIPhone } from '@wezom/browserizr';
 if (browserizr.detect(isiPhone)) {
-    // code
+	// code
 }
 ```
 
@@ -1053,7 +1032,7 @@ if (browserizr.detect(isiPhone)) {
 ```js
 import browserizr, { isIPod } from '@wezom/browserizr';
 if (browserizr.detect(isIPod)) {
-    // code
+	// code
 }
 ```
 
@@ -1063,9 +1042,6 @@ if (browserizr.detect(isIPod)) {
 [▲ Go Top](#) | [▲ Table of Content](#table-of-content)
 
 ---
-
-
-
 
 ### OS
 
@@ -1078,7 +1054,7 @@ if (browserizr.detect(isIPod)) {
 ```js
 import browserizr, { isAndroid } from '@wezom/browserizr';
 if (browserizr.detect(isAndroid)) {
-    // code
+	// code
 }
 ```
 
@@ -1093,16 +1069,16 @@ if (browserizr.detect(isAndroid)) {
 
 ```js
 import browserizr, {
-    isAndroidVersion,
-    MORE_THEN_OR_EQUAL,
-    EQUAL,
-    LESS_THEN_OR_EQUAL
+	isAndroidVersion,
+	MORE_THEN_OR_EQUAL,
+	EQUAL,
+	LESS_THEN_OR_EQUAL
 } from '@wezom/browserizr';
 
 const android11 = isAndroidVersion(EQUAL, 11);
 const android9orHigher = isAndroidVersion(MORE_THAN_OR_EQUAL, 9);
 if (browserizr.detect(android11)) {
-    // code
+	// code
 }
 // ...
 ```
@@ -1119,7 +1095,7 @@ if (browserizr.detect(android11)) {
 ```js
 import browserizr, { isIOS } from '@wezom/browserizr';
 if (browserizr.detect(isIOS)) {
-    // code
+	// code
 }
 ```
 
@@ -1134,16 +1110,16 @@ if (browserizr.detect(isIOS)) {
 
 ```js
 import browserizr, {
-    isIOSVersion,
-    MORE_THEN_OR_EQUAL,
-    EQUAL,
-    LESS_THEN_OR_EQUAL
+	isIOSVersion,
+	MORE_THEN_OR_EQUAL,
+	EQUAL,
+	LESS_THEN_OR_EQUAL
 } from '@wezom/browserizr';
 
 const iOS14 = isIOSVersion(EQUAL, 14);
 const iOS11orHigher = isIOSVersion(MORE_THAN_OR_EQUAL, 11);
 if (browserizr.detect(iOS14)) {
-    // code
+	// code
 }
 // ...
 ```
@@ -1160,7 +1136,7 @@ if (browserizr.detect(iOS14)) {
 ```js
 import browserizr, { isWindows } from '@wezom/browserizr';
 if (browserizr.detect(isWindows)) {
-    // code
+	// code
 }
 ```
 
@@ -1175,10 +1151,10 @@ if (browserizr.detect(isWindows)) {
 
 ```js
 import browserizr, {
-    isWindowVersion,
-    MORE_THEN_OR_EQUAL,
-    EQUAL,
-    LESS_THEN_OR_EQUAL
+	isWindowVersion,
+	MORE_THEN_OR_EQUAL,
+	EQUAL,
+	LESS_THEN_OR_EQUAL
 } from '@wezom/browserizr';
 
 const windowXP = isWindowVersion(EQUAL, 'XP');
@@ -1189,7 +1165,7 @@ const window8dot1 = isWindowVersion(EQUAL, 8.1);
 const window10 = isWindowVersion(EQUAL, 10);
 
 if (browserizr.detect(windowXP)) {
-    // code
+	// code
 }
 // ...
 ```
@@ -1201,9 +1177,6 @@ if (browserizr.detect(windowXP)) {
 
 ---
 
-
-
-
 ## Custom detects
 
 You can write your own methods to detect what you want in your own way.
@@ -1213,7 +1186,7 @@ You can write your own methods to detect what you want in your own way.
 We need simple pure function that receive current userAgent string and must return boolean as detection result.
 
 Let's assume, we need to detect some browser with name "My X Super Browser".  
-So we can expect that name-value like `MXSBrowser`  in userAgent string:
+So we can expect that name-value like `MXSBrowser` in userAgent string:
 
 ```
 "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 MXSBrowser/75.0.4280.66 Safari/537.36"
@@ -1226,8 +1199,8 @@ _TypeScript example_
 ```ts
 // my-detects/is-mxs.ts
 export default function isMXSBrowser(ua: string): boolean {
-    return /\sMXSBrowser\/[\d.]+\s/.test(ua);
-};
+	return /\sMXSBrowser\/[\d.]+\s/.test(ua);
+}
 ```
 
 ```ts
@@ -1236,15 +1209,13 @@ import browserizr from '@wezom/browserizr';
 import isMXSBrowser from 'my-detects/is-mxs';
 
 if (browserizr.detect(isMXSBrowser)) {
-    console.log('Yeah! Thats it!');
+	console.log('Yeah! Thats it!');
 }
 ```
 
 [▲ Go Top](#) | [▲ Table of Content](#table-of-content)
 
 ---
-
-
 
 ## Contributing
 

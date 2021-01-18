@@ -11,7 +11,7 @@ export function matchVersion({
 	version,
 	operator,
 	reductionToNumber = 'auto',
-	transformMarch = (v: string): string => v
+	transformMatch = (v: string): string => v
 }: {
 	ua: string;
 	regExp: RegExp;
@@ -19,12 +19,12 @@ export function matchVersion({
 	version: number;
 	operator: DetectVersionOperator;
 	reductionToNumber?: DetectVersionReduction;
-	transformMarch?: (v: string) => string;
+	transformMatch?: (v: string) => string;
 }) {
 	const match = ua.match(regExp);
 	if (match) {
 		const int = version === parseInt('' + version, 10);
-		const _m = transformMarch(match[groupIndex]);
+		const _m = transformMatch(match[groupIndex]);
 		let value: number;
 		switch (reductionToNumber) {
 			case 'int':
@@ -51,4 +51,11 @@ export function matchVersion({
 	} else {
 		return false;
 	}
+}
+
+export function transformMacOSorIPadOSVersionMatch(version: string) {
+	return version
+		.replace(/_/g, '.')
+		.replace(/^(\d\d)\.(\d)(\.|$)/, (str, g1, g2, g3) => `${g1}.0${g2}${g3}`)
+		.replace('.', '');
 }

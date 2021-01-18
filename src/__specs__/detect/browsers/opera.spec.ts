@@ -7,12 +7,12 @@ describe('Detect Opera Browser', () => {
 		[
 			...deepFlatFromObject(uaDB.Android.v10.Opera),
 			...deepFlatFromObject(uaDB.Linux.Opera),
-			...deepFlatFromObject(uaDB.MacOS.v11.Opera),
+			...deepFlatFromObject(uaDB.macOS['Big Sur'].Opera),
 			...deepFlatFromObject(uaDB.Windows.v10.Opera)
 		],
 		[
 			...deepFlatFromObject(uaDB.Linux.Chrome),
-			...deepFlatFromObject(uaDB.MacOS.v11.Chrome),
+			...deepFlatFromObject(uaDB.macOS['Big Sur'].Chrome),
 			...deepFlatFromObject(uaDB.Windows.v10.Chrome)
 		]
 	);

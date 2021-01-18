@@ -10,6 +10,6 @@ export default function isIOSVersion(operator: DetectVersionOperator, version: n
 			operator,
 			regExp: __regexp,
 			groupIndex: 2,
-			transformMarch: (v: string) => v.replace(/_/g, '.')
+			transformMatch: (v: string) => v.replace(/_/g, '.')
 		});
 }

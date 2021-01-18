@@ -12,7 +12,7 @@ describe('Detect Chromium-based Browser versions', () => {
 			values: [
 				...deepFlatFromObject(uaDB.Android.v10.Chrome.v87),
 				...deepFlatFromObject(uaDB.Linux.Chrome.v87),
-				...deepFlatFromObject(uaDB.MacOS.v11.Chrome.v87),
+				...deepFlatFromObject(uaDB.macOS['Big Sur'].Chrome.v87),
 				...deepFlatFromObject(uaDB.Windows.v10.Chrome.v87)
 			]
 		}

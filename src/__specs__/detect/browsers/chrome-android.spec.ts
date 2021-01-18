@@ -25,7 +25,7 @@ describe('Detect Google Chrome Browser on Android OS', () => {
 			}),
 			...deepFlatFromObject(uaDB.iOS),
 			...deepFlatFromObject(uaDB.Windows),
-			...deepFlatFromObject(uaDB.MacOS),
+			...deepFlatFromObject(uaDB.macOS),
 			...deepFlatFromObject(uaDB.Xbox),
 			...deepFlatFromObject(uaDB.Linux),
 			...deepFlatFromObject(uaDB.WindowsMobile)

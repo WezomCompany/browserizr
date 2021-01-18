@@ -15,7 +15,7 @@ describe('Detect Microsoft Edge iOS Browser', () => {
 				}
 			}),
 			...deepFlatFromObject(uaDB.Linux),
-			...deepFlatFromObject(uaDB.MacOS),
+			...deepFlatFromObject(uaDB.macOS),
 			...deepFlatFromObject(uaDB.Linux),
 			...deepFlatFromObject(uaDB.Xbox),
 			...deepFlatFromObject(uaDB.Windows),

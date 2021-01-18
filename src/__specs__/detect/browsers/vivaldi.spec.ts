@@ -6,12 +6,12 @@ describe('Detect Vivaldi Browser', () => {
 		isVivaldi,
 		[
 			...deepFlatFromObject(uaDB.Linux.Vivaldi),
-			...deepFlatFromObject(uaDB.MacOS.v11.Vivaldi),
+			...deepFlatFromObject(uaDB.macOS['Big Sur'].Vivaldi),
 			...deepFlatFromObject(uaDB.Windows.v10.Vivaldi)
 		],
 		[
 			...deepFlatFromObject(uaDB.Linux.Chrome),
-			...deepFlatFromObject(uaDB.MacOS.v11.Chrome),
+			...deepFlatFromObject(uaDB.macOS['Big Sur'].Chrome),
 			...deepFlatFromObject(uaDB.Windows.v10.Chrome)
 		]
 	);

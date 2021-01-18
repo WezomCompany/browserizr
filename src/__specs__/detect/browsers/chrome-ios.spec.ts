@@ -17,7 +17,7 @@ describe('Detect Google Chrome Browser on iOS', () => {
 					Chrome: null
 				}
 			}),
-			...deepFlatFromObject(uaDB.MacOS),
+			...deepFlatFromObject(uaDB.macOS),
 			...deepFlatFromObject(uaDB.Linux),
 			...deepFlatFromObject(uaDB.Windows),
 			...deepFlatFromObject(uaDB.WindowsMobile),

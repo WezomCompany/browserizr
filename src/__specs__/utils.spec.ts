@@ -2,7 +2,13 @@
 // Deps
 // -----------------------------------------------------------------------------
 
-import { EQUAL, LESS_THEN_OR_EQUAL, matchVersion, MORE_THEN_OR_EQUAL } from '../index';
+import {
+	EQUAL,
+	LESS_THEN_OR_EQUAL,
+	matchVersion,
+	MORE_THEN_OR_EQUAL,
+	transformMacOSorIPadOSVersionMatch
+} from '../index';
 
 // -----------------------------------------------------------------------------
 // Tests
@@ -60,5 +66,39 @@ describe('match', () => {
 			groupIndex: 1
 		});
 		expect(match).toBeFalsy();
+	});
+});
+
+describe('transformMacOSorIPadOSVersionMatch', () => {
+	const cases: {
+		params: Parameters<typeof transformMacOSorIPadOSVersionMatch>;
+		expected: ReturnType<typeof transformMacOSorIPadOSVersionMatch>;
+	}[] = [
+		{
+			params: ['10_1'],
+			expected: '1001'
+		},
+		{
+			params: ['10_1_1'],
+			expected: '1001.1'
+		},
+		{
+			params: ['10_7_15'],
+			expected: '1007.15'
+		},
+		{
+			params: ['10_10'],
+			expected: '1010'
+		},
+		{
+			params: ['10_10_5'],
+			expected: '1010.5'
+		}
+	];
+	cases.forEach(({ params, expected }, i) => {
+		test(`The result should be equal to expected. Case #${++i}`, () => {
+			const result = transformMacOSorIPadOSVersionMatch(...params);
+			expect(result).toStrictEqual(expected);
+		});
 	});
 });

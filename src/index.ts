@@ -1,5 +1,11 @@
 export { default } from './core';
-export { EQUAL, LESS_THEN_OR_EQUAL, MORE_THEN_OR_EQUAL, matchVersion } from './utils';
+export {
+	EQUAL,
+	LESS_THEN_OR_EQUAL,
+	MORE_THEN_OR_EQUAL,
+	matchVersion,
+	transformMacOSorIPadOSVersionMatch
+} from './utils';
 export type { DetectVersionOperator, DetectVersionReduction } from './utils';
 // Chrome
 export { default as isChrome } from './detect/browsers/chrome';

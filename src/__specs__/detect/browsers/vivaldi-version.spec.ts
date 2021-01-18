@@ -7,7 +7,7 @@ describe('Detect Vivaldi Browser versions', () => {
 			version: 3.4,
 			values: [
 				...deepFlatFromObject(uaDB.Linux.Vivaldi.v3_4),
-				...deepFlatFromObject(uaDB.MacOS.v11.Vivaldi.v3_4),
+				...deepFlatFromObject(uaDB.macOS['Big Sur'].Vivaldi.v3_4),
 				...deepFlatFromObject(uaDB.Windows.v10.Vivaldi.v3_4)
 			]
 		},

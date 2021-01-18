@@ -7,7 +7,7 @@ describe('Detect Mozilla Firefox Browser versions', () => {
 			version: 83,
 			values: [
 				...deepFlatFromObject(uaDB.Linux.Firefox.v83),
-				...deepFlatFromObject(uaDB.MacOS.v11.Firefox.v83),
+				...deepFlatFromObject(uaDB.macOS['Big Sur'].Firefox.v83),
 				...deepFlatFromObject(uaDB.Windows.v10.Firefox.v83)
 			]
 		},

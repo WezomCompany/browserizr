@@ -6,7 +6,7 @@ describe('Detect Google Chrome Browser', () => {
 		isChrome,
 		[
 			...deepFlatFromObject(uaDB.Linux.Chrome),
-			...deepFlatFromObject(uaDB.MacOS.v11.Chrome),
+			...deepFlatFromObject(uaDB.macOS['Big Sur'].Chrome),
 			...deepFlatFromObject(uaDB.Windows.v10.Chrome)
 		],
 		[
@@ -15,9 +15,9 @@ describe('Detect Google Chrome Browser', () => {
 				Chrome: null
 			}),
 			...deepFlatFromObject({
-				...uaDB.MacOS,
-				v11: {
-					...uaDB.MacOS.v11,
+				...uaDB.macOS,
+				'Big Sur': {
+					...uaDB.macOS['Big Sur'],
 					Chrome: null
 				}
 			}),

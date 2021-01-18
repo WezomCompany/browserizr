@@ -200,7 +200,8 @@ export const uaDB = {
 		}
 	},
 	macOS: {
-		'10.12 Sierra': {
+		// 10.12
+		Sierra: {
 			Edge: {
 				v80: {
 					Standard: [
@@ -246,7 +247,8 @@ export const uaDB = {
 				}
 			}
 		},
-		'10.13 High Sierra': {
+		// 10.13
+		'High Sierra': {
 			Edge: {
 				v80: {
 					Standard: [
@@ -292,7 +294,8 @@ export const uaDB = {
 				}
 			}
 		},
-		'10.14 Mojave': {
+		// 10.14
+		Mojave: {
 			Edge: {
 				v80: {
 					Standard: [
@@ -338,7 +341,8 @@ export const uaDB = {
 				}
 			}
 		},
-		'10.15 Catalina': {
+		// 10.15
+		Catalina: {
 			Edge: {
 				v80: {
 					Standard: [
@@ -384,7 +388,8 @@ export const uaDB = {
 				}
 			}
 		},
-		'11 Big Sur': {
+		// 11
+		'Big Sur': {
 			Chrome: {
 				v87: {
 					Standard: [

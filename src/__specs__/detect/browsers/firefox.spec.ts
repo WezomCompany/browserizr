@@ -6,7 +6,7 @@ describe('Detect Mozilla Firefox Browser', () => {
 		isFirefox,
 		[
 			...deepFlatFromObject(uaDB.Linux.Firefox),
-			...deepFlatFromObject(uaDB.MacOS.v11.Firefox),
+			...deepFlatFromObject(uaDB.macOS['Big Sur'].Firefox),
 			...deepFlatFromObject(uaDB.Windows.v10.Firefox)
 		],
 		[
@@ -17,8 +17,11 @@ describe('Detect Mozilla Firefox Browser', () => {
 				Firefox: null
 			}),
 			...deepFlatFromObject({
-				...uaDB.MacOS.v11,
-				Firefox: null
+				...uaDB.macOS,
+				'Big Sur': {
+					...uaDB.macOS['Big Sur'],
+					Firefox: null
+				}
 			}),
 			...deepFlatFromObject({
 				...uaDB.Windows,

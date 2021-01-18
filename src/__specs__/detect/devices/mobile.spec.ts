@@ -11,7 +11,7 @@ describe('Detect mobile device', () => {
 		],
 		[
 			...deepFlatFromObject(uaDB.Linux),
-			...deepFlatFromObject(uaDB.MacOS),
+			...deepFlatFromObject(uaDB.macOS),
 			...deepFlatFromObject(uaDB.Windows),
 			...deepFlatFromObject(uaDB.Xbox)
 		]

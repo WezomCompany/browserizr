@@ -5,6 +5,6 @@ describe('Detect iOS', () => {
 	testHelper(
 		isIOS,
 		[...deepFlatFromObject(uaDB.iOS)],
-		[...deepFlatFromObject(uaDB.MacOS)]
+		[...deepFlatFromObject(uaDB.macOS)]
 	);
 });

@@ -19,7 +19,7 @@ describe('Detect Opera Browser versions', () => {
 			version: 72,
 			values: [
 				...deepFlatFromObject(uaDB.Linux.Opera.v72),
-				...deepFlatFromObject(uaDB.MacOS.v11.Opera.v72),
+				...deepFlatFromObject(uaDB.macOS['Big Sur'].Opera.v72),
 				...deepFlatFromObject(uaDB.Windows.v10.Opera.v72)
 			]
 		}

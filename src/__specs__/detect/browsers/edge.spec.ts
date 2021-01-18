@@ -5,7 +5,11 @@ describe('Detect Microsoft Edge Browser', () => {
 	testHelper(
 		isEdge,
 		[
-			...deepFlatFromObject(uaDB.MacOS.v11.Edge),
+			...deepFlatFromObject(uaDB.macOS.Sierra.Edge),
+			...deepFlatFromObject(uaDB.macOS['High Sierra'].Edge),
+			...deepFlatFromObject(uaDB.macOS.Mojave.Edge),
+			...deepFlatFromObject(uaDB.macOS.Catalina.Edge),
+			...deepFlatFromObject(uaDB.macOS['Big Sur'].Edge),
 			...deepFlatFromObject(uaDB.Windows.v10.Edge),
 			...deepFlatFromObject(uaDB.WindowsMobile.Edge),
 			...deepFlatFromObject(uaDB.Xbox.Edge)
@@ -14,9 +18,24 @@ describe('Detect Microsoft Edge Browser', () => {
 			...deepFlatFromObject(uaDB.Android),
 			...deepFlatFromObject(uaDB.iOS),
 			...deepFlatFromObject({
-				...uaDB.MacOS,
-				v11: {
-					...uaDB.MacOS.v11,
+				Sierra: {
+					...uaDB.macOS.Sierra,
+					Edge: null
+				},
+				'High Sierra': {
+					...uaDB.macOS['High Sierra'],
+					Edge: null
+				},
+				Mojave: {
+					...uaDB.macOS.Mojave,
+					Edge: null
+				},
+				Catalina: {
+					...uaDB.macOS.Catalina,
+					Edge: null
+				},
+				'Big Sur': {
+					...uaDB.macOS['Big Sur'],
 					Edge: null
 				}
 			}),

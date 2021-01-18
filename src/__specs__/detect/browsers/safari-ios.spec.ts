@@ -15,7 +15,7 @@ describe('Detect Apple Safari Browser on iOS', () => {
 				}
 			}),
 			...deepFlatFromObject(uaDB.Linux),
-			...deepFlatFromObject(uaDB.MacOS),
+			...deepFlatFromObject(uaDB.macOS),
 			...deepFlatFromObject(uaDB.Windows),
 			...deepFlatFromObject(uaDB.WindowsMobile),
 			...deepFlatFromObject(uaDB.Xbox)
