@@ -18,6 +18,26 @@ describe('Detect Microsoft Edge Browser', () => {
 			...deepFlatFromObject(uaDB.Android),
 			...deepFlatFromObject(uaDB.iOS),
 			...deepFlatFromObject({
+				'Snow Leopard': {
+					...uaDB.macOS['Snow Leopard'],
+					Edge: null
+				},
+				Lion: {
+					...uaDB.macOS.Lion,
+					Edge: null
+				},
+				'Mountain Lion': {
+					...uaDB.macOS['Mountain Lion'],
+					Edge: null
+				},
+				Mavericks: {
+					...uaDB.macOS.Mavericks,
+					Edge: null
+				},
+				Yosemite: {
+					...uaDB.macOS.Yosemite,
+					Edge: null
+				},
 				Sierra: {
 					...uaDB.macOS.Sierra,
 					Edge: null

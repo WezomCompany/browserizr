@@ -16,6 +16,30 @@ describe('Detect Apple Safari Browser', () => {
 			...deepFlatFromObject(uaDB.iOS),
 			...deepFlatFromObject(uaDB.Linux),
 			...deepFlatFromObject({
+				'Snow Leopard': {
+					...uaDB.macOS['Snow Leopard'],
+					Safari: null
+				},
+				Lion: {
+					...uaDB.macOS.Lion,
+					Safari: null
+				},
+				'Mountain Lion': {
+					...uaDB.macOS['Mountain Lion'],
+					Safari: null
+				},
+				Mavericks: {
+					...uaDB.macOS.Mavericks,
+					Safari: null
+				},
+				Yosemite: {
+					...uaDB.macOS.Yosemite,
+					Safari: null
+				},
+				'El Capitan': {
+					...uaDB.macOS['El Capitan'],
+					Safari: null
+				},
 				Sierra: {
 					...uaDB.macOS.Sierra,
 					Safari: null

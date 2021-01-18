@@ -17,7 +17,42 @@ describe('Detect Mozilla Firefox Browser', () => {
 				Firefox: null
 			}),
 			...deepFlatFromObject({
-				...uaDB.macOS,
+				'Snow Leopard': {
+					...uaDB.macOS['Snow Leopard'],
+					Firefox: null
+				},
+				Lion: {
+					...uaDB.macOS.Lion,
+					Firefox: null
+				},
+				'Mountain Lion': {
+					...uaDB.macOS['Mountain Lion'],
+					Firefox: null
+				},
+				Mavericks: {
+					...uaDB.macOS.Mavericks,
+					Firefox: null
+				},
+				Yosemite: {
+					...uaDB.macOS.Yosemite,
+					Firefox: null
+				},
+				Sierra: {
+					...uaDB.macOS.Sierra,
+					Firefox: null
+				},
+				'High Sierra': {
+					...uaDB.macOS['High Sierra'],
+					Firefox: null
+				},
+				Mojave: {
+					...uaDB.macOS.Mojave,
+					Firefox: null
+				},
+				Catalina: {
+					...uaDB.macOS.Catalina,
+					Firefox: null
+				},
 				'Big Sur': {
 					...uaDB.macOS['Big Sur'],
 					Firefox: null

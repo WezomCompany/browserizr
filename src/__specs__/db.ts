@@ -200,6 +200,77 @@ export const uaDB = {
 		}
 	},
 	macOS: {
+		// 10.6
+		'Snow Leopard': {
+			Safari: {
+				v4: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/531.22.7 (KHTML, like Gecko) Version/4.0.5 Safari/531.22.7'
+					]
+				},
+				v5: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1',
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.59.8 (KHTML, like Gecko) Version/5.1.9 Safari/534.59.8'
+					]
+				}
+			}
+		},
+		// 10.7
+		Lion: {
+			Safari: {
+				v5: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/534.57.7 (KHTML, like Gecko) Version/5.1.5 Safari/534.55.3'
+					]
+				},
+				v6: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/536.30.1 (KHTML, like Gecko) Version/6.0.5 Safari/536.30.1'
+					]
+				}
+			}
+		},
+		// 10.8
+		'Mountain Lion': {
+			Safari: {
+				v6: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/600.8.9 (KHTML, like Gecko) Version/6.2.8 Safari/537.85.17'
+					]
+				}
+			}
+		},
+		// 10.9
+		Mavericks: {
+			Safari: {
+				v7: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/600.8.9 (KHTML, like Gecko) Version/7.1.8 Safari/537.85.17'
+					]
+				}
+			}
+		},
+		// 10.10
+		Yosemite: {
+			Safari: {
+				v8: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/600.8.9 (KHTML, like Gecko) Version/8.0.8 Safari/600.8.9'
+					]
+				}
+			}
+		},
+		// 10.11
+		'El Capitan': {
+			Safari: {
+				v9: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8'
+					]
+				}
+			}
+		},
 		// 10.12
 		Sierra: {
 			Edge: {
@@ -242,7 +313,7 @@ export const uaDB = {
 			Safari: {
 				v10: {
 					Standard: [
-						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/10.1.2 Safari/605.1.15'
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/603.3.8 (KHTML, like Gecko) Version/10.1.2 Safari/603.3.8'
 					]
 				}
 			}

@@ -28,26 +28,26 @@ export default function isMacOSVersion(
 		| 'Big Sur'
 ) {
 	return (ua: string): boolean => {
-		let v: number;
+		let v: number | null = null;
 		switch (version) {
-			case 'Cheetah':
-				v = 1000;
-				break;
-			case 'Puma':
-				v = 1001;
-				break;
-			case 'Jaguar':
-				v = 1002;
-				break;
-			case 'Panther':
-				v = 1003;
-				break;
-			case 'Tiger':
-				v = 1004;
-				break;
-			case 'Leopard':
-				v = 1005;
-				break;
+			// case 'Cheetah':
+			// 	v = 1000;
+			// 	break;
+			// case 'Puma':
+			// 	v = 1001;
+			// 	break;
+			// case 'Jaguar':
+			// 	v = 1002;
+			// 	break;
+			// case 'Panther':
+			// 	v = 1003;
+			// 	break;
+			// case 'Tiger':
+			// 	v = 1004;
+			// 	break;
+			// case 'Leopard':
+			// 	v = 1005;
+			// 	break;
 			case 'Snow Leopard':
 				v = 1006;
 				break;
@@ -88,11 +88,11 @@ export default function isMacOSVersion(
 				version: v,
 				operator,
 				regExp: __regexp,
-				groupIndex: 1,
+				groupIndex: 2,
 				reductionToNumber: 'int',
 				transformMatch: (version: string) => {
 					const string = transformMacOSorIPadOSVersionMatch(version);
-					return string >= '1016' && string <= '1200' ? '1100' : string;
+					return string >= '1016' ? '1100' : string;
 				}
 			});
 		}
