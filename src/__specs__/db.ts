@@ -451,6 +451,53 @@ export const uaDB = {
 					]
 				}
 			},
+			Firefox: {
+				v76: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:76.0) Gecko/20100101 Firefox/76.0'
+					]
+				},
+				v77: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:77.0) Gecko/20100101 Firefox/77.0'
+					]
+				},
+				v78: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0) Gecko/20100101 Firefox/78.0'
+					]
+				},
+				v79: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:79.0) Gecko/20100101 Firefox/79.0'
+					]
+				},
+				v80: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:80.0) Gecko/20100101 Firefox/80.0'
+					]
+				},
+				v81: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:81.0) Gecko/20100101 Firefox/81.0'
+					]
+				},
+				v82: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:82.0) Gecko/20100101 Firefox/82.0'
+					]
+				},
+				v83: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:83.0) Gecko/20100101 Firefox/83.0'
+					]
+				},
+				v84: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:84.0) Gecko/20100101 Firefox/84.0'
+					]
+				}
+			},
 			Safari: {
 				v13: {
 					Standard: [
@@ -506,9 +553,50 @@ export const uaDB = {
 				}
 			},
 			Firefox: {
+				v76: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.16; rv:76.0) Gecko/20100101 Firefox/76.0'
+					]
+				},
+				v77: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.16; rv:77.0) Gecko/20100101 Firefox/77.0'
+					]
+				},
+				v78: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.16; rv:78.0) Gecko/20100101 Firefox/78.0'
+					]
+				},
+				v79: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.16; rv:79.0) Gecko/20100101 Firefox/79.0'
+					]
+				},
+				v80: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.16; rv:80.0) Gecko/20100101 Firefox/80.0'
+					]
+				},
+				v81: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.16; rv:81.0) Gecko/20100101 Firefox/81.0'
+					]
+				},
+				v82: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.16; rv:82.0) Gecko/20100101 Firefox/82.0'
+					]
+				},
 				v83: {
 					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.16; rv:83.0) Gecko/20100101 Firefox/83.0',
 						'Mozilla/5.0 (Macintosh; Intel Mac OS X 11.0; rv:83.0) Gecko/20100101 Firefox/83.0'
+					]
+				},
+				v84: {
+					Standard: [
+						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.16; rv:84.0) Gecko/20100101 Firefox/84.0'
 					]
 				}
 			},
