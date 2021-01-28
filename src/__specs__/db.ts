@@ -804,6 +804,11 @@ export const uaDB = {
 						'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Vivaldi/3.5.2115.73',
 						'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.107 Safari/537.36 Vivaldi/3.5.2115.81'
 					]
+				},
+				v3_6: {
+					Standard: [
+						'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.99 Safari/537.36 Vivaldi/3.6.2165.34'
+					]
 				}
 			},
 			Yandex: {

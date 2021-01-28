@@ -14,6 +14,10 @@ describe('Detect Vivaldi Browser versions', () => {
 		{
 			version: 3.5,
 			values: [...deepFlatFromObject(uaDB.Windows.v10.Vivaldi.v3_5)]
+		},
+		{
+			version: 3.6,
+			values: [...deepFlatFromObject(uaDB.Windows.v10.Vivaldi.v3_6)]
 		}
 	]);
 });
