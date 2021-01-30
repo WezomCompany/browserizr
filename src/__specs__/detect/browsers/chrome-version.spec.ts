@@ -10,6 +10,10 @@ describe('Detect Google Chrome Browser versions', () => {
 				...deepFlatFromObject(uaDB.macOS['Big Sur'].Chrome.v87),
 				...deepFlatFromObject(uaDB.Windows.v10.Chrome.v87)
 			]
+		},
+		{
+			version: 88,
+			values: [...deepFlatFromObject(uaDB.Windows.v10.Chrome.v88)]
 		}
 	]);
 });

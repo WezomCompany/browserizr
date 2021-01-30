@@ -103,6 +103,10 @@ describe('Detect Microsoft Edge Browser versions', () => {
 				...deepFlatFromObject(uaDB.macOS['Big Sur'].Edge.v87),
 				...deepFlatFromObject(uaDB.Windows.v10.Edge.v87)
 			]
+		},
+		{
+			version: 88,
+			values: [...deepFlatFromObject(uaDB.Windows.v10.Edge.v88)]
 		}
 	]);
 });

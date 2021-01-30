@@ -8,6 +8,14 @@ describe('Detect iOS versions', () => {
 			values: [...deepFlatFromObject(uaDB.iOS.v11)]
 		},
 		{
+			version: 12,
+			values: [...deepFlatFromObject(uaDB.iOS.v12)]
+		},
+		{
+			version: 13,
+			values: [...deepFlatFromObject(uaDB.iOS.v13)]
+		},
+		{
 			version: 14,
 			values: [...deepFlatFromObject(uaDB.iOS.v14)]
 		}

@@ -1145,19 +1145,19 @@ if (browserizr.detect(isMacOS)) {
 
 #### isMacOSVersion
 
-##### _versions_
+_versions:_
 
-- Snow Leopard
-- Lion.Safari
-- Mountain Lion
-- Mavericks
-- Yosemite
-- El Capitan
-- Sierra
-- High Sierra
-- Mojave
-- Catalina
-- Big Sur
+- `"Snow Leopard"`
+- `"Lion.Safari"`
+- `"Mountain Lion"`
+- `"Mavericks"`
+- `"Yosemite"`
+- `"El Capitan"`
+- `"Sierra"`
+- `"High Sierra"`
+- `"Mojave"`
+- `"Catalina"`
+- `"Big Sur"`
 
 <details>
 <summary><em>Detect macOS and wanted OS version</em></summary>
