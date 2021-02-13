@@ -1,6 +1,6 @@
 {
   "name": "@wezom/browserizr-cjs",
-  "version": "8.0.5",
+  "version": "9.0.0",
   "description": "Detects your browser, device and platform. CommonJS distribution version",
   "main": "dist/index.js",
   "files": [
