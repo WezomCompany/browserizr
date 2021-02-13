@@ -1,9 +1,9 @@
-name: All packages build
+name: All packages test
 
 on: [pull_request]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -15,5 +15,5 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install
         run: npm ci
-      - name: Build
-        run: npm run lerna:build
+      - name: Test
+        run: npm run lerna:test

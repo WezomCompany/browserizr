@@ -1,7 +1,7 @@
 # browserizr
 
-![All packages builds](https://github.com/WezomCompany/browserizr/workflows/All%20packages%20builds/badge.svg)
-![All packages tests](https://github.com/WezomCompany/browserizr/workflows/All%20packages%20tests/badge.svg)
+![All packages build](https://github.com/WezomCompany/browserizr/workflows/All%20packages%20build/badge.svg)
+![All packages test](https://github.com/WezomCompany/browserizr/workflows/All%20packages%20test/badge.svg)
 
 ## Packages:
 
