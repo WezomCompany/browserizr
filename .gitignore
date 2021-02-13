@@ -2,6 +2,7 @@
 *.tgz
 .cache
 .idea
-dist
+.refs
 coverage
 node_modules
+dist

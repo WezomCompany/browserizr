@@ -1,0 +1,84 @@
+{
+  "name": "@wezom/browserizr-cjs",
+  "version": "8.0.5",
+  "description": "Detects your browser, device and platform. CommonJS distribution version",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "echo Skip",
+    "test": "echo Skip",
+    "test:autofix": "echo Skip"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WezomCompany/browserizr.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "browser",
+    "js",
+    "detect",
+    "userAgent",
+    "platform",
+    "android",
+    "android-3",
+    "android-4",
+    "android-5",
+    "android-6",
+    "android-7",
+    "android-8",
+    "android-9",
+    "android-10",
+    "chrome",
+    "edge",
+    "edge-android",
+    "edge-ios",
+    "ie",
+    "ie-8",
+    "ie-9",
+    "ie-10",
+    "ie-11",
+    "ios",
+    "ipad",
+    "ipod",
+    "iphone",
+    "iphone-4",
+    "iphone-5",
+    "iphone-6",
+    "iphone-7",
+    "iphone-8",
+    "iphone-x",
+    "linux",
+    "mac",
+    "maclike",
+    "meizu-phone",
+    "meizu-note-phone",
+    "mozilla",
+    "firefox",
+    "opera",
+    "redmi-phone",
+    "redmi-note-phone",
+    "safari",
+    "windows",
+    "windows-xp",
+    "windows-vista",
+    "windows-7",
+    "windows-8",
+    "windows-10",
+    "windows-phone",
+    "commonjs"
+  ],
+  "license": "BSD-3-Clause",
+  "author": {
+    "name": "Oleg Dutchenko",
+    "email": "dutchenko.o.dev@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/WezomCompany/browserizr/issues"
+  },
+  "homepage": "https://github.com/WezomCompany/browserizr/tree/main/packages/browserizr-cjs#readme"
+}

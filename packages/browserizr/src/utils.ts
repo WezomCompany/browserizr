@@ -20,8 +20,8 @@ export function matchVersion({
 	operator: DetectVersionOperator;
 	reductionToNumber?: DetectVersionReduction;
 	transformMatch?: (v: string) => string;
-}) {
-	const match = ua.match(regExp);
+}): boolean {
+	const match = regExp.exec(ua);
 	if (match) {
 		const int = version === parseInt('' + version, 10);
 		const _m = transformMatch(match[groupIndex]);
@@ -53,7 +53,7 @@ export function matchVersion({
 	}
 }
 
-export function transformMacOSorIPadOSVersionMatch(version: string) {
+export function transformMacOSorIPadOSVersionMatch(version: string): string {
 	return version
 		.replace(/_/g, '.')
 		.replace(/^(\d\d)\.(\d)(\.|$)/, (str, g1, g2, g3) => `${g1}.0${g2}${g3}`)
