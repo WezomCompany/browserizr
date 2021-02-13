@@ -1,4 +1,12 @@
-export default (function (_ua: string) {
+export default (function (
+	_ua: string
+): {
+	detect(fn: (ua: string) => boolean): boolean;
+	setUA(userAgent: string): void;
+	classNames(
+		classes: { is: string; not: string; fn: (ua: string) => boolean }[]
+	): string[];
+} {
 	return {
 		/** Set custom `userAgent` string */
 		setUA(userAgent: string): void {

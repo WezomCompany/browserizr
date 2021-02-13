@@ -1,0 +1,17 @@
+{
+	"root": true,
+	"extends": ["@wezom/eslint-config", "eslint-config-prettier"],
+	"plugins": ["jest"],
+	"env": {
+		"jest/globals": true
+	},
+	"overrides": [
+		{
+			"files": ["*.ts"],
+			"extends": ["@wezom/eslint-config-ts", "eslint-config-prettier"],
+			"parserOptions": {
+				"project": "./tsconfig.eslint.json"
+			}
+		}
+	]
+}
