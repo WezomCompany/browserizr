@@ -1,5 +1,6 @@
 {
   "name": "browserizr",
+  "private": true,
   "description": "Detects your browser, device and platform",
   "scripts": {
     "----------------------------- Lerna": "***",
