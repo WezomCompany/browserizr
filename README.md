@@ -5,8 +5,8 @@
 
 ## Packages:
 
-1. [@wezom/browserizr](https://github.com/WezomCompany/browserizr/blob/main/packages/browserizr/README.md#readme)
-1. CommonJS distribution version [@wezom/browserizr-cjs](https://github.com/WezomCompany/browserizr/blob/main/packages/browserizr-cjs/README.md#readme)
+1. [@wezom/browserizr](https://github.com/WezomCompany/browserizr/blob/master/packages/browserizr/README.md#readme)
+1. CommonJS distribution version [@wezom/browserizr-cjs](https://github.com/WezomCompany/browserizr/blob/master/packages/browserizr-cjs/README.md#readme)
 
 ---
 

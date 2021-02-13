@@ -1,8 +1,10 @@
-# `browserizr`
+# @wezom/browserizr
 
 ![types](https://img.shields.io/badge/types-TypeScript-blue)
 [![BSD-3-Clause License badge](https://img.shields.io/github/license/WezomCompany/browserizr)](https://github.com/WezomCompany/browserizr/blob/master/LICENSE)
 [![NPM package badge](https://img.shields.io/badge/npm-install-orange.svg)](https://www.npmjs.com/package/@wezom/browserizr)
+![All packages build](https://github.com/WezomCompany/browserizr/workflows/All%20packages%20build/badge.svg)
+![All packages test](https://github.com/WezomCompany/browserizr/workflows/All%20packages%20test/badge.svg)
 
 ## Coverage
 
@@ -103,7 +105,7 @@ _The package [`babel-loader-exclude-node-modules-except`](https://www.npmjs.com/
 
 If you cannot change your bundler config or if you do not want to include _ESNext_ code version into your project - for this we have compiled CommonJS distribution version.
 
-You can install [`@wezom/browserizr-cjs`](https://github.com/WezomCompany/browserizr/blob/main/packages/browserizr-cjs/README.md#readme) instead of the current package.
+You can install [`@wezom/browserizr-cjs`](https://github.com/WezomCompany/browserizr/blob/master/packages/browserizr-cjs/README.md#readme) instead of the current package.
 
 ### Install the chosen npm package
 
